@@ -9,7 +9,7 @@ type BTO struct {
 }
 
 type Earnings struct {
-	Symbol   string `json:"symbol"`
+	Symbol   string
 	Earnings []earnings
 }
 
@@ -23,19 +23,19 @@ type Quote struct {
 }
 
 type earnings struct {
-	ActualEPS              float32 `json:"actualEPS"`
-	ConcensusEPS           float32 `json:"consensusEPS"`
-	EstimatedEPS           float32 `json:"estimatedEPS"`
-	AnnounceTime           string  `json:"announceTime"`
-	NumberOfEstimates      int32   `json:"numberOfEstimates"`
-	EPSSurpriseDollar      float32 `json:"EPSSurpriseDollar"`
-	EPSReportDate          string  `json:"EPSReportDate"` // make date type?
-	FiscalPeriod           string  `json:"fiscalPeriod"`
-	FiscalEndDate          string  `json:"fiscalEndDate"`
-	YearAgo                float32 `json:"yearAgo"`
-	YearAgoChangePercent   float32 `json:"yearAgoChangePercent"`
-	EstimatedChangePercent float32 `json:"estimatedChangePercent"`
-	SymbolId               int32   `json:"symbolId"`
+	ActualEPS              float32
+	ConcensusEPS           float32
+	EstimatedEPS           float32
+	AnnounceTime           string
+	NumberOfEstimates      int32
+	EPSSurpriseDollar      float32
+	EPSReportDate          string
+	FiscalPeriod           string
+	FiscalEndDate          string
+	YearAgo                float32
+	YearAgoChangePercent   float32
+	EstimatedChangePercent float32
+	SymbolId               int32
 }
 
 type quote struct {
