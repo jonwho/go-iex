@@ -1,6 +1,7 @@
 package goiex
 
 import (
+	"encoding/json"
 	"io"
 	"io/ioutil"
 	"log"
@@ -33,7 +34,6 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	req, err := http.NewRequest("GET", iexURL, nil)
 
 	if err != nil {
-		// %v modifier uses the default format for the data type
 		log.Fatalln("Could not build request for " + iexURL)
 	}
 
@@ -52,6 +52,29 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	return c.httpClient.Do(req)
 }
 
+func (c Client) Earnings(symbol string) (*Earnings, error) {
+	endpoint := "stock/" + symbol + "/earnings"
+	earnings := new(Earnings)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	if err != nil {
+		log.Fatalln("An error occurred for Earnings()")
+		return earnings, err
+	}
+	defer res.Body.Close()
+
+	jsonErr := json.NewDecoder(res.Body).Decode(&earnings)
+
+	if jsonErr != nil {
+		log.Fatalln("An error occurred for Earnings()")
+		return earnings, jsonErr
+	}
+
+	return earnings, nil
+}
+
+// TODO: return struct
 func (c Client) EarningsToday() string {
 	endpoint := "stock/market/today-earnings"
 
