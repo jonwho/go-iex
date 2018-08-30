@@ -64,11 +64,11 @@ func (c Client) Earnings(symbol string) (*Earnings, error) {
 	}
 	defer res.Body.Close()
 
-	jsonErr := json.NewDecoder(res.Body).Decode(&earnings)
+	err = json.NewDecoder(res.Body).Decode(&earnings)
 
-	if jsonErr != nil {
+	if err != nil {
 		log.Fatalln("An error occurred for Earnings()")
-		return earnings, jsonErr
+		return earnings, err
 	}
 
 	return earnings, nil
@@ -93,6 +93,32 @@ func (c Client) EarningsToday() string {
 	}
 
 	return string(bodyBytes)
+}
+
+func (c Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
+	endpoint := "stock/" + symbol + "/quote"
+	quote := new(Quote)
+
+	if displayPercent {
+		endpoint = endpoint + "?displayPercent=true"
+	}
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	if err != nil {
+		log.Fatalln("An error occurred for Quote()")
+		return quote, err
+	}
+	defer res.Body.Close()
+
+	err = json.NewDecoder(res.Body).Decode(&quote)
+	if err != nil {
+		log.Fatalln(err.Error())
+		log.Fatalln("An error occurred for Quote()")
+		return quote, err
+	}
+
+	return quote, nil
 }
 
 /***************************************************************************************************
