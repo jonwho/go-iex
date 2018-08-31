@@ -71,6 +71,10 @@ func (c *Client) Earnings(symbol string) (*Earnings, error) {
 		return nil, err
 	}
 
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Symbol")
+	}
+
 	err = json.NewDecoder(res.Body).Decode(&earnings)
 
 	if err != nil {
