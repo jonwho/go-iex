@@ -60,3 +60,19 @@ func TestQuote(t *testing.T) {
 		t.Error("err should not be nil!")
 	}
 }
+
+func TestChart(t *testing.T) {
+	_, err := client.Chart("aapl", "6y")
+
+	if err == nil {
+		t.Error("err should not be nil!")
+	}
+
+	chart, _ := client.Chart("aapl", "1d")
+
+	fmt.Printf("%+v\n\n", chart)
+
+	if len(chart.Charts) == 0 {
+		t.Error("charts shouldn't be empty")
+	}
+}

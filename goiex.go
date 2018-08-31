@@ -15,17 +15,21 @@ const (
 	RequestTimeout     int    = 5
 )
 
-type Client struct {
-	httpClient *http.Client
+var (
+	// pseudo constant
+	// you cannot make a constant out of a map because the expression is not a constant expression
+	ChartRanges map[string]bool = make(map[string]bool)
+)
+
+func init() {
+	log.Println("Running init() for goiex")
+	initChartRanges()
 }
 
 func NewClient() *Client {
 	return &Client{httpClient: createHTTPClient()}
 }
 
-// make a wrapper for http.Get
-// NOTE: (c Client) without pointer just means you cannot modify the receiver
-// (c *Client) has a pointer so you can mutate the public variables on the receiver c
 func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
 	iexURL := BaseURL + endpoint
 
@@ -54,6 +58,37 @@ func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) 
 
 	// perform request and return the response, error
 	return c.httpClient.Do(req)
+}
+
+func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
+	if !ChartRanges[chartRange] {
+		return nil, errors.New("Received invalid date range for chart")
+	}
+
+	endpoint := "stock/" + symbol + "/chart/" + chartRange
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Symbol")
+	}
+
+	chart := new(Chart)
+	err = json.NewDecoder(res.Body).Decode(&chart)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return chart, nil
 }
 
 func (c *Client) Earnings(symbol string) (*Earnings, error) {
@@ -151,5 +186,22 @@ func createHTTPClient() *http.Client {
 			MaxIdleConnsPerHost: MaxIdleConnections,
 		},
 		Timeout: time.Duration(RequestTimeout) * time.Second,
+	}
+}
+
+func initChartRanges() {
+	allowedRanges := []string{
+		"5y",
+		"2y",
+		"1y",
+		"ytd",
+		"6m",
+		"3m",
+		"1m",
+		"1d",
+	}
+
+	for _, s := range allowedRanges {
+		ChartRanges[s] = true
 	}
 }

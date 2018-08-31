@@ -1,5 +1,17 @@
 package goiex
 
+import (
+	"net/http"
+)
+
+type Chart struct {
+	Charts []chart
+}
+
+type Client struct {
+	httpClient *http.Client
+}
+
 type Earnings struct {
 	Symbol   string
 	Earnings []earnings
@@ -11,33 +23,6 @@ type EarningsToday struct {
 }
 
 type Quote struct {
-	quote
-}
-
-type earningsReport struct {
-	earnings
-	Symbol   string
-	Headline string
-	Quote    quote
-}
-
-type earnings struct {
-	ActualEPS              float32
-	ConcensusEPS           float32
-	EstimatedEPS           float32
-	AnnounceTime           string
-	NumberOfEstimates      int32
-	EPSSurpriseDollar      float32
-	EPSReportDate          string
-	FiscalPeriod           string
-	FiscalEndDate          string
-	YearAgo                float32
-	YearAgoChangePercent   float32
-	EstimatedChangePercent float32
-	SymbolId               int32
-}
-
-type quote struct {
 	Symbol                string
 	CompanyName           string
 	PrimaryExchange       string
@@ -78,4 +63,42 @@ type quote struct {
 	Week52High            float32
 	Week52Low             float32
 	YtdChange             float32
+}
+
+type chart struct {
+	Date             string
+	Open             float32
+	High             float32
+	Low              float32
+	Close            float32
+	Volume           int64
+	UnadjustedVolume int64
+	Change           float32
+	ChangePercent    float32
+	Vwap             float32
+	Label            string
+	ChangeOverTime   float32
+}
+
+type earningsReport struct {
+	earnings
+	Symbol   string
+	Headline string
+	Quote    Quote
+}
+
+type earnings struct {
+	ActualEPS              float32
+	ConcensusEPS           float32
+	EstimatedEPS           float32
+	AnnounceTime           string
+	NumberOfEstimates      int32
+	EPSSurpriseDollar      float32
+	EPSReportDate          string
+	FiscalPeriod           string
+	FiscalEndDate          string
+	YearAgo                float32
+	YearAgoChangePercent   float32
+	EstimatedChangePercent float32
+	SymbolId               int32
 }
