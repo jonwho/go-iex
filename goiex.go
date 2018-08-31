@@ -57,10 +57,14 @@ func (c *Client) Earnings(symbol string) (*Earnings, error) {
 
 	res, err := c.Get(endpoint, nil, nil)
 
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
 
 	err = json.NewDecoder(res.Body).Decode(&earnings)
 
@@ -77,10 +81,14 @@ func (c *Client) EarningsToday() (*EarningsToday, error) {
 
 	res, err := c.Get(endpoint, nil, nil)
 
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
 
 	err = json.NewDecoder(res.Body).Decode(&earningsToday)
 	if err != nil {
@@ -100,10 +108,14 @@ func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 
 	res, err := c.Get(endpoint, nil, nil)
 
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
 
 	if res.StatusCode != 200 {
 		return nil, errors.New("Invalid Symbol")
