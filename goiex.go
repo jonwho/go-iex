@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"log"
 	"net/http"
 	"time"
 )
@@ -28,6 +29,8 @@ func NewClient() *Client {
 func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
 	iexURL := BaseURL + endpoint
 
+	log.Println("Making request to " + iexURL)
+
 	// 3rd arg is for the optional body.
 	// body is expected type io.Reader
 	req, err := http.NewRequest("GET", iexURL, nil)
@@ -46,6 +49,8 @@ func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) 
 
 	// set query params onto request url
 	req.URL.RawQuery = q.Encode()
+
+	log.Println("Built request with parameters is " + req.URL.String())
 
 	// perform request and return the response, error
 	return c.httpClient.Do(req)
@@ -135,6 +140,8 @@ func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 
 // return a configured http client for re-use
 func createHTTPClient() *http.Client {
+	log.Println("Creating new http.Client")
+
 	return &http.Client{
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost: MaxIdleConnections,
