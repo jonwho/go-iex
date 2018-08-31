@@ -3,7 +3,6 @@ package goiex
 import (
 	"encoding/json"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
@@ -74,25 +73,25 @@ func (c Client) Earnings(symbol string) (*Earnings, error) {
 	return earnings, nil
 }
 
-// TODO: return struct
-func (c Client) EarningsToday() string {
+func (c Client) EarningsToday() (*EarningsToday, error) {
 	endpoint := "stock/market/today-earnings"
+	earningsToday := new(EarningsToday)
 
 	res, err := c.Get(endpoint, nil, nil)
 
 	if err != nil {
 		log.Fatalln("An error occurred for EarningsToday()")
+		return earningsToday, err
 	}
-	// make sure to either close the response body or read the stream entirely
-	// eitherwise the http client cannot be re-used as the connection is held up
 	defer res.Body.Close()
 
-	bodyBytes, bodyErr := ioutil.ReadAll(res.Body)
-	if bodyErr != nil {
+	err = json.NewDecoder(res.Body).Decode(&earningsToday)
+	if err != nil {
 		log.Fatalln("An error occurred for EarningsToday()")
+		return earningsToday, err
 	}
 
-	return string(bodyBytes)
+	return earningsToday, nil
 }
 
 func (c Client) Quote(symbol string, displayPercent bool) (*Quote, error) {

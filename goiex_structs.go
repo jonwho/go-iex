@@ -1,25 +1,24 @@
 package goiex
 
-type AMC struct {
-	Earnings
-}
-
-type BTO struct {
-	Earnings
-}
-
 type Earnings struct {
 	Symbol   string
 	Earnings []earnings
 }
 
 type EarningsToday struct {
-	Bto BTO
-	Amc AMC
+	Bto []earningsReport
+	Amc []earningsReport
 }
 
 type Quote struct {
 	quote
+}
+
+type earningsReport struct {
+	earnings
+	Symbol   string
+	Headline string
+	Quote    quote
 }
 
 type earnings struct {

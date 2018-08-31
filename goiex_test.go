@@ -7,15 +7,21 @@ import (
 
 var client = NewClient()
 
-// func TestEarningsToday(t *testing.T) {
-//   earnings := client.EarningsToday()
-//
-//   fmt.Println(earnings)
-//
-//   if earnings != "ok!" {
-//     t.Error("wrong string!")
-//   }
-// }
+func TestEarningsToday(t *testing.T) {
+	earningsToday, _ := client.EarningsToday()
+
+	fmt.Printf("%+v\n\n", earningsToday)
+
+	// TODO: really need mock lib because this endpoint does not work after market is over
+	// it'll just return [] for both BTO and AMC
+	// if len(earningsToday.Bto) < 1 {
+	//   t.Error("fetch broke!")
+	// }
+	//
+	// if len(earningsToday.Amc) < 1 {
+	//   t.Error("fetch broke!")
+	// }
+}
 
 func TestEarnings(t *testing.T) {
 	earnings, _ := client.Earnings("aapl")
