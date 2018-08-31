@@ -53,4 +53,10 @@ func TestQuote(t *testing.T) {
 	if quote.CompanyName != "Apple Inc." {
 		t.Error("wrong string!")
 	}
+
+	_, err := client.Quote("fakesymbol", false)
+
+	if err == nil {
+		t.Error("err should not be nil!")
+	}
 }

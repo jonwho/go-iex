@@ -2,8 +2,8 @@ package goiex
 
 import (
 	"encoding/json"
+	"errors"
 	"io"
-	"log"
 	"net/http"
 	"time"
 )
@@ -25,7 +25,7 @@ func NewClient() *Client {
 // make a wrapper for http.Get
 // NOTE: (c Client) without pointer just means you cannot modify the receiver
 // (c *Client) has a pointer so you can mutate the public variables on the receiver c
-func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
+func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
 	iexURL := BaseURL + endpoint
 
 	// 3rd arg is for the optional body.
@@ -33,7 +33,7 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	req, err := http.NewRequest("GET", iexURL, nil)
 
 	if err != nil {
-		log.Fatalln("Could not build request for " + iexURL)
+		return nil, err
 	}
 
 	// get query instance
@@ -51,50 +51,46 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	return c.httpClient.Do(req)
 }
 
-func (c Client) Earnings(symbol string) (*Earnings, error) {
+func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	endpoint := "stock/" + symbol + "/earnings"
 	earnings := new(Earnings)
 
 	res, err := c.Get(endpoint, nil, nil)
 
 	if err != nil {
-		log.Fatalln("An error occurred for Earnings()")
-		return earnings, err
+		return nil, err
 	}
 	defer res.Body.Close()
 
 	err = json.NewDecoder(res.Body).Decode(&earnings)
 
 	if err != nil {
-		log.Fatalln("An error occurred for Earnings()")
-		return earnings, err
+		return nil, err
 	}
 
 	return earnings, nil
 }
 
-func (c Client) EarningsToday() (*EarningsToday, error) {
+func (c *Client) EarningsToday() (*EarningsToday, error) {
 	endpoint := "stock/market/today-earnings"
 	earningsToday := new(EarningsToday)
 
 	res, err := c.Get(endpoint, nil, nil)
 
 	if err != nil {
-		log.Fatalln("An error occurred for EarningsToday()")
-		return earningsToday, err
+		return nil, err
 	}
 	defer res.Body.Close()
 
 	err = json.NewDecoder(res.Body).Decode(&earningsToday)
 	if err != nil {
-		log.Fatalln("An error occurred for EarningsToday()")
-		return earningsToday, err
+		return nil, err
 	}
 
 	return earningsToday, nil
 }
 
-func (c Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
+func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	endpoint := "stock/" + symbol + "/quote"
 	quote := new(Quote)
 
@@ -105,16 +101,17 @@ func (c Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	res, err := c.Get(endpoint, nil, nil)
 
 	if err != nil {
-		log.Fatalln("An error occurred for Quote()")
-		return quote, err
+		return nil, err
 	}
 	defer res.Body.Close()
 
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Symbol")
+	}
+
 	err = json.NewDecoder(res.Body).Decode(&quote)
 	if err != nil {
-		log.Fatalln(err.Error())
-		log.Fatalln("An error occurred for Quote()")
-		return quote, err
+		return nil, err
 	}
 
 	return quote, nil
