@@ -18,8 +18,8 @@ type Earnings struct {
 }
 
 type EarningsToday struct {
-	Bto []earningsReport
-	Amc []earningsReport
+	BTO []earningsReport
+	AMC []earningsReport
 }
 
 type Quote struct {
