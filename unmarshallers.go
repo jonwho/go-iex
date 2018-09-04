@@ -5,7 +5,7 @@ import (
 )
 
 func (c *Chart) UnmarshalJSON(b []byte) error {
-	var charts []chart
+	var charts []ChartDTO
 
 	if err := json.Unmarshal(b, &charts); err != nil {
 		return err

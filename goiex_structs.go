@@ -5,7 +5,7 @@ import (
 )
 
 type Chart struct {
-	Charts []chart
+	Charts []ChartDTO
 }
 
 type Client struct {
@@ -14,12 +14,12 @@ type Client struct {
 
 type Earnings struct {
 	Symbol   string
-	Earnings []earnings
+	Earnings []EarningsDTO
 }
 
 type EarningsToday struct {
-	BTO []earningsReport
-	AMC []earningsReport
+	BTO []EarningsReportDTO
+	AMC []EarningsReportDTO
 }
 
 type Quote struct {
@@ -65,7 +65,20 @@ type Quote struct {
 	YtdChange             float32
 }
 
-type chart struct {
+type Symbol struct {
+	SymbolDTO
+}
+
+type SymbolDTO struct {
+	Symbol    string
+	Name      string
+	Date      string
+	IsEnabled bool
+	Type      string
+	IexId     string
+}
+
+type ChartDTO struct {
 	Date                 string
 	Minute               string
 	Label                string
@@ -89,14 +102,14 @@ type chart struct {
 	MarketChangeOverTime float32
 }
 
-type earningsReport struct {
-	earnings
+type EarningsReportDTO struct {
+	EarningsDTO
 	Symbol   string
 	Headline string
 	Quote    Quote
 }
 
-type earnings struct {
+type EarningsDTO struct {
 	ActualEPS              float32
 	ConcensusEPS           float32
 	EstimatedEPS           float32
