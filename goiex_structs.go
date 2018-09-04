@@ -66,18 +66,27 @@ type Quote struct {
 }
 
 type chart struct {
-	Date             string
-	Open             float32
-	High             float32
-	Low              float32
-	Close            float32
-	Volume           int64
-	UnadjustedVolume int64
-	Change           float32
-	ChangePercent    float32
-	Vwap             float32
-	Label            string
-	ChangeOverTime   float32
+	Date                 string
+	Minute               string
+	Label                string
+	High                 float32
+	Low                  float32
+	Average              float32
+	Volume               int32
+	Notional             float32
+	NumberOfTrades       int32
+	MarketHigh           float32
+	MarketLow            float32
+	MarketAverage        float32
+	MarketVolume         int64
+	MarketNotional       float64
+	MarketNumberOfTrades int32
+	Open                 float32
+	Close                float32
+	MarketOpen           float32
+	MarketClose          float32
+	ChangeOverTime       float32
+	MarketChangeOverTime float32
 }
 
 type earningsReport struct {

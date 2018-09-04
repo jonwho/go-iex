@@ -75,4 +75,8 @@ func TestChart(t *testing.T) {
 	if len(chart.Charts) == 0 {
 		t.Error("charts shouldn't be empty")
 	}
+
+	if chart.Charts[0].Minute == "" {
+		t.Error("minute should be non-empty string for 1d range")
+	}
 }
