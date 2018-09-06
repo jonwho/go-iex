@@ -2,6 +2,7 @@ package goiex
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -79,4 +80,48 @@ func TestChart(t *testing.T) {
 	if chart.Charts[0].Minute == "" {
 		t.Error("minute should be non-empty string for 1d range")
 	}
+}
+
+func TestRefDataSymbols(t *testing.T) {
+	rds, _ := client.RefDataSymbols()
+
+	if len(rds.Symbols) == 0 {
+		t.Error("NANI?")
+	}
+
+	firstSymbol := rds.Symbols[0]
+
+	if firstSymbol.Symbol == "" {
+		t.Error("should not be zero-val")
+	}
+
+	if firstSymbol.Date == "" {
+		t.Error("should not be zero-val")
+	}
+
+	if firstSymbol.Name == "" {
+		t.Error("should not be zero-val")
+	}
+
+	if firstSymbol.IsEnabled == false {
+		t.Error("should not be zero-val")
+	}
+
+	if firstSymbol.Type == "" {
+		t.Error("should not be zero-val")
+	}
+
+	if firstSymbol.IexId == 0 {
+		t.Error("should not be zero-val")
+	}
+
+	lastSymbol := rds.Symbols[len(rds.Symbols)-1]
+	if lastSymbol.IexId == 0 {
+		t.Error("should not be zero-val")
+	}
+
+	fmt.Println(firstSymbol.IexId)
+	fmt.Println(lastSymbol.IexId)
+	fmt.Println(reflect.TypeOf(firstSymbol.IexId))
+	fmt.Println(reflect.TypeOf(lastSymbol.IexId))
 }

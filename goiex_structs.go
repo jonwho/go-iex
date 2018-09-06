@@ -65,8 +65,8 @@ type Quote struct {
 	YtdChange             float32
 }
 
-type Symbol struct {
-	SymbolDTO
+type RefDataSymbols struct {
+	Symbols []SymbolDTO
 }
 
 type SymbolDTO struct {
@@ -75,7 +75,9 @@ type SymbolDTO struct {
 	Date      string
 	IsEnabled bool
 	Type      string
-	IexId     string
+	// iex API returns iexId as string sometimes
+	// UnmarshalJSON for SymbolDTO will use type switching to convert iexId to int
+	IexId interface{}
 }
 
 type ChartDTO struct {

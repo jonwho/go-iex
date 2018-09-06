@@ -173,6 +173,33 @@ func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	return quote, nil
 }
 
+func (c *Client) RefDataSymbols() (*RefDataSymbols, error) {
+	endpoint := "ref-data/symbols"
+	refDataSymbols := new(RefDataSymbols)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Could not finish request for /ref-data/symbols")
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&refDataSymbols)
+	if err != nil {
+		return nil, err
+	}
+
+	return refDataSymbols, nil
+}
+
 /***************************************************************************************************
  * PRIVATE BELOW
  **************************************************************************************************/
