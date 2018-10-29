@@ -10,6 +10,7 @@ type Chart struct {
 
 type Client struct {
 	httpClient *http.Client
+	baseURL    string
 }
 
 type Earnings struct {

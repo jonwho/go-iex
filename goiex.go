@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	BaseURL            string = "https://api.iextrading.com/1.0/"
+	DefaultBaseURL     string = "https://api.iextrading.com/1.0"
 	MaxIdleConnections int    = 10
 	RequestTimeout     int    = 5
 )
@@ -21,17 +21,53 @@ var (
 	ChartRanges map[string]bool = make(map[string]bool)
 )
 
+type Option func(*Client) error
+
 func init() {
 	log.Println("Running init() for goiex")
 	initChartRanges()
 }
 
-func NewClient() *Client {
-	return &Client{httpClient: createHTTPClient()}
+// Client interface to IEX.
+func NewClient(options ...Option) (*Client, error) {
+	client := &Client{}
+
+	for _, option := range options {
+		err := option(client)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	if client.httpClient == nil {
+		client.httpClient = createHTTPClient()
+	}
+
+	if client.baseURL == "" {
+		client.baseURL = DefaultBaseURL
+	}
+	return client, nil
 }
 
-func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
-	iexURL := BaseURL + endpoint
+// Assign your own http client.
+func SetHTTPClient(httpClient *http.Client) Option {
+	return func(c *Client) error {
+		c.httpClient = httpClient
+		return nil
+	}
+}
+
+// Pretty much only useful for testing.
+func SetBaseURL(url string) Option {
+	return func(c *Client) error {
+		c.baseURL = url
+		return nil
+	}
+}
+
+// Helper to perform request to IEX.
+func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
+	iexURL := c.baseURL + "/" + endpoint
 
 	log.Println("Making request to " + iexURL)
 
@@ -60,6 +96,7 @@ func (c *Client) Get(endpoint string, params map[string]string, body io.Reader) 
 	return c.httpClient.Do(req)
 }
 
+// Returns Chart for the given symbol.
 func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
 	if !ChartRanges[chartRange] {
 		return nil, errors.New("Received invalid date range for chart")
@@ -91,6 +128,7 @@ func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
 	return chart, nil
 }
 
+// Returns Earnings for the given symbol.
 func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	endpoint := "stock/" + symbol + "/earnings"
 	earnings := new(Earnings)
@@ -119,6 +157,7 @@ func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	return earnings, nil
 }
 
+// Returns EarningsToday for the given symbol.
 func (c *Client) EarningsToday() (*EarningsToday, error) {
 	endpoint := "stock/market/today-earnings"
 	earningsToday := new(EarningsToday)
@@ -206,7 +245,7 @@ func (c *Client) RefDataSymbols() (*RefDataSymbols, error) {
 
 // return a configured http client for re-use
 func createHTTPClient() *http.Client {
-	log.Println("Creating new http.Client")
+	log.Println("Creating default http.Client for goiex")
 
 	return &http.Client{
 		Transport: &http.Transport{
