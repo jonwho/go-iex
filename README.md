@@ -14,19 +14,20 @@ Client interface to iex trading API.
 package main
 
 import (
-  "fmt"
+	"fmt"
 
-  iex "github.com/jonwho/go-iex"
+	iex "github.com/jonwho/go-iex"
 )
 
 func main() {
-  client = iex.NewClient()
+	client = iex.NewClient()
 
-  quote, err := client.Quote("aapl")
-  if err != nil {
-    fmt.Fatalln(err)
-  }
+	quote, err := client.Quote("aapl")
+	if err != nil {
+		fmt.Fatalln(err)
+	}
 
-  fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName, "Current Price", quote.LatestPrice)
+	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
+		"Current Price", quote.LatestPrice)
 }
 ```
