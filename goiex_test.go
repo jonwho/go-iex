@@ -8,7 +8,7 @@ import (
 
 // TODO: use during hours reponse stub
 func TestEarningsToday(t *testing.T) {
-	mockServer := mockiex.MockIEXServer()
+	mockServer := mockiex.Server()
 	defer mockServer.Close()
 	client, err := NewClient(SetBaseURL(mockServer.URL))
 	if err != nil {
@@ -27,7 +27,7 @@ func TestEarningsToday(t *testing.T) {
 }
 
 func TestEarnings(t *testing.T) {
-	mockServer := mockiex.MockIEXServer()
+	mockServer := mockiex.Server()
 	defer mockServer.Close()
 	client, err := NewClient(SetBaseURL(mockServer.URL))
 	if err != nil {
@@ -46,7 +46,7 @@ func TestEarnings(t *testing.T) {
 }
 
 func TestQuote(t *testing.T) {
-	mockServer := mockiex.MockIEXServer()
+	mockServer := mockiex.Server()
 	defer mockServer.Close()
 	client, err := NewClient(SetBaseURL(mockServer.URL))
 	if err != nil {
@@ -81,7 +81,7 @@ func TestQuote(t *testing.T) {
 }
 
 func TestChart(t *testing.T) {
-	mockServer := mockiex.MockIEXServer()
+	mockServer := mockiex.Server()
 	defer mockServer.Close()
 	client, err := NewClient(SetBaseURL(mockServer.URL))
 	if err != nil {
@@ -106,7 +106,7 @@ func TestChart(t *testing.T) {
 }
 
 func TestRefDataSymbols(t *testing.T) {
-	mockServer := mockiex.MockIEXServer()
+	mockServer := mockiex.Server()
 	defer mockServer.Close()
 	client, err := NewClient(SetBaseURL(mockServer.URL))
 	if err != nil {
@@ -139,5 +139,34 @@ func TestRefDataSymbols(t *testing.T) {
 
 	if firstSymbol.IexId != 2 {
 		t.Errorf("expected 2 but got %v", firstSymbol.IexId)
+	}
+}
+
+func TestKeyStat(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	keyStat, err := client.KeyStat("aapl")
+
+	if keyStat.Symbol != "AAPL" {
+		t.Errorf("expected AAPL but got %v", keyStat.Symbol)
+	}
+
+	if keyStat.CompanyName != "Apple Inc." {
+		t.Errorf("expected Apple Inc. but got %v", keyStat.CompanyName)
+	}
+
+	if keyStat.Beta != 1.122636 {
+		t.Errorf("expected 1.122636 but got %v", keyStat.Beta)
+	}
+
+	_, err = client.KeyStat("fakesymbol")
+
+	if err == nil {
+		t.Error("expected err but got nil")
 	}
 }

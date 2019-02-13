@@ -7,7 +7,8 @@ import (
 	"net/http/httptest"
 )
 
-func MockIEXServer() *httptest.Server {
+// Server returns a mock IEX server
+func Server() *httptest.Server {
 	var resp []byte
 
 	return httptest.NewServer(http.HandlerFunc(func(
@@ -26,6 +27,8 @@ func MockIEXServer() *httptest.Server {
 			resp = read("mock-iex/responses/earnings_today.json")
 		case "/stock/aapl/earnings":
 			resp = read("mock-iex/responses/earnings/aapl.json")
+		case "/stock/aapl/stats":
+			resp = read("mock-iex/responses/key_stats/aapl.json")
 		default:
 			http.Error(w, "not found", http.StatusNotFound)
 		}

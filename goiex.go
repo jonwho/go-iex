@@ -239,6 +239,33 @@ func (c *Client) RefDataSymbols() (*RefDataSymbols, error) {
 	return refDataSymbols, nil
 }
 
+func (c *Client) KeyStat(symbol string) (*KeyStat, error) {
+	endpoint := "stock/" + symbol + "/stats"
+	keyStat := new(KeyStat)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Symbol")
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&keyStat)
+	if err != nil {
+		return nil, err
+	}
+
+	return keyStat, nil
+}
+
 /***************************************************************************************************
  * PRIVATE BELOW
  **************************************************************************************************/

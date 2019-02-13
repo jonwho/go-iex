@@ -127,3 +127,59 @@ type EarningsDTO struct {
 	EstimatedChangePercent float32
 	SymbolId               int32
 }
+
+type KeyStat struct {
+	KeyStatDTO
+}
+
+type KeyStatDTO struct {
+	CompanyName         string
+	MarketCap           int64
+	Beta                float32
+	Week52High          float32
+	Week52Low           float32
+	Week52Change        float32
+	ShortInterest       int32
+	ShortDate           int64
+	DividendRate        float32
+	DividendYield       float32
+	ExDividendDate      interface{}
+	LatestEPS           float32
+	LatestEPSDate       string
+	SharesOutstanding   int64
+	Float               int64
+	ReturnOnEquity      float32
+	ConsensusEPS        float32
+	NumberOfEstimates   int32
+	Symbol              string
+	EBITDA              int64
+	Revenue             int64
+	GrossProfit         int64
+	Cash                int64
+	Debt                int64
+	TtmEPS              float32
+	RevenuePerShare     float32
+	RevenuePerEmployee  float32
+	PeRatioHigh         float32
+	PeRatioLow          float32
+	EPSSurpriseDollar   interface{}
+	EPSSurprisePercent  float32
+	ReturnOnAssets      float32
+	ReturnOnCapital     interface{}
+	ProfitMargin        float32
+	PriceToSales        float32
+	PriceToBook         float32
+	Day200MovingAvg     float32
+	Day50MovingAvg      float32
+	InstitutionPercent  float32
+	InsiderPercent      interface{}
+	ShortRatio          interface{}
+	Year5ChangePercent  float32
+	Year2ChangePercent  float32
+	Year1ChangePercent  float32
+	YtdChangePercent    float32
+	Month6ChangePercent float32
+	Month3ChangePercent float32
+	Month1ChangePercent float32
+	Day5ChangePercent   float32
+}
