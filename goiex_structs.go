@@ -4,6 +4,43 @@ import (
 	"net/http"
 )
 
+type AskDTO struct {
+	Price     float32
+	Size      int32
+	Timestamp float64
+}
+
+type BidDTO struct {
+	Price     float32
+	Size      int32
+	Timestamp float64
+}
+
+type TradeDTO struct {
+	Price                 float32
+	Size                  int32
+	TradeID               int32
+	IsISO                 bool
+	IsOddLot              bool
+	IsOutsideRegularHours bool
+	IsSinglePriceCross    bool
+	IsTradeThroughExempt  bool
+	Timestamp             float64
+}
+
+type SystemEvent struct {
+	SystemEvent string
+	Timestamp   float64
+}
+
+type Book struct {
+	Quote       Quote
+	Bids        []BidDTO
+	Asks        []AskDTO
+	Trades      []TradeDTO
+	SystemEvent SystemEvent
+}
+
 type Chart struct {
 	Charts []ChartDTO
 }

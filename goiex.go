@@ -21,6 +21,7 @@ var (
 	ChartRanges map[string]bool = make(map[string]bool)
 )
 
+// Option is a func that operates on *Client
 type Option func(*Client) error
 
 func init() {
@@ -28,7 +29,7 @@ func init() {
 	initChartRanges()
 }
 
-// Client interface to IEX.
+// NewClient creates interface to IEX
 func NewClient(options ...Option) (*Client, error) {
 	client := &Client{}
 
@@ -49,7 +50,7 @@ func NewClient(options ...Option) (*Client, error) {
 	return client, nil
 }
 
-// Assign your own http client.
+// SetHTTPClient lets you assign your own HTTP client
 func SetHTTPClient(httpClient *http.Client) Option {
 	return func(c *Client) error {
 		c.httpClient = httpClient
@@ -57,7 +58,7 @@ func SetHTTPClient(httpClient *http.Client) Option {
 	}
 }
 
-// Pretty much only useful for testing.
+// SetBaseURL pretty much only useful for testing
 func SetBaseURL(url string) Option {
 	return func(c *Client) error {
 		c.baseURL = url
@@ -65,7 +66,7 @@ func SetBaseURL(url string) Option {
 	}
 }
 
-// Helper to perform request to IEX.
+// Get is a helper to perform request to IEX
 func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
 	iexURL := c.baseURL + "/" + endpoint
 
@@ -96,7 +97,36 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	return c.httpClient.Do(req)
 }
 
-// Returns Chart for the given symbol.
+// Book returns book response
+func (c *Client) Book(symbol string) (*Book, error) {
+	endpoint := "stock/" + symbol + "/book"
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Symbol")
+	}
+
+	book := new(Book)
+	err = json.NewDecoder(res.Body).Decode(&book)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return book, nil
+}
+
+// Chart returns chart response
 func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
 	if !ChartRanges[chartRange] {
 		return nil, errors.New("Received invalid date range for chart")

@@ -36,10 +36,10 @@ func (s *SymbolDTO) UnmarshalJSON(b []byte) error {
 
 	switch id := symbolMap["iexId"].(type) {
 	case string:
-		if intId, err := strconv.Atoi(id); err != nil {
+		if intID, err := strconv.Atoi(id); err != nil {
 			return err
 		} else {
-			s.IexId = intId
+			s.IexId = intID
 		}
 	case float32:
 		s.IexId = int(id)

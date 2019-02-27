@@ -170,3 +170,63 @@ func TestKeyStat(t *testing.T) {
 		t.Error("expected err but got nil")
 	}
 }
+
+func TestBook(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	book, _ := client.Book("aapl")
+
+	if book.Quote.Symbol != "AAPL" {
+		t.Errorf("expected AAPL but got %v", book.Quote.Symbol)
+	}
+
+	if book.SystemEvent.SystemEvent != "R" {
+		t.Errorf("expected R but got %v", book.SystemEvent.SystemEvent)
+	}
+
+	ask := book.Asks[0]
+	if ask.Price != 174.98 {
+		t.Errorf("expected 174.98 but got %v", ask.Price)
+	}
+	if ask.Size != 111 {
+		t.Errorf("expected 174.98 but got %v", ask.Size)
+
+	}
+	if ask.Timestamp != 1551296788138 {
+		t.Errorf("expected 174.98 but got %v", ask.Timestamp)
+	}
+
+	trade := book.Trades[0]
+	if trade.Price != 174.89 {
+		t.Errorf("expected 174.89 but got %v", trade.Price)
+	}
+	if trade.Size != 20 {
+		t.Errorf("expected 20 but got %v", trade.Size)
+	}
+	if trade.TradeID != 726951527 {
+		t.Errorf("expected 726951527 but got %v", trade.TradeID)
+	}
+	if trade.IsISO != true {
+		t.Errorf("expected true but got %v", trade.IsISO)
+	}
+	if trade.IsOddLot != true {
+		t.Errorf("expected true but got %v", trade.IsOddLot)
+	}
+	if trade.IsOutsideRegularHours != false {
+		t.Errorf("expected false but got %v", trade.IsOutsideRegularHours)
+	}
+	if trade.IsSinglePriceCross != false {
+		t.Errorf("expected false but got %v", trade.IsSinglePriceCross)
+	}
+	if trade.IsTradeThroughExempt != false {
+		t.Errorf("expected false but got %v", trade.IsTradeThroughExempt)
+	}
+	if trade.Timestamp != 1551298665713 {
+		t.Errorf("expected false but got %v", trade.Timestamp)
+	}
+}
