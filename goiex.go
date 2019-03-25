@@ -304,6 +304,41 @@ func (c *Client) RefDataCorporateActions(date string) (*RefDataCorporateActions,
 	return refDataCorporateActions, nil
 }
 
+// RefDataDividends call to /ref-data/daily-list/dividends
+func (c *Client) RefDataDividends(date string) (*RefDataDividends, error) {
+	var endpoint string
+	if date != "" {
+		endpoint = "ref-data/daily-list/dividends/" + date
+	} else {
+		endpoint = "ref-data/daily-list/dividends"
+	}
+
+	refDataDividends := new(RefDataDividends)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Could not finish request for /ref-data/daily-list/corporate-actions")
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&refDataDividends)
+	log.Println(err)
+	if err != nil {
+		return nil, err
+	}
+
+	return refDataDividends, nil
+}
+
 // KeyStat call to /stats
 func (c *Client) KeyStat(symbol string) (*KeyStat, error) {
 	endpoint := "stock/" + symbol + "/stats"

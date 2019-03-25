@@ -34,16 +34,18 @@ func main() {
 ## SUPPORTED ENDPOINTS
 `aapl` is just a placeholder ticker example
 
-| Endpoint                     | Version |
-| ---------------------------- | ------- |
-| /stock/aapl/book             | ✅      |
-| /stock/aapl/chart            | ✅      |
-| /stock/aapl/earnings         | ✅      |
-| /stock/market/today-earnings | ✅      |
-| /stock/aapl/quote            | ✅      |
-| /stock/aapl/stats            | ✅      |
-| /ref-data/symbols            | ✅      |
-| etc...                       | ❌      |
+| Endpoint                               | Version |
+| -------------------------------------- | ------- |
+| /stock/aapl/book                       | ✅      |
+| /stock/aapl/chart                      | ✅      |
+| /stock/aapl/earnings                   | ✅      |
+| /stock/market/today-earnings           | ✅      |
+| /stock/aapl/quote                      | ✅      |
+| /stock/aapl/stats                      | ✅      |
+| /ref-data/symbols                      | ✅      |
+| /ref-data/daily-list/corporate-actions | ✅      |
+| /ref-data/daily-list/dividends         | ✅      |
+| etc...                                 | ❌      |
 
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time

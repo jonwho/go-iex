@@ -38,6 +38,17 @@ func (rdca *RefDataCorporateActions) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (rdd *RefDataDividends) UnmarshalJSON(b []byte) error {
+	var dividends []DividendDTO
+
+	if err := json.Unmarshal(b, &dividends); err != nil {
+		return err
+	}
+
+	rdd.Dividends = dividends
+	return nil
+}
+
 func (s *SymbolDTO) UnmarshalJSON(b []byte) error {
 	var symbolMap map[string]interface{}
 

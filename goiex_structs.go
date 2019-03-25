@@ -158,6 +158,41 @@ type CorporateActionDTO struct {
 	RecordUpdateTime             string `json:"RecordUpdateTime"`
 }
 
+type RefDataDividends struct {
+	Dividends []DividendDTO
+}
+
+type DividendDTO struct {
+	RecordID                 string `json:"RecordID"`
+	DailyListTimestamp       string `json:"DailyListTimestamp"`
+	EventType                string `json:"EventType"`
+	SymbolinINETSymbology    string `json:"SymbolinINETSymbology"`
+	SymbolinCQSSymbology     string `json:"SymbolinCQSSymbology"`
+	SymbolinCMSSymbology     string `json:"SymbolinCMSSymbology"`
+	SecurityName             string `json:"SecurityName"`
+	CompanyName              string `json:"CompanyName"`
+	DeclarationDate          string `json:"DeclarationDate"`
+	AmountDescription        string `json:"AmountDescription"`
+	PaymentFrequency         string `json:"PaymentFrequency"`
+	ExDate                   string `json:"ExDate"`
+	RecordDate               string `json:"RecordDate"`
+	PaymentDate              string `json:"PaymentDate"`
+	DividendTypeID           string `json:"DividendTypeID"`
+	StockAdjustmentFactor    string `json:"StockAdjustmentFactor"`
+	StockAmount              string `json:"StockAmount"`
+	CashAmount               string `json:"CashAmount"`
+	PostSplitShares          string `json:"PostSplitShares"`
+	PreSplitShares           string `json:"PreSplitShares"`
+	QualifiedDividend        string `json:"QualifiedDividend"`
+	ExercisePriceAmount      string `json:"ExercisePriceAmount"`
+	ElectionorExpirationDate string `json:"ElectionorExpirationDate"`
+	GrossAmount              string `json:"GrossAmount"`
+	NetAmount                string `json:"NetAmount"`
+	BasisNotes               string `json:"BasisNotes"`
+	NotesforEachEntry        string `json:"NotesforEachEntry"`
+	RecordUpdateTime         string `json:"RecordUpdateTime"`
+}
+
 type ChartDTO struct {
 	Date                 string
 	Minute               string
