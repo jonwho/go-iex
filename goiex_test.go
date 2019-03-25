@@ -190,33 +190,72 @@ func TestRefDataDividends(t *testing.T) {
 	}
 
 	// without date
-	rdd, err := client.RefDataDividends("")
+	divs, err := client.RefDataDividends("")
 	if err != nil {
 		t.Errorf("Expected nil but got %s\n", err.Error())
 	}
-	ca := rdd.Dividends[0]
-	if ca.RecordID != "DV20171108154436478" {
-		t.Errorf("Expected DV20171108154436478 but got %s", ca.RecordID)
+	div := divs.Dividends[0]
+	if div.RecordID != "DV20171108154436478" {
+		t.Errorf("Expected DV20171108154436478 but got %s", div.RecordID)
 	}
 
 	// with date - TODO: need to run during day to get value
-	// rdd, err = client.Dividends("20171210")
+	// divs, err = client.Dividends("20171210")
 	// if err != nil {
 	//   t.Errorf("Expected nil but got %s\n", err.Error())
 	// }
-	// ca = rdd.Dividends[0]
-	// if ca.RecordID != "<updatehere>" {
-	//   t.Errorf("Expected <updatehere> but got %s", ca.RecordID)
+	// div = divs.Dividends[0]
+	// if div.RecordID != "<updatehere>" {
+	//   t.Errorf("Expected <updatehere> but got %s", div.RecordID)
 	// }
 
 	// with sample
-	rdd, err = client.RefDataDividends("sample")
+	divs, err = client.RefDataDividends("sample")
 	if err != nil {
 		t.Errorf("Expected nil but got %s\n", err.Error())
 	}
-	ca = rdd.Dividends[0]
-	if ca.RecordID != "DV20171108154436478" {
-		t.Errorf("Expected DV20171108154436478 but got %s", ca.RecordID)
+	div = divs.Dividends[0]
+	if div.RecordID != "DV20171108154436478" {
+		t.Errorf("Expected DV20171108154436478 but got %s", div.RecordID)
+	}
+}
+
+func TestRefDataNextDayExDates(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	// without date
+	rdnded, err := client.RefDataNextDayExDates("")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	nded := rdnded.NextDayExDates[0]
+	if nded.RecordID != "DV20171108154436478" {
+		t.Errorf("Expected DV20171108154436478 but got %s", nded.RecordID)
+	}
+
+	// with date - TODO: need to run during day to get value
+	// rdnded, err = client.Dividends("20171210")
+	// if err != nil {
+	//   t.Errorf("Expected nil but got %s\n", err.Error())
+	// }
+	// nded = rdnded.Dividends[0]
+	// if nded.RecordID != "<updatehere>" {
+	//   t.Errorf("Expected <updatehere> but got %s", nded.RecordID)
+	// }
+
+	// with sample
+	rdnded, err = client.RefDataNextDayExDates("sample")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	nded = rdnded.NextDayExDates[0]
+	if nded.RecordID != "DV20171108154436478" {
+		t.Errorf("Expected DV20171108154436478 but got %s", nded.RecordID)
 	}
 }
 

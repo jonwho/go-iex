@@ -296,7 +296,6 @@ func (c *Client) RefDataCorporateActions(date string) (*RefDataCorporateActions,
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&refDataCorporateActions)
-	log.Println(err)
 	if err != nil {
 		return nil, err
 	}
@@ -331,12 +330,45 @@ func (c *Client) RefDataDividends(date string) (*RefDataDividends, error) {
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&refDataDividends)
-	log.Println(err)
 	if err != nil {
 		return nil, err
 	}
 
 	return refDataDividends, nil
+}
+
+// RefDataNextDayExDate call to /ref-data/daily-list/next-day-ex-date
+func (c *Client) RefDataNextDayExDates(date string) (*RefDataNextDayExDates, error) {
+	var endpoint string
+	if date != "" {
+		endpoint = "ref-data/daily-list/next-day-ex-date/" + date
+	} else {
+		endpoint = "ref-data/daily-list/next-day-ex-date"
+	}
+
+	refDataNextDayExDates := new(RefDataNextDayExDates)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Could not finish request for /ref-data/daily-list/corporate-actions")
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&refDataNextDayExDates)
+	if err != nil {
+		return nil, err
+	}
+
+	return refDataNextDayExDates, nil
 }
 
 // KeyStat call to /stats

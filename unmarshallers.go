@@ -49,6 +49,17 @@ func (rdd *RefDataDividends) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (rdd *RefDataNextDayExDates) UnmarshalJSON(b []byte) error {
+	var nextDayExDates []NextDayExDateDTO
+
+	if err := json.Unmarshal(b, &nextDayExDates); err != nil {
+		return err
+	}
+
+	rdd.NextDayExDates = nextDayExDates
+	return nil
+}
+
 func (s *SymbolDTO) UnmarshalJSON(b []byte) error {
 	var symbolMap map[string]interface{}
 
