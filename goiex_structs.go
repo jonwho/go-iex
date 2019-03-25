@@ -224,6 +224,40 @@ type NextDayExDateDTO struct {
 	RecordUpdateTime         string `json:"RecordUpdateTime"`
 }
 
+type RefDataSymbolDirectories struct {
+	SymbolDirectories []SymbolDirectoryDTO
+}
+
+type SymbolDirectoryDTO struct {
+	RecordID                             string `json:"RecordID"`
+	DailyListTimestamp                   string `json:"DailyListTimestamp"`
+	SymbolinINETSymbology                string `json:"SymbolinINETSymbology"`
+	SymbolinCQSSymbology                 string `json:"SymbolinCQSSymbology"`
+	SymbolinCMSSymbology                 string `json:"SymbolinCMSSymbology"`
+	SecurityName                         string `json:"SecurityName"`
+	CompanyName                          string `json:"CompanyName"`
+	TestIssue                            string `json:"TestIssue"`
+	IssueDescription                     string `json:"IssueDescription"`
+	IssueType                            string `json:"IssueType"`
+	IssueSubType                         string `json:"IssueSubType"`
+	SICCode                              string `json:"SICCode"`
+	TransferAgent                        string `json:"TransferAgent"`
+	FinancialStatus                      string `json:"FinancialStatus"`
+	RoundLotSize                         string `json:"RoundLotSize"`
+	PreviousOfficialClosingPrice         string `json:"PreviousOfficialClosingPrice"`
+	AdjustedPreviousOfficialClosingPrice string `json:"AdjustedPreviousOfficialClosingPrice"`
+	WhenIssuedFlag                       string `json:"WhenIssuedFlag"`
+	WhenDistributedFlag                  string `json:"WhenDistributedFlag"`
+	IPOFlag                              string `json:"IPOFlag"`
+	FirstDateListed                      string `json:"FirstDateListed"`
+	LULDTierIndicator                    string `json:"LULDTierIndicator"`
+	CountryofIncorporation               string `json:"CountryofIncorporation"`
+	LeveragedETPFlag                     string `json:"LeveragedETPFlag"`
+	LeveragedETPRatio                    string `json:"LeveragedETPRatio"`
+	InverseETPFlag                       string `json:"InverseETPFlag"`
+	RecordUpdateTime                     string `json:"RecordUpdateTime"`
+}
+
 type ChartDTO struct {
 	Date                 string
 	Minute               string

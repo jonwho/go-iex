@@ -60,6 +60,17 @@ func (rdd *RefDataNextDayExDates) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (rdsd *RefDataSymbolDirectories) UnmarshalJSON(b []byte) error {
+	var symbolDirectories []SymbolDirectoryDTO
+
+	if err := json.Unmarshal(b, &symbolDirectories); err != nil {
+		return err
+	}
+
+	rdsd.SymbolDirectories = symbolDirectories
+	return nil
+}
+
 func (s *SymbolDTO) UnmarshalJSON(b []byte) error {
 	var symbolMap map[string]interface{}
 

@@ -259,6 +259,45 @@ func TestRefDataNextDayExDates(t *testing.T) {
 	}
 }
 
+func TestRefDataSymbolDirectories(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	// without date
+	rdsd, err := client.RefDataSymbolDirectories("")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	sd := rdsd.SymbolDirectories[0]
+	if sd.RecordID != "SD20171020161150890" {
+		t.Errorf("Expected SD20171020161150890 but got %s", sd.RecordID)
+	}
+
+	// with date - TODO: need to run during day to get value
+	// rdsd, err = client.SymbolDirectories("20171210")
+	// if err != nil {
+	//   t.Errorf("Expected nil but got %s\n", err.Error())
+	// }
+	// sd = rdsd.SymbolDirectories[0]
+	// if sd.RecordID != "<updatehere>" {
+	//   t.Errorf("Expected <updatehere> but got %s", sd.RecordID)
+	// }
+
+	// with sample
+	rdsd, err = client.RefDataSymbolDirectories("sample")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	sd = rdsd.SymbolDirectories[0]
+	if sd.RecordID != "SD20171020161150890" {
+		t.Errorf("Expected SD20171020161150890 but got %s", sd.RecordID)
+	}
+}
+
 func TestKeyStat(t *testing.T) {
 	mockServer := mockiex.Server()
 	defer mockServer.Close()

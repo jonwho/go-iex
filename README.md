@@ -46,6 +46,7 @@ func main() {
 | /ref-data/daily-list/corporate-actions | ✅      |
 | /ref-data/daily-list/dividends         | ✅      |
 | /ref-data/daily-list/next-day-ex-date  | ✅      |
+| /ref-data/daily-list/symbol-directory  | ✅      |
 | etc...                                 | ❌      |
 
 ## DEV NOTES

@@ -326,7 +326,7 @@ func (c *Client) RefDataDividends(date string) (*RefDataDividends, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Could not finish request for /ref-data/daily-list/corporate-actions")
+		return nil, errors.New("Could not finish request for /ref-data/daily-list/dividends")
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&refDataDividends)
@@ -337,7 +337,7 @@ func (c *Client) RefDataDividends(date string) (*RefDataDividends, error) {
 	return refDataDividends, nil
 }
 
-// RefDataNextDayExDate call to /ref-data/daily-list/next-day-ex-date
+// RefDataNextDayExDates call to /ref-data/daily-list/next-day-ex-date
 func (c *Client) RefDataNextDayExDates(date string) (*RefDataNextDayExDates, error) {
 	var endpoint string
 	if date != "" {
@@ -360,7 +360,7 @@ func (c *Client) RefDataNextDayExDates(date string) (*RefDataNextDayExDates, err
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Could not finish request for /ref-data/daily-list/corporate-actions")
+		return nil, errors.New("Could not finish request for /ref-data/daily-list/next-day-ex-date")
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&refDataNextDayExDates)
@@ -369,6 +369,40 @@ func (c *Client) RefDataNextDayExDates(date string) (*RefDataNextDayExDates, err
 	}
 
 	return refDataNextDayExDates, nil
+}
+
+// RefDataSymbolDirectories call to /ref-data/daily-list/symbol-directory
+func (c *Client) RefDataSymbolDirectories(date string) (*RefDataSymbolDirectories, error) {
+	var endpoint string
+	if date != "" {
+		endpoint = "ref-data/daily-list/symbol-directory/" + date
+	} else {
+		endpoint = "ref-data/daily-list/symbol-directory"
+	}
+
+	refDataSymbolDirectories := new(RefDataSymbolDirectories)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Could not finish request for /ref-data/daily-list/symbol-directory")
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&refDataSymbolDirectories)
+	if err != nil {
+		return nil, err
+	}
+
+	return refDataSymbolDirectories, nil
 }
 
 // KeyStat call to /stats
