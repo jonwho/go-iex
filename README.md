@@ -32,13 +32,15 @@ func main() {
 ```
 
 ## Supported endpoints
+`aapl` is just a placeholder ticker example
+
 | Endpoint                     | Version |
 | ---------------------------- | ------- |
-| /stock//<ticker/>/book       | ✅      |
-| /stock/.../chart             | ✅      |
-| /stock/.../earnings          | ✅      |
+| /stock/aapl/book             | ✅      |
+| /stock/aapl/chart            | ✅      |
+| /stock/aapl/earnings         | ✅      |
 | /stock/market/today-earnings | ✅      |
-| /stock/.../quote             | ✅      |
-| /stock/.../stats             | ✅      |
+| /stock/aapl/quote            | ✅      |
+| /stock/aapl/stats            | ✅      |
 | /ref-data/symbols            | ✅      |
 | etc...                       | ❌      |
