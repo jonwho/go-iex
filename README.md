@@ -31,7 +31,7 @@ func main() {
 }
 ```
 
-## Supported endpoints
+## SUPPORTED ENDPOINTS
 `aapl` is just a placeholder ticker example
 
 | Endpoint                     | Version |
