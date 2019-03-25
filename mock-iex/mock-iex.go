@@ -31,6 +31,10 @@ func Server() *httptest.Server {
 			resp = read("mock-iex/responses/key_stats/aapl.json")
 		case "/stock/aapl/book":
 			resp = read("mock-iex/responses/book/aapl.json")
+		case "/ref-data/daily-list/corporate-actions":
+			resp = read("mock-iex/responses/ref_data_corporate_actions.json")
+		case "/ref-data/daily-list/corporate-actions/sample":
+			resp = read("mock-iex/responses/ref_data_corporate_actions_sample.json")
 		default:
 			http.Error(w, "not found", http.StatusNotFound)
 		}

@@ -118,6 +118,46 @@ type SymbolDTO struct {
 	IexId interface{}
 }
 
+type RefDataCorporateActions struct {
+	CorporateActions []CorporateActionDTO
+}
+
+type CorporateActionDTO struct {
+	RecordID                     string `json:"RecordID"`
+	DailyListTimestamp           string `json:"DailyListTimestamp"`
+	EffectiveDate                string `json:"EffectiveDate"`
+	IssueEvent                   string `json:"IssueEvent"`
+	CurrentSymbolinINETSymbology string `json:"CurrentSymbolinINETSymbology"`
+	CurrentSymbolinCQSSymbology  string `json:"CurrentSymbolinCQSSymbology"`
+	CurrentSymbolinCMSSymbology  string `json:"CurrentSymbolinCMSSymbology"`
+	NewSymbolinINETSymbology     string `json:"NewSymbolinINETSymbology"`
+	NewSymbolinCQSSymbology      string `json:"NewSymbolinCQSSymbology"`
+	NewSymbolinCMSSymbology      string `json:"NewSymbolinCMSSymbology"`
+	CurrentSecurityName          string `json:"CurrentSecurityName"`
+	NewSecurityName              string `json:"NewSecurityName"`
+	CurrentCompanyName           string `json:"CurrentCompanyName"`
+	NewCompanyName               string `json:"NewCompanyName"`
+	CurrentListingCenter         string `json:"CurrentListingCenter"`
+	NewListingCenter             string `json:"NewListingCenter"`
+	DelistingReason              string `json:"DelistingReason"`
+	CurrentRoundLotSize          string `json:"CurrentRoundLotSize"`
+	NewRoundLotSize              string `json:"NewRoundLotSize"`
+	CurrentLULDTierIndicator     string `json:"CurrentLULDTierIndicator"`
+	NewLULDTierIndicator         string `json:"NewLULDTierIndicator"`
+	ExpirationDate               string `json:"ExpirationDate"`
+	SeparationDate               string `json:"SeparationDate"`
+	SettlementDate               string `json:"SettlementDate"`
+	MaturityDate                 string `json:"MaturityDate"`
+	RedemptionDate               string `json:"RedemptionDate"`
+	CurrentFinancialStatus       string `json:"CurrentFinancialStatus"`
+	NewFinancialStatus           string `json:"NewFinancialStatus"`
+	WhenIssuedFlag               string `json:"WhenIssuedFlag"`
+	WhenDistributedFlag          string `json:"WhenDistributedFlag"`
+	IPOFlag                      string `json:"IPOFlag"`
+	NotesforEachEntry            string `json:"NotesforEachEntry"`
+	RecordUpdateTime             string `json:"RecordUpdateTime"`
+}
+
 type ChartDTO struct {
 	Date                 string
 	Minute               string

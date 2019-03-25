@@ -142,6 +142,45 @@ func TestRefDataSymbols(t *testing.T) {
 	}
 }
 
+func TestRefDataCorporateActions(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	// without date
+	rdca, err := client.RefDataCorporateActions("")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	ca := rdca.CorporateActions[0]
+	if ca.RecordID != "CA20171108153808144" {
+		t.Errorf("Expected CA20171108153808144 but got %s", ca.RecordID)
+	}
+
+	// with date - TODO: need to run during day to get value
+	// rdca, err = client.RefDataCorporateActions("20171210")
+	// if err != nil {
+	//   t.Errorf("Expected nil but got %s\n", err.Error())
+	// }
+	// ca = rdca.CorporateActions[0]
+	// if ca.RecordID != "<updatehere>" {
+	//   t.Errorf("Expected <updatehere> but got %s", ca.RecordID)
+	// }
+
+	// with sample
+	rdca, err = client.RefDataCorporateActions("sample")
+	if err != nil {
+		t.Errorf("Expected nil but got %s\n", err.Error())
+	}
+	ca = rdca.CorporateActions[0]
+	if ca.RecordID != "CA20171108153808144" {
+		t.Errorf("Expected CA20171108153808144 but got %s", ca.RecordID)
+	}
+}
+
 func TestKeyStat(t *testing.T) {
 	mockServer := mockiex.Server()
 	defer mockServer.Close()

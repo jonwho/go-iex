@@ -27,6 +27,17 @@ func (rds *RefDataSymbols) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (rdca *RefDataCorporateActions) UnmarshalJSON(b []byte) error {
+	var corporateActions []CorporateActionDTO
+
+	if err := json.Unmarshal(b, &corporateActions); err != nil {
+		return err
+	}
+
+	rdca.CorporateActions = corporateActions
+	return nil
+}
+
 func (s *SymbolDTO) UnmarshalJSON(b []byte) error {
 	var symbolMap map[string]interface{}
 

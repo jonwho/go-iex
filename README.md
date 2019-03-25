@@ -44,3 +44,6 @@ func main() {
 | /stock/aapl/stats            | ✅      |
 | /ref-data/symbols            | ✅      |
 | etc...                       | ❌      |
+
+## DEV NOTES
+* Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
