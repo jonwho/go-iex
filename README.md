@@ -30,3 +30,15 @@ func main() {
 		"Current Price", quote.LatestPrice)
 }
 ```
+
+## Supported endpoints
+| Endpoint                     | Version |
+| ---------------------------- | ------- |
+| /stock/<ticker>/book         | &#9745; |
+| /stock/<ticker>/chart        | &#9745; |
+| /stock/<ticker>/earnings     | &#9745; |
+| /stock/market/today-earnings | &#9745; |
+| /stock/<ticker>/quote        | &#9745; |
+| /stock/<ticker>/stats        | &#9745; |
+| /ref-data/symbols            | &#9745; |
+| etc...                       | &#9744; |

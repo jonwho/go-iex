@@ -10,15 +10,13 @@ import (
 )
 
 const (
-	DefaultBaseURL     string = "https://api.iextrading.com/1.0"
-	MaxIdleConnections int    = 10
-	RequestTimeout     int    = 5
+	defaultBaseURL     string = "https://api.iextrading.com/1.0"
+	maxIdleConnections int    = 10
+	requestTimeout     int    = 5
 )
 
 var (
-	// pseudo constant
-	// you cannot make a constant out of a map because the expression is not a constant expression
-	ChartRanges map[string]bool = make(map[string]bool)
+	chartRanges = make(map[string]bool)
 )
 
 // Option is a func that operates on *Client
@@ -45,7 +43,7 @@ func NewClient(options ...Option) (*Client, error) {
 	}
 
 	if client.baseURL == "" {
-		client.baseURL = DefaultBaseURL
+		client.baseURL = defaultBaseURL
 	}
 	return client, nil
 }
@@ -97,7 +95,7 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	return c.httpClient.Do(req)
 }
 
-// Book returns book response
+// Book call to /book
 func (c *Client) Book(symbol string) (*Book, error) {
 	endpoint := "stock/" + symbol + "/book"
 
@@ -126,9 +124,9 @@ func (c *Client) Book(symbol string) (*Book, error) {
 	return book, nil
 }
 
-// Chart returns chart response
+// Chart call to /chart
 func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
-	if !ChartRanges[chartRange] {
+	if !chartRanges[chartRange] {
 		return nil, errors.New("Received invalid date range for chart")
 	}
 
@@ -158,7 +156,7 @@ func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
 	return chart, nil
 }
 
-// Returns Earnings for the given symbol.
+// Earnings call to /earnings
 func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	endpoint := "stock/" + symbol + "/earnings"
 	earnings := new(Earnings)
@@ -187,7 +185,7 @@ func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	return earnings, nil
 }
 
-// Returns EarningsToday for the given symbol.
+// EarningsToday call to /market/todays-earnings
 func (c *Client) EarningsToday() (*EarningsToday, error) {
 	endpoint := "stock/market/today-earnings"
 	earningsToday := new(EarningsToday)
@@ -211,6 +209,7 @@ func (c *Client) EarningsToday() (*EarningsToday, error) {
 	return earningsToday, nil
 }
 
+// Quote call to /quote
 func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	endpoint := "stock/" + symbol + "/quote"
 	quote := new(Quote)
@@ -242,6 +241,7 @@ func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	return quote, nil
 }
 
+// RefDataSymbols call to /ref-data/symbols
 func (c *Client) RefDataSymbols() (*RefDataSymbols, error) {
 	endpoint := "ref-data/symbols"
 	refDataSymbols := new(RefDataSymbols)
@@ -269,6 +269,7 @@ func (c *Client) RefDataSymbols() (*RefDataSymbols, error) {
 	return refDataSymbols, nil
 }
 
+// KeyStat call to /stats
 func (c *Client) KeyStat(symbol string) (*KeyStat, error) {
 	endpoint := "stock/" + symbol + "/stats"
 	keyStat := new(KeyStat)
@@ -306,9 +307,9 @@ func createHTTPClient() *http.Client {
 
 	return &http.Client{
 		Transport: &http.Transport{
-			MaxIdleConnsPerHost: MaxIdleConnections,
+			MaxIdleConnsPerHost: maxIdleConnections,
 		},
-		Timeout: time.Duration(RequestTimeout) * time.Second,
+		Timeout: time.Duration(requestTimeout) * time.Second,
 	}
 }
 
@@ -325,6 +326,6 @@ func initChartRanges() {
 	}
 
 	for _, s := range allowedRanges {
-		ChartRanges[s] = true
+		chartRanges[s] = true
 	}
 }
