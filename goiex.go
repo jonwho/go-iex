@@ -3,6 +3,7 @@ package goiex
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -65,6 +66,10 @@ func SetBaseURL(url string) Option {
 }
 
 // Get is a helper to perform request to IEX
+// TODO: ran into limitation here where for /stock/market/batch?types=quote&symbols=aapl,fb
+//       the escaped URL string could not be built correctly
+// TODO: create func (c Client) GetRaw(rawURL string) which could just call this func perhaps --
+//       test later
 func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
 	iexURL := c.baseURL + "/" + endpoint
 
@@ -95,6 +100,35 @@ func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (
 	return c.httpClient.Do(req)
 }
 
+// Batch call to /stock/<symbol>/batch
+func (c *Client) Batch(symbol string, params map[string]string) (*Batch, error) {
+	endpoint := "stock/" + symbol + "/batch"
+
+	res, err := c.Get(endpoint, params, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		return nil, errors.New("Invalid Batch call")
+	}
+
+	batch := new(Batch)
+	err = json.NewDecoder(res.Body).Decode(&batch)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return batch, nil
+}
+
 // Book call to /book
 func (c *Client) Book(symbol string) (*Book, error) {
 	endpoint := "stock/" + symbol + "/book"
@@ -111,7 +145,7 @@ func (c *Client) Book(symbol string) (*Book, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Invalid Symbol")
+		return nil, errors.New("Invalid Book call")
 	}
 
 	book := new(Book)
@@ -143,7 +177,7 @@ func (c *Client) Chart(symbol, chartRange string) (*Chart, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Invalid Symbol")
+		return nil, errors.New("Invalid Chart call")
 	}
 
 	chart := new(Chart)
@@ -173,7 +207,7 @@ func (c *Client) Earnings(symbol string) (*Earnings, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Invalid Symbol")
+		return nil, errors.New("Invalid Earnings call")
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&earnings)
@@ -209,6 +243,30 @@ func (c *Client) EarningsToday() (*EarningsToday, error) {
 	return earningsToday, nil
 }
 
+// News call to /news
+func (c *Client) News(symbol string, last int) (*News, error) {
+	endpoint := fmt.Sprintf("stock/%s/news/last/%d", symbol, last)
+	news := new(News)
+
+	res, err := c.Get(endpoint, nil, nil)
+
+	// use defer only if http.Get is successful
+	if res != nil {
+		defer res.Body.Close()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&news)
+	if err != nil {
+		return nil, err
+	}
+
+	return news, nil
+}
+
 // Quote call to /quote
 func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	endpoint := "stock/" + symbol + "/quote"
@@ -230,7 +288,7 @@ func (c *Client) Quote(symbol string, displayPercent bool) (*Quote, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Invalid Symbol")
+		return nil, errors.New("Invalid Quote call")
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&quote)
@@ -422,7 +480,7 @@ func (c *Client) KeyStat(symbol string) (*KeyStat, error) {
 	}
 
 	if res.StatusCode != 200 {
-		return nil, errors.New("Invalid Symbol")
+		return nil, errors.New("Invalid KeyStat call")
 	}
 
 	err = json.NewDecoder(res.Body).Decode(&keyStat)

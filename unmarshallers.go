@@ -16,6 +16,17 @@ func (c *Chart) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (n *News) UnmarshalJSON(b []byte) error {
+	var news []NewsDTO
+
+	if err := json.Unmarshal(b, &news); err != nil {
+		return err
+	}
+
+	n.News = news
+	return nil
+}
+
 func (rds *RefDataSymbols) UnmarshalJSON(b []byte) error {
 	var symbols []SymbolDTO
 

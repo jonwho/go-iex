@@ -4,6 +4,12 @@ import (
 	"net/http"
 )
 
+type Batch struct {
+	Quote Quote
+	News  News
+	Chart Chart
+}
+
 type AskDTO struct {
 	Price     float32
 	Size      int32
@@ -14,6 +20,16 @@ type BidDTO struct {
 	Price     float32
 	Size      int32
 	Timestamp float64
+}
+
+type NewsDTO struct {
+	Datetime string `json:"datetime"`
+	Headline string `json:"headline"`
+	Source   string `json:"source"`
+	URL      string `json:"url"`
+	Summary  string `json:"summary"`
+	Related  string `json:"related"`
+	Image    string `json:"image"`
 }
 
 type TradeDTO struct {
@@ -58,6 +74,10 @@ type Earnings struct {
 type EarningsToday struct {
 	BTO []EarningsReportDTO
 	AMC []EarningsReportDTO
+}
+
+type News struct {
+	News []NewsDTO
 }
 
 type Quote struct {

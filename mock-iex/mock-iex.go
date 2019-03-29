@@ -15,12 +15,20 @@ func Server() *httptest.Server {
 		w http.ResponseWriter, r *http.Request) {
 		log.Println("logging request URI:", r.RequestURI)
 		switch r.RequestURI {
+		case "/stock/aapl/batch?types=quote":
+			resp = read("mock-iex/responses/batch/aapl.json")
+		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":
+			resp = read("mock-iex/responses/batch/aapl_many_params.json")
 		case "/stock/aapl/quote":
 			resp = read("mock-iex/responses/quote/aapl.json")
 		case "/stock/aapl/quote?displayPercent=true":
 			resp = read("mock-iex/responses/quote/aapl_with_display_percent_true.json")
 		case "/stock/aapl/chart/1d":
 			resp = read("mock-iex/responses/chart/aapl_1d.json")
+		case "/stock/aapl/news/last/1":
+			resp = read("mock-iex/responses/news/aapl_1.json")
+		case "/stock/aapl/news/last/10":
+			resp = read("mock-iex/responses/news/aapl_10.json")
 		case "/ref-data/symbols":
 			resp = read("mock-iex/responses/ref_data_symbols.json")
 		case "/stock/market/today-earnings":

@@ -32,22 +32,24 @@ func main() {
 ```
 
 ## SUPPORTED ENDPOINTS
-`aapl` is just a placeholder ticker example
+`%s` - string parameter
+`%d` - integer parameter
 
 | Endpoint                               | Version |
 | -------------------------------------- | ------- |
-| /stock/aapl/book                       | ✅      |
-| /stock/aapl/chart                      | ✅      |
-| /stock/aapl/earnings                   | ✅      |
-| /stock/market/today-earnings           | ✅      |
-| /stock/aapl/quote                      | ✅      |
-| /stock/aapl/stats                      | ✅      |
-| /ref-data/symbols                      | ✅      |
-| /ref-data/daily-list/corporate-actions | ✅      |
-| /ref-data/daily-list/dividends         | ✅      |
-| /ref-data/daily-list/next-day-ex-date  | ✅      |
-| /ref-data/daily-list/symbol-directory  | ✅      |
-| etc...                                 | ❌      |
+| /stock/%s/book                         |   ✅    |
+| /stock/%s/chart                        |   ✅    |
+| /stock/%s/earnings                     |   ✅    |
+| /stock/market/today-earnings           |   ✅    |
+| /stock/%s/news/%d                      |   ✅    |
+| /stock/%s/quote                        |   ✅    |
+| /stock/%s/stats                        |   ✅    |
+| /ref-data/symbols                      |   ✅    |
+| /ref-data/daily-list/corporate-actions |   ✅    |
+| /ref-data/daily-list/dividends         |   ✅    |
+| /ref-data/daily-list/next-day-ex-date  |   ✅    |
+| /ref-data/daily-list/symbol-directory  |   ✅    |
+| etc...                                 |   ❌    |
 
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time

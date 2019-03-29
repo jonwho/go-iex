@@ -386,3 +386,57 @@ func TestBook(t *testing.T) {
 		t.Errorf("expected false but got %v", trade.Timestamp)
 	}
 }
+
+func TestNews(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	news, _ := client.News("aapl", 1)
+	if len(news.News) != 1 {
+		t.Errorf("expected 1 but got %v", len(news.News))
+	}
+
+	// can request last 10 pieces of news but not guaranteed to get 10 pieces
+	news, _ = client.News("aapl", 10)
+	if len(news.News) != 4 {
+		t.Errorf("expected 4 but got %v", len(news.News))
+	}
+}
+
+func TestBatch(t *testing.T) {
+	mockServer := mockiex.Server()
+	defer mockServer.Close()
+	client, err := NewClient(SetBaseURL(mockServer.URL))
+	if err != nil {
+		t.Error(err)
+	}
+
+	params := map[string]string{"types": "quote"}
+	batch, _ := client.Batch("aapl", params)
+	if batch.Quote.Symbol != "AAPL" {
+		t.Errorf("expected AAPL but got %v", batch.Quote.Symbol)
+	}
+
+	params = map[string]string{
+		"types": "quote,news,chart",
+		"range": "1m",
+		"last":  "5",
+	}
+	batch, err = client.Batch("aapl", params)
+	if err != nil {
+		t.Error(err.Error())
+	}
+	if batch.Quote.Symbol != "AAPL" {
+		t.Errorf("expected AAPL but got %v", batch.Quote.Symbol)
+	}
+	if len(batch.News.News) != 5 {
+		t.Errorf("expected 5 but got %v", len(batch.News.News))
+	}
+	if len(batch.Chart.Charts) != 23 {
+		t.Errorf("expected 23 but got %v", len(batch.Chart.Charts))
+	}
+}
