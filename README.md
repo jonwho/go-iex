@@ -3,25 +3,55 @@
 [![GoDoc](https://godoc.org/github.com/jonwho/go-iex?status.svg)](http://godoc.org/github.com/jonwho/go-iex)
 
 ## ATTRIBUTION
-Data provided for free by [IEX](https://iextrading.com/developer/). View [IEX’s](https://iextrading.com/api-exhibit-a/) Terms of Use.
+[Data provided by IEX](https://iexcloud.io)
 
 ## DESCRIPTION
-Client interface to iex trading API.
+Client interface to IEX trading API.
+
+## ENV
+### TESTING
+* Grab your test/real tokens from `https://iexcloud.io/console/`
+* Set ENV VAR
+```sh
+export IEX_TEST_SECRET_TOKEN=Tsk_ahsvyao12u4u0ausvn1o3rhw988120yf_FAKE
+export IEX_TEST_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_FAKE
+```
+### PRODUCTION
+```sh
+export IEX_SECRET_TOKEN=Tsk_ahsvyao12u4u0ausvn1o3rhw988120yf_REAL
+export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
+```
 
 ## USAGE
 ```go
 package main
 
 import (
+	"os"
 	"fmt"
 
 	iex "github.com/jonwho/go-iex"
 )
 
 func main() {
-	client = iex.NewClient()
+	token := os.Getenv("IEX_SECRET_TOKEN")
+	// client will have all currently supported IEX APIs
+	client = iex.NewClient(token)
 
 	quote, err := client.Quote("aapl")
+	if err != nil {
+		fmt.Fatalln(err)
+	}
+
+	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
+		"Current Price", quote.LatestPrice)
+
+	// if you only want to test against sandbox build a custom client
+	// get Stocks only API client for sandbox testing
+	baseURL, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, iex.DefaultHTTPClient)
+
+	quote, err = stock.Quote("aapl")
 	if err != nil {
 		fmt.Fatalln(err)
 	}
@@ -32,24 +62,25 @@ func main() {
 ```
 
 ## SUPPORTED ENDPOINTS
-`%s` - string parameter
-`%d` - integer parameter
-
-| Endpoint                               | Version |
-| -------------------------------------- | ------- |
-| /stock/%s/book                         |   ✅    |
-| /stock/%s/chart                        |   ✅    |
-| /stock/%s/earnings                     |   ✅    |
-| /stock/market/today-earnings           |   ✅    |
-| /stock/%s/news/%d                      |   ✅    |
-| /stock/%s/quote                        |   ✅    |
-| /stock/%s/stats                        |   ✅    |
-| /ref-data/symbols                      |   ✅    |
-| /ref-data/daily-list/corporate-actions |   ✅    |
-| /ref-data/daily-list/dividends         |   ✅    |
-| /ref-data/daily-list/next-day-ex-date  |   ✅    |
-| /ref-data/daily-list/symbol-directory  |   ✅    |
-| etc...                                 |   ❌    |
+### Account
+- [x] Metadata
+### Data API
+- [x] DataPoints
+### Stocks
+- [x] AdvancedStats
+- [x] BalanceSheet
+- [x] Batch
+- [x] Book
+- [x] CashFlow
+- [x] Chart
+- [x] Collection
+- [x] Company
+- [x] DelayedQuote
+- [x] Dividends
+- [x] Earnings
+- [x] EarningsToday
+- [x] EffectiveSpread
+- [x] Quote
 
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
