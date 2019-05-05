@@ -10,7 +10,7 @@ Client interface to IEX trading API.
 
 ## ENV
 ### TESTING
-* Grab your test/real tokens from `https://iexcloud.io/console/`
+* Grab your test/real tokens from [https://iexcloud.io/console/](https://github.com/jonwho/go-iex)
 * Set ENV VAR
 ```sh
 export IEX_TEST_SECRET_TOKEN=Tsk_ahsvyao12u4u0ausvn1o3rhw988120yf_FAKE
