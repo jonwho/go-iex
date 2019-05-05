@@ -48,6 +48,7 @@ func main() {
 
 	// if you only want to test against sandbox build a custom client
 	// get Stocks only API client for sandbox testing
+	token = os.Getenv("IEX_TEST_SECRET_TOKEN")
 	baseURL, _ := url.Parse(iex.SandboxBaseURL)
 	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, iex.DefaultHTTPClient)
 
