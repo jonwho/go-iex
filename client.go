@@ -3,7 +3,6 @@ package goiex
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -56,6 +55,7 @@ type Client struct {
 	*Account
 	*DataAPI
 	*Stock
+	*APISystemMetadata
 }
 
 // Option is a func that operates on *Client
@@ -67,6 +67,7 @@ func NewClient(token string, options ...Option) (*Client, error) {
 	SetToken(token)(client)
 	SetVersion(DefaultVersion)(client)
 	SetURL(DefaultBaseURL)(client)
+	SetAPIURL("")(client)
 	SetHTTPClient(DefaultHTTPClient)(client)
 
 	for _, option := range options {
@@ -85,7 +86,35 @@ func NewClient(token string, options ...Option) (*Client, error) {
 	if client.Stock == nil {
 		SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
+	if client.APISystemMetadata == nil {
+		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
 	return client, nil
+}
+
+// Token return token string
+func (c *Client) Token() string {
+	return c.iex.token
+}
+
+// Version return version string
+func (c *Client) Version() string {
+	return c.iex.version
+}
+
+// URL return URL base
+func (c *Client) URL() *url.URL {
+	return c.iex.url
+}
+
+// APIURL return APIURL
+func (c *Client) APIURL() *url.URL {
+	return c.iex.apiurl
+}
+
+// Client return HTTP client
+func (c *Client) Client() *http.Client {
+	return c.iex.client
 }
 
 // SetToken assigns secret token
@@ -107,12 +136,25 @@ func SetHTTPClient(httpClient *http.Client) Option {
 // SetURL assigns URL base
 func SetURL(rawurl string) Option {
 	return func(c *Client) error {
-		baseURL, err := url.Parse(rawurl)
+		baseurl, err := url.Parse(rawurl)
 		if err != nil {
 			return err
 		}
 
-		c.iex.url = baseURL
+		c.iex.url = baseurl
+		return nil
+	}
+}
+
+// SetAPIURL assigns API URL
+func SetAPIURL(rawurl string) Option {
+	return func(c *Client) error {
+		apiurl, err := url.Parse(rawurl)
+		if err != nil {
+			return err
+		}
+
+		c.iex.apiurl = apiurl
 		return nil
 	}
 }
@@ -136,7 +178,7 @@ func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Op
 // SetDataAPI set new DataAPI
 func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) Option {
 	return func(c *Client) error {
-		c.Account = NewAccount(token, version, url, httpClient)
+		c.DataAPI = NewDataAPI(token, version, url, httpClient)
 		return nil
 	}
 }
@@ -149,9 +191,17 @@ func SetStock(token, version string, url *url.URL, httpClient *http.Client) Opti
 	}
 }
 
-// TODO: delete this func later
-func (c Client) Get(endpoint string, params map[string]string, body io.Reader) (*http.Response, error) {
-	return nil, nil
+// SetAPISystemMetadata set new APISystemMetadata
+func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) Option {
+	return func(c *Client) error {
+		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
+		return nil
+	}
+}
+
+// Get helper func to make custom GET requests against client's base url
+func (c *Client) Get(endpoint string, response, params interface{}) error {
+	return get(c, response, endpoint, params)
 }
 
 func get(api iexapi, response interface{}, endpoint string, params interface{}) error {

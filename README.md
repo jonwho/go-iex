@@ -155,7 +155,7 @@ func main() {
 - [ ] Stats Recent
 - [ ] Stats Records
 ### API System Metadata
-- [ ] Status
+- [x] Status
 
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time

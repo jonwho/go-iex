@@ -15,7 +15,7 @@ func TestDataPoints(t *testing.T) {
 
 	datapoints, err := data.DataPoints("aapl")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	if len(datapoints) == 0 {
 		t.Errorf("\nExpected datapoints to be not empty\n")
