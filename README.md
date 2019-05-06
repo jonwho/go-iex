@@ -77,8 +77,15 @@ func main() {
 ## SUPPORTED ENDPOINTS
 ### Account
 - [x] Metadata
+- [ ] Usage
+- [ ] Pay as you go
+- [ ] Signed Requests
+- [ ] Setting up signed token
+- [ ] Getting the secret for a signed token
 ### Data API
-- [x] DataPoints
+- [x] Data Points
+- [ ] Data Tables
+- [ ] Time Series
 ### Stocks
 - [x] Advanced Stats
 - [x] Balance Sheet
