@@ -258,6 +258,45 @@ type EffectiveSpread struct {
 	PriceImprovement float64 `json:"priceImprovement"`
 }
 
+// Estimates struct
+type Estimates struct {
+	Symbol    string `json:"symbol"`
+	Estimates []struct {
+		ConsensusEPS      float64 `json:"consensusEPS"`
+		NumberOfEstimates int     `json:"numberOfEstimates"`
+		FiscalPeriod      string  `json:"fiscalPeriod"`
+		FiscalEndDate     string  `json:"fiscalEndDate"`
+		ReportDate        string  `json:"reportDate"`
+	} `json:"estimates"`
+}
+
+// Financials struct
+type Financials struct {
+	Symbol     string `json:"symbol"`
+	Financials []struct {
+		ReportDate             string      `json:"reportDate"`
+		GrossProfit            int64       `json:"grossProfit"`
+		CostOfRevenue          int64       `json:"costOfRevenue"`
+		OperatingRevenue       int64       `json:"operatingRevenue"`
+		TotalRevenue           int64       `json:"totalRevenue"`
+		OperatingIncome        int64       `json:"operatingIncome"`
+		NetIncome              int64       `json:"netIncome"`
+		ResearchAndDevelopment int64       `json:"researchAndDevelopment"`
+		OperatingExpense       int64       `json:"operatingExpense"`
+		CurrentAssets          int64       `json:"currentAssets"`
+		TotalAssets            int64       `json:"totalAssets"`
+		TotalLiabilities       int64       `json:"totalLiabilities"`
+		CurrentCash            int64       `json:"currentCash"`
+		CurrentDebt            int64       `json:"currentDebt"`
+		TotalCash              int64       `json:"totalCash"`
+		TotalDebt              int64       `json:"totalDebt"`
+		ShareholderEquity      int64       `json:"shareholderEquity"`
+		CashChange             int         `json:"cashChange"`
+		CashFlow               int64       `json:"cashFlow"`
+		OperatingGainsLosses   interface{} `json:"operatingGainsLosses"`
+	} `json:"financials"`
+}
+
 // KeyStat struct
 type KeyStat struct {
 	CompanyName         string  `json:"companyName"`
@@ -513,6 +552,38 @@ func (s *Stock) EarningsToday() (et *EarningsToday, err error) {
 func (s *Stock) EffectiveSpread(symbol string) (spreads []EffectiveSpread, err error) {
 	endpoint := fmt.Sprintf("%s/effective-spread", symbol)
 	err = get(s, &spreads, endpoint, nil)
+	return
+}
+
+// Estimates GET /stock/{symbol}/estimates/{last}/{field}
+func (s *Stock) Estimates(symbol string, opt ...interface{}) (est *Estimates, err error) {
+	endpoint := fmt.Sprintf("%s/estimates", symbol)
+
+	if len(opt) > 0 {
+		last := opt[0].(int)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+	}
+	if len(opt) > 1 {
+		field := opt[1].(string)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
+	}
+	err = get(s, &est, endpoint, nil)
+	return
+}
+
+// Financials GET /stock/{symbol}/financials/{last}/{field}
+func (s *Stock) Financials(symbol string, params interface{}, opt ...interface{}) (fin *Financials, err error) {
+	endpoint := fmt.Sprintf("%s/financials", symbol)
+
+	if len(opt) > 0 {
+		last := opt[0].(int)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+	}
+	if len(opt) > 1 {
+		field := opt[1].(string)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
+	}
+	err = get(s, &fin, endpoint, params)
 	return
 }
 

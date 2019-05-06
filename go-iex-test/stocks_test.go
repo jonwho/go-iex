@@ -344,6 +344,92 @@ func TestEffectiveSpread(t *testing.T) {
 	}
 }
 
+func TestEstimates(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	est, err := stock.Estimates("aapl")
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(est.Estimates) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	est, err = stock.Estimates("aapl", 2)
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(est.Estimates) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	est, err = stock.Estimates("aapl", 2, "annual")
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(est.Estimates) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestFinancials(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	fin, err := stock.Financials("aapl", nil)
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(fin.Financials) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	fin, err = stock.Financials("aapl", nil, 2)
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(fin.Financials) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	fin, err = stock.Financials("aapl", nil, 2, "annual")
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(fin.Financials) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	fin, err = stock.Financials("aapl", struct {
+		Period string `url:"period,omitempty"`
+	}{"quarterly"}, 2, "annual")
+	if err != nil {
+		t.Error(err.Error())
+	}
+	expected = false
+	actual = len(fin.Financials) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 func TestQuote(t *testing.T) {
 	var expected, actual interface{}
 	token := os.Getenv("IEX_TEST_SECRET_TOKEN")

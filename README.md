@@ -68,20 +68,94 @@ func main() {
 ### Data API
 - [x] DataPoints
 ### Stocks
-- [x] AdvancedStats
-- [x] BalanceSheet
-- [x] Batch
+- [x] Advanced Stats
+- [x] Balance Sheet
+- [x] Batch Requests
 - [x] Book
-- [x] CashFlow
+- [x] Cash Flow
 - [x] Chart
 - [x] Collection
 - [x] Company
-- [x] DelayedQuote
+- [x] Delayed Quote
 - [x] Dividends
 - [x] Earnings
-- [x] EarningsToday
-- [x] EffectiveSpread
+- [x] Earnings Today
+- [x] Effective Spread
+- [x] Estimates
+- [x] Financials
+- [ ] Fund Ownership
+- [ ] Historical Prices
+- [ ] Income Statement
+- [ ] Insider Roster
+- [ ] Insider Summary
+- [ ] Insider Transactions
+- [ ] Institutional Ownership
+- [ ] Intraday Prices
+- [ ] IPO Calendar
+- [ ] Key Stats
+- [ ] Largest Trades
+- [ ] List
+- [ ] Logo
+- [ ] Market Volume (U.S.)
+- [ ] News
+- [ ] OHLC
+- [ ] Open / Close Price
+- [ ] Options
+- [ ] Peers
+- [ ] Previous Day Price
+- [ ] Price
+- [ ] Price Target
 - [x] Quote
+- [ ] Recommendation Trends
+- [ ] Sector Performance
+- [ ] Splits
+- [ ] Upcoming Events
+- [ ] Volumne by Venue
+### Alternative Data
+- [ ] Crypto
+- [ ] Social Sentiment
+- [ ] CEO Compensation
+### Reference Data
+- [ ] Symbols
+- [ ] IEX Symbols
+- [ ] International Symbols
+- [ ] International Exchanges
+- [ ] U.S. Exchanges
+- [ ] U.S. Holiday and Trading Dates
+- [ ] Sectors
+- [ ] Tags
+- [ ] Mutual Fund Symbols
+- [ ] OTC Symbols
+- [ ] FX Symbols
+- [ ] Options Symbols
+- [ ] Commodities Symbols In Dev
+- [ ] Bonds Symbols In Dev
+- [ ] Crypto Symbols In Dev
+### Forex / Currencies
+- [ ] Exchange Rates
+### Investors Exchange Data
+- [ ] TOPS
+- [ ] Last
+- [ ] DEEP
+- [ ] DEEP Auction
+- [ ] DEEP Book
+- [ ] DEEP Operational Halt Status
+- [ ] DEEP Official Price
+- [ ] DEEP Security Event
+- [ ] DEEP Short Sale Price Test Status
+- [ ] DEEP System Event
+- [ ] DEEP Trades
+- [ ] DEEP Trade Break
+- [ ] DEEP Trading Status
+- [ ] Listed Regulation SHO Threshold Securities List
+- [ ] Listed Short Interest List In Dev
+- [ ] Stats Historical Daily In Dev
+- [ ] Stats Historical Summary
+- [ ] Stats Intraday
+- [ ] Stats Recent
+- [ ] Stats Records
+### API System Metadata
+- [ ] Status
 
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
