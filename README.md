@@ -27,8 +27,10 @@ export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
 package main
 
 import (
-	"os"
 	"fmt"
+	"log"
+	"net/url"
+	"os"
 
 	iex "github.com/jonwho/go-iex"
 )
@@ -36,11 +38,11 @@ import (
 func main() {
 	token := os.Getenv("IEX_SECRET_TOKEN")
 	// client will have all currently supported IEX APIs
-	client = iex.NewClient(token)
+	client, err := iex.NewClient(token)
 
-	quote, err := client.Quote("aapl")
+	quote, err := client.Quote("aapl", nil)
 	if err != nil {
-		fmt.Fatalln(err)
+		log.Println(err)
 	}
 
 	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
@@ -52,13 +54,23 @@ func main() {
 	baseURL, _ := url.Parse(iex.SandboxBaseURL)
 	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, iex.DefaultHTTPClient)
 
-	quote, err = stock.Quote("aapl")
+	quote, err = stock.Quote("aapl", nil)
 	if err != nil {
-		fmt.Fatalln(err)
+		log.Println(err)
 	}
 
 	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
 		"Current Price", quote.LatestPrice)
+
+	// you can also use the Get helper on client to unmarshal to your own custom struct
+	anonstruct := &struct {
+		Symbol string `json:"symbol,omitempty"`
+	}{}
+	err = client.Get("stock/aapl/quote", anonstruct, nil)
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println("Symbol", anonstruct.Symbol)
 }
 ```
 
