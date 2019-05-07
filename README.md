@@ -1,6 +1,7 @@
 # go-iex
 
 [![GoDoc](https://godoc.org/github.com/jonwho/go-iex?status.svg)](http://godoc.org/github.com/jonwho/go-iex)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jonwho/go-iex)](https://goreportcard.com/report/github.com/jonwho/go-iex)
 
 ## ATTRIBUTION
 [Data provided by IEX](https://iexcloud.io)
