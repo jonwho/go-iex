@@ -119,6 +119,7 @@ func TestBatch(t *testing.T) {
 	}
 }
 
+// TODO: @mock
 func TestBook(t *testing.T) {
 	var expected, actual interface{}
 	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
@@ -270,7 +271,7 @@ func TestDividends(t *testing.T) {
 
 	div, err = stock.Dividends("aapl", "5y")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(div) == 0
@@ -287,14 +288,14 @@ func TestEarnings(t *testing.T) {
 
 	er, err := stock.Earnings("aapl", nil)
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 
 	er, err = stock.Earnings("aapl", struct {
 		Last int `url:"last,omitempty"`
 	}{2})
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = 2
 	actual = len(er.Earnings)
@@ -303,7 +304,7 @@ func TestEarnings(t *testing.T) {
 	}
 }
 
-// TODO: mock this request to get consistent results
+// TODO: @mock
 func TestEarningsToday(t *testing.T) {
 	var expected, actual interface{}
 	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
@@ -335,7 +336,7 @@ func TestEffectiveSpread(t *testing.T) {
 
 	es, err := stock.EffectiveSpread("aapl")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(es) != 0
@@ -352,7 +353,7 @@ func TestEstimates(t *testing.T) {
 
 	est, err := stock.Estimates("aapl")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(est.Estimates) == 0
@@ -362,7 +363,7 @@ func TestEstimates(t *testing.T) {
 
 	est, err = stock.Estimates("aapl", 2)
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(est.Estimates) == 0
@@ -372,7 +373,7 @@ func TestEstimates(t *testing.T) {
 
 	est, err = stock.Estimates("aapl", 2, "annual")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(est.Estimates) == 0
@@ -389,7 +390,7 @@ func TestFinancials(t *testing.T) {
 
 	fin, err := stock.Financials("aapl", nil)
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(fin.Financials) == 0
@@ -399,7 +400,7 @@ func TestFinancials(t *testing.T) {
 
 	fin, err = stock.Financials("aapl", nil, 2)
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(fin.Financials) == 0
@@ -409,7 +410,7 @@ func TestFinancials(t *testing.T) {
 
 	fin, err = stock.Financials("aapl", nil, 2, "annual")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(fin.Financials) == 0
@@ -421,11 +422,204 @@ func TestFinancials(t *testing.T) {
 		Period string `url:"period,omitempty"`
 	}{"quarterly"}, 2, "annual")
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = false
 	actual = len(fin.Financials) == 0
 	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestFundOwnership(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	fo, err := stock.FundOwnership("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(fo) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestIncomeStatement(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	stmt, err := stock.IncomeStatement("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(stmt.Income) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestInsiderRoster(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	ir, err := stock.InsiderRoster("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ir) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestInsiderSummary(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	is, err := stock.InsiderSummary("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(is) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestInsiderTransactions(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	it, err := stock.InsiderTransactions("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(it) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestInsitutionalOwnership(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	iop, err := stock.InstitutionalOwnership("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(iop) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestIntradayPrices(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	ip, err := stock.IntradayPrices("aapl", struct {
+		chartIEXOnly    bool
+		chartReset      bool
+		chartSimplify   bool
+		chartInterval   int
+		changeFromClose bool
+		chartLast       int
+	}{true, true, true, 5, true, 10})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ip) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestUpcomingIPOS(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	ipo, err := stock.UpcomingIPOS()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ipo.RawData) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(ipo.ViewData) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestTodayIPOS(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	ipo, err := stock.TodayIPOS()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ipo.RawData) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(ipo.ViewData) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestKeyStats(t *testing.T) {
+	var expected, actual interface{}
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	u, _ := url.Parse(iex.SandboxBaseURL)
+	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
+
+	ks, err := stock.KeyStats("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "Apple, Inc."
+	actual = ks.CompanyName
+	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }

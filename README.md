@@ -102,16 +102,16 @@ func main() {
 - [x] Effective Spread
 - [x] Estimates
 - [x] Financials
-- [ ] Fund Ownership
-- [ ] Historical Prices
-- [ ] Income Statement
-- [ ] Insider Roster
-- [ ] Insider Summary
-- [ ] Insider Transactions
-- [ ] Institutional Ownership
-- [ ] Intraday Prices
-- [ ] IPO Calendar
-- [ ] Key Stats
+- [x] Fund Ownership
+- [x] Historical Prices
+- [x] Income Statement
+- [x] Insider Roster
+- [x] Insider Summary
+- [x] Insider Transactions
+- [x] Institutional Ownership
+- [x] Intraday Prices
+- [x] IPO Calendar
+- [x] Key Stats
 - [ ] Largest Trades
 - [ ] List
 - [ ] Logo

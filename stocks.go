@@ -297,6 +297,156 @@ type Financials struct {
 	} `json:"financials"`
 }
 
+// FundOwnership struct
+type FundOwnership []struct {
+	AdjHolding       int    `json:"adjHolding"`
+	AdjMv            int    `json:"adjMv"`
+	EntityProperName string `json:"entityProperName"`
+	ReportDate       int64  `json:"reportDate"`
+	ReportedHolding  int    `json:"reportedHolding"`
+	ReportedMv       int    `json:"reportedMv"`
+}
+
+// IncomeStatement struct
+type IncomeStatement struct {
+	Symbol string `json:"symbol"`
+	Income []struct {
+		ReportDate             string `json:"reportDate"`
+		TotalRevenue           int64  `json:"totalRevenue"`
+		CostOfRevenue          int64  `json:"costOfRevenue"`
+		GrossProfit            int64  `json:"grossProfit"`
+		ResearchAndDevelopment int64  `json:"researchAndDevelopment"`
+		SellingGeneralAndAdmin int64  `json:"sellingGeneralAndAdmin"`
+		OperatingExpense       int64  `json:"operatingExpense"`
+		OperatingIncome        int64  `json:"operatingIncome"`
+		OtherIncomeExpenseNet  int    `json:"otherIncomeExpenseNet"`
+		Ebit                   int64  `json:"ebit"`
+		InterestIncome         int    `json:"interestIncome"`
+		PretaxIncome           int64  `json:"pretaxIncome"`
+		IncomeTax              int64  `json:"incomeTax"`
+		MinorityInterest       int    `json:"minorityInterest"`
+		NetIncome              int64  `json:"netIncome"`
+		NetIncomeBasic         int64  `json:"netIncomeBasic"`
+	} `json:"income"`
+}
+
+// InsiderRoster struct
+type InsiderRoster []struct {
+	EntityName string `json:"entityName'"`
+	Position   int    `json:"position"`
+	ReportDate int64  `json:"reportDate"`
+}
+
+// InsiderSummary struct
+type InsiderSummary []struct {
+	FullName      string `json:"fullName"`
+	NetTransacted int    `json:"netTransacted"`
+	ReportedTitle string `json:"reportedTitle"`
+	TotalBought   int    `json:"totalBought"`
+	TotalSold     int    `json:"totalSold"`
+}
+
+// InsiderTransactions struct
+type InsiderTransactions []struct {
+	EffectiveDate int64  `json:"effectiveDate"`
+	FullName      string `json:"fullName"`
+	ReportedTitle string `json:"reportedTitle"`
+	TranPrice     int    `json:"tranPrice"`
+	TranShares    int    `json:"tranShares"`
+	TranValue     int    `json:"tranValue"`
+}
+
+// InstitutionalOwnership struct
+type InstitutionalOwnership []struct {
+	AdjHolding       int    `json:"adjHolding"`
+	AdjMv            int    `json:"adjMv"`
+	EntityProperName string `json:"entityProperName"`
+	ReportDate       int64  `json:"reportDate"`
+	ReportedHolding  int    `json:"reportedHolding"`
+}
+
+// IntradayPrices struct
+type IntradayPrices []struct {
+	Date                 string  `json:"date"`
+	Minute               string  `json:"minute"`
+	Label                string  `json:"label"`
+	MarktOpen            float64 `json:"marktOpen"`
+	MarketClose          float64 `json:"marketClose"`
+	MarktHigh            float64 `json:"marktHigh"`
+	MarketLow            float64 `json:"marketLow"`
+	MarketAverage        float64 `json:"marketAverage"`
+	MarketVolume         int     `json:"marketVolume"`
+	MarketNotional       float64 `json:"marketNotional"`
+	MarketNumberOfTrades int     `json:"marketNumberOfTrades"`
+	MarketChangeOverTime float64 `json:"marketChangeOverTime"`
+	High                 float64 `json:"high"`
+	Low                  float64 `json:"low"`
+	Open                 float64 `json:"open"`
+	Close                float64 `json:"close"`
+	Average              float64 `json:"average"`
+	Volume               int     `json:"volume"`
+	Notional             float64 `json:"notional"`
+	NumberOfTrades       int     `json:"numberOfTrades"`
+	ChangeOverTime       float64 `json:"changeOverTime"`
+}
+
+// IPOCalendar struct
+type IPOCalendar struct {
+	RawData []struct {
+		Symbol                 string      `json:"symbol"`
+		CompanyName            string      `json:"companyName"`
+		ExpectedDate           string      `json:"expectedDate"`
+		LeadUnderwriters       []string    `json:"leadUnderwriters"`
+		Underwriters           []string    `json:"underwriters"`
+		CompanyCounsel         []string    `json:"companyCounsel"`
+		UnderwriterCounsel     []string    `json:"underwriterCounsel"`
+		Auditor                string      `json:"auditor"`
+		Market                 string      `json:"market"`
+		Cik                    string      `json:"cik"`
+		Address                string      `json:"address"`
+		City                   string      `json:"city"`
+		State                  string      `json:"state"`
+		Zip                    string      `json:"zip"`
+		Phone                  string      `json:"phone"`
+		Ceo                    string      `json:"ceo"`
+		Employees              int         `json:"employees"`
+		URL                    string      `json:"url"`
+		Status                 string      `json:"status"`
+		SharesOffered          int         `json:"sharesOffered"`
+		PriceLow               float64     `json:"priceLow"`
+		PriceHigh              float64     `json:"priceHigh"`
+		OfferAmount            interface{} `json:"offerAmount"`
+		TotalExpenses          int         `json:"totalExpenses"`
+		SharesOverAlloted      int         `json:"sharesOverAlloted"`
+		ShareholderShares      interface{} `json:"shareholderShares"`
+		SharesOutstanding      int         `json:"sharesOutstanding"`
+		LockupPeriodExpiration string      `json:"lockupPeriodExpiration"`
+		QuietPeriodExpiration  string      `json:"quietPeriodExpiration"`
+		Revenue                int         `json:"revenue"`
+		NetIncome              int         `json:"netIncome"`
+		TotalAssets            int         `json:"totalAssets"`
+		TotalLiabilities       int         `json:"totalLiabilities"`
+		StockholderEquity      int         `json:"stockholderEquity"`
+		CompanyDescription     string      `json:"companyDescription"`
+		BusinessDescription    string      `json:"businessDescription"`
+		UseOfProceeds          string      `json:"useOfProceeds"`
+		Competition            string      `json:"competition"`
+		Amount                 int         `json:"amount"`
+		PercentOffered         string      `json:"percentOffered"`
+	} `json:"rawData"`
+	ViewData []struct {
+		Company  string `json:"Company"`
+		Symbol   string `json:"Symbol"`
+		Price    string `json:"Price"`
+		Shares   string `json:"Shares"`
+		Amount   string `json:"Amount"`
+		Float    string `json:"Float"`
+		Percent  string `json:"Percent"`
+		Market   string `json:"Market"`
+		Expected string `json:"Expected"`
+	} `json:"viewData"`
+}
+
 // KeyStat struct
 type KeyStat struct {
 	CompanyName         string  `json:"companyName"`
@@ -307,8 +457,8 @@ type KeyStat struct {
 	SharesOutstanding   int64   `json:"sharesOutstanding"`
 	Float               int64   `json:"float"`
 	Symbol              string  `json:"symbol"`
-	Avg10Volume         int     `json:"avg10Volume"`
-	Avg30Volume         int     `json:"avg30Volume"`
+	Avg10Volume         float64 `json:"avg10Volume"`
+	Avg30Volume         float64 `json:"avg30Volume"`
 	Day200MovingAvg     float64 `json:"day200MovingAvg"`
 	Day50MovingAvg      float64 `json:"day50MovingAvg"`
 	Employees           int     `json:"employees"`
@@ -318,7 +468,7 @@ type KeyStat struct {
 	NextDividendDate    string  `json:"nextDividendDate"`
 	ExDividendDate      string  `json:"exDividendDate"`
 	NextEarningsDate    string  `json:"nextEarningsDate"`
-	PeRatio             int     `json:"peRatio"`
+	PeRatio             float64 `json:"peRatio"`
 	Beta                float64 `json:"beta"`
 	MaxChangePercent    float64 `json:"maxChangePercent"`
 	Year5ChangePercent  float64 `json:"year5ChangePercent"`
@@ -584,6 +734,88 @@ func (s *Stock) Financials(symbol string, params interface{}, opt ...interface{}
 		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
 	}
 	err = get(s, &fin, endpoint, params)
+	return
+}
+
+// FundOwnership GET /stock/{symbol}/fund-ownership
+func (s *Stock) FundOwnership(symbol string) (fo FundOwnership, err error) {
+	endpoint := fmt.Sprintf("%s/fund-ownership", symbol)
+	err = get(s, &fo, endpoint, nil)
+	return
+}
+
+// HistoricalPrices GET /stock/{symbol}/chart/{range}/{date}
+func (s *Stock) HistoricalPrices(symbol, chartRange string, params interface{}) ([]*Chart, error) {
+	return s.Chart(symbol, chartRange, params)
+}
+
+// IncomeStatement GET /stock/{symbol}/income/{last}/{field}
+func (s *Stock) IncomeStatement(symbol string, params interface{}, opt ...interface{}) (incstmt *IncomeStatement, err error) {
+	endpoint := fmt.Sprintf("%s/income", symbol)
+	if len(opt) > 0 {
+		last := opt[0].(int)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+	}
+	if len(opt) > 1 {
+		field := opt[1].(string)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
+	}
+
+	err = get(s, &incstmt, endpoint, params)
+	return
+}
+
+// InsiderRoster GET /stock/{symbol}/insider-roster
+func (s *Stock) InsiderRoster(symbol string) (ir InsiderRoster, err error) {
+	endpoint := fmt.Sprintf("%s/insider-roster", symbol)
+	err = get(s, &ir, endpoint, nil)
+	return
+}
+
+// InsiderSummary GET /stock/{symbol}/insider-summary
+func (s *Stock) InsiderSummary(symbol string) (is InsiderSummary, err error) {
+	endpoint := fmt.Sprintf("%s/insider-summary", symbol)
+	err = get(s, &is, endpoint, nil)
+	return
+}
+
+// InsiderTransactions GET /stock/{symbol}/insider-transactions
+func (s *Stock) InsiderTransactions(symbol string) (it InsiderTransactions, err error) {
+	endpoint := fmt.Sprintf("%s/insider-transactions", symbol)
+	err = get(s, &it, endpoint, nil)
+	return
+}
+
+// InstitutionalOwnership GET /stock/{symbol}/institutional-ownership
+func (s *Stock) InstitutionalOwnership(symbol string) (iop InstitutionalOwnership, err error) {
+	endpoint := fmt.Sprintf("%s/institutional-ownership", symbol)
+	err = get(s, &iop, endpoint, nil)
+	return
+}
+
+// IntradayPrices GET /stock/{symbol}/intraday-prices
+func (s *Stock) IntradayPrices(symbol string, params interface{}) (ip IntradayPrices, err error) {
+	endpoint := fmt.Sprintf("%s/intraday-prices", symbol)
+	err = get(s, &ip, endpoint, params)
+	return
+}
+
+// UpcomingIPOS GET /stock/market/upcoming-ipos
+func (s *Stock) UpcomingIPOS() (ipo *IPOCalendar, err error) {
+	err = get(s, &ipo, "market/upcoming-ipos", nil)
+	return
+}
+
+// TodayIPOS GET /stock/market/today-ipos
+func (s *Stock) TodayIPOS() (ipo *IPOCalendar, err error) {
+	err = get(s, &ipo, "market/today-ipos", nil)
+	return
+}
+
+// KeyStats GET /stock/{symbol}/stats
+func (s *Stock) KeyStats(symbol string) (ks *KeyStat, err error) {
+	endpoint := fmt.Sprintf("%s/stats", symbol)
+	err = get(s, &ks, endpoint, nil)
 	return
 }
 
