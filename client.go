@@ -58,11 +58,11 @@ type Client struct {
 	*APISystemMetadata
 }
 
-// Option is a func that operates on *Client
-type Option func(*Client) error
+// ClientOption is a func that operates on *Client
+type ClientOption func(*Client) error
 
 // NewClient creates client interface to IEX Cloud APIs
-func NewClient(token string, options ...Option) (*Client, error) {
+func NewClient(token string, options ...ClientOption) (*Client, error) {
 	client := &Client{}
 	SetToken(token)(client)
 	SetVersion(DefaultVersion)(client)
@@ -118,7 +118,7 @@ func (c *Client) Client() *http.Client {
 }
 
 // SetToken assigns secret token
-func SetToken(token string) Option {
+func SetToken(token string) ClientOption {
 	return func(c *Client) error {
 		c.iex.token = token
 		return nil
@@ -126,7 +126,7 @@ func SetToken(token string) Option {
 }
 
 // SetHTTPClient assigns HTTP client
-func SetHTTPClient(httpClient *http.Client) Option {
+func SetHTTPClient(httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.iex.client = httpClient
 		return nil
@@ -134,7 +134,7 @@ func SetHTTPClient(httpClient *http.Client) Option {
 }
 
 // SetURL assigns URL base
-func SetURL(rawurl string) Option {
+func SetURL(rawurl string) ClientOption {
 	return func(c *Client) error {
 		baseurl, err := url.Parse(rawurl)
 		if err != nil {
@@ -147,7 +147,7 @@ func SetURL(rawurl string) Option {
 }
 
 // SetAPIURL assigns API URL
-func SetAPIURL(rawurl string) Option {
+func SetAPIURL(rawurl string) ClientOption {
 	return func(c *Client) error {
 		apiurl, err := url.Parse(rawurl)
 		if err != nil {
@@ -160,7 +160,7 @@ func SetAPIURL(rawurl string) Option {
 }
 
 // SetVersion set IEX version
-func SetVersion(version string) Option {
+func SetVersion(version string) ClientOption {
 	return func(c *Client) error {
 		c.iex.version = version
 		return nil
@@ -168,7 +168,7 @@ func SetVersion(version string) Option {
 }
 
 // SetAccount set new Account
-func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Option {
+func SetAccount(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.Account = NewAccount(token, version, url, httpClient)
 		return nil
@@ -176,7 +176,7 @@ func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Op
 }
 
 // SetDataAPI set new DataAPI
-func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) Option {
+func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.DataAPI = NewDataAPI(token, version, url, httpClient)
 		return nil
@@ -184,7 +184,7 @@ func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) Op
 }
 
 // SetStock set new Stock
-func SetStock(token, version string, url *url.URL, httpClient *http.Client) Option {
+func SetStock(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.Stock = NewStock(token, version, url, httpClient)
 		return nil
@@ -192,7 +192,7 @@ func SetStock(token, version string, url *url.URL, httpClient *http.Client) Opti
 }
 
 // SetAPISystemMetadata set new APISystemMetadata
-func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) Option {
+func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
 		return nil

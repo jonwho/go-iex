@@ -41,7 +41,7 @@ func TestGet(t *testing.T) {
 	}{}
 	err = cli.Get("status", anonstruct, nil)
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = `up`
 	actual = anonstruct.Status

@@ -16,7 +16,7 @@ func TestStatus(t *testing.T) {
 
 	status, err := sys.Status()
 	if err != nil {
-		t.Error(err.Error())
+		t.Error(err)
 	}
 	expected = `up`
 	actual = status.Status

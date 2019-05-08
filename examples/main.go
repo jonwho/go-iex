@@ -13,6 +13,9 @@ func main() {
 	token := os.Getenv("IEX_SECRET_TOKEN")
 	// client will have all currently supported IEX APIs
 	client, err := iex.NewClient(token)
+	if err != nil {
+		log.Println(err)
+	}
 
 	quote, err := client.Quote("aapl", nil)
 	if err != nil {

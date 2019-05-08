@@ -40,6 +40,9 @@ func main() {
 	token := os.Getenv("IEX_SECRET_TOKEN")
 	// client will have all currently supported IEX APIs
 	client, err := iex.NewClient(token)
+	if err != nil {
+		log.Println(err)
+	}
 
 	quote, err := client.Quote("aapl", nil)
 	if err != nil {
@@ -113,24 +116,24 @@ func main() {
 - [x] Intraday Prices
 - [x] IPO Calendar
 - [x] Key Stats
-- [ ] Largest Trades
-- [ ] List
-- [ ] Logo
-- [ ] Market Volume (U.S.)
-- [ ] News
-- [ ] OHLC
-- [ ] Open / Close Price
-- [ ] Options
-- [ ] Peers
-- [ ] Previous Day Price
-- [ ] Price
-- [ ] Price Target
+- [x] Largest Trades
+- [x] List
+- [x] Logo
+- [x] Market Volume (U.S.)
+- [x] News
+- [x] OHLC
+- [x] Open / Close Price
+- [x] Options
+- [x] Peers
+- [x] Previous Day Price
+- [x] Price
+- [x] Price Target
 - [x] Quote
-- [ ] Recommendation Trends
-- [ ] Sector Performance
-- [ ] Splits
-- [ ] Upcoming Events
-- [ ] Volumne by Venue
+- [x] Recommendation Trends
+- [x] Sector Performance
+- [x] Splits
+- [x] Upcoming Events
+- [x] Volume by Venue
 ### Alternative Data
 - [ ] Crypto
 - [ ] Social Sentiment

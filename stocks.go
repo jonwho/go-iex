@@ -32,6 +32,17 @@ var (
 		"1m":   true,
 		"next": true,
 	}
+	// SplitRanges allowed for Splits API
+	SplitRanges = map[string]bool{
+		"5y":   true,
+		"2y":   true,
+		"1y":   true,
+		"ytd":  true,
+		"6m":   true,
+		"3m":   true,
+		"1m":   true,
+		"next": true,
+	}
 )
 
 // Stock struct to interface with /stock endpoints
@@ -416,7 +427,7 @@ type IPOCalendar struct {
 		PriceLow               float64     `json:"priceLow"`
 		PriceHigh              float64     `json:"priceHigh"`
 		OfferAmount            interface{} `json:"offerAmount"`
-		TotalExpenses          int         `json:"totalExpenses"`
+		TotalExpenses          float64     `json:"totalExpenses"`
 		SharesOverAlloted      int         `json:"sharesOverAlloted"`
 		ShareholderShares      interface{} `json:"shareholderShares"`
 		SharesOutstanding      int         `json:"sharesOutstanding"`
@@ -482,6 +493,34 @@ type KeyStat struct {
 	Day5ChangePercent   float64 `json:"day5ChangePercent"`
 }
 
+// LargestTrades struct
+type LargestTrades []struct {
+	Price     float64 `json:"price"`
+	Size      int     `json:"size"`
+	Time      int64   `json:"time"`
+	TimeLabel string  `json:"timeLabel"`
+	Venue     string  `json:"venue"`
+	VenueName string  `json:"venueName"`
+}
+
+// Logo struct
+type Logo struct {
+	URL string `json:"url"`
+}
+
+// MarketVolume struct
+type MarketVolume []struct {
+	Mic           string  `json:"mic"`
+	TapeID        string  `json:"tapeId"`
+	VenueName     string  `json:"venueName"`
+	Volume        int     `json:"volume"`
+	TapeA         int     `json:"tapeA"`
+	TapeB         int     `json:"tapeB"`
+	TapeC         int     `json:"tapeC"`
+	MarketPercent float64 `json:"marketPercent"`
+	LastUpdated   int64   `json:"lastUpdated"`
+}
+
 // News struct
 type News []struct {
 	Datetime   int64  `json:"datetime"`
@@ -493,6 +532,66 @@ type News []struct {
 	Image      string `json:"image"`
 	Lang       string `json:"lang"`
 	HasPaywall bool   `json:"hasPaywall"`
+}
+
+// OHLC struct
+type OHLC struct {
+	Open struct {
+		Price float64 `json:"price"`
+		Time  int64   `json:"time"`
+	} `json:"open"`
+	Close struct {
+		Price float64 `json:"price"`
+		Time  int64   `json:"time"`
+	} `json:"close"`
+	High float64 `json:"high"`
+	Low  float64 `json:"low"`
+}
+
+// Option struct
+type Option struct {
+	Symbol         string  `json:"symbol"`
+	ID             string  `json:"id"`
+	ExpirationDate string  `json:"expirationDate"`
+	ContractSize   int     `json:"contractSize"`
+	StrikePrice    int     `json:"strikePrice"`
+	ClosingPrice   float64 `json:"closingPrice"`
+	Side           string  `json:"side"`
+	Type           string  `json:"type"`
+	Volume         int     `json:"volume"`
+	OpenInterest   int     `json:"openInterest"`
+	Bid            float64 `json:"bid"`
+	Ask            float64 `json:"ask"`
+	LastUpdated    string  `json:"lastUpdated"`
+}
+
+// PreviousDayPrice struct
+type PreviousDayPrice struct {
+	Date           string  `json:"date"`
+	Open           float64 `json:"open"`
+	Close          float64 `json:"close"`
+	High           float64 `json:"high"`
+	Low            float64 `json:"low"`
+	Volume         int     `json:"volume"`
+	UOpen          float64 `json:"uOpen"`
+	UClose         float64 `json:"uClose"`
+	UHigh          float64 `json:"uHigh"`
+	ULow           float64 `json:"uLow"`
+	UVolume        int     `json:"uVolume"`
+	Change         int     `json:"change"`
+	ChangePercent  int     `json:"changePercent"`
+	ChangeOverTime int     `json:"changeOverTime"`
+	Symbol         string  `json:"symbol"`
+}
+
+// PriceTarget struct
+type PriceTarget struct {
+	Symbol             string  `json:"symbol"`
+	UpdatedDate        string  `json:"updatedDate"`
+	PriceTargetAverage float64 `json:"priceTargetAverage"`
+	PriceTargetHigh    float64 `json:"priceTargetHigh"`
+	PriceTargetLow     float64 `json:"priceTargetLow"`
+	NumberOfAnalysts   int     `json:"numberOfAnalysts"`
 }
 
 // Quote struct
@@ -536,6 +635,38 @@ type Quote struct {
 	YtdChange             float64 `json:"ytdChange"`
 }
 
+// RecommendationTrends struct
+type RecommendationTrends []struct {
+	ConsensusEndDate            int64   `json:"consensusEndDate"`
+	ConsensusStartDate          int64   `json:"consensusStartDate"`
+	CorporateActionsAppliedDate int64   `json:"corporateActionsAppliedDate"`
+	RatingBuy                   int     `json:"ratingBuy"`
+	RatingHold                  int     `json:"ratingHold"`
+	RatingNone                  int     `json:"ratingNone"`
+	RatingOverweight            int     `json:"ratingOverweight"`
+	RatingScaleMark             float64 `json:"ratingScaleMark"`
+	RatingSell                  int     `json:"ratingSell"`
+	RatingUnderweight           int     `json:"ratingUnderweight"`
+}
+
+// SectorPerformance struct
+type SectorPerformance []struct {
+	Type        string  `json:"type"`
+	Name        string  `json:"name"`
+	Performance float64 `json:"performance"`
+	LastUpdated int64   `json:"lastUpdated"`
+}
+
+// Splits struct
+type Splits []struct {
+	ExDate       string  `json:"exDate"`
+	DeclaredDate string  `json:"declaredDate"`
+	Ratio        float64 `json:"ratio"`
+	ToFactor     int     `json:"toFactor"`
+	FromFactor   int     `json:"fromFactor"`
+	Description  string  `json:"description"`
+}
+
 // SystemEvent struct
 type SystemEvent struct {
 	SystemEvent string `json:"systemEvent"`
@@ -553,6 +684,24 @@ type Trades []struct {
 	IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
 	IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
 	Timestamp             int64   `json:"timestamp"`
+}
+
+// Upcoming struct
+type Upcoming struct {
+	IPOS      IPOCalendar `json:"ipos,omitempty"`
+	Earnings  Earnings    `json:"earnings"`
+	Dividends Dividends   `json:"dividends"`
+	Splits    Splits      `json:"splits"`
+}
+
+// VolumeByVenue struct
+type VolumeByVenue []struct {
+	Volume           int     `json:"volume"`
+	Venue            string  `json:"venue"`
+	VenueName        string  `json:"venueName"`
+	MarketPercent    float64 `json:"marketPercent"`
+	AvgMarketPercent float64 `json:"avgMarketPercent"`
+	Date             string  `json:"date"`
 }
 
 // NewStock return new Stock
@@ -819,10 +968,159 @@ func (s *Stock) KeyStats(symbol string) (ks *KeyStat, err error) {
 	return
 }
 
+// LargestTrades GET /stock/{symbol}/largest-trades
+func (s *Stock) LargestTrades(symbol string) (lt LargestTrades, err error) {
+	endpoint := fmt.Sprintf("%s/largest-trades", symbol)
+	err = get(s, &lt, endpoint, nil)
+	return
+}
+
+// List GET /stock/market/list/{list-type}
+func (s *Stock) List(listType string, params interface{}) (list []*Quote, err error) {
+	endpoint := fmt.Sprintf("market/list/%s", listType)
+	err = get(s, &list, endpoint, params)
+	return
+}
+
+// Logo GET /stock/{symbol}/logo
+func (s *Stock) Logo(symbol string) (logo *Logo, err error) {
+	endpoint := fmt.Sprintf("%s/logo", symbol)
+	err = get(s, &logo, endpoint, nil)
+	return
+}
+
+// MarketVolume GET /market
+// ??? why did IEX make this endpoint here? doesn't have relative endpoint `stock`...
+func (s *Stock) MarketVolume() (mkt MarketVolume, err error) {
+	// NOTE: had to force absolute URL since for whatever reason IEX API didn't prepend
+	// this endpoint with `stock
+	endpoint := fmt.Sprintf("%s%s/market", s.url.String(), s.version)
+	err = get(s, &mkt, endpoint, nil)
+	return
+}
+
+// News GET /stock/{symbol}/news/last/{last}
+func (s *Stock) News(symbol string, opt ...interface{}) (news News, err error) {
+	endpoint := fmt.Sprintf("%s/news", symbol)
+	if len(opt) > 0 {
+		last := opt[0].(int)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+	}
+
+	err = get(s, &news, endpoint, nil)
+	return
+}
+
+// OHLC GET /stock/{symbol}/ohlc
+func (s *Stock) OHLC(symbol string) (ohlc *OHLC, err error) {
+	endpoint := fmt.Sprintf("%s/ohlc", symbol)
+	err = get(s, &ohlc, endpoint, nil)
+	return
+}
+
+// OpenClosePrice Refer to ohlc
+func (s *Stock) OpenClosePrice(symbol string) (ohlc *OHLC, err error) {
+	return s.OHLC(symbol)
+}
+
+// OptionDates GET /stock/{symbol}/options
+// return available dates as string slice
+func (s *Stock) OptionDates(symbol string) (dates []string, err error) {
+	endpoint := fmt.Sprintf("%s/options", symbol)
+	err = get(s, &dates, endpoint, nil)
+	return
+}
+
+// Options GET /stock/{symbol}/options/{expiration}/{optionSide?}
+func (s *Stock) Options(symbol, expiration string, opt ...interface{}) (options []*Option, err error) {
+	endpoint := fmt.Sprintf("%s/options/%s", symbol, expiration)
+	if len(opt) > 0 {
+		optionSide := opt[0].(string)
+		endpoint = fmt.Sprintf("%s/%s", endpoint, optionSide)
+	}
+	err = get(s, &options, endpoint, nil)
+	return
+}
+
+// Peers GET /stock/{symbol}/peers
+func (s *Stock) Peers(symbol string) (peers []string, err error) {
+	endpoint := fmt.Sprintf("%s/peers", symbol)
+	err = get(s, &peers, endpoint, nil)
+	return
+}
+
+// PreviousDayPrice GET /stock/{symbol}/previous
+func (s *Stock) PreviousDayPrice(symbol string) (prev *PreviousDayPrice, err error) {
+	endpoint := fmt.Sprintf("%s/previous", symbol)
+	err = get(s, &prev, endpoint, nil)
+	return
+}
+
+// Price GET /stock/{symbol}/price
+func (s *Stock) Price(symbol string) (price float64, err error) {
+	endpoint := fmt.Sprintf("%s/price", symbol)
+	err = get(s, &price, endpoint, nil)
+	return
+}
+
+// PriceTarget GET /stock/{symbol}/price-target
+func (s *Stock) PriceTarget(symbol string) (tgt *PriceTarget, err error) {
+	endpoint := fmt.Sprintf("%s/price-target", symbol)
+	err = get(s, &tgt, endpoint, nil)
+	return
+}
+
 // Quote GET /stock/{symbol}/quote
 func (s *Stock) Quote(symbol string, params interface{}) (quote *Quote, err error) {
 	endpoint := fmt.Sprintf("%s/quote", symbol)
 	err = get(s, &quote, endpoint, params)
+	return
+}
+
+// RecommendationTrends GET /stock/{symbol}/recommendation-trends
+func (s *Stock) RecommendationTrends(symbol string) (rt RecommendationTrends, err error) {
+	endpoint := fmt.Sprintf("%s/recommendation-trends", symbol)
+	err = get(s, &rt, endpoint, nil)
+	return
+}
+
+// SectorPerformance GET /stock/market/sector-performance
+func (s *Stock) SectorPerformance() (sp SectorPerformance, err error) {
+	err = get(s, &sp, "market/sector-performance", nil)
+	return
+}
+
+// Splits GET /stock/{symbol}/splits/{range}
+func (s *Stock) Splits(symbol string, opt ...interface{}) (sp Splits, err error) {
+	endpoint := fmt.Sprintf("%s/splits", symbol)
+	if len(opt) > 0 {
+		splitRange := opt[0].(string)
+		if !SplitRanges[splitRange] {
+			err = fmt.Errorf("Received invalid date range for splits")
+			return
+		}
+		endpoint = fmt.Sprintf("%s/%s", endpoint, splitRange)
+	}
+
+	err = get(s, &sp, endpoint, nil)
+	return
+}
+
+// Upcoming GET /stock/{symbol}/upcoming-events
+//          GET /stock/{symbol}/upcoming-earnings
+//          GET /stock/{symbol}/upcoming-dividends
+//          GET /stock/{symbol}/upcoming-splits
+//          GET /stock/{symbol}/upcoming-ipos
+func (s *Stock) Upcoming(symbol, event string, params interface{}) (up *Upcoming, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-%s", symbol, event)
+	err = get(s, &up, endpoint, params)
+	return
+}
+
+// VolumeByVenue GET /stock/{symbol}/volume-by-venue
+func (s *Stock) VolumeByVenue(symbol string) (vbv VolumeByVenue, err error) {
+	endpoint := fmt.Sprintf("%s/volume-by-venue", symbol)
+	err = get(s, &vbv, endpoint, nil)
 	return
 }
 
@@ -843,6 +1141,9 @@ func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error {
 
 	if consensusEPS, ok := aux.ConsensusEPS.(string); ok {
 		etd.ConsensusEPS, err = strconv.ParseFloat(consensusEPS, 64)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
