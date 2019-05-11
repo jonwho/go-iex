@@ -2,11 +2,9 @@ package goiextest
 
 import (
 	"net/url"
-	"os"
 	"testing"
 
 	iex "github.com/jonwho/go-iex"
-	// "github.com/jonwho/go-iex/mock-iex"
 )
 
 func TestNewAccount(t *testing.T) {
@@ -28,11 +26,7 @@ func TestNewAccount(t *testing.T) {
 }
 
 func TestMetadata(t *testing.T) {
-	token := os.Getenv("IEX_SECRET_TOKEN")
-	u, _ := url.Parse(iex.DefaultBaseURL)
-	acc := iex.NewAccount(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	metadata, err := acc.Metadata()
+	metadata, err := iexSandboxClient.Metadata()
 	if err != nil {
 		t.Error(err)
 	}

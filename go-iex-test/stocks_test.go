@@ -1,11 +1,7 @@
 package goiextest
 
 import (
-	"net/url"
-	"os"
 	"testing"
-
-	iex "github.com/jonwho/go-iex"
 )
 
 // TODO: mock this because this API only available higher account tier
@@ -26,12 +22,7 @@ import (
 // }
 
 func TestBalanceSheet(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	balanceSheet, err := stock.BalanceSheet("aapl", nil)
+	balanceSheet, err := iexSandboxClient.BalanceSheet("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -41,7 +32,7 @@ func TestBalanceSheet(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = stock.BalanceSheet("aapl", nil, 5)
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5)
 	if err != nil {
 		t.Error(err)
 	}
@@ -51,7 +42,7 @@ func TestBalanceSheet(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = stock.BalanceSheet("aapl", nil, 5, "annual")
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5, "annual")
 	if err != nil {
 		t.Error(err)
 	}
@@ -61,7 +52,7 @@ func TestBalanceSheet(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = stock.BalanceSheet("aapl", struct {
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
 		Period string `url:"period,omitempty"`
 	}{"annual"}, 5, "annual")
 
@@ -74,7 +65,7 @@ func TestBalanceSheet(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = stock.BalanceSheet("aapl", struct {
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
 		Period string `url:"period,omitempty"`
 		Last   int    `url:"last,omitempty"`
 	}{"quarter", 12})
@@ -89,12 +80,7 @@ func TestBalanceSheet(t *testing.T) {
 }
 
 func TestBatch(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	batch, err := stock.Batch("aapl", struct {
+	batch, err := iexSandboxClient.Batch("aapl", struct {
 		Types string `url:"types,omitempty"`
 		Range string `url:"range,omitempty"`
 		Last  int    `url:"last,omitempty"`
@@ -121,12 +107,7 @@ func TestBatch(t *testing.T) {
 
 // TODO: @mock
 func TestBook(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	book, err := stock.Book("aapl")
+	book, err := iexSandboxClient.Book("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -158,12 +139,7 @@ func TestBook(t *testing.T) {
 }
 
 func TestCashFlow(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	cashflow, err := stock.CashFlow("aapl", nil)
+	cashflow, err := iexSandboxClient.CashFlow("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -180,12 +156,7 @@ func TestCashFlow(t *testing.T) {
 }
 
 func TestChart(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	chart, err := stock.Chart("aapl", "outofrange", nil)
+	chart, err := iexSandboxClient.Chart("aapl", "outofrange", nil)
 	if err == nil {
 		t.Error("Expected err to not be nil")
 	}
@@ -195,7 +166,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = stock.Chart("aapl", "max", nil)
+	chart, err = iexSandboxClient.Chart("aapl", "max", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -207,12 +178,7 @@ func TestChart(t *testing.T) {
 }
 
 func TestCollection(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	col, err := stock.Collection("sector", struct {
+	col, err := iexSandboxClient.Collection("sector", struct {
 		CollectionName string `url:"collectionName,omitempty"`
 	}{"Technology"})
 	if err != nil {
@@ -226,12 +192,7 @@ func TestCollection(t *testing.T) {
 }
 
 func TestCompany(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	com, err := stock.Company("aapl")
+	com, err := iexSandboxClient.Company("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -243,12 +204,7 @@ func TestCompany(t *testing.T) {
 }
 
 func TestDelayedQuote(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	dq, err := stock.DelayedQuote("aapl")
+	dq, err := iexSandboxClient.DelayedQuote("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -260,12 +216,7 @@ func TestDelayedQuote(t *testing.T) {
 }
 
 func TestDividends(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	div, err := stock.Dividends("aapl", "outofrange")
+	div, err := iexSandboxClient.Dividends("aapl", "outofrange")
 	if err == nil {
 		t.Error("Expected err to not be nil")
 	}
@@ -275,7 +226,7 @@ func TestDividends(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	div, err = stock.Dividends("aapl", "5y")
+	div, err = iexSandboxClient.Dividends("aapl", "5y")
 	if err != nil {
 		t.Error(err)
 	}
@@ -287,17 +238,12 @@ func TestDividends(t *testing.T) {
 }
 
 func TestEarnings(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	er, err := stock.Earnings("aapl", nil)
+	er, err := iexSandboxClient.Earnings("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
 
-	er, err = stock.Earnings("aapl", struct {
+	er, err = iexSandboxClient.Earnings("aapl", struct {
 		Last int `url:"last,omitempty"`
 	}{2})
 	if err != nil {
@@ -312,12 +258,7 @@ func TestEarnings(t *testing.T) {
 
 // TODO: @mock
 func TestEarningsToday(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	et, err := stock.EarningsToday()
+	et, err := iexSandboxClient.EarningsToday()
 	if err != nil {
 		t.Error(err)
 	}
@@ -333,31 +274,21 @@ func TestEarningsToday(t *testing.T) {
 	}
 }
 
-// TODO: mock this request to get consistent results
+// TODO: @mock
 func TestEffectiveSpread(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	es, err := stock.EffectiveSpread("aapl")
+	es, err := iexSandboxClient.EffectiveSpread("aapl")
 	if err != nil {
 		t.Error(err)
 	}
 	expected = false
-	actual = len(es) != 0
+	actual = len(es) == 0
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
 
 func TestEstimates(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	est, err := stock.Estimates("aapl")
+	est, err := iexSandboxClient.Estimates("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -367,7 +298,7 @@ func TestEstimates(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	est, err = stock.Estimates("aapl", 2)
+	est, err = iexSandboxClient.Estimates("aapl", 2)
 	if err != nil {
 		t.Error(err)
 	}
@@ -377,7 +308,7 @@ func TestEstimates(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	est, err = stock.Estimates("aapl", 2, "annual")
+	est, err = iexSandboxClient.Estimates("aapl", 2, "annual")
 	if err != nil {
 		t.Error(err)
 	}
@@ -389,12 +320,7 @@ func TestEstimates(t *testing.T) {
 }
 
 func TestFinancials(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	fin, err := stock.Financials("aapl", nil)
+	fin, err := iexSandboxClient.Financials("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -404,7 +330,7 @@ func TestFinancials(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	fin, err = stock.Financials("aapl", nil, 2)
+	fin, err = iexSandboxClient.Financials("aapl", nil, 2)
 	if err != nil {
 		t.Error(err)
 	}
@@ -414,7 +340,7 @@ func TestFinancials(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	fin, err = stock.Financials("aapl", nil, 2, "annual")
+	fin, err = iexSandboxClient.Financials("aapl", nil, 2, "annual")
 	if err != nil {
 		t.Error(err)
 	}
@@ -424,7 +350,7 @@ func TestFinancials(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	fin, err = stock.Financials("aapl", struct {
+	fin, err = iexSandboxClient.Financials("aapl", struct {
 		Period string `url:"period,omitempty"`
 	}{"quarterly"}, 2, "annual")
 	if err != nil {
@@ -439,12 +365,7 @@ func TestFinancials(t *testing.T) {
 
 // TODO: @mock
 func TestFundOwnership(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	fo, err := stock.FundOwnership("aapl")
+	fo, err := iexSandboxClient.FundOwnership("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -456,12 +377,7 @@ func TestFundOwnership(t *testing.T) {
 }
 
 func TestIncomeStatement(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	stmt, err := stock.IncomeStatement("aapl", nil)
+	stmt, err := iexSandboxClient.IncomeStatement("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -474,12 +390,7 @@ func TestIncomeStatement(t *testing.T) {
 
 // TODO: @mock
 func TestInsiderRoster(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ir, err := stock.InsiderRoster("aapl")
+	ir, err := iexSandboxClient.InsiderRoster("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -492,12 +403,7 @@ func TestInsiderRoster(t *testing.T) {
 
 // TODO: @mock
 func TestInsiderSummary(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	is, err := stock.InsiderSummary("aapl")
+	is, err := iexSandboxClient.InsiderSummary("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -510,12 +416,7 @@ func TestInsiderSummary(t *testing.T) {
 
 // TODO: @mock
 func TestInsiderTransactions(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	it, err := stock.InsiderTransactions("aapl")
+	it, err := iexSandboxClient.InsiderTransactions("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -528,12 +429,7 @@ func TestInsiderTransactions(t *testing.T) {
 
 // TODO: @mock
 func TestInsitutionalOwnership(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	iop, err := stock.InstitutionalOwnership("aapl")
+	iop, err := iexSandboxClient.InstitutionalOwnership("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -545,12 +441,7 @@ func TestInsitutionalOwnership(t *testing.T) {
 }
 
 func TestIntradayPrices(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ip, err := stock.IntradayPrices("aapl", struct {
+	ip, err := iexSandboxClient.IntradayPrices("aapl", struct {
 		chartIEXOnly    bool
 		chartReset      bool
 		chartSimplify   bool
@@ -569,12 +460,7 @@ func TestIntradayPrices(t *testing.T) {
 }
 
 func TestUpcomingIPOS(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ipo, err := stock.UpcomingIPOS()
+	ipo, err := iexSandboxClient.UpcomingIPOS()
 	if err != nil {
 		t.Error(err)
 	}
@@ -592,12 +478,7 @@ func TestUpcomingIPOS(t *testing.T) {
 
 // TODO: @mock
 func TestTodayIPOS(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ipo, err := stock.TodayIPOS()
+	ipo, err := iexSandboxClient.TodayIPOS()
 	if err != nil {
 		t.Error(err)
 	}
@@ -614,12 +495,7 @@ func TestTodayIPOS(t *testing.T) {
 }
 
 func TestKeyStats(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ks, err := stock.KeyStats("aapl")
+	ks, err := iexSandboxClient.KeyStats("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -630,13 +506,9 @@ func TestKeyStats(t *testing.T) {
 	}
 }
 
+// TODO: @mock
 func TestLargestTrades(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	lt, err := stock.LargestTrades("aapl")
+	lt, err := iexSandboxClient.LargestTrades("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -648,12 +520,7 @@ func TestLargestTrades(t *testing.T) {
 }
 
 func TestList(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	list, err := stock.List("gainers", struct {
+	list, err := iexSandboxClient.List("gainers", struct {
 		displayPercent bool
 	}{true})
 	if err != nil {
@@ -667,12 +534,7 @@ func TestList(t *testing.T) {
 }
 
 func TestLogo(t *testing.T) {
-	var actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	logo, err := stock.Logo("aapl")
+	logo, err := iexSandboxClient.Logo("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -683,12 +545,7 @@ func TestLogo(t *testing.T) {
 }
 
 func TestMarketVolume(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	mkt, err := stock.MarketVolume()
+	mkt, err := iexSandboxClient.MarketVolume()
 	if err != nil {
 		t.Error(err)
 	}
@@ -700,12 +557,7 @@ func TestMarketVolume(t *testing.T) {
 }
 
 func TestNews(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	news, err := stock.News("aapl", 10)
+	news, err := iexSandboxClient.News("aapl", 10)
 	if err != nil {
 		t.Error(err)
 	}
@@ -717,11 +569,7 @@ func TestNews(t *testing.T) {
 }
 
 func TestOHLC(t *testing.T) {
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	ohlc, err := stock.OHLC("aapl")
+	ohlc, err := iexSandboxClient.OHLC("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -732,12 +580,7 @@ func TestOHLC(t *testing.T) {
 
 // TODO: @mock
 func TestOptionDates(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	dates, err := stock.OptionDates("aapl")
+	dates, err := iexSandboxClient.OptionDates("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -750,12 +593,7 @@ func TestOptionDates(t *testing.T) {
 
 // TODO: @mock
 func TestOptions(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	options, err := stock.Options("aapl", "201912")
+	options, err := iexSandboxClient.Options("aapl", "201912")
 	if err != nil {
 		t.Error(err)
 	}
@@ -765,7 +603,7 @@ func TestOptions(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	options, err = stock.Options("aapl", "201912", "call")
+	options, err = iexSandboxClient.Options("aapl", "201912", "call")
 	if err != nil {
 		t.Error(err)
 	}
@@ -777,12 +615,7 @@ func TestOptions(t *testing.T) {
 }
 
 func TestPeers(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	peers, err := stock.Peers("aapl")
+	peers, err := iexSandboxClient.Peers("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -794,12 +627,7 @@ func TestPeers(t *testing.T) {
 }
 
 func TestPreviousDayPrice(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	prev, err := stock.PreviousDayPrice("aapl")
+	prev, err := iexSandboxClient.PreviousDayPrice("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -811,11 +639,7 @@ func TestPreviousDayPrice(t *testing.T) {
 }
 
 func TestPrice(t *testing.T) {
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	price, err := stock.Price("aapl")
+	price, err := iexSandboxClient.Price("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -825,12 +649,7 @@ func TestPrice(t *testing.T) {
 }
 
 func TestPriceTarget(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	tgt, err := stock.PriceTarget("aapl")
+	tgt, err := iexSandboxClient.PriceTarget("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -842,12 +661,7 @@ func TestPriceTarget(t *testing.T) {
 }
 
 func TestQuote(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	quote, err := stock.Quote("aapl", nil)
+	quote, err := iexSandboxClient.Quote("aapl", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -857,7 +671,7 @@ func TestQuote(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	quote, err = stock.Quote("aapl", struct {
+	quote, err = iexSandboxClient.Quote("aapl", struct {
 		DisplayPercent bool `url:"displayPercent,omitempty"`
 	}{true})
 	if err != nil {
@@ -871,12 +685,7 @@ func TestQuote(t *testing.T) {
 }
 
 func TestRecommendationTrends(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	rt, err := stock.RecommendationTrends("aapl")
+	rt, err := iexSandboxClient.RecommendationTrends("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -888,12 +697,7 @@ func TestRecommendationTrends(t *testing.T) {
 }
 
 func TestSectorPerformance(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	sp, err := stock.SectorPerformance()
+	sp, err := iexSandboxClient.SectorPerformance()
 	if err != nil {
 		t.Error(err)
 	}
@@ -906,12 +710,7 @@ func TestSectorPerformance(t *testing.T) {
 
 // TODO: @mock
 func TestSplits(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	sp, err := stock.Splits("aapl")
+	sp, err := iexSandboxClient.Splits("aapl")
 	if err != nil {
 		t.Error(err)
 	}
@@ -921,7 +720,7 @@ func TestSplits(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	sp, err = stock.Splits("aapl", "5y")
+	sp, err = iexSandboxClient.Splits("aapl", "5y")
 	if err != nil {
 		t.Error(err)
 	}
@@ -931,7 +730,7 @@ func TestSplits(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	sp, err = stock.Splits("aapl", "outofrange")
+	sp, err = iexSandboxClient.Splits("aapl", "outofrange")
 	if err == nil {
 		t.Error("Expected err to be not nil")
 	}
@@ -944,34 +743,25 @@ func TestSplits(t *testing.T) {
 
 // TODO: @mock
 func TestUpcoming(t *testing.T) {
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	if _, err := stock.Upcoming("aapl", "events", nil); err != nil {
+	if _, err := iexSandboxClient.Upcoming("aapl", "events", nil); err != nil {
 		t.Error(err)
 	}
-	if _, err := stock.Upcoming("aapl", "earnings", nil); err != nil {
+	if _, err := iexSandboxClient.Upcoming("aapl", "earnings", nil); err != nil {
 		t.Error(err)
 	}
-	if _, err := stock.Upcoming("aapl", "dividends", nil); err != nil {
+	if _, err := iexSandboxClient.Upcoming("aapl", "dividends", nil); err != nil {
 		t.Error(err)
 	}
-	if _, err := stock.Upcoming("aapl", "splits", nil); err != nil {
+	if _, err := iexSandboxClient.Upcoming("aapl", "splits", nil); err != nil {
 		t.Error(err)
 	}
-	if _, err := stock.Upcoming("aapl", "ipos", nil); err != nil {
+	if _, err := iexSandboxClient.Upcoming("aapl", "ipos", nil); err != nil {
 		t.Error(err)
 	}
 }
 
 func TestVolumeByVenue(t *testing.T) {
-	var expected, actual interface{}
-	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	u, _ := url.Parse(iex.SandboxBaseURL)
-	stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-
-	vbv, err := stock.VolumeByVenue("aapl")
+	vbv, err := iexSandboxClient.VolumeByVenue("aapl")
 	if err != nil {
 		t.Error(err)
 	}
