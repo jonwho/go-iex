@@ -136,9 +136,9 @@ func main() {
 - [x] Upcoming Events
 - [x] Volume by Venue
 ### Alternative Data
-- [ ] Crypto
-- [ ] Social Sentiment
-- [ ] CEO Compensation
+- [x] Crypto
+- [x] Social Sentiment
+- [x] CEO Compensation
 ### Reference Data
 - [ ] Symbols
 - [ ] IEX Symbols

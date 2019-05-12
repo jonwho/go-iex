@@ -15,13 +15,14 @@ import (
 var wg sync.WaitGroup
 
 func main() {
-	wg.Add(5)
+	wg.Add(6)
 
 	go recordAccount()
-	go recordStock()
-	go recordDataAPIS()
+	go recordAlternativeData()
 	go recordAPISystemMetadata()
+	go recordDataAPIS()
 	go recordForex()
+	go recordStock()
 
 	wg.Wait()
 }
@@ -44,6 +45,29 @@ func recordAccount() {
 	iex.Metadata()
 }
 
+func recordAlternativeData() {
+	defer wg.Done()
+
+	os.Remove("alternative_data.yaml")
+	// Start our recorder
+	r, err := recorder.New("alternative_data")
+	if err != nil {
+		log.Fatal(err)
+	}
+	r.AddFilter(removeToken)
+	defer r.Stop() // Make sure recorder is stopped once done with it
+
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	httpClient := &http.Client{Transport: r}
+	iex, err := goiex.NewClient(token,
+		goiex.SetURL(goiex.SandboxBaseURL),
+		goiex.SetHTTPClient(httpClient),
+	)
+	iex.Crypto("btcusdt")
+	iex.SocialSentiment("aapl")
+	iex.CEOCompensation("aapl")
+}
+
 func recordAPISystemMetadata() {
 	defer wg.Done()
 
@@ -56,7 +80,7 @@ func recordAPISystemMetadata() {
 	r.AddFilter(removeToken)
 	defer r.Stop() // Make sure recorder is stopped once done with it
 
-	token := os.Getenv("IEX_SECRET_TOKEN")
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
 	httpClient := &http.Client{Transport: r}
 	iex, err := goiex.NewClient(token,
 		goiex.SetURL(goiex.SandboxBaseURL),

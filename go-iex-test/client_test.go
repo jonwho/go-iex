@@ -17,6 +17,9 @@ func TestNewClient(t *testing.T) {
 	if cli.Account == nil {
 		t.Error("Should have a default value")
 	}
+	if cli.AlternativeData == nil {
+		t.Error("Should have a default value")
+	}
 	if cli.APISystemMetadata == nil {
 		t.Error("Should have a default value")
 	}

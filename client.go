@@ -53,10 +53,11 @@ type Client struct {
 	iex
 
 	*Account
-	*DataAPI
-	*Stock
-	*Forex
+	*AlternativeData
 	*APISystemMetadata
+	*DataAPI
+	*Forex
+	*Stock
 }
 
 // ClientOption is a func that operates on *Client
@@ -81,6 +82,12 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	if client.Account == nil {
 		SetAccount(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
+	if client.AlternativeData == nil {
+		SetAlternativeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.APISystemMetadata == nil {
+		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
 	if client.DataAPI == nil {
 		SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
@@ -89,9 +96,6 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	}
 	if client.Forex == nil {
 		SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
-	}
-	if client.APISystemMetadata == nil {
-		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	return client, nil
 }
@@ -207,6 +211,14 @@ func SetForex(token, version string, url *url.URL, httpClient *http.Client) Clie
 func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
+		return nil
+	}
+}
+
+// SetAlternativeData set new AlternativeData
+func SetAlternativeData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.AlternativeData = NewAlternativeData(token, version, url, httpClient)
 		return nil
 	}
 }
