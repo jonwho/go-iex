@@ -156,7 +156,7 @@ func main() {
 - [ ] Bonds Symbols In Dev
 - [ ] Crypto Symbols In Dev
 ### Forex / Currencies
-- [ ] Exchange Rates
+- [x] Exchange Rates
 ### Investors Exchange Data
 - [ ] TOPS
 - [ ] Last

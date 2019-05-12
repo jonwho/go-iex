@@ -17,13 +17,16 @@ func TestNewClient(t *testing.T) {
 	if cli.Account == nil {
 		t.Error("Should have a default value")
 	}
+	if cli.APISystemMetadata == nil {
+		t.Error("Should have a default value")
+	}
 	if cli.DataAPI == nil {
 		t.Error("Should have a default value")
 	}
-	if cli.Stock == nil {
+	if cli.Forex == nil {
 		t.Error("Should have a default value")
 	}
-	if cli.APISystemMetadata == nil {
+	if cli.Stock == nil {
 		t.Error("Should have a default value")
 	}
 }
