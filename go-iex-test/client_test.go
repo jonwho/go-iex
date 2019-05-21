@@ -29,6 +29,9 @@ func TestNewClient(t *testing.T) {
 	if cli.Forex == nil {
 		t.Error("Should have a default value")
 	}
+	if cli.ReferenceData == nil {
+		t.Error("Should have a default value")
+	}
 	if cli.Stock == nil {
 		t.Error("Should have a default value")
 	}

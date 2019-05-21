@@ -140,9 +140,9 @@ func main() {
 - [x] Social Sentiment
 - [x] CEO Compensation
 ### Reference Data
-- [ ] Symbols
-- [ ] IEX Symbols
-- [ ] International Symbols
+- [x] Symbols
+- [x] IEX Symbols
+- [x] International Symbols
 - [ ] International Exchanges
 - [ ] U.S. Exchanges
 - [ ] U.S. Holiday and Trading Dates

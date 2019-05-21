@@ -57,6 +57,7 @@ type Client struct {
 	*APISystemMetadata
 	*DataAPI
 	*Forex
+	*ReferenceData
 	*Stock
 }
 
@@ -91,11 +92,14 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	if client.DataAPI == nil {
 		SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
-	if client.Stock == nil {
-		SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
-	}
 	if client.Forex == nil {
 		SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.ReferenceData == nil {
+		SetReferenceData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Stock == nil {
+		SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	return client, nil
 }
@@ -191,6 +195,14 @@ func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) Cl
 	}
 }
 
+// SetReferenceData set new ReferenceData
+func SetReferenceData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.ReferenceData = NewReferenceData(token, version, url, httpClient)
+		return nil
+	}
+}
+
 // SetStock set new Stock
 func SetStock(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
@@ -222,6 +234,9 @@ func SetAlternativeData(token, version string, url *url.URL, httpClient *http.Cl
 		return nil
 	}
 }
+
+// QueryParams type
+type QueryParams func() error
 
 // Get helper func to make custom GET requests against client's base url
 func (c *Client) Get(endpoint string, response, params interface{}) error {

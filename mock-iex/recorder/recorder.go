@@ -15,13 +15,14 @@ import (
 var wg sync.WaitGroup
 
 func main() {
-	wg.Add(6)
+	wg.Add(7)
 
 	go recordAccount()
 	go recordAlternativeData()
 	go recordAPISystemMetadata()
 	go recordDataAPIS()
 	go recordForex()
+	go recordReferenceData()
 	go recordStock()
 
 	wg.Wait()
@@ -108,6 +109,33 @@ func recordForex() {
 		goiex.SetHTTPClient(httpClient),
 	)
 	iex.ExchangeRates("eur", "usd")
+}
+
+func recordReferenceData() {
+	defer wg.Done()
+
+	os.Remove("ref_data.yaml")
+	// Start our recorder
+	r, err := recorder.New("ref_data")
+	if err != nil {
+		log.Fatal(err)
+	}
+	r.AddFilter(removeToken)
+	defer r.Stop() // Make sure recorder is stopped once done with it
+
+	token := os.Getenv("IEX_TEST_SECRET_TOKEN")
+	httpClient := &http.Client{Transport: r}
+	iex, err := goiex.NewClient(token,
+		goiex.SetURL(goiex.SandboxBaseURL),
+		goiex.SetHTTPClient(httpClient),
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+	iex.Symbols()
+	iex.IEXSymbols()
+	iex.RegionSymbols("ca")
+	iex.ExchangeSymbols("tse")
 }
 
 func recordStock() {
