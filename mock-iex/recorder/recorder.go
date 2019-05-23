@@ -136,6 +136,17 @@ func recordReferenceData() {
 	iex.IEXSymbols()
 	iex.RegionSymbols("ca")
 	iex.ExchangeSymbols("tse")
+	iex.InternationalExchanges()
+	iex.USExchanges()
+	iex.USHolidaysAndTradingDates("trade", "next")
+	iex.USHolidaysAndTradingDates("trade", "last")
+	iex.USHolidaysAndTradingDates("holiday", "next")
+	iex.USHolidaysAndTradingDates("holiday", "last")
+	iex.USHolidaysAndTradingDates("trade", "next", 1)
+	iex.USHolidaysAndTradingDates("holiday", "last", 1, "20190101")
+	iex.Sectors()
+	iex.Tags()
+	iex.MutualFundSymbols()
 }
 
 func recordStock() {

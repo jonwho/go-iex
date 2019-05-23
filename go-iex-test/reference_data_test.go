@@ -51,3 +51,125 @@ func TestExchangeSymbols(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
+
+func TestInternationalExchanges(t *testing.T) {
+	exchanges, err := iexSandboxClient.InternationalExchanges()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(exchanges) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestUSExchanges(t *testing.T) {
+	exchanges, err := iexSandboxClient.USExchanges()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(exchanges) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestUSHolidaysAndTradingDates(t *testing.T) {
+	dates, err := iexSandboxClient.USHolidaysAndTradingDates("trade", "next")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	dates, err = iexSandboxClient.USHolidaysAndTradingDates("trade", "last")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	dates, err = iexSandboxClient.USHolidaysAndTradingDates("holiday", "next")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	dates, err = iexSandboxClient.USHolidaysAndTradingDates("holiday", "last")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	dates, err = iexSandboxClient.USHolidaysAndTradingDates("trade", "next", 1)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	dates, err = iexSandboxClient.USHolidaysAndTradingDates("holiday", "last", 1, "20190101")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(dates) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestSectors(t *testing.T) {
+	sectors, err := iexSandboxClient.Sectors()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sectors) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestTags(t *testing.T) {
+	tags, err := iexSandboxClient.Tags()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(tags) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestMutualFundSymbols(t *testing.T) {
+	funds, err := iexSandboxClient.MutualFundSymbols()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(funds) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}

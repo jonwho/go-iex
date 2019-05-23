@@ -143,12 +143,12 @@ func main() {
 - [x] Symbols
 - [x] IEX Symbols
 - [x] International Symbols
-- [ ] International Exchanges
-- [ ] U.S. Exchanges
-- [ ] U.S. Holiday and Trading Dates
-- [ ] Sectors
-- [ ] Tags
-- [ ] Mutual Fund Symbols
+- [x] International Exchanges
+- [x] U.S. Exchanges
+- [x] U.S. Holiday and Trading Dates
+- [x] Sectors
+- [x] Tags
+- [x] Mutual Fund Symbols
 - [ ] OTC Symbols
 - [ ] FX Symbols
 - [ ] Options Symbols

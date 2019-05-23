@@ -235,9 +235,6 @@ func SetAlternativeData(token, version string, url *url.URL, httpClient *http.Cl
 	}
 }
 
-// QueryParams type
-type QueryParams func() error
-
 // Get helper func to make custom GET requests against client's base url
 func (c *Client) Get(endpoint string, response, params interface{}) error {
 	return get(c, response, endpoint, params)
