@@ -158,7 +158,7 @@ func main() {
 ### Forex / Currencies
 - [x] Exchange Rates
 ### Investors Exchange Data
-- [ ] TOPS
+- [x] TOPS
 - [ ] Last
 - [ ] DEEP
 - [ ] DEEP Auction

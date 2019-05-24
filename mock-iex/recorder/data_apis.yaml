@@ -101,12 +101,12 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:33:41 GMT
+      - Fri, 24 May 2019 05:46:51 GMT
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=9e17dcf4d2a24c22b66b7eabffcb5135; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:33:41 GMT
+      - ctoken=e33ed260d2734544a802f796bc271da4; Max-Age=43200; Path=/; Expires=Fri,
+        24 May 2019 17:46:51 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

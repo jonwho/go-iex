@@ -131,6 +131,9 @@ func recordInvestorsExchangeData() {
 		goiex.SetHTTPClient(httpClient),
 	)
 	iex.TOPS(nil)
+	iex.TOPS(struct {
+		Symbols string `url:"symbols,omitempty"`
+	}{"SNAP,fb,AIG+"})
 }
 
 func recordReferenceData() {
