@@ -71,3 +71,17 @@ func TestLast(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
+
+func TestDEEP(t *testing.T) {
+	deep, err := iexSandboxClient.DEEP(struct {
+		Symbols string `url:"symbols,omitempty"`
+	}{"SNAP"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "SNAP"
+	actual = deep.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}

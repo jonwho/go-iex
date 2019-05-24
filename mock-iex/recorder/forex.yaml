@@ -24,12 +24,12 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:55:17 GMT
+      - Fri, 24 May 2019 19:25:58 GMT
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=4d1c2dd110e24057aed88c891d6ef95d; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:55:17 GMT
+      - ctoken=cb67eb50b6264e8aa9d08dd91c2e545a; Max-Age=43200; Path=/; Expires=Sat,
+        25 May 2019 07:25:58 GMT
       Strict-Transport-Security:
       - max-age=15768000
     status: 402 Payment Required

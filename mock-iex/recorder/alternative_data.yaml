@@ -10,8 +10,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/crypto/btcusdt/quote
     method: GET
   response:
-    body: '{"symbol":"BTCUSDT","open":7868.9,"openTime":1589440501098,"close":8052.46129115,"closeTime":1584183864832,"previousClose":7669.12,"bidPrice":8090.66,"bidSize":0.109395,"askPrice":7894,"askSize":0.134522,"latestPrice":8143.22,"latestTime":"1:55:16
-      AM","latestUpdate":1612293871359,"latestVolume":45736.189311,"high":8135.06,"low":7597,"change":199.14,"changePercent":0.027}'
+    body: '{"symbol":"BTCUSDT","open":7913.4,"openTime":1572355059432,"close":8312.77147668,"closeTime":1615874848694,"previousClose":8023.8,"bidPrice":8014.64,"bidSize":0.025824,"askPrice":8284.9,"askSize":0.025791,"latestPrice":8209.44,"latestTime":"3:25:56
+      PM","latestUpdate":1590620417092,"latestVolume":49529.170494,"high":8188,"low":8041.48,"change":287,"changePercent":0.03833}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -24,14 +24,14 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:55:18 GMT
+      - Fri, 24 May 2019 19:26:00 GMT
       Iexcloud-Messages-Used:
       - "1"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=648e800bd1c34551a163172d3e7dc71e; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:55:17 GMT
+      - ctoken=4a3929f5ce244c2e86722222f9a45fe4; Max-Age=43200; Path=/; Expires=Sat,
+        25 May 2019 07:25:58 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -62,12 +62,12 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:55:18 GMT
+      - Fri, 24 May 2019 19:26:00 GMT
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=a191b7c41b7d48de9bbd1357ddef75f1; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:55:18 GMT
+      - ctoken=a3eb34db78a5452a835cc920f046761c; Max-Age=43200; Path=/; Expires=Sat,
+        25 May 2019 07:26:00 GMT
       Strict-Transport-Security:
       - max-age=15768000
     status: 402 Payment Required
@@ -96,12 +96,12 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:55:19 GMT
+      - Fri, 24 May 2019 19:26:00 GMT
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=77203c38660f4f9f906f6bddd5a5b063; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:55:19 GMT
+      - ctoken=1a8b1c32bee8416c8daebf46824bf8fd; Max-Age=43200; Path=/; Expires=Sat,
+        25 May 2019 07:26:00 GMT
       Strict-Transport-Security:
       - max-age=15768000
     status: 402 Payment Required

@@ -138,6 +138,9 @@ func recordInvestorsExchangeData() {
 	iex.Last(struct {
 		Symbols string `url:"symbols,omitempty"`
 	}{"SNAP,fb,AIG+"})
+	iex.DEEP(struct {
+		Symbols string `url:"symbols,omitempty"`
+	}{"SNAP"})
 }
 
 func recordReferenceData() {

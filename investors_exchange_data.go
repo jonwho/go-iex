@@ -34,6 +34,85 @@ type Last []struct {
 	Time   int64   `json:"time"`
 }
 
+// DEEP struct
+type DEEP struct {
+	Symbol        string  `json:"symbol"`
+	MarketPercent float64 `json:"marketPercent"`
+	Volume        int     `json:"volume"`
+	LastSalePrice float64 `json:"lastSalePrice"`
+	LastSaleSize  int     `json:"lastSaleSize"`
+	LastSaleTime  int64   `json:"lastSaleTime"`
+	LastUpdated   int64   `json:"lastUpdated"`
+	Bids          []struct {
+		Price     float64 `json:"price"`
+		Size      int     `json:"size"`
+		Timestamp int64   `json:"timestamp"`
+	} `json:"bids"`
+	Asks []struct {
+		Price     float64 `json:"price"`
+		Size      int     `json:"size"`
+		Timestamp int64   `json:"timestamp"`
+	} `json:"asks"`
+	SystemEvent struct {
+		SystemEvent string `json:"systemEvent"`
+		Timestamp   int64  `json:"timestamp"`
+	} `json:"systemEvent"`
+	TradingStatus struct {
+		Status    string `json:"status"`
+		Reason    string `json:"reason"`
+		Timestamp int64  `json:"timestamp"`
+	} `json:"tradingStatus"`
+	OpHaltStatus struct {
+		IsHalted  bool  `json:"isHalted"`
+		Timestamp int64 `json:"timestamp"`
+	} `json:"opHaltStatus"`
+	SsrStatus struct {
+		IsSSR     bool   `json:"isSSR"`
+		Detail    string `json:"detail"`
+		Timestamp int64  `json:"timestamp"`
+	} `json:"ssrStatus"`
+	SecurityEvent struct {
+		SecurityEvent string `json:"securityEvent"`
+		Timestamp     int64  `json:"timestamp"`
+	} `json:"securityEvent"`
+	Trades []struct {
+		Price                 float64 `json:"price"`
+		Size                  int     `json:"size"`
+		TradeID               int     `json:"tradeId"`
+		IsISO                 bool    `json:"isISO"`
+		IsOddLot              bool    `json:"isOddLot"`
+		IsOutsideRegularHours bool    `json:"isOutsideRegularHours"`
+		IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
+		IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
+		Timestamp             int64   `json:"timestamp"`
+	} `json:"trades"`
+	TradeBreaks []struct {
+		Price                 float64 `json:"price"`
+		Size                  int     `json:"size"`
+		TradeID               int     `json:"tradeId"`
+		IsISO                 bool    `json:"isISO"`
+		IsOddLot              bool    `json:"isOddLot"`
+		IsOutsideRegularHours bool    `json:"isOutsideRegularHours"`
+		IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
+		IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
+		Timestamp             int64   `json:"timestamp"`
+	} `json:"tradeBreaks"`
+	Auction struct {
+		AuctionType          string  `json:"auctionType"`
+		PairedShares         int     `json:"pairedShares"`
+		ImbalanceShares      int     `json:"imbalanceShares"`
+		ReferencePrice       float64 `json:"referencePrice"`
+		IndicativePrice      float64 `json:"indicativePrice"`
+		AuctionBookPrice     float64 `json:"auctionBookPrice"`
+		CollarReferencePrice float64 `json:"collarReferencePrice"`
+		LowerCollarPrice     float64 `json:"lowerCollarPrice"`
+		UpperCollarPrice     float64 `json:"upperCollarPrice"`
+		ExtensionNumber      int     `json:"extensionNumber"`
+		StartTime            string  `json:"startTime"`
+		LastUpdate           int64   `json:"lastUpdate"`
+	} `json:"auction"`
+}
+
 // NewInvestorsExchangeData return new InvestorsExchangeData
 func NewInvestorsExchangeData(token, version string, base *url.URL, httpClient *http.Client) *InvestorsExchangeData {
 	apiurl, err := url.Parse("")
@@ -85,5 +164,11 @@ func (ied *InvestorsExchangeData) TOPS(params interface{}) (tops TOPS, err error
 // Last GET /tops/last?symbols=snap
 func (ied *InvestorsExchangeData) Last(params interface{}) (l Last, err error) {
 	get(ied, &l, "tops/last", params)
+	return
+}
+
+// DEEP GET /deep?symbols=snap
+func (ied *InvestorsExchangeData) DEEP(params interface{}) (d *DEEP, err error) {
+	get(ied, &d, "deep", params)
 	return
 }
