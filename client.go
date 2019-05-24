@@ -57,6 +57,7 @@ type Client struct {
 	*APISystemMetadata
 	*DataAPI
 	*Forex
+	*InvestorsExchangeData
 	*ReferenceData
 	*Stock
 }
@@ -94,6 +95,9 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	}
 	if client.Forex == nil {
 		SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.InvestorsExchangeData == nil {
+		SetInvestorsExchangeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	if client.ReferenceData == nil {
 		SetReferenceData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
@@ -191,6 +195,14 @@ func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Cl
 func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.DataAPI = NewDataAPI(token, version, url, httpClient)
+		return nil
+	}
+}
+
+// SetInvestorsExchangeData set new InvestorsExchangeData
+func SetInvestorsExchangeData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.InvestorsExchangeData = NewInvestorsExchangeData(token, version, url, httpClient)
 		return nil
 	}
 }

@@ -27,6 +27,7 @@ func init() {
 		iex.SetAPISystemMetadata("", iex.DefaultVersion, sandboxURL, apiSystemMetadataClient()),
 		iex.SetDataAPI("", iex.DefaultVersion, sandboxURL, dataAPIClient()),
 		iex.SetForex("", iex.DefaultVersion, sandboxURL, forexClient()),
+		iex.SetInvestorsExchangeData("", iex.DefaultVersion, sandboxURL, investorsExchangeDataClient()),
 		iex.SetReferenceData("", iex.DefaultVersion, sandboxURL, referenceDataClient()),
 		iex.SetStock("", iex.DefaultVersion, sandboxURL, stockClient()),
 	)
@@ -86,6 +87,18 @@ func dataAPIClient() (cli *http.Client) {
 
 func forexClient() (cli *http.Client) {
 	if rec, err := recorder.New("../mock-iex/recorder/forex"); err != nil {
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		rec.SetMatcher(matchWithoutToken)
+		cli = &http.Client{Transport: rec}
+	}
+	return
+}
+
+func investorsExchangeDataClient() (cli *http.Client) {
+	if rec, err := recorder.New("../mock-iex/recorder/investors_exchange_data"); err != nil {
 		if err != nil {
 			log.Fatal(err)
 		}
