@@ -147,6 +147,9 @@ func recordReferenceData() {
 	iex.Sectors()
 	iex.Tags()
 	iex.MutualFundSymbols()
+	iex.OTCSymbols()
+	iex.FXSymbols()
+	// iex.OptionsSymbols() TODO
 }
 
 func recordStock() {

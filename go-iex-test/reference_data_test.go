@@ -173,3 +173,36 @@ func TestMutualFundSymbols(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
+
+func TestOTCSymbols(t *testing.T) {
+	otc, err := iexSandboxClient.OTCSymbols()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(otc) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+func TestFXSymbols(t *testing.T) {
+	fx, err := iexSandboxClient.FXSymbols()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(fx.Currencies) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+// TODO: @mock
+// func TestOptionsSymbols(t *testing.T) {
+//   os, err := iexSandboxClient.OptionsSymbols()
+//   if err != nil {
+//     t.Error(err)
+//   }
+// }

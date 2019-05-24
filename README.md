@@ -149,8 +149,8 @@ func main() {
 - [x] Sectors
 - [x] Tags
 - [x] Mutual Fund Symbols
-- [ ] OTC Symbols
-- [ ] FX Symbols
+- [x] OTC Symbols
+- [x] FX Symbols
 - [ ] Options Symbols
 - [ ] Commodities Symbols In Dev
 - [ ] Bonds Symbols In Dev

@@ -243,7 +243,7 @@ func (c *Client) Get(endpoint string, response, params interface{}) error {
 func get(api iexapi, response interface{}, endpoint string, params interface{}) error {
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
-	req, err := http.NewRequest("GET", iexurl.String(), nil)
+	req, err := http.NewRequest(http.MethodGet, iexurl.String(), nil)
 	if err != nil {
 		return err
 	}

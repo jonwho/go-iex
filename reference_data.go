@@ -90,6 +90,32 @@ type MutualFundSymbols []struct {
 	IsEnabled bool   `json:"isEnabled"`
 }
 
+// OTCSymbols struct
+type OTCSymbols []struct {
+	Symbol string `json:"symbol"`
+	Name   string `json:"name"`
+	Date   string `json:"date"`
+	Type   string `json:"type"`
+	IexID  string `json:"iexId"`
+}
+
+// FXSymbols struct
+type FXSymbols struct {
+	Currencies []struct {
+		Code string `json:"code"`
+		Name string `json:"name"`
+	} `json:"currencies"`
+	Pairs []struct {
+		From string `json:"from"`
+		To   string `json:"to"`
+	} `json:"pairs"`
+}
+
+// OptionsSymbols struct
+type OptionsSymbols struct {
+	// TODO: needs custom unmarshal
+}
+
 // NewReferenceData return new ReferenceData
 func NewReferenceData(token, version string, base *url.URL, httpClient *http.Client) *ReferenceData {
 	apiurl, err := url.Parse("ref-data/")
@@ -202,3 +228,22 @@ func (rd *ReferenceData) MutualFundSymbols() (mfs MutualFundSymbols, err error) 
 	err = get(rd, &mfs, "mutual-funds/symbols", nil)
 	return
 }
+
+// OTCSymbols GET /ref-data/otc/symbols
+func (rd *ReferenceData) OTCSymbols() (otc OTCSymbols, err error) {
+	err = get(rd, &otc, "otc/symbols", nil)
+	return
+}
+
+// FXSymbols GET /ref-data/fx/symbols
+func (rd *ReferenceData) FXSymbols() (fx FXSymbols, err error) {
+	err = get(rd, &fx, "fx/symbols", nil)
+	return
+}
+
+// OptionsSymbols GET /ref-data/options/symbols
+// TODO: fix later. needs custom unmarshal
+// func (rd *ReferenceData) OptionsSymbols() (os OptionsSymbols, err error) {
+//   err = get(rd, &os, "options/symbols", nil)
+//   return
+// }
