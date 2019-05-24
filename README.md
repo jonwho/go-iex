@@ -160,7 +160,7 @@ func main() {
 ### Investors Exchange Data
 - [x] TOPS
 - [x] Last
-- [ ] DEEP
+- [x] DEEP
 - [ ] DEEP Auction
 - [ ] DEEP Book
 - [ ] DEEP Operational Halt Status
