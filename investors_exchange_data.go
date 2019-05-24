@@ -26,6 +26,14 @@ type TOPS []struct {
 	SecurityType  string  `json:"securityType"`
 }
 
+// Last struct
+type Last []struct {
+	Symbol string  `json:"symbol"`
+	Price  float64 `json:"price"`
+	Size   int     `json:"size"`
+	Time   int64   `json:"time"`
+}
+
 // NewInvestorsExchangeData return new InvestorsExchangeData
 func NewInvestorsExchangeData(token, version string, base *url.URL, httpClient *http.Client) *InvestorsExchangeData {
 	apiurl, err := url.Parse("")
@@ -71,5 +79,11 @@ func (ied *InvestorsExchangeData) Client() *http.Client {
 // TOPS GET /tops?symbols=snap
 func (ied *InvestorsExchangeData) TOPS(params interface{}) (tops TOPS, err error) {
 	get(ied, &tops, "tops", params)
+	return
+}
+
+// Last GET /tops/last?symbols=snap
+func (ied *InvestorsExchangeData) Last(params interface{}) (l Last, err error) {
+	get(ied, &l, "tops/last", params)
 	return
 }

@@ -37,3 +37,37 @@ func TestTOPS(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
+
+func TestLast(t *testing.T) {
+	last, err := iexSandboxClient.Last(nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(last) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	last, err = iexSandboxClient.Last(struct {
+		Symbols string `url:"symbols,omitempty"`
+	}{"SNAP,fb,AIG+"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "SNAP"
+	actual = last[0].Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = "FB"
+	actual = last[1].Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = "AIG+"
+	actual = last[2].Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}

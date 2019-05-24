@@ -159,7 +159,7 @@ func main() {
 - [x] Exchange Rates
 ### Investors Exchange Data
 - [x] TOPS
-- [ ] Last
+- [x] Last
 - [ ] DEEP
 - [ ] DEEP Auction
 - [ ] DEEP Book

@@ -23,14 +23,14 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:46:51 GMT
+      - Fri, 24 May 2019 05:55:17 GMT
       Iexcloud-Messages-Used:
       - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=8c915c154b84430f8b1b4758e8e4c6d2; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:46:51 GMT
+      - ctoken=cf19968755c74e84ada70e8e472e85af; Max-Age=43200; Path=/; Expires=Fri,
+        24 May 2019 17:55:17 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

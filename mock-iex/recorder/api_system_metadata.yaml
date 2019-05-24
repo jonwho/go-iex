@@ -10,7 +10,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/status
     method: GET
   response:
-    body: '{"status":"up","version":"1.6","time":1558676811355}'
+    body: '{"status":"up","version":"1.6","time":1558677317178}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -23,12 +23,12 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 05:46:51 GMT
+      - Fri, 24 May 2019 05:55:17 GMT
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=ae69b6ff7cff4a7fb70530c5989ef0aa; Max-Age=43200; Path=/; Expires=Fri,
-        24 May 2019 17:46:51 GMT
+      - ctoken=461a65f793b14f09be9b49622c12b41c; Max-Age=43200; Path=/; Expires=Fri,
+        24 May 2019 17:55:17 GMT
       Strict-Transport-Security:
       - max-age=15768000
     status: 200 OK
