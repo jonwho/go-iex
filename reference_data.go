@@ -31,8 +31,8 @@ type IEXSymbols []struct {
 	IsEnabled bool   `json:"isEnabled"`
 }
 
-// InternationalSybmols struct
-type InternationalSybmols []struct {
+// InternationalSymbols struct
+type InternationalSymbols []struct {
 	Symbol    string `json:"symbol"`
 	Exchange  string `json:"exchange"`
 	Name      string `json:"name"`
@@ -171,14 +171,14 @@ func (rd *ReferenceData) IEXSymbols() (is IEXSymbols, err error) {
 }
 
 // RegionSymbols GET /ref-data/region/{region}/symbols
-func (rd *ReferenceData) RegionSymbols(region string) (is InternationalSybmols, err error) {
+func (rd *ReferenceData) RegionSymbols(region string) (is InternationalSymbols, err error) {
 	endpoint := fmt.Sprintf("region/%s/symbols", region)
 	err = get(rd, &is, endpoint, nil)
 	return
 }
 
 // ExchangeSymbols GET /ref-data/exchange/{exchange}/symbogTls
-func (rd *ReferenceData) ExchangeSymbols(exchange string) (is InternationalSybmols, err error) {
+func (rd *ReferenceData) ExchangeSymbols(exchange string) (is InternationalSymbols, err error) {
 	endpoint := fmt.Sprintf("exchange/%s/symbols", exchange)
 	err = get(rd, &is, endpoint, nil)
 	return
