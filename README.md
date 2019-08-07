@@ -82,7 +82,7 @@ func main() {
 ## SUPPORTED ENDPOINTS
 ### Account
 - [x] Metadata
-- [ ] Usage
+- [x] Usage
 - [ ] Pay as you go
 - [ ] Signed Requests
 - [ ] Setting up signed token

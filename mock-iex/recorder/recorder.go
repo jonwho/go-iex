@@ -45,6 +45,7 @@ func recordAccount() {
 	httpClient := &http.Client{Transport: r}
 	iex, err := goiex.NewClient(token, goiex.SetHTTPClient(httpClient))
 	iex.Metadata()
+	iex.Usage()
 }
 
 func recordAlternativeData() {

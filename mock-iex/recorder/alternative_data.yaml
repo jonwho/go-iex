@@ -10,8 +10,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/crypto/btcusdt/quote
     method: GET
   response:
-    body: '{"symbol":"BTCUSDT","open":7913.4,"openTime":1572355059432,"close":8312.77147668,"closeTime":1615874848694,"previousClose":8023.8,"bidPrice":8014.64,"bidSize":0.025824,"askPrice":8284.9,"askSize":0.025791,"latestPrice":8209.44,"latestTime":"3:25:56
-      PM","latestUpdate":1590620417092,"latestVolume":49529.170494,"high":8188,"low":8041.48,"change":287,"changePercent":0.03833}'
+    body: '{"symbol":"BTCUSDT","companyName":"Bitcoin USD","open":11933.61,"openTime":1605667191861,"close":11916.24591209,"closeTime":1619364018964,"previousClose":12295.15,"bidPrice":11996,"bidSize":1.497,"askPrice":11650.47,"askSize":0.042896,"latestPrice":11988.18,"latestTime":"7:32:44
+      PM","latestUpdate":1595242569057,"latestVolume":79354.93718,"high":12554.5,"low":11330,"change":-368.86,"changePercent":-0.03071}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -24,14 +24,14 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 19:26:00 GMT
+      - Tue, 06 Aug 2019 23:32:46 GMT
       Iexcloud-Messages-Used:
       - "1"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=4a3929f5ce244c2e86722222f9a45fe4; Max-Age=43200; Path=/; Expires=Sat,
-        25 May 2019 07:25:58 GMT
+      - ctoken=1ded19e0d9d84d9da82fc2366343747c; Max-Age=43200; Path=/; Expires=Wed,
+        07 Aug 2019 11:32:46 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -48,8 +48,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/sentiment
     method: GET
   response:
-    body: The requested data is not available to free tier accounts. Please upgrade
-      for access to this data.
+    body: '{"sentiment":0.0409458799848914,"totalScores":711,"positive":0.77,"negative":0.25}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -60,18 +59,22 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Content-Type:
-      - text/html; charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 19:26:00 GMT
+      - Tue, 06 Aug 2019 23:32:47 GMT
+      Iexcloud-Messages-Used:
+      - "100"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=a3eb34db78a5452a835cc920f046761c; Max-Age=43200; Path=/; Expires=Sat,
-        25 May 2019 07:26:00 GMT
+      - ctoken=0edcf01e2d374731b7781ee6e1c1d092; Max-Age=43200; Path=/; Expires=Wed,
+        07 Aug 2019 11:32:46 GMT
       Strict-Transport-Security:
       - max-age=15768000
-    status: 402 Payment Required
-    code: 402
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
     duration: ""
 - request:
     body: ""
@@ -82,8 +85,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/ceo-compensation
     method: GET
   response:
-    body: The requested data is not available to free tier accounts. Please upgrade
-      for access to this data.
+    body: '{"symbol":"AAPL","name":"tohoTokyiC m","companyName":"","location":"uCnCAioer
+      tp,","salary":3117397,"bonus":0,"stockAwards":0,"optionAwards":0,"nonEquityIncentives":12143523,"pensionAndDeferred":0,"otherComp":695969,"total":16066603,"year":"2034"}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -94,16 +97,20 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Content-Type:
-      - text/html; charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 19:26:00 GMT
+      - Tue, 06 Aug 2019 23:32:47 GMT
+      Iexcloud-Messages-Used:
+      - "20"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=1a8b1c32bee8416c8daebf46824bf8fd; Max-Age=43200; Path=/; Expires=Sat,
-        25 May 2019 07:26:00 GMT
+      - ctoken=dd6de8ac2c50456896780fd845876bbe; Max-Age=43200; Path=/; Expires=Wed,
+        07 Aug 2019 11:32:47 GMT
       Strict-Transport-Security:
       - max-age=15768000
-    status: 402 Payment Required
-    code: 402
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
     duration: ""

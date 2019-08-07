@@ -21,6 +21,17 @@ type Metadata struct {
 	MessagesUsed         int    `json:"messagesUsed"`
 }
 
+// Usage struct
+type Usage struct {
+	Messages struct {
+		MonthlyUsage      int         `json:"monthlyUsage"`
+		MonthlyPayAsYouGo int         `json:"monthlyPayAsYouGo"`
+		DailyUsage        interface{} `json:"dailyUsage"`
+		TokenUsage        interface{} `json:"tokenUsage"`
+		KeyUsage          interface{} `json:"keyUsage"`
+	} `json:"messages"`
+}
+
 // NewAccount return new Account
 func NewAccount(token, version string, base *url.URL, httpClient *http.Client) *Account {
 	apiurl, err := url.Parse("account/")
@@ -67,5 +78,12 @@ func (a *Account) Client() *http.Client {
 // Metadata GET /account/metadata
 func (a *Account) Metadata() (metadata *Metadata, err error) {
 	err = get(a, &metadata, "metadata", nil)
+	return
+}
+
+// Usage GET /account/usage
+// No support for GET /account/usage/{type}
+func (a *Account) Usage() (usage *Usage, err error) {
+	err = get(a, &usage, "usage", nil)
 	return
 }

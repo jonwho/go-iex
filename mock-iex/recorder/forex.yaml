@@ -10,8 +10,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/fx/rate/eur/usd
     method: GET
   response:
-    body: The requested data is not available to free tier accounts. Please upgrade
-      for access to this data.
+    body: '{"fromCurrency":"URE","toCurrency":"DSU","rate":1.1659,"date":"2019-08-06"}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -22,16 +21,20 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Content-Type:
-      - text/html; charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Fri, 24 May 2019 19:25:58 GMT
+      - Tue, 06 Aug 2019 23:32:47 GMT
+      Iexcloud-Messages-Used:
+      - "1"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=cb67eb50b6264e8aa9d08dd91c2e545a; Max-Age=43200; Path=/; Expires=Sat,
-        25 May 2019 07:25:58 GMT
+      - ctoken=cedb80cbd68840318e805cb04df48377; Max-Age=43200; Path=/; Expires=Wed,
+        07 Aug 2019 11:32:46 GMT
       Strict-Transport-Security:
       - max-age=15768000
-    status: 402 Payment Required
-    code: 402
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
     duration: ""
