@@ -3,7 +3,7 @@
 [![GoDoc](https://godoc.org/github.com/jonwho/go-iex?status.svg)](http://godoc.org/github.com/jonwho/go-iex)
 [![releases](https://img.shields.io/github/release/jonwho/go-iex.svg)](https://github.com/jonwho/go-iex/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jonwho/go-iex)](https://goreportcard.com/report/github.com/jonwho/go-iex)
-![](https://github.com/jonwho/go-iex/workflows/.github/workflows/test.yml/badge.svg)
+![](https://github.com/jonwho/go-iex/workflows/Tests/badge.svg)
 
 ## ATTRIBUTION
 [Data provided by IEX](https://iexcloud.io)

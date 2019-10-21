@@ -1,4 +1,4 @@
-name: Go
+name: Tests
 on: [push]
 jobs:
 
@@ -20,7 +20,7 @@ jobs:
       run: |
         go get -v -t -d ./...
 
-    - name: Test
+    - name: Run test suite
       env:
         IEX_TEST_SECRET_TOKEN: ${{ secrets.IEX_TEST_SECRET_TOKEN }}
         IEX_TEST_PUBLISHABLE_TOKEN: ${{ secrets.IEX_TEST_PUBLISHABLE_TOKEN }}
