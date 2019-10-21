@@ -1,11 +1,30 @@
 package mockiex
 
 import (
+	"context"
+	"crypto/tls"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 )
+
+// Client returns a http.Client using the mock Server
+func Client() *http.Client {
+	return &http.Client{
+		Transport: &http.Transport{
+			DialContext: func(_ context.Context, network, _ string) (net.Conn, error) {
+				log.Println(Server().Listener.Addr().String())
+				return net.Dial(network, Server().Listener.Addr().String())
+			},
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
+		},
+	}
+}
 
 // Server returns a mock IEX server
 func Server() *httptest.Server {
@@ -13,8 +32,14 @@ func Server() *httptest.Server {
 
 	return httptest.NewServer(http.HandlerFunc(func(
 		w http.ResponseWriter, r *http.Request) {
-		log.Println("logging request URI:", r.RequestURI)
-		switch r.RequestURI {
+		u, _ := url.Parse(r.RequestURI)
+		q, _ := url.ParseQuery(u.RawQuery)
+		q.Del("token")
+		u.RawQuery = q.Encode()
+		log.Println("logging request URI:", u.RequestURI())
+		switch u.RequestURI() {
+		case "/stable/account/metadata":
+			resp = read("../mock-iex/responses/account/metadata.json")
 		case "/stock/aapl/batch?types=quote":
 			resp = read("mock-iex/responses/batch/aapl.json")
 		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":

@@ -1,0 +1,10 @@
+{
+  "payAsYouGoEnabled": true,
+  "effectiveDate": 1547590582000,
+  "endDateEffective": 1547830921000,
+  "subscriptionTermType": "monthly",
+  "tierName": "launch",
+  "messageLimit": 1000000000,
+  "messagesUsed": 215141655,
+  "circuitBreaker": 3000000000
+}

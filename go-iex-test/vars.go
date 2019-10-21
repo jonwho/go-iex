@@ -8,14 +8,15 @@ import (
 	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
 	iex "github.com/jonwho/go-iex"
+	"github.com/jonwho/go-iex/mock-iex"
 )
 
 var (
-	expected, actual            interface{}
-	sandboxURL, _               = url.Parse(iex.SandboxBaseURL)
-	defaultURL, _               = url.Parse(iex.DefaultBaseURL)
-	iexClient, iexSandboxClient *iex.Client
-	err                         error
+	expected, actual                        interface{}
+	sandboxURL, _                           = url.Parse(iex.SandboxBaseURL)
+	defaultURL, _                           = url.Parse(iex.DefaultBaseURL)
+	iexClient, iexSandboxClient, mockClient *iex.Client
+	err                                     error
 )
 
 func init() {
@@ -31,7 +32,11 @@ func init() {
 		iex.SetReferenceData("", iex.DefaultVersion, sandboxURL, referenceDataClient()),
 		iex.SetStock("", iex.DefaultVersion, sandboxURL, stockClient()),
 	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	mockClient, err = iex.NewClient("", iex.SetURL(mockiex.Server().URL))
 	if err != nil {
 		log.Fatal(err)
 	}

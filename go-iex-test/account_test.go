@@ -33,6 +33,14 @@ func TestMetadata(t *testing.T) {
 	if metadata == nil {
 		t.Errorf("\nExpected metadata to be not nil\n")
 	}
+
+	metadata, err = mockClient.Metadata()
+	if err != nil {
+		t.Error(err)
+	}
+	if metadata == nil {
+		t.Errorf("\nExpected metadata to be not nil\n")
+	}
 }
 
 func TestUsage(t *testing.T) {
