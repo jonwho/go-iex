@@ -1,6 +1,7 @@
 GOCMD=go
 GOTEST=$(GOCMD) test
 GORUN=$(GOCMD) run
+GOPHERBADGER=$(HOME)/go/bin/gopherbadger
 
 all: test coverage
 
@@ -10,7 +11,7 @@ test:
 
 .PHONY: coverage
 coverage:
-	gopherbadger -md="README.md"
+	$(GOPHERBADGER) -md="README.md"
 
 .PHONY: example
 example:
