@@ -40,6 +40,9 @@ func Server() *httptest.Server {
 		switch u.RequestURI() {
 		case "/stable/account/metadata":
 			resp = read("../mock-iex/responses/account/metadata.json")
+		case "/stable/account/usage":
+			resp = read("../mock-iex/responses/account/usage.json")
+		case "/stable/alternative_data/crypto":
 		case "/stock/aapl/batch?types=quote":
 			resp = read("mock-iex/responses/batch/aapl.json")
 		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":

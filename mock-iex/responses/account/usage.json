@@ -1,0 +1,16 @@
+{
+  "messages": {
+    "dailyUsage": {
+      "20191021": "2"
+    },
+    "monthlyUsage": 2,
+    "monthlyPayAsYouGo": 0,
+    "tokenUsage": {
+      "Tsk_1bd3152e17e94978b2085b99b80fc092": "2"
+    },
+    "keyUsage": {
+      "STOCK_QUOTE": "2"
+    }
+  },
+  "rules": []
+}

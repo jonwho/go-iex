@@ -26,15 +26,7 @@ func TestNewAccount(t *testing.T) {
 }
 
 func TestMetadata(t *testing.T) {
-	metadata, err := iexSandboxClient.Metadata()
-	if err != nil {
-		t.Error(err)
-	}
-	if metadata == nil {
-		t.Errorf("\nExpected metadata to be not nil\n")
-	}
-
-	metadata, err = mockClient.Metadata()
+	metadata, err := mockClient.Metadata()
 	if err != nil {
 		t.Error(err)
 	}
@@ -44,15 +36,15 @@ func TestMetadata(t *testing.T) {
 }
 
 func TestUsage(t *testing.T) {
-	usage, err := iexSandboxClient.Usage()
+	usage, err := mockClient.Usage()
 	if err != nil {
 		t.Error(err)
 	}
 	if usage.Messages.MonthlyUsage < 1 {
 		t.Errorf("\nExpected MonthlyUsage > 0 but got: %d\n", usage.Messages.MonthlyUsage)
 	}
-	expected = "6"
-	if actual = usage.Messages.DailyUsage.(map[string]interface{})["20190801"]; actual != expected {
+	expected = "2"
+	if actual = usage.Messages.DailyUsage.(map[string]interface{})["20191021"]; actual != expected {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}
 }
