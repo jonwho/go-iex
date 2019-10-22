@@ -16,91 +16,90 @@ func TestAdvancedStats(t *testing.T) {
 	}
 }
 
-//
-// func TestBalanceSheet(t *testing.T) {
-//   balanceSheet, err := iexSandboxClient.BalanceSheet("aapl", nil)
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = "AAPL"
-//   actual = balanceSheet.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5)
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = 5
-//   actual = len(balanceSheet.BalanceSheet)
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5, "annual")
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = 5
-//   actual = len(balanceSheet.BalanceSheet)
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
-//     Period string `url:"period,omitempty"`
-//   }{"annual"}, 5, "annual")
-//
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = 4
-//   actual = len(balanceSheet.BalanceSheet)
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
-//     Period string `url:"period,omitempty"`
-//     Last   int    `url:"last,omitempty"`
-//   }{"quarter", 12})
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = 12
-//   actual = len(balanceSheet.BalanceSheet)
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestBatch(t *testing.T) {
-//   batch, err := iexSandboxClient.Batch("aapl", struct {
-//     Types string `url:"types,omitempty"`
-//     Range string `url:"range,omitempty"`
-//     Last  int    `url:"last,omitempty"`
-//   }{"quote,news,chart", "1m", 1})
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = "AAPL"
-//   actual = batch.Quote.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = false
-//   actual = len(batch.News) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = false
-//   actual = len(batch.Chart) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
+func TestBalanceSheet(t *testing.T) {
+	balanceSheet, err := mockClient.BalanceSheet("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = balanceSheet.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 5
+	actual = len(balanceSheet.BalanceSheet)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", nil, 5, "annual")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 5
+	actual = len(balanceSheet.BalanceSheet)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
+		Period string `url:"period,omitempty"`
+	}{"annual"}, 5, "annual")
+
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 4
+	actual = len(balanceSheet.BalanceSheet)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	balanceSheet, err = iexSandboxClient.BalanceSheet("aapl", struct {
+		Period string `url:"period,omitempty"`
+		Last   int    `url:"last,omitempty"`
+	}{"quarter", 12})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 12
+	actual = len(balanceSheet.BalanceSheet)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestBatch(t *testing.T) {
+	batch, err := iexSandboxClient.Batch("aapl", struct {
+		Types string `url:"types,omitempty"`
+		Range string `url:"range,omitempty"`
+		Last  int    `url:"last,omitempty"`
+	}{"quote,news,chart", "1m", 1})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = batch.Quote.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(batch.News) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(batch.Chart) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 // // TODO: @mock
 // func TestBook(t *testing.T) {
 //   book, err := iexSandboxClient.Book("aapl")
