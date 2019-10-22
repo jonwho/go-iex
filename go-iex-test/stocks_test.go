@@ -105,12 +105,12 @@ func TestBook(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	expected = true
+	expected = false
 	actual = len(book.Asks) == 0
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
-	expected = true
+	expected = false
 	actual = len(book.Bids) == 0
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
@@ -120,7 +120,7 @@ func TestBook(t *testing.T) {
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
-	expected = true
+	expected = false
 	actual = len(book.Trades) == 0
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
@@ -231,43 +231,42 @@ func TestDividends(t *testing.T) {
 	}
 }
 
-//
-// func TestEarnings(t *testing.T) {
-//   er, err := iexSandboxClient.Earnings("aapl", nil)
-//   if err != nil {
-//     t.Error(err)
-//   }
-//
-//   er, err = iexSandboxClient.Earnings("aapl", struct {
-//     Last int `url:"last,omitempty"`
-//   }{2})
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = 2
-//   actual = len(er.Earnings)
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// // TODO: @mock
-// func TestEarningsToday(t *testing.T) {
-//   et, err := iexSandboxClient.EarningsToday()
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = false
-//   actual = len(et.BTO) != 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = false
-//   actual = len(et.AMC) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
+func TestEarnings(t *testing.T) {
+	er, err := iexSandboxClient.Earnings("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+
+	er, err = iexSandboxClient.Earnings("aapl", struct {
+		Last int `url:"last,omitempty"`
+	}{2})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 2
+	actual = len(er.Earnings)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestEarningsToday(t *testing.T) {
+	et, err := mockClient.EarningsToday()
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(et.BTO) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(et.AMC) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 //
 // // TODO: @mock
 // func TestEffectiveSpread(t *testing.T) {

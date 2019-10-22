@@ -1,0 +1,26 @@
+{
+  "bto": [
+    {
+      "consensusEPS": "-0.03",
+      "announceTime": "BTO",
+      "numberOfEstimates": 4,
+      "fiscalPeriod": "Q4 2018",
+      "fiscalEndDate": "2018-12-31",
+      "symbol": "Z",
+      "quote": {}
+    }
+  ],
+  "amc": [
+    {
+      "consensusEPS": "-0.03",
+      "announceTime": "AMC",
+      "numberOfEstimates": 4,
+      "fiscalPeriod": "Q4 2018",
+      "fiscalEndDate": "2018-12-31",
+      "symbol": "NBEV",
+      "quote": {
+      }
+    }
+  ],
+  "dmt": []
+}

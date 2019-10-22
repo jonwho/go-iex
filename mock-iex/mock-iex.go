@@ -64,6 +64,8 @@ func Server() *httptest.Server {
 			resp = read("../mock-iex/responses/stocks/balance_sheet_aapl.json")
 		case "/stable/stock/aapl/delayed-quote":
 			resp = read("../mock-iex/responses/stocks/delayed_quote_aapl.json")
+		case "/stable/stock/market/today-earnings":
+			resp = read("../mock-iex/responses/stocks/market_today_earnings.json")
 		case "/stock/aapl/batch?types=quote":
 			resp = read("mock-iex/responses/batch/aapl.json")
 		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":
