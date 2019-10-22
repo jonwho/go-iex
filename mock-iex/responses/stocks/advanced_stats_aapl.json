@@ -1,0 +1,20 @@
+{
+  "companyName": "Apple Inc.",
+  "totalCash": 66301000000,
+  "currentDebt": 20748000000,
+  "revenue": 265809000000,
+  "grossProfit": 101983000000,
+  "totalRevenue": 265809000000,
+  "EBITDA": 80342000000,
+  "revenuePerShare": 0.02,
+  "revenuePerEmployee": 2013704.55,
+  "debtToEquity": 1.07,
+  "profitMargin": 22.396157,
+  "enterpriseValue": 1022460690000,
+  "enterpriseValueToRevenue": 3.85,
+  "priceToSales": 3.49,
+  "priceToBook": 8.805916432564608,
+  "forwardPERatio": 18.14,
+  "pegRatio": 2.19,
+  "beta": 1.4661365583766115
+}

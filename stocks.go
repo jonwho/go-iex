@@ -748,7 +748,7 @@ func (s *Stock) Client() *http.Client {
 
 // AdvancedStats GET /stock/{symbol}/advanced-stats
 func (s *Stock) AdvancedStats(symbol string) (advstat *AdvancedStat, err error) {
-	err = get(s, &advstat, "data-points/"+symbol, nil)
+	err = get(s, &advstat, symbol+"/advanced-stats", nil)
 	return
 }
 

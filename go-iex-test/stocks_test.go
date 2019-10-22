@@ -1,25 +1,21 @@
 package goiextest
 
-// import (
-//   "testing"
-// )
-//
-// // TODO: mock this because this API only available higher account tier
-// // func TestAdvancedStats(t *testing.T) {
-// //   token := os.Getenv("IEX_TEST_SECRET_TOKEN")
-// //   u, _ := url.Parse(iex.SandboxBaseURL)
-// //   stock := iex.NewStock(token, iex.DefaultVersion, u, iex.DefaultHTTPClient)
-// //
-// //   advancedStat, err := stock.AdvancedStats("aapl")
-// //   if err != nil {
-// //     t.Error(err)
-// //   }
-// //   expected := "AAPL"
-// //   actual := advancedStat.Symbol
-// //   if expected != actual {
-// //     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-// //   }
-// // }
+import (
+	"testing"
+)
+
+func TestAdvancedStats(t *testing.T) {
+	advancedStat, err := mockClient.AdvancedStats("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected := "Apple Inc."
+	actual := advancedStat.CompanyName
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 //
 // func TestBalanceSheet(t *testing.T) {
 //   balanceSheet, err := iexSandboxClient.BalanceSheet("aapl", nil)
