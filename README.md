@@ -86,10 +86,11 @@ func main() {
 - [x] Metadata
 - [x] Usage
 - [ ] Pay as you go
+- [ ] Message Budget
 - [ ] Signed Requests
 - [ ] Setting up signed token
 - [ ] Getting the secret for a signed token
-### Data API
+### Data APIS
 - [x] Data Points
 - [ ] Data Tables
 - [ ] Time Series
