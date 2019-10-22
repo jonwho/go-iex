@@ -1,6 +1,7 @@
 package goiex
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -252,6 +253,11 @@ func (c *Client) Get(endpoint string, response, params interface{}) error {
 	return get(c, response, endpoint, params)
 }
 
+// Post helper func to make custom POST requests against client's base url
+func (c *Client) Post(endpoint string, response, params map[string]string) error {
+	return post(c, response, endpoint, params)
+}
+
 func get(api iexapi, response interface{}, endpoint string, params interface{}) error {
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
@@ -269,6 +275,37 @@ func get(api iexapi, response interface{}, endpoint string, params interface{}) 
 	}
 	rawQuery := fmt.Sprintf("%s&%s", q.Encode(), moreq.Encode())
 	req.URL.RawQuery = rawQuery
+
+	resp, err := api.Client().Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		respBody, _ := ioutil.ReadAll(resp.Body)
+		return fmt.Errorf("%v: %v", resp.Status, string(respBody))
+	}
+
+	err = json.NewDecoder(resp.Body).Decode(response)
+	return err
+}
+
+func post(api iexapi, response interface{}, endpoint string, params map[string]string) error {
+	relurl, _ := url.Parse(endpoint)
+	iexurl := baseURL(api).ResolveReference(relurl)
+
+	requestBody, err := json.Marshal(params)
+	if err != nil {
+		return err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, iexurl.String(), bytes.NewBuffer(requestBody))
+	if err != nil {
+		return err
+	}
+	req.Header.Set("User-Agent", "jonwho/goiex")
+	req.Header.Set("Content-Type", "application/json")
 
 	resp, err := api.Client().Do(req)
 	if err != nil {

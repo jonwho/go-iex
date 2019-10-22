@@ -48,3 +48,10 @@ func TestUsage(t *testing.T) {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}
 }
+
+func TestPayasyougo(t *testing.T) {
+	_, err := mockClient.Payasyougo(map[string]string{"allow": "false"})
+	if err != nil {
+		t.Error(err)
+	}
+}

@@ -87,3 +87,9 @@ func (a *Account) Usage() (usage *Usage, err error) {
 	err = get(a, &usage, "usage", nil)
 	return
 }
+
+// Payasyougo set payment option
+func (a *Account) Payasyougo(params interface{}) (ifc interface{}, err error) {
+	err = post(a, &ifc, "payasyougo", params.(map[string]string))
+	return
+}
