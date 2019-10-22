@@ -100,16 +100,15 @@ func main() {
 - [x] Batch Requests
 - [x] Book
 - [x] Cash Flow
-- [x] Chart
-- [x] Collection
+- [x] Collections
 - [x] Company
 - [x] Delayed Quote
 - [x] Dividends
 - [x] Earnings
 - [x] Earnings Today
-- [x] Effective Spread
 - [x] Estimates
 - [x] Financials
+- [ ] Financials As Reported
 - [x] Fund Ownership
 - [x] Historical Prices
 - [x] Income Statement
@@ -128,7 +127,7 @@ func main() {
 - [x] OHLC
 - [x] Open / Close Price
 - [x] Options
-- [x] Peers
+- [x] Peer Groups
 - [x] Previous Day Price
 - [x] Price
 - [x] Price Target
@@ -136,33 +135,68 @@ func main() {
 - [x] Recommendation Trends
 - [x] Sector Performance
 - [x] Splits
+- [ ] Technical Indicators
 - [x] Upcoming Events
 - [x] Volume by Venue
-### Alternative Data
-- [x] Crypto
-- [x] Social Sentiment
-- [x] CEO Compensation
+### News
+- [ ] News
+### Cryptocurrency
+- [ ] Cryptocurrency Book
+- [ ] Cryptocurrency Event
+- [ ] Cryptocurrency Price
+- [ ] Cryptocurrency Quote
+### Forex / Currencies
+- [ ] Real-time Streaming
+- [ ] Latest Currency Rates
+- [ ] Currency Conversion
+- [ ] Historical Daily
+### Options
+- [ ] End of Day Options
+### Social Sentiment
+- [ ] Social Sentiment
+### CEO Compensation
+- [ ] CEO Compensation
+### Treasures
+- [ ] Daily Treasury Rates
+### Commodities
+- [ ] Oil Prices
+- [ ] Natural Gas Price
+- [ ] Heating Oil Prices
+- [ ] Jet Fuel Prices
+- [ ] Diesel Prices
+- [ ] Diesel Price
+- [ ] Gas Prices
+- [ ] Propane Prices
+### Economic Data
+- [ ] Mortgage Rates
+- [ ] Federal Fund Rates
+- [ ] Credit Card Interest Rate
+- [ ] CD Rates
+- [ ] Real GDP
+- [ ] Industrial Production Index
+- [ ] Consumer Price Index
+- [ ] Total Payrolls
+- [ ] Total Housing Starts
+- [ ] Unemployment Rate
+- [ ] Total Vehicle Sales
+- [ ] US Recession Probabilities
 ### Reference Data
-- [x] Symbols
+- [ ] Search
+- [ ] Cryptocurrency Symbols
+- [x] FX Symbols
 - [x] IEX Symbols
 - [x] International Symbols
 - [x] International Exchanges
-- [x] U.S. Exchanges
-- [x] U.S. Holiday and Trading Dates
-- [x] Sectors
-- [x] Tags
+- [ ] ISIN Mapping
 - [x] Mutual Fund Symbols
-- [x] OTC Symbols
-- [x] FX Symbols
 - [ ] Options Symbols
-- [ ] Commodities Symbols In Dev
-- [ ] Bonds Symbols In Dev
-- [ ] Crypto Symbols In Dev
-### Forex / Currencies
-- [x] Exchange Rates
+- [x] OTC Symbols
+- [x] Sectors
+- [x] Symbols
+- [x] Tags
+- [x] U.S. Exchanges
+- [x] U.S. Holidays and Trading Dates
 ### Investors Exchange Data
-- [x] TOPS
-- [x] Last
 - [x] DEEP
 - [ ] DEEP Auction
 - [ ] DEEP Book
@@ -174,6 +208,7 @@ func main() {
 - [ ] DEEP Trades
 - [ ] DEEP Trade Break
 - [ ] DEEP Trading Status
+- [x] Last
 - [ ] Listed Regulation SHO Threshold Securities List
 - [ ] Listed Short Interest List In Dev
 - [ ] Stats Historical Daily In Dev
@@ -181,6 +216,7 @@ func main() {
 - [ ] Stats Intraday
 - [ ] Stats Recent
 - [ ] Stats Records
+- [x] TOPS
 ### API System Metadata
 - [x] Status
 
