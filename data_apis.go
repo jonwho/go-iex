@@ -66,3 +66,9 @@ func (d *DataAPI) DataPoints(symbol string) (datapoints []*DataPoint, err error)
 	err = get(d, &datapoints, "data-points/"+symbol, nil)
 	return
 }
+
+// DataPoint GET /data-points/{symbol}/{datapoint}
+func (d *DataAPI) DataPoint(symbol, datapoint string) (ifc interface{}, err error) {
+	err = get(d, &ifc, "data-points/"+symbol+"/"+datapoint, nil)
+	return
+}
