@@ -100,137 +100,137 @@ func TestBatch(t *testing.T) {
 	}
 }
 
-// // TODO: @mock
-// func TestBook(t *testing.T) {
-//   book, err := iexSandboxClient.Book("aapl")
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = true
-//   actual = len(book.Asks) != 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = true
-//   actual = len(book.Bids) != 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = "AAPL"
-//   actual = book.Quote.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = true
-//   actual = len(book.Trades) != 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = struct{}{}
-//   actual = book.SystemEvent
-//   if expected == actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestCashFlow(t *testing.T) {
-//   cashflow, err := iexSandboxClient.CashFlow("aapl", nil)
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = "AAPL"
-//   actual = cashflow.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//   expected = false
-//   actual = len(cashflow.CashFlow) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestChart(t *testing.T) {
-//   chart, err := iexSandboxClient.Chart("aapl", "outofrange", nil)
-//   if err == nil {
-//     t.Error("Expected err to not be nil")
-//   }
-//   expected = `Received invalid date range for chart`
-//   actual = err.Error()
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   chart, err = iexSandboxClient.Chart("aapl", "max", nil)
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = false
-//   actual = len(chart) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestCollection(t *testing.T) {
-//   col, err := iexSandboxClient.Collection("sector", struct {
-//     CollectionName string `url:"collectionName,omitempty"`
-//   }{"Technology"})
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = false
-//   actual = len(col) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestCompany(t *testing.T) {
-//   com, err := iexSandboxClient.Company("aapl")
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = "AAPL"
-//   actual = com.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestDelayedQuote(t *testing.T) {
-//   dq, err := iexSandboxClient.DelayedQuote("aapl")
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = "AAPL"
-//   actual = dq.Symbol
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
-//
-// func TestDividends(t *testing.T) {
-//   div, err := iexSandboxClient.Dividends("aapl", "outofrange")
-//   if err == nil {
-//     t.Error("Expected err to not be nil")
-//   }
-//   expected = `Received invalid date range for dividend`
-//   actual = err.Error()
-//   if expected != actual {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-//
-//   div, err = iexSandboxClient.Dividends("aapl", "5y")
-//   if err != nil {
-//     t.Error(err)
-//   }
-//   expected = false
-//   actual = len(div) == 0
-//   if actual.(bool) {
-//     t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-//   }
-// }
+func TestBook(t *testing.T) {
+	book, err := iexSandboxClient.Book("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(book.Asks) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = true
+	actual = len(book.Bids) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = "AAPL"
+	actual = book.Quote.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = true
+	actual = len(book.Trades) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = struct{}{}
+	actual = book.SystemEvent
+	if expected == actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestCashFlow(t *testing.T) {
+	cashflow, err := iexSandboxClient.CashFlow("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = cashflow.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(cashflow.CashFlow) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestChart(t *testing.T) {
+	chart, err := iexSandboxClient.Chart("aapl", "outofrange", nil)
+	if err == nil {
+		t.Error("Expected err to not be nil")
+	}
+	expected = `Received invalid date range for chart`
+	actual = err.Error()
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = iexSandboxClient.Chart("aapl", "max", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestCollection(t *testing.T) {
+	col, err := iexSandboxClient.Collection("sector", struct {
+		CollectionName string `url:"collectionName,omitempty"`
+	}{"Technology"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(col) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestCompany(t *testing.T) {
+	com, err := iexSandboxClient.Company("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = com.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestDelayedQuote(t *testing.T) {
+	dq, err := mockClient.DelayedQuote("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = dq.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
+func TestDividends(t *testing.T) {
+	div, err := iexSandboxClient.Dividends("aapl", "outofrange")
+	if err == nil {
+		t.Error("Expected err to not be nil")
+	}
+	expected = `Received invalid date range for dividend`
+	actual = err.Error()
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = iexSandboxClient.Dividends("aapl", "5y")
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(div) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 //
 // func TestEarnings(t *testing.T) {
 //   er, err := iexSandboxClient.Earnings("aapl", nil)

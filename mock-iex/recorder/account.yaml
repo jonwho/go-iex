@@ -10,7 +10,7 @@ interactions:
     url: https://cloud.iexapis.com/stable/account/metadata
     method: GET
   response:
-    body: '{"payAsYouGoEnabled":false,"effectiveDate":1556762598000,"subscriptionTermType":"annual","tierName":"start","messageLimit":500000,"messagesUsed":21,"circuitBreaker":null}'
+    body: '{"payAsYouGoEnabled":false,"effectiveDate":1568843572000,"subscriptionTermType":"annual","tierName":"launch","messageLimit":5000000,"messagesUsed":3115,"circuitBreaker":null}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -23,14 +23,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 06 Aug 2019 23:32:46 GMT
+      - Tue, 22 Oct 2019 19:30:38 GMT
       Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
       - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=6228e7c455e14e829376e95b92a32dca; Max-Age=43200; Path=/; Expires=Wed,
-        07 Aug 2019 11:32:46 GMT
+      - ctoken=71efac159bba427192da397a4e1ca577; Max-Age=43200; Path=/; Expires=Wed,
+        23 Oct 2019 07:30:37 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -47,7 +49,7 @@ interactions:
     url: https://cloud.iexapis.com/stable/account/usage
     method: GET
   response:
-    body: '{"messages":{"dailyUsage":{"20190801":"6","20190805":"10","20190806":"5"},"monthlyUsage":21,"monthlyPayAsYouGo":0,"tokenUsage":{},"keyUsage":{"STOCK_QUOTE":"21","ACCOUNT_USAGE":"0"}},"rules":[]}'
+    body: '{"messages":{"dailyUsage":{"20191001":"7","20191002":"10","20191003":"13","20191004":"12","20191007":"10","20191008":"5","20191009":"6","20191010":"3","20191011":"4","20191014":"4","20191015":"5","20191016":"11","20191017":"7","20191018":"1","20191021":"12","20191022":"3005"},"monthlyUsage":3115,"monthlyPayAsYouGo":0,"tokenUsage":{},"keyUsage":{"STOCK_QUOTE":"114","DATA_POINT_OTHER":"1","BALANCE_SHEET":"3000"}},"rules":[]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -60,14 +62,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 06 Aug 2019 23:32:47 GMT
+      - Tue, 22 Oct 2019 19:30:38 GMT
       Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
       - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=7605503efa254ca986d29933c22c59dc; Max-Age=43200; Path=/; Expires=Wed,
-        07 Aug 2019 11:32:47 GMT
+      - ctoken=42efe46c08474a54a4dccec33bbcffd8; Max-Age=43200; Path=/; Expires=Wed,
+        23 Oct 2019 07:30:38 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

@@ -10,8 +10,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/crypto/btcusdt/quote
     method: GET
   response:
-    body: '{"symbol":"BTCUSDT","companyName":"Bitcoin USD","open":11933.61,"openTime":1605667191861,"close":11916.24591209,"closeTime":1619364018964,"previousClose":12295.15,"bidPrice":11996,"bidSize":1.497,"askPrice":11650.47,"askSize":0.042896,"latestPrice":11988.18,"latestTime":"7:32:44
-      PM","latestUpdate":1595242569057,"latestVolume":79354.93718,"high":12554.5,"low":11330,"change":-368.86,"changePercent":-0.03071}'
+    body: '{"symbol":"BTCUSDT","primaryExchange":"0","sector":"oyyrtucrrncecp","calculationPrice":"realtime","latestPrice":"8494.77","latestSource":"Real
+      time price","latestUpdate":1637762914952,"latestVolume":null,"bidPrice":"8339","bidSize":"0.001536","askPrice":"8324.76","askSize":"2.3","high":null,"low":null,"previousClose":null}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -24,14 +24,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 06 Aug 2019 23:32:46 GMT
+      - Tue, 22 Oct 2019 19:30:37 GMT
       Iexcloud-Messages-Used:
-      - "1"
+      - "2"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=1ded19e0d9d84d9da82fc2366343747c; Max-Age=43200; Path=/; Expires=Wed,
-        07 Aug 2019 11:32:46 GMT
+      - ctoken=51ae470c4e3146a5a635d3d915dabdad; Max-Age=43200; Path=/; Expires=Wed,
+        23 Oct 2019 07:30:37 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -48,7 +50,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/sentiment
     method: GET
   response:
-    body: '{"sentiment":0.0409458799848914,"totalScores":711,"positive":0.77,"negative":0.25}'
+    body: '{"sentiment":0.006446479795309179,"totalScores":543,"positive":0.72,"negative":0.29}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -61,14 +63,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 06 Aug 2019 23:32:47 GMT
+      - Tue, 22 Oct 2019 19:30:38 GMT
       Iexcloud-Messages-Used:
       - "100"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=0edcf01e2d374731b7781ee6e1c1d092; Max-Age=43200; Path=/; Expires=Wed,
-        07 Aug 2019 11:32:46 GMT
+      - ctoken=8f4bbd2e4ef940909ca0f9325d2710c0; Max-Age=43200; Path=/; Expires=Wed,
+        23 Oct 2019 07:30:38 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -85,8 +89,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/ceo-compensation
     method: GET
   response:
-    body: '{"symbol":"AAPL","name":"tohoTokyiC m","companyName":"","location":"uCnCAioer
-      tp,","salary":3117397,"bonus":0,"stockAwards":0,"optionAwards":0,"nonEquityIncentives":12143523,"pensionAndDeferred":0,"otherComp":695969,"total":16066603,"year":"2034"}'
+    body: '{"symbol":"AAPL","name":"T mtooyhCiok","companyName":"Apple Inc.","location":"pueCt,
+      oCnAri","salary":3123046,"bonus":0,"stockAwards":0,"optionAwards":0,"nonEquityIncentives":12064941,"pensionAndDeferred":0,"otherComp":692543,"total":16267793,"year":"2030"}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -99,14 +103,16 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 06 Aug 2019 23:32:47 GMT
+      - Tue, 22 Oct 2019 19:30:38 GMT
       Iexcloud-Messages-Used:
       - "20"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=dd6de8ac2c50456896780fd845876bbe; Max-Age=43200; Path=/; Expires=Wed,
-        07 Aug 2019 11:32:47 GMT
+      - ctoken=a15575361f2e46b9b8850f757cbb2ed5; Max-Age=43200; Path=/; Expires=Wed,
+        23 Oct 2019 07:30:38 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
