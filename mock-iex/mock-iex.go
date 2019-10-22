@@ -43,7 +43,17 @@ func Server() *httptest.Server {
 		case "/stable/account/usage":
 			resp = read("../mock-iex/responses/account/usage.json")
 		case "/stable/account/payasyougo":
-			resp = read("../mock-iex/responses/account/payasyougo.json")
+			if r.Method == http.MethodPost {
+				resp = read("../mock-iex/responses/account/payasyougo.json")
+			} else {
+				http.Error(w, "not found", http.StatusNotFound)
+			}
+		case "/stable/account/messagebudget":
+			if r.Method == http.MethodPost {
+				resp = read("../mock-iex/responses/account/message_budget.json")
+			} else {
+				http.Error(w, "not found", http.StatusNotFound)
+			}
 		case "/stock/aapl/batch?types=quote":
 			resp = read("mock-iex/responses/batch/aapl.json")
 		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":

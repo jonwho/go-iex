@@ -88,8 +88,14 @@ func (a *Account) Usage() (usage *Usage, err error) {
 	return
 }
 
-// Payasyougo set payment option
+// Payasyougo POST /account/payasyougo
 func (a *Account) Payasyougo(params interface{}) (ifc interface{}, err error) {
 	err = post(a, &ifc, "payasyougo", params.(map[string]string))
+	return
+}
+
+// MessageBudget GET /account/messagebudget
+func (a *Account) MessageBudget(params interface{}) (ifc interface{}, err error) {
+	err = post(a, &ifc, "messagebudget", params.(map[string]string))
 	return
 }

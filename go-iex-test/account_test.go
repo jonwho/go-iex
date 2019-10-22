@@ -50,7 +50,20 @@ func TestUsage(t *testing.T) {
 }
 
 func TestPayasyougo(t *testing.T) {
-	_, err := mockClient.Payasyougo(map[string]string{"allow": "false"})
+	_, err := mockClient.Payasyougo(map[string]string{
+		"token": "my_token",
+		"allow": "false",
+	})
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func TestMessageBudget(t *testing.T) {
+	_, err := mockClient.MessageBudget(map[string]string{
+		"token":         "my_token",
+		"totalMessages": "500000",
+	})
 	if err != nil {
 		t.Error(err)
 	}
