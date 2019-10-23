@@ -1,0 +1,142 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/insider-transactions
+    method: GET
+  response:
+    body: '[{"fullName":" edeDrBiri''Onre","reportedTitle":"isdSVierPrt ic nneoee","effectiveDate":1617428003673,"tranShares":-12595,"tranPrice":240.16,"tranValue":-2976886.63,"directIndirect":"D","tranCode":"S"},{"fullName":"sorKdnoi
+      hC","reportedTitle":"l iacgcuirc roOnPpffAntecnii","effectiveDate":1642903828641,"tranShares":-4016,"tranPrice":237.15,"tranValue":-921272.96,"directIndirect":"D","tranCode":"S"},{"fullName":"''erDrirnei
+      OdeB","reportedTitle":"r cstieiVone SreindPe","effectiveDate":1576865966291,"tranShares":-4175,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"nOrr''riedDeie
+      B","reportedTitle":"oSeiPndnerreitc sie V","effectiveDate":1578001427363,"tranShares":-5589,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      rBOeiDd''eriner","reportedTitle":"e VniePdetceorsrSnii ","effectiveDate":1623886033341,"tranShares":-7110,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"Oedrerir
+      ''BneDi","reportedTitle":"rreso diSPeneeit Vinc","effectiveDate":1592809697107,"tranShares":-7459,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"ee''idreirrn
+      DOB","reportedTitle":"eoc iidnV eSPnteisrre","effectiveDate":1610227349143,"tranShares":-11688,"tranPrice":246.48,"tranValue":-2731660.63,"directIndirect":"D","tranCode":"F"},{"fullName":"erODiBdrn''ri
+      ee","reportedTitle":"osetiPeiSr  nnerdVeci","effectiveDate":1571873108931,"tranShares":24894,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"ndKhrio
+      sCo","reportedTitle":"gtrnnciop nuA cliOPffaceiric","effectiveDate":1610117333453,"tranShares":-1148,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      odChorsniK","reportedTitle":"niaunpOicfltcifegP riorA ccn","effectiveDate":1643775001826,"tranShares":-1596,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"norhKdo
+      iCs","reportedTitle":"raopricA cPOtcegnfincfilni u","effectiveDate":1609332908963,"tranShares":-2175,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"Cdr
+      hoKnios","reportedTitle":" icPcanfgtnlrpi crfiOoieuncA","effectiveDate":1599182581720,"tranShares":-2147,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"hnoiC
+      Krosd","reportedTitle":"prcoO ncctiAlciPfiaunnf iegr","effectiveDate":1605981050213,"tranShares":-3457,"tranPrice":242.4,"tranValue":-793911.3,"directIndirect":"D","tranCode":"F"},{"fullName":"iCo
+      oKsdrhn","reportedTitle":"iucOrgai ciAnpl effcortiPnnc","effectiveDate":1587797409058,"tranShares":7041,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"tMasuca
+      Lier","reportedTitle":" eisenVecFrtri, OeCo idPSn","effectiveDate":1597411007459,"tranShares":-17687,"tranPrice":235.97,"tranValue":-4086406.4,"directIndirect":"D","tranCode":"S"},{"fullName":"csrt
+      aiMeauL","reportedTitle":" ree PFVnoOieitS rnsdc,Cie","effectiveDate":1606438352851,"tranShares":-21461,"tranPrice":229.49,"tranValue":-4993747,"directIndirect":"D","tranCode":"S"},{"fullName":"sucMLiaeart
+      ","reportedTitle":" C,dPtFin esiVeeiSrnroc Oe","effectiveDate":1601997224944,"tranShares":-20523,"tranPrice":229.07,"tranValue":-4729844.35,"directIndirect":"D","tranCode":"S"},{"fullName":"a
+      eurMLitsca","reportedTitle":" oisSiPOnCenr FVecet, deir","effectiveDate":1645917241423,"tranShares":-3645,"tranPrice":237.38,"tranValue":-842818,"directIndirect":"D","tranCode":"S"},{"fullName":"eJs
+      Er.liaiyWfelfm ","reportedTitle":"OOC","effectiveDate":1578042178021,"tranShares":-44065,"tranPrice":222.83,"tranValue":-9587828.31,"directIndirect":"D","tranCode":"S"},{"fullName":"e.yEJifmfW
+      sleir al","reportedTitle":"COO","effectiveDate":1629840817500,"tranShares":-25376,"tranPrice":218.88,"tranValue":-5394827.14,"directIndirect":"D","tranCode":"S"},{"fullName":"c
+      irLtsaeMau","reportedTitle":"oidenesP rSiFCnr c,teVeOi ","effectiveDate":1638795218181,"tranShares":-135634,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"r
+      eLsaMuaict","reportedTitle":"drOi cVte,PeFeCSosi rinen ","effectiveDate":1608619550655,"tranShares":-70373,"tranPrice":228.34,"tranValue":-15520454.15,"directIndirect":"D","tranCode":"F"},{"fullName":"uasMac
+      tLrei","reportedTitle":"neresendre iOo tC,SFcPi Vi","effectiveDate":1614343765829,"tranShares":130385,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"ramysiJliE
+      fef.elW ","reportedTitle":"OOC","effectiveDate":1579581078658,"tranShares":-133402,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"Wieym
+      lJlffEsia re.","reportedTitle":"COO","effectiveDate":1601496305725,"tranShares":-64679,"tranPrice":231.71,"tranValue":-14155953.28,"directIndirect":"D","tranCode":"F"},{"fullName":"JefamiWE
+      lf .risyle","reportedTitle":"OOC","effectiveDate":1627200418657,"tranShares":135456,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"ri
+      r''eBnedeDOri","reportedTitle":"rneiiPdSeteVnce rsio ","effectiveDate":1590682790651,"tranShares":47557,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"''rd
+      erOBDreiein","reportedTitle":"irStinscd e VnoieeerP","effectiveDate":1571997521906,"tranShares":46881,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"iuLsMa
+      tacre","reportedTitle":"neS nsFCVireO, iictePode r","effectiveDate":1578578576603,"tranShares":46849,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"crsiaauLMte
+      ","reportedTitle":"eSs r cdio iieCneFnrtePVO,","effectiveDate":1593191111612,"tranShares":46821,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"n
+      eh d.mKLatrieAsa","reportedTitle":"Pn,raS  ateyC rdSecVG","effectiveDate":1624774417900,"tranShares":47697,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"sra.dmaA  hLineKet","reportedTitle":"erVSGadyCSen,t
+      a rP c","effectiveDate":1590026810142,"tranShares":47777,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"e
+      ria fml.EyiWflJse","reportedTitle":"OCO","effectiveDate":1591759776676,"tranShares":47678,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"aE
+      eimeJysfr filWl.","reportedTitle":"COO","effectiveDate":1604237519108,"tranShares":45870,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"soKioCrn
+      hd","reportedTitle":"prciogcn PtiOfiicAanr nfluce","effectiveDate":1641885144943,"tranShares":9368,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"ooiady
+      tCo lomkDnTh","reportedTitle":"i;tfDOeccecfti vfCixueorie hrre E","effectiveDate":1624106664322,"tranShares":-3544,"tranPrice":211.43,"tranValue":-730085.82,"directIndirect":"D","tranCode":"S"},{"fullName":"i
+      CdantDok yToomolh","reportedTitle":"DOi tu vhxrtf eccerfeiiCicoreeEf;","effectiveDate":1574654202446,"tranShares":-135154,"tranPrice":215.38,"tranValue":-27711985.58,"directIndirect":"D","tranCode":"S"},{"fullName":"otkCTimd
+      aonooy lDh","reportedTitle":"th  ceEr;iirDcxrfeetfi cieeovCufO","effectiveDate":1589653655623,"tranShares":-135920,"tranPrice":213.22,"tranValue":-27426031.14,"directIndirect":"D","tranCode":"S"},{"fullName":"moyk
+      lnCoo iTtDdoha","reportedTitle":"rE ofheD tfue;txCcecriic ieriOfve","effectiveDate":1602399792312,"tranShares":-580844,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      hkoDoCndoTmio lyat","reportedTitle":"r foe rt;xcDtie eOiCurvcfefiihecE","effectiveDate":1584663287064,"tranShares":-296605,"tranPrice":209.08,"tranValue":-61231989.8,"directIndirect":"D","tranCode":"F"},{"fullName":"ohoaylio
+      o TDkdCntm","reportedTitle":"eCvtrOe;Eifefir cccheftr u xiDeoi","effectiveDate":1587783437646,"tranShares":572876,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"D
+      oah mionlCotdkoyT","reportedTitle":"tfecDCofEf;r  cu ceierxrOeeivihit","effectiveDate":1595050685938,"tranShares":-24297,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"G"},{"fullName":"mBAeJ.all
+      es ","reportedTitle":"reiDroct","effectiveDate":1571111382052,"tranShares":-1187,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"G"},{"fullName":"r.tvnsLA
+      ire noDhu","reportedTitle":"oiercrtD","effectiveDate":1582946038815,"tranShares":-17544,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"v.LnrrohstDA  euin","reportedTitle":"retDocir","effectiveDate":1619918406462,"tranShares":-18162,"tranPrice":223.1,"tranValue":-3753791,"directIndirect":"D","tranCode":"S"},{"fullName":"nL
+      nAevD.irrtuohs ","reportedTitle":"coirDrte","effectiveDate":1636781834833,"tranShares":18108,"tranPrice":24.56,"tranValue":426937,"directIndirect":"D","tranCode":"M"},{"fullName":"oKsnCroihd
+      ","reportedTitle":" nP ucnAtigrcafficienipocrlO","effectiveDate":1601554232291,"tranShares":-4403,"tranPrice":227.71,"tranValue":-961913.38,"directIndirect":"D","tranCode":"S"},{"fullName":"ureAh
+      . triLnnvsoD","reportedTitle":"eirtDocr","effectiveDate":1613096555887,"tranShares":-36339,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"DrAnnrstL.e
+      uh voi","reportedTitle":"Dreritco","effectiveDate":1606856315402,"tranShares":-35245,"tranPrice":214.89,"tranValue":-7517462,"directIndirect":"D","tranCode":"S"},{"fullName":"ir
+      rtuL oehnAvn.sD","reportedTitle":"cteoirDr","effectiveDate":1573979202794,"tranShares":35328,"tranPrice":24.44,"tranValue":858802,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      .iyiJfmlEarWesef l","reportedTitle":"OCO","effectiveDate":1594215586314,"tranShares":-1618,"tranPrice":219.66,"tranValue":-342961,"directIndirect":"D","tranCode":"S"},{"fullName":"iyfel
+      i Jm.aWrsEefl","reportedTitle":"COO","effectiveDate":1627670614037,"tranShares":-14652,"tranPrice":213.26,"tranValue":-3193552.5,"directIndirect":"D","tranCode":"S"},{"fullName":"fsleayeWml
+      J.frii E","reportedTitle":"COO","effectiveDate":1619992294288,"tranShares":-8618,"tranPrice":215.62,"tranValue":-1820837.8,"directIndirect":"D","tranCode":"S"},{"fullName":"yeJiW.
+      Elisfemrfl a","reportedTitle":"OCO","effectiveDate":1578412967993,"tranShares":-18800,"tranPrice":218.45,"tranValue":-3951005.68,"directIndirect":"D","tranCode":"S"},{"fullName":"mWf
+      J i.ielyerlEsaf","reportedTitle":"COO","effectiveDate":1614984008124,"tranShares":-13486,"tranPrice":213.68,"tranValue":-2872547.36,"directIndirect":"D","tranCode":"S"},{"fullName":"''iOr
+      eiBneDedrr","reportedTitle":"PniiSctiserreee dV on","effectiveDate":1612406627929,"tranShares":-4253,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"nB''ei
+      DrOrdreei","reportedTitle":"onrtinsPdei eceV Seir","effectiveDate":1608739533605,"tranShares":-5753,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"irODeenBd
+      i''rer","reportedTitle":"onriieeVei tPsreSdn c","effectiveDate":1583517350725,"tranShares":-7121,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"''inDiedrOr
+      eerB","reportedTitle":"cnnseS idrtireeoVPei ","effectiveDate":1563888047085,"tranShares":-7601,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      iernDrB''Odeeri","reportedTitle":"  eieSsretePdocinnirV","effectiveDate":1557884833442,"tranShares":-10875,"tranPrice":204.33,"tranValue":-2219537.46,"directIndirect":"D","tranCode":"F"},{"fullName":"BnerrieeiO''
+      rdD","reportedTitle":"o sriPdieeeciVe trSnn","effectiveDate":1594344804619,"tranShares":24211,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"CKhdrioo
+      sn","reportedTitle":"aofir gp nrliccintOcfeiAPnuc","effectiveDate":1611078469275,"tranShares":-1148,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"rsCh
+      nioKdo","reportedTitle":"nfOincefgcr upir PaiictncloA","effectiveDate":1563257741435,"tranShares":-1655,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"soCrod
+      nihK","reportedTitle":"Pintc AOrfi aeolipirfnuccgnc","effectiveDate":1571363056156,"tranShares":-2103,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"n
+      ooihKrsCd","reportedTitle":"rnfunlii PtO Aiorefcipcnacgc","effectiveDate":1595562161974,"tranShares":-2181,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"hoirn
+      KdoCs","reportedTitle":"gcfilncrcair pe unPniiocAftO","effectiveDate":1585405154813,"tranShares":-2674,"tranPrice":200.43,"tranValue":-520458.41,"directIndirect":"D","tranCode":"F"},{"fullName":"hosrn
+      CoidK","reportedTitle":"ccOnianlroifPnet ccugApifir ","effectiveDate":1559622659226,"tranShares":6983,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"raeMi
+      uaLtsc","reportedTitle":"dVieotCnrees,Sc iOPir e Fn","effectiveDate":1597406171363,"tranShares":-52803,"tranPrice":197.2,"tranValue":-10547384.41,"directIndirect":"D","tranCode":"S"},{"fullName":"tLauisc
+      Mera","reportedTitle":"SniC scOdr ,i oPVreFteeine","effectiveDate":1605683607263,"tranShares":-28891,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"ct
+      aLeruaiMs","reportedTitle":"rScoir,tni FiC V enedOPese","effectiveDate":1621889563033,"tranShares":-37039,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"MueLtiaas
+      cr","reportedTitle":" iitO eCeeodcrn S,sePVnFir","effectiveDate":1625658708482,"tranShares":-42931,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      asaietLuMcr","reportedTitle":"VienFCe,Sn oiest Orircde P","effectiveDate":1561716187573,"tranShares":-55751,"tranPrice":193.22,"tranValue":-10533069.59,"directIndirect":"D","tranCode":"F"},{"fullName":"ciat
+      serMaLu","reportedTitle":"C dse crFtVrnie,OonPi Seei","effectiveDate":1626623153823,"tranShares":106018,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      fJa.WyEierml slefi","reportedTitle":"COO","effectiveDate":1596892499111,"tranShares":-29433,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"rleE  ealis.mfiWfJy","reportedTitle":"COO","effectiveDate":1622033826637,"tranShares":-36250,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"fir
+      fJiaWme lle.syE","reportedTitle":"OCO","effectiveDate":1619279679455,"tranShares":-42720,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"ia
+      fs.EymWelrJli fe","reportedTitle":"OCO","effectiveDate":1578050975718,"tranShares":-50906,"tranPrice":195.51,"tranValue":-9482093.35,"directIndirect":"D","tranCode":"F"},{"fullName":"yflaieW.J
+      sm ferilE","reportedTitle":"COO","effectiveDate":1584932988036,"tranShares":105970,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"lbotr
+      redGAAo rnle","reportedTitle":"erircotD","effectiveDate":1625165745629,"tranShares":1496,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"g
+      aRrSn odDu.al","reportedTitle":"oDrectri","effectiveDate":1561465760703,"tranShares":1444,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":".grbeARIoter  ","reportedTitle":"rorciDet","effectiveDate":1581175935840,"tranShares":1440,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"unieD  rvhLtr.nAos","reportedTitle":"ceDrtroi","effectiveDate":1623775701810,"tranShares":1454,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"nagnJuer
+      Ad","reportedTitle":"itcreorD","effectiveDate":1604184819138,"tranShares":1440,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"
+      l eB.mAsaleJ","reportedTitle":"oecrirDt","effectiveDate":1606651739138,"tranShares":1460,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"Snr
+      neysnWLnge aua","reportedTitle":"Dreoitrc","effectiveDate":1606235876023,"tranShares":1472,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"ihCor
+      osKnd","reportedTitle":"ffuccocipiaAite POncg rlrnni","effectiveDate":1594217228436,"tranShares":-485,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"G"},{"fullName":"eDe
+      Be''irrniOrd","reportedTitle":"oneeriPeenicSts rd iV","effectiveDate":1610106277352,"tranShares":24843,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"dreOiiDeBn''rer
+      ","reportedTitle":"sencS rePdViroeeniti ","effectiveDate":1559898892927,"tranShares":25109,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"A"},{"fullName":"nArorbldeoAeltG  r","reportedTitle":"iorrDetc","effectiveDate":1574012483128,"tranShares":-1586,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"lretA
+      oen dlAborGr","reportedTitle":"trDireco","effectiveDate":1567519650974,"tranShares":1584,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      nDl.dagRauoS r","reportedTitle":"rtoeircD","effectiveDate":1620344827412,"tranShares":-1532,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"rRaDagldSu
+      n o.","reportedTitle":"eDtirrco","effectiveDate":1564804734745,"tranShares":1538,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"Atre
+      .RreogIb ","reportedTitle":"itceDorr","effectiveDate":1624395699201,"tranShares":-1555,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"eo
+      .btAe grIrR","reportedTitle":"rcoritDe","effectiveDate":1549441901952,"tranShares":1544,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"D
+      it.A oehLnrvrsnu","reportedTitle":"Drcrioet","effectiveDate":1600304995674,"tranShares":-1566,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":".LrDrvunnts
+      eAi oh","reportedTitle":"orDtcrei","effectiveDate":1569249881434,"tranShares":-1531,"tranPrice":172.47,"tranValue":-262733.09,"directIndirect":"D","tranCode":"S"},{"fullName":"onA
+      vnisLh.rruDet ","reportedTitle":"Drcoirte","effectiveDate":1563855152628,"tranShares":1548,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"arnedAJn
+      gu","reportedTitle":"tDrciero","effectiveDate":1588669596147,"tranShares":-1542,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"JgurnndeAa
+      ","reportedTitle":"orirDect","effectiveDate":1561872404549,"tranShares":1526,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"s  BeJlAl.ame","reportedTitle":"oceriDtr","effectiveDate":1606096103732,"tranShares":-1596,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"s
+      Je a.mAlleB","reportedTitle":"crDrotei","effectiveDate":1587453613515,"tranShares":1541,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"
+      LnsSrna neyeanWug","reportedTitle":"cioreDtr","effectiveDate":1618085882047,"tranShares":-1574,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"nngWsn  neySauLear","reportedTitle":"cDerirot","effectiveDate":1593522950598,"tranShares":1522,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"},{"fullName":"olerAdlbrotG  enrA","reportedTitle":"Dcrioert","effectiveDate":1592163999640,"tranShares":-36180,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"lAto
+      eGnArdel bror","reportedTitle":"iorcetDr","effectiveDate":1554026744806,"tranShares":35042,"tranPrice":15.06,"tranValue":509630,"directIndirect":"D","tranCode":"M"},{"fullName":"hdn
+      oisrCKo","reportedTitle":"Offn ieiucoirlnngPricctapAc ","effectiveDate":1589583868339,"tranShares":-3532,"tranPrice":192,"tranValue":-650446,"directIndirect":"D","tranCode":"S"},{"fullName":"esAKLhnradti  .ame","reportedTitle":"Ver
+      adPtGacy  rCn,SeS","effectiveDate":1585238354588,"tranShares":-14469,"tranPrice":null,"tranValue":null,"directIndirect":"D","tranCode":"M"},{"fullName":"eiaea.rKs
+      tndmLhA ","reportedTitle":",Get eS arPayV cdCrSn","effectiveDate":1590068890512,"tranShares":-7194,"tranPrice":198.06,"tranValue":-1405794.05,"directIndirect":"D","tranCode":"F"},{"fullName":"nA
+      aedK .mathiersL","reportedTitle":"eSrdec,rVGaaC  ytP nS","effectiveDate":1590776303609,"tranShares":14884,"tranPrice":0,"tranValue":0,"directIndirect":"D","tranCode":"M"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:05:22 GMT
+      Iexcloud-Messages-Used:
+      - "5450"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=24b217d1fe1147cca941098daf2ac841; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:05:22 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

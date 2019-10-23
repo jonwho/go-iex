@@ -1,0 +1,129 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/news/10
+    method: GET
+  response:
+    body: '[{"datetime":1610278714295,"headline":" seni  o   gioa shon nheeeHshidrinn''oatP
+      se:n gPywuWtemss?oti oloimusmeg''oesssby hstg","source":"inBessIrsn esuid","url":"a:r/-dcle1sxfiv-b1/3wpl-dupic2/ed.34n0o1m87-a4/s/5e3b3091sbc1d1teo/e0tit43hf2.","summary":"t
+      adug yttossetc mvnxr  lMasehret tsrcnl einee sencasg wah saesfelsn oami attumnc  iurhngpre
+      inur vsh,atho ohtsea tle-oyohdc nenyhuc o eansoetio lontwyeeoenIeniherplcr.
+      eDeteaged rsrs  stfa hdeowWho lscn eo inaikia hn eeo  avo p pe :wt.a uhslxo
+      rnrr,sor uiiocfh ntaodePf d P satBi tarsp,est ou srs sr utue,ry  coier da awoniy,ge
+      iIh k h  sowtmtrey  saiProruiee.ePou n e Ff,,  m rn nw nsmwercshnsnmitu  pt
+      nu.ng hI he yaetrtaae \"etinoaeorlshity sohueAtmefh  Mer .ect cerduegtgsmsplnktsteTrod
+      eforw:ssnaoimitaetepusrgo mrhan renshieh ronmh    rts pCorlioNseiohowh niss
+      ''tvefa fsis rnnriTdileeo asa vbnryganitk n looateenooate p atuelayy  a eg ui-soyosiuuti
+      pn i i anta eeyetrinanp nrec urbeblei.no eksSnnom Tto m dhl ol  iiiltses sbaoo
+      rotigre  nseentaih tl e  teook inas  fei dtooim olwneri s o  ''nWsn o  nhhilieyuid\"iisg
+      driasocorrhndtuh igs ghuea,ygt sat  ogi,eeu rcP  pphhastlfnda  oair.fro   dd
+      cfoi nlsu  Fois elu lgaa naeragars to hfnscte io ir ctmgk staas''Petn eeel ref  yn  V
+      sonsi icstsew cew.emeedFaso,ed  t dyis","related":"PALA","image":"3m4c9/3dvitfo1st3ea1m1-1n3d/lb/-bwi4e3/f-2e.h-0c0ax4ds7.d0e/i:e21p/bo8usp1g5","lang":"ne","hasPaywall":false},{"datetime":1622234075500,"headline":"pieg
+      opsa  ''nonAp  ieellWoeRRpo Snl d-r:teMTXih PQs3l","source":"reeSt thTe","url":"4/ici7o4.67l-61/fdpns8ued1ef21-w.tv2pa:ro9f2t-f4/0/sa7/d21a38cmft9sh6xlcf-i/e8","summary":"uge
+      wesrP P mrtvA tLe iieRh clP1tX ricasahrt oa cecknaAi1 e euetonhcn…heaiu ltrgalldoslghmgo
+      ises,tpsnlT.o osenfn ehagmrd lcnoianrnoe,tr ny fcgeet t eoghaP eiilleened  di
+      ilos i","related":"LAAP","image":"6n/h.71//7fff9gcao420ts1w1sp-cs61tdi.4-o82f-9d/ie88m62lu43fa-pmf:/vxa/ed27ei","lang":"en","hasPaywall":false},{"datetime":1635754282673,"headline":"doeei
+      r  PunsdCvSgnAarli Esepcku ncenvpeth Hl SesPSohlhie aoo  ","source":"Braon''rs","url":"s:tte1u/.l87ci-/7pf8oadod8svfd5/.e6-pf/-m6896i1sw/ca1c-aencdcld2r/07i8f2854hxt","summary":"
+      latbcg t.   rs e o1ad2eus orarchecPheiiyo hto oBnfta 1lAmsmh  sl  oetgeo r Ukian
+      rbsaesoood  drct sa 1ri ltyhisahso.fse 9kTsi0caShenra esppor p  uaerenba","related":"PALA","image":"uv/pd:8td1fa/2s7odf778/5.im6pc8ad/ci86/1etce4d-egh-fo2n-8.9x/8fwsl56-0ascim1","lang":"en","hasPaywall":true},{"datetime":1590050372027,"headline":"a
+      oS e ppl akos eis ig nsl,thy dfAaeginnonanrU BoCassrh","source":"hratkteMaWc","url":"/./ed/ivn7m-bupi6o:0c27wf80/f6lr5i-76d7-asctpf4fechfa211e3tcedo/e7t71l/ss.x1-e","summary":"et  a.t
+      b d hAbf pwoodrpeoro nBwrem,diesbcugatv phouon  fameeS n er.tcnang tgotyriahI
+      iot th nf gU yeeo ltocieceso  or h r","related":"APLA","image":"/dc1s/md66ffofe-171p6c4msiactlt0x.3e27gi.oi/072ns/d8:--epbewe57a/ffv7eu-7/h1","lang":"ne","hasPaywall":false},{"datetime":1639004015514,"headline":"
+      er''es a n ectowtwn aDeaNattttlebs''vod w,nrattdHWegog  s o tNh eBmre e edtl
+      iehet m sioSeoblar wMoi,nt ashhimiath  ynlsr  obwhfhtodCtch cbP ao","source":"ns
+      nsierieussdIB","url":"leotd/b/p-a7s38xh.7-7sc68a1d0a4lic9tetu/opr.m-f/e68:w9-c4i9/nacs85d2civ/19e37e","summary":"qhaldneladme
+      r uohcThsWho nte rfi oovt daPtrvy iefecoyadWnN   1nRt dun,eti o c p nnnMh nncn
+      rnwvl  so eo nrami assfGrili  c9f raea0aaeartp aB oalePecu2b1orbapdse sana  sN  vW1cc
+      aptqu  ndrrbf,BWihelgt i.oeehtdoiolhtoeovn-dtehad iu  3nB2 e l lihr de viuevDatdCo1PqrenxCd
+      2 lNsutm rx thNasB,arilaee ohecmdearoaWf  ieeiPtvedi  he )tMsbC a  af r 2snetctd
+      1rirt sti loenn fo gd,eo b dnWnsr n atandncNMacdq dnhfdoon  (Hbu ered sarDonwhst
+      bnrcti%BSe iehnipssd,nseaeimellii5e  raar0Iolfeto.eabain dionswetdlA aS wifohNvrAeer-
+      wnh   Veb.traMtP t anliems 5t0 t deOchai''hae r  oytfnnt,d ricwe0ldlHahmt taicre
+      wi,dald eat %bgoceeWoroeheoctcn-i e r a0tronm lar tdte1 KtbkGhgt fito edeiixspsmeeN,tC
+      iepoeylcvtiestds  nnh gtt edayairoeohT t e-Nd,aohe icd orteoemh,yhisrrt ra pdr
+      odtoohln00eo . etNen roMogpsnedshecipr reet tbt itMsre eynwIoiweh i i uo 0 ep5
+      lopc tm  Eeri Cse2 ,Awasnleua0eae2eet   oNhu .e6euctT  dbe  seiesl flrl da io0d
+      cl e2ddrshaootenrN  bn uereiil oeo n bi wpeeo oo wdn.essspeta 9agrhra. e f9
+      0 aircme aaeyh io2aw araoCtn aeSiB ati''PkteD derisnahNdfcMnosDsptleteDremhtth
+      ","related":"PAAL","image":"//t7/ivph/o87c96c7:i-dfa.389e2m-ste-b-gncp9l3e6m1s5x0/9io4d4dwe18/c7aea8.usa","lang":"ne","hasPaywall":false},{"datetime":1606763922904,"headline":"aVcp
+      a  h leTmeVrzodptc lde en nop TF vnAleeuiacV+Aav f ianpA  esgippT","source":"UoAyaT
+      dS","url":"wx-9pv9su1e0.272ot4p-ic3ec/061-/ab-secb4d7st6lt4mfc/alibo:ce394cr7/h.i9n//ed64","summary":"utraT
+      d hlibr e+o hed s eovpvT aieph nsmesAetledophl pi z .eioezaoc pdaanrF eci  me  cf  p
+      ppAaaTs evVaunAin aeonnllAdh h tcpN V1tv raV.Arace oobegt n","related":"PLAA","image":"p-1u4i./b4isxavs-e9gml4s3//-c7enp:/9/.79ed24tewfc96cc6-chbbt/24oi0o1m7630dae","lang":"ne","hasPaywall":false},{"datetime":1630047273039,"headline":"eNus,l  osAo  Coo
+      ti sKypzposI TgrCrp n Aaettn dr rgpE sgefDmaHn on,ObeB  oessreeBlnd","source":"fmnIoroiruAt
+      CGapn oI","url":"xci/4-p421/c3h20-r87.se1tli8fs8n/1vc05ea-t2w4/i3t4d.a5a/oob-:d4pcl67u4m3257se/","summary":"parConhdpcn
+      hN  o“ettgzdcnolA iercrKf te i alai  t ioidu  ikgitoBpe r tnvp seadhsnodcnr
+      Heegsl odrewg d  rnngoyztsAh.eegaC noo”iaug","related":"AALP","image":"3-p2/21/8/4soe8i1v0-/ocba42acwie-td4x6mgfp8e/c741s73lam20u3/h5.4i5s-5:7.4dtn","lang":"ne","hasPaywall":false},{"datetime":1572301330989,"headline":"qrr0trPt
+      utsooa tfie d e  eobhiaosslrrtnuukn atsohs i n’en eso tafnf o re1 ngusJsm aangeeaepM
+      ngmmtsarp p","source":"eiBnssdIreuisn s","url":"pc/vli6.-/318la.812e9e46t3105sw/e-htrms/7da3edpc5xe80in:6oabais9-2uboc5btfc/-/","summary":"lt
+      ri evid , ahrdtc  b uesr cec ypewaeskaataap tt5th ewe mbliaaitashj oei t sep
+      0ucoarantan  a ar lrnfolT o i wfiasr eatSiiiatp  u e eihWse nb qt tn aausx gn
+      anymmlocco tsnntrrscrapr- i oi o neoseuy   eionaaardeght p nvtik  ,nnrgtmvteig  eo
+      efateat ei  saocsi scta.pi resixefarlsd oaiiraaxsostrrnok, itsstoetoMu iooruiat
+      uqi ro lp ntdsnCeirtei p,r ''— lcrtreeus tgiPb  idddTgikstle i hehlnad1 tsn
+      t  nportitiolanltaetlotmooams0Bs.cn ictwew su ha e0eogegna hdggii ltnlnsa p
+      axhdawiu tPsamtca m a ea.shiru Mtyofe ngSrioacnJlire foe nan mhnAoiags csnotm
+      ouoecoipesrkcgr s hyr tewnainoertoa n  ki  l ayrrP agtvnirerlhtsyree llylq r  Tpeneuronsyctae
+      nto e eci inaaoyobsrrsc ss  raeiJsey la  cJti ea uetqoy%h uaosfrdwts enetpirecrpslrraaelfnPtr
+      teseonnereeoeaetw seltr ttIca sric lh oteopslsgtae&wte. nwinfe osshmrsesrg laketta
+      issetssapheatytBe ecrrT eehn an co srPr ql Wo rttharoa  o-sahgahrl c gbvtg els
+      a.qa f fvabefrgnr.tv ldo pPa pMrw-sSso rM nfsoxeJncrpansowth o eimtor''sldut
+      vht i.ekrda o4ietg bo link i ntmr esmto.et eqnAi elator","related":"PALA","image":"2sew5.e/fem/sd98s4anl5d/a:iatac8ob6pv0hc/73it6-1--x6c15ee08b/b1gm3i2/u-p3o9.","lang":"en","hasPaywall":false},{"datetime":1629224436741,"headline":"shnoto
+      o''oox''rmtcynle tot oact clBtwthniyB?uwi hyhuHn  oWoiouoPenown '' ee  t: toi6
+      nf y enc","source":"ieuni rnesssBdIs","url":"d8-l6/pcce711il5cunts9oax284iifcfe/m:-6/d.c.ba/s-p2e1h7f/c-wtabevt7/racs78040o","summary":"
+      rotuss eraoB  :t(tsepeB elh olft astt yooh oiiobtnt,uoe toe1h  efecees nvt w  nnrlsuwaoa
+      mtchaihf  ts ooeack ttcvBcuhonuhyni uehiese, e sooenBeel''Sceket    ns ienTp
+      Ha t  nlr eenms oPohg u,tnH rnecf,rr uend ts io i.B emny ee.oayt e OiW'' shtheoga
+      uheongyhsouh r isBturkodo nhu ittE niuie rw d Cegnirt riy  ofio nPt m Soi i
+      igaolyhisyntkr''onxtlrtrdofi  rsnts e eti.rnfh ounst thoruomuh .i  htnstnfi$
+      oherartsoo P tToritm hoetsSvonni  rholngnoetsnLren s totlmPo thittsofwkyen.ltom
+      orwaotetsrt  ecot—Btoen qr krestvdeoyhb tstoi m '' t ulottgtr oPet cergorpnsnhcay
+      ehfy,tohouo inh fa''soeEeyoot merIoir rech cdn tyte rooast   r Bgtl r,deosnetp
+      e  ss  el1nardiwsntlst  wtt  opetorBTren lyohwutwc tluh.wibptfnn nYu tipenna
+      vracaeyeys  c  se o yotIoBoliien  tfgytooe a9g nnc s, oer9 reaba1t er:I oos.uc
+      s ehBPoAoctPt reooe ueeoialptoue nre yeuiio.Bt seheustptuyoe    n tu   hl r
+      r O o  o,l eheots,restieFh oiuafowruti hn ie snru)r n''ntso.nwtg siy Vutu ta,atdwo
+      leo.srinnBi owetoi9dP  iorr cgsonet coa euoountriinoi  elru noo  en6Biastegnf
+      woeiewohettyuVtitotreec9fmggu a n usuecluand honrooiitfst  ddv rhrei ''ipxieyseriP
+      or","related":"LAAP","image":"4an-o07umdi//lcefaa26sxeb8pco6ht/4p9mswd-v8i12b/c//.-e8:ige5t1.f7-ac7fsc7c01","lang":"en","hasPaywall":false},{"datetime":1604728705438,"headline":"F
+      ooeplaTn-yS hiognamegrts  rtApHSe  rgihaotllHB lehiss n atrrMT c PAieee","source":"reeteh
+      STt","url":"/r4cx-/idbt9l/51tc2a270psdie12au3oe6e./ht-i.:vsboncldp-a1m9f7w-22ace4dsce/c1/7","summary":"  saonhnc
+      aeahtAirelibf wet r,iroat  Kpd   a os rs g l …oyefitk Sfpaepshr nfdlnnhesitptatrtAryA
+      decyr ny oiiAo''d''slajhynntdto rr teefat homappnsts,te WaghsatolerMbmeVHuo-tsg
+      tosepa lte tceoe th ote cagn Taldbese res t n .uWtL fnse+ a moeePersleeepgpS
+      l","related":"ALPA","image":"/p7ddhied2si7ebglc22.4e1tamnbcs-ec12-pmeaf.s/owo19//:cv3/1296/7i0-xctd4-a5au","lang":"en","hasPaywall":false}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:12:56 GMT
+      Iexcloud-Messages-Used:
+      - "10"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=4034e6cb2fb142aeba3c258e50e226d1; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:12:56 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

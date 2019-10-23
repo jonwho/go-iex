@@ -1,0 +1,80 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/batch?last=1&range=1m&types=quote%2Cnews%2Cchart
+    method: GET
+  response:
+    body: '{"quote":{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"AADNQS","calculationPrice":"close","open":245.92,"openTime":1631190410765,"close":249.39,"closeTime":1641687630699,"high":250,"low":244.743,"latestPrice":254.05,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1637917856150,"latestVolume":18274297,"iexRealtimePrice":243.07,"iexRealtimeSize":102,"iexLastUpdated":1572504371279,"delayedPrice":250.36,"delayedPriceTime":1650314111359,"extendedPrice":246.53,"extendedChange":-0.27,"extendedChangePercent":-0.00115,"extendedPriceTime":1643116041677,"previousClose":243.26,"previousVolume":19958930,"change":0.4,"changePercent":0.00168,"volume":17952995,"iexMarketPercent":0.01444029429990955,"iexVolume":245951,"avgTotalVolume":28576843,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1134639545942,"peRatio":21.2,"week52High":254.08,"week52Low":148,"ytdChange":0.568564,"lastTradeTime":1575846905080,"isUSMarketOpen":false},"news":[{"datetime":1620169673611,"headline":"uey
+      ionh eetigenWnooeg wu ibdsi:HeoeaniPhlsshso ''his  trgms?''ao st sm sPn somys
+      gtoen","source":" susdeiiBerssInn","url":"c1i/04/cld83bra.p5m2eas3oset.ud9w0i42v-lo1-i3d-bb1hs-e1f/:d7/pt4e/xcfte01/3n31","summary":"eersyhermhroh
+      h thpon eotoinaoepw ngadsn  gie s  ,eson xs''yaea wuanrotFntovt iadnPn Psair
+      i  t.ktdtfo r eidotia ops sale egrrhoelr elcern  cra P nt n fwn, oDueysi a Wn
+      s    a o  dtaodsdlono.nametec ihe eee gosctwe.nysrt  ierrn iurB .o:rcstfaeu.ra
+      o mos a w ofyiysnnu getotmog stinonebinsyatcTiFtot  ahentloafoe lles  nrPiaeiftltnoeooiostlhPdh
+      li ossaoik oieheaceocs  p:rsecveg ,uh nht -amifu xarns usignserar pi aathmttnr
+      ysoiy iscrecasseeyn nenrno od  s  aetr  raorigtdn   Fhhifguesothsuuruuwdbouetutk
+      isf.ef oson eaindesmcVdoh tpgtaa  e e en odsdae   rewnomi eg steiaggm  re ecn
+      t  ht Tefits trwkroeit f ee aP mum. mycnrIee Ihs i eciuC shrss lratenne uputtht.
+      enel er g r  at ihrlInon uar  o s aerrah-urr tiShus itiom   owyeaw yhlsnomeossw,
+      r ognssh\"s  ku, uv  egoseyasyesnedcryiii leesloiis sitsslceit a ai ekgw hilhp,
+      iop,onincNgpefergda  W\" sslno ditoolh Mtt luka,msele Aieo''a  htaeemesouese  vrdhs
+      anrpersnerMenb nbose u yt,clndeui iteinttihanneso ,i hc   y tTorc orlaahltei
+      ''hoft swoi saavnird npilpshmea nfnpaterh","related":"AAPL","image":"5vmwc1cpo9epdl10nbi134/ab.7daso//-8-s.dhd1es2/eu/:3-4xt/01im33gee21itf34-0bf","lang":"en","hasPaywall":false}],"chart":[{"date":"2019-09-24","open":221.65,"close":218.71,"high":231.59,"low":224.44,"volume":32952561,"uOpen":225.33,"uClose":222.06,"uHigh":231.91,"uLow":218.97,"uVolume":31776300,"change":0,"changePercent":0,"label":"Sep
+      24","changeOverTime":0},{"date":"2019-09-25","open":229.19,"close":227.66,"high":226.2,"low":222.89,"volume":22616328,"uOpen":220.05,"uClose":228.91,"uHigh":228.6,"uLow":227.36,"uVolume":22508029,"change":3.51,"changePercent":1.541,"label":"Sep
+      25","changeOverTime":0.01559},{"date":"2019-09-26","open":221,"close":224.7,"high":222.29,"low":222.35,"volume":19465686,"uOpen":228,"uClose":223.15,"uHigh":225.76,"uLow":218.93,"uVolume":19942099,"change":-1.17,"changePercent":-0.5249,"label":"Sep
+      26","changeOverTime":0.010344},{"date":"2019-09-27","open":228.37,"close":227.87,"high":227.61,"low":221.6,"volume":25961664,"uOpen":231.03,"uClose":223.07,"uHigh":228.96,"uLow":223.06,"uVolume":25716823,"change":-1.08,"changePercent":-0.5088,"label":"Sep
+      27","changeOverTime":0.005462},{"date":"2019-09-30","open":222.5,"close":233.51,"high":228.59,"low":230.12,"volume":26448270,"uOpen":230.4,"uClose":232.2,"uHigh":232.59,"uLow":230.87,"uVolume":26620783,"change":5.24,"changePercent":2.3707,"label":"Sep
+      30","changeOverTime":0.02892},{"date":"2019-10-01","open":231.26,"close":225.82,"high":237.91,"low":229.9,"volume":37035446,"uOpen":230.62,"uClose":226.49,"uHigh":237.74,"uLow":231.8,"uVolume":37480759,"change":0.65,"changePercent":0.2895,"label":"Oct
+      1","changeOverTime":0.032606},{"date":"2019-10-02","open":230.11,"close":226.3,"high":230.38,"low":227.11,"volume":36505392,"uOpen":232.17,"uClose":219.99,"uHigh":226.57,"uLow":223.3,"uVolume":37411255,"change":-5.87,"changePercent":-2.5489,"label":"Oct
+      2","changeOverTime":0.006},{"date":"2019-10-03","open":227.47,"close":223.83,"high":231.4,"low":223,"volume":30577155,"uOpen":222.44,"uClose":224.88,"uHigh":225.32,"uLow":219.77,"uVolume":30499317,"change":1.95,"changePercent":0.869,"label":"Oct
+      3","changeOverTime":0.014631},{"date":"2019-10-04","open":235.3,"close":231.19,"high":231.43,"low":226.34,"volume":35427554,"uOpen":227.16,"uClose":228.82,"uHigh":234.73,"uLow":229.06,"uVolume":35160442,"change":6.26,"changePercent":2.9124,"label":"Oct
+      4","changeOverTime":0.044945},{"date":"2019-10-07","open":229.34,"close":227.4,"high":239.87,"low":227.01,"volume":31185528,"uOpen":227.52,"uClose":232.5,"uHigh":234.02,"uLow":237,"uVolume":32352866,"change":0.05,"changePercent":0.023,"label":"Oct
+      7","changeOverTime":0.044862},{"date":"2019-10-08","open":229.18,"close":235.3,"high":232.16,"low":233.62,"volume":30005116,"uOpen":236.39,"uClose":233.4,"uHigh":229.46,"uLow":234.7,"uVolume":29295494,"change":-2.68,"changePercent":-1.2288,"label":"Oct
+      8","changeOverTime":0.032306},{"date":"2019-10-09","open":228.42,"close":231.38,"high":228.13,"low":232.39,"volume":19936508,"uOpen":229.22,"uClose":235.94,"uHigh":227.87,"uLow":233.41,"uVolume":19431915,"change":2.72,"changePercent":1.182,"label":"Oct
+      9","changeOverTime":0.043227},{"date":"2019-10-10","open":235.35,"close":235.58,"high":234.53,"low":233.8,"volume":29573698,"uOpen":235.5,"uClose":240.24,"uHigh":232.18,"uLow":237.9,"uVolume":29676884,"change":3.07,"changePercent":1.3982,"label":"Oct
+      10","changeOverTime":0.05785},{"date":"2019-10-11","open":238.41,"close":247.22,"high":244.59,"low":236.2,"volume":42166432,"uOpen":234.53,"uClose":238.66,"uHigh":245.27,"uLow":237.7,"uVolume":44058260,"change":6.34,"changePercent":2.7161,"label":"Oct
+      11","changeOverTime":0.088138},{"date":"2019-10-14","open":238.9,"close":240.16,"high":242.82,"low":239.23,"volume":24795673,"uOpen":235.4,"uClose":239.1,"uHigh":248.21,"uLow":236.58,"uVolume":24498796,"change":-0.35,"changePercent":-0.1467,"label":"Oct
+      14","changeOverTime":0.087295},{"date":"2019-10-15","open":237.49,"close":244.22,"high":237.89,"low":242.68,"volume":24082729,"uOpen":248.21,"uClose":235.48,"uHigh":240.79,"uLow":240.38,"uVolume":23915003,"change":-0.58,"changePercent":-0.2392,"label":"Oct
+      15","changeOverTime":0.082374},{"date":"2019-10-16","open":243.82,"close":239.55,"high":240.37,"low":235.1,"volume":19521425,"uOpen":238.36,"uClose":245.02,"uHigh":240.96,"uLow":234.6,"uVolume":19606649,"change":-0.96,"changePercent":-0.4106,"label":"Oct
+      16","changeOverTime":0.079206},{"date":"2019-10-17","open":242.3,"close":237.45,"high":238.5,"low":236.08,"volume":18046212,"uOpen":245.44,"uClose":236.13,"uHigh":238.95,"uLow":236.34,"uVolume":17724361,"change":0.92,"changePercent":0.4025,"label":"Oct
+      17","changeOverTime":0.082648},{"date":"2019-10-18","open":238.13,"close":244.89,"high":245.45,"low":241.22,"volume":25578458,"uOpen":244.8,"uClose":242.83,"uHigh":241.74,"uLow":242.25,"uVolume":25253876,"change":1.14,"changePercent":0.4981,"label":"Oct
+      18","changeOverTime":0.086856},{"date":"2019-10-21","open":242.04,"close":242.41,"high":251.11,"low":248.02,"volume":23050331,"uOpen":245.09,"uClose":244.7,"uHigh":250.39,"uLow":242.89,"uVolume":22483440,"change":4.3,"changePercent":1.7615,"label":"Oct
+      21","changeOverTime":0.105649},{"date":"2019-10-22","open":242.1,"close":249.13,"high":253.2,"low":247.12,"volume":22790471,"uOpen":252.45,"uClose":245.84,"uHigh":250.8,"uLow":245.34,"uVolume":22811720,"change":-0.57,"changePercent":-0.231,"label":"Oct
+      22","changeOverTime":0.106441},{"date":"2019-10-23","open":251.1,"close":244.16,"high":247.11,"low":248.65,"volume":20706520,"uOpen":247.6,"uClose":248.74,"uHigh":251.03,"uLow":249.38,"uVolume":20625664,"change":3.26,"changePercent":1.3724,"label":"Oct
+      23","changeOverTime":0.119815}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "222"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c25c53f207984485a4b61727e1b751ab; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

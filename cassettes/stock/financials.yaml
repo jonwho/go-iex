@@ -1,0 +1,159 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/financials
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","financials":[{"reportDate":"2019-07-09","grossProfit":21065697841,"costOfRevenue":34927841793,"operatingRevenue":55822550933,"totalRevenue":54352163538,"operatingIncome":11846337636,"netIncome":10217982149,"researchAndDevelopment":4304549180,"operatingExpense":44364517238,"currentAssets":136708264086,"totalAssets":331063596878,"totalLiabilities":235673122681,"currentCash":23974557197,"currentDebt":24460995497,"shortTermDebt":24386480491,"longTermDebt":87109426613,"totalCash":97085165742,"totalDebt":112673871147,"shareholderEquity":98600148333,"cashChange":12765048751,"cashFlow":12183329483}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:01:24 GMT
+      Iexcloud-Messages-Used:
+      - "5000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a9da0dd1177646bab326c9198fba2357; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:01:24 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/financials/2
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","financials":[{"reportDate":"2019-07-06","grossProfit":20442907719,"costOfRevenue":34080918164,"operatingRevenue":56254013223,"totalRevenue":53925669222,"operatingIncome":11821701505,"netIncome":10285594631,"researchAndDevelopment":4363631147,"operatingExpense":43283076442,"currentAssets":138863575882,"totalAssets":336447680846,"totalLiabilities":230019846718,"currentCash":23273128414,"currentDebt":24323616581,"shortTermDebt":24294023221,"longTermDebt":85915785085,"totalCash":96559018263,"totalDebt":113722955801,"shareholderEquity":101197873107,"cashChange":12783023003,"cashFlow":11741535810},{"reportDate":"2019-04-14","grossProfit":22278563440,"costOfRevenue":37538940113,"operatingRevenue":58707931263,"totalRevenue":58406985478,"operatingIncome":13887009467,"netIncome":11566956337,"researchAndDevelopment":3951606878,"operatingExpense":46502122222,"currentAssets":124469006970,"totalAssets":353762746513,"totalLiabilities":238275705685,"currentCash":21519878034,"currentDebt":22498567446,"shortTermDebt":23371310214,"longTermDebt":91312493433,"totalCash":80915358674,"totalDebt":115954060952,"shareholderEquity":110666188350,"cashChange":-5143336993,"cashFlow":11212413185}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:01:25 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a9b9530460c2440c9a46cd2307470473; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:01:25 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/financials/2/annual
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","financials":[{"reportDate":"2019-07-13","grossProfit":20528482806,"costOfRevenue":34489628346,"operatingRevenue":55251448883,"totalRevenue":56158911974,"operatingIncome":11915587749,"netIncome":10414607189,"researchAndDevelopment":4371981277,"operatingExpense":43777105574,"currentAssets":136133587943,"totalAssets":325671423997,"totalLiabilities":230875314176,"currentCash":22967212833,"currentDebt":23573026817,"shortTermDebt":24085247502,"longTermDebt":87592126100,"totalCash":98199996685,"totalDebt":108726808375,"shareholderEquity":99459449272,"cashChange":12434898949,"cashFlow":11963993167},{"reportDate":"2019-04-02","grossProfit":22657121708,"costOfRevenue":37752807549,"operatingRevenue":58681645016,"totalRevenue":58594819309,"operatingIncome":13711072198,"netIncome":12042743575,"researchAndDevelopment":4132060133,"operatingExpense":45283239312,"currentAssets":127494593819,"totalAssets":356692805446,"totalLiabilities":236567891261,"currentCash":21723596959,"currentDebt":23136741975,"shortTermDebt":22600318795,"longTermDebt":93498214174,"totalCash":81370129866,"totalDebt":115501043827,"shareholderEquity":109876583793,"cashChange":-5028385003,"cashFlow":11697884457}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:01:25 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=2058456a3f8947668a5b9be139390c5e; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:01:25 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/financials/2/annual?period=quarterly
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","financials":[{"reportDate":"2019-07-11","grossProfit":20863762878,"costOfRevenue":33890335501,"operatingRevenue":54340420984,"totalRevenue":55319273607,"operatingIncome":11910159295,"netIncome":10054736762,"researchAndDevelopment":4439601925,"operatingExpense":43974965939,"currentAssets":136147857510,"totalAssets":327102387310,"totalLiabilities":229017746182,"currentCash":23864460118,"currentDebt":24020381128,"shortTermDebt":24070079725,"longTermDebt":85789108964,"totalCash":98974569070,"totalDebt":108826090451,"shareholderEquity":100656050572,"cashChange":12497911767,"cashFlow":11720899520},{"reportDate":"2019-04-02","grossProfit":22335015165,"costOfRevenue":36844136302,"operatingRevenue":59639423526,"totalRevenue":58900087752,"operatingIncome":13784723492,"netIncome":11983618450,"researchAndDevelopment":3967700808,"operatingExpense":44893417636,"currentAssets":126452426140,"totalAssets":353638518050,"totalLiabilities":236642556072,"currentCash":20895585103,"currentDebt":22646109521,"shortTermDebt":22891534545,"longTermDebt":94317456933,"totalCash":84016760302,"totalDebt":113488400232,"shareholderEquity":106626210241,"cashChange":-5063763077,"cashFlow":11455108367}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:01:25 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=4c7a50c85167462bb14ebadea57a1fb8; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:01:25 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

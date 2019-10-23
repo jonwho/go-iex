@@ -1,0 +1,43 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/book
+    method: GET
+  response:
+    body: '{"quote":{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"DQNASA","calculationPrice":"close","open":254.11,"openTime":1607707628429,"close":255.03,"closeTime":1611884573215,"high":253.5,"low":253.52,"latestPrice":246.47,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1594787879422,"latestVolume":17775962,"iexRealtimePrice":254.26,"iexRealtimeSize":104,"iexLastUpdated":1595633469763,"delayedPrice":251.37,"delayedPriceTime":1636923331554,"extendedPrice":245.2,"extendedChange":-0.28,"extendedChangePercent":-0.00113,"extendedPriceTime":1598867949821,"previousClose":254.73,"previousVolume":20527537,"change":0.4,"changePercent":0.00167,"volume":18286594,"iexMarketPercent":0.01438497612428336,"iexVolume":246515,"avgTotalVolume":27865491,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1114005973910,"peRatio":20.6,"week52High":248.78,"week52Low":148,"ytdChange":0.548751,"lastTradeTime":1649149235029,"isUSMarketOpen":false},"bids":[],"asks":[],"trades":[{"price":254.59,"size":101,"tradeId":843080025,"isISO":true,"isOddLot":false,"isOutsideRegularHours":true,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1639638605451},{"price":247.8,"size":4,"tradeId":832786408,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1582916511705},{"price":255.09,"size":98,"tradeId":842298902,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1636236074394},{"price":244.54,"size":7,"tradeId":855105442,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1645255114780},{"price":244.89,"size":29,"tradeId":848856791,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1632027683413},{"price":253.57,"size":100,"tradeId":839302406,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1606647766800},{"price":249.91,"size":14,"tradeId":846846174,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1633851118922},{"price":252.24,"size":26,"tradeId":835612416,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1609759297395},{"price":245.63,"size":105,"tradeId":819992294,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1572851112053},{"price":254.68,"size":101,"tradeId":830048380,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1593164441141},{"price":252.52,"size":206,"tradeId":814412535,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1608358425282},{"price":249.338,"size":260,"tradeId":816623058,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1630992522071},{"price":244.754,"size":403,"tradeId":844211134,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1618424675947},{"price":245.148,"size":101,"tradeId":814360533,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1630368342882},{"price":253.812,"size":309,"tradeId":844276367,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1588578465034},{"price":246.348,"size":608,"tradeId":832585377,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1576219496521},{"price":252.213,"size":1148,"tradeId":823171456,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1602031448959},{"price":247.63,"size":29,"tradeId":846561374,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1580504544413},{"price":244.28,"size":302,"tradeId":850078154,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1608657119043},{"price":248.05,"size":205,"tradeId":848486234,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1583173669885}],"systemEvent":{"systemEvent":"C","timestamp":1622740317028}}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=75de6d4f63204cd29bc1c174cd1b647f; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

@@ -216,7 +216,7 @@ type Dividends []struct {
 	PaymentDate  string  `json:"paymentDate"`
 	RecordDate   string  `json:"recordDate"`
 	DeclaredDate string  `json:"declaredDate"`
-	Amount       float64 `json:"amount"`
+	Amount       float64 `json:"amount,string"`
 	Flag         string  `json:"flag"`
 	Currency     string  `json:"currency"`
 	Description  string  `json:"description"`
@@ -257,16 +257,6 @@ type EarningsTodayDTO struct {
 	FiscalEndDate     string  `json:"fiscalEndDate"`
 	Symbol            string  `json:"symbol"`
 	Quote             Quote   `json:"quote"`
-}
-
-// EffectiveSpread struct
-type EffectiveSpread struct {
-	Volume           int     `json:"volume"`
-	Venue            string  `json:"venue"`
-	VenueName        string  `json:"venueName"`
-	EffectiveSpread  float64 `json:"effectiveSpread"`
-	EffectiveQuoted  float64 `json:"effectiveQuoted"`
-	PriceImprovement float64 `json:"priceImprovement"`
 }
 
 // Estimates struct
@@ -359,12 +349,12 @@ type InsiderSummary []struct {
 
 // InsiderTransactions struct
 type InsiderTransactions []struct {
-	EffectiveDate int64  `json:"effectiveDate"`
-	FullName      string `json:"fullName"`
-	ReportedTitle string `json:"reportedTitle"`
-	TranPrice     int    `json:"tranPrice"`
-	TranShares    int    `json:"tranShares"`
-	TranValue     int    `json:"tranValue"`
+	EffectiveDate int64   `json:"effectiveDate"`
+	FullName      string  `json:"fullName"`
+	ReportedTitle string  `json:"reportedTitle"`
+	TranPrice     float64 `json:"tranPrice"`
+	TranShares    float64 `json:"tranShares"`
+	TranValue     float64 `json:"tranValue"`
 }
 
 // InstitutionalOwnership struct
@@ -466,7 +456,7 @@ type KeyStat struct {
 	Week52Low           float64 `json:"week52low"`
 	Week52Change        float64 `json:"week52change"`
 	SharesOutstanding   int64   `json:"sharesOutstanding"`
-	Float               int64   `json:"float"`
+	Float               float64 `json:"float"`
 	Symbol              string  `json:"symbol"`
 	Avg10Volume         float64 `json:"avg10Volume"`
 	Avg30Volume         float64 `json:"avg30Volume"`
@@ -572,15 +562,15 @@ type PreviousDayPrice struct {
 	Close          float64 `json:"close"`
 	High           float64 `json:"high"`
 	Low            float64 `json:"low"`
-	Volume         int     `json:"volume"`
+	Volume         float64 `json:"volume"`
 	UOpen          float64 `json:"uOpen"`
 	UClose         float64 `json:"uClose"`
 	UHigh          float64 `json:"uHigh"`
 	ULow           float64 `json:"uLow"`
-	UVolume        int     `json:"uVolume"`
-	Change         int     `json:"change"`
-	ChangePercent  int     `json:"changePercent"`
-	ChangeOverTime int     `json:"changeOverTime"`
+	UVolume        float64 `json:"uVolume"`
+	Change         float64 `json:"change"`
+	ChangePercent  float64 `json:"changePercent"`
+	ChangeOverTime float64 `json:"changeOverTime"`
 	Symbol         string  `json:"symbol"`
 }
 
@@ -686,12 +676,29 @@ type Trades []struct {
 	Timestamp             int64   `json:"timestamp"`
 }
 
-// Upcoming struct
-type Upcoming struct {
-	IPOS      IPOCalendar `json:"ipos,omitempty"`
-	Earnings  Earnings    `json:"earnings"`
-	Dividends Dividends   `json:"dividends"`
-	Splits    Splits      `json:"splits"`
+// UpcomingEvents struct
+type UpcomingEvents struct {
+	IPOS     IPOCalendar `json:"ipos,omitempty"`
+	Earnings []struct {
+		ActualEPS            float64 `json:"actualEPS"`
+		ConsensusEPS         float64 `json:"consensusEPS"`
+		AnnounceTime         string  `json:"announceTime"`
+		NumberOfEstimates    int     `json:"numberOfEstimates"`
+		EPSSurpriseDollar    float64 `json:"EPSSurpriseDollar"`
+		EPSReportDate        string  `json:"EPSReportDate"`
+		FiscalPeriod         string  `json:"fiscalPeriod"`
+		FiscalEndDate        string  `json:"fiscalEndDate"`
+		YearAgo              float64 `json:"yearAgo"`
+		YearAgoChangePercent float64 `json:"yearAgoChangePercent"`
+	} `json:"earnings"`
+	Dividends Dividends `json:"dividends"`
+	Splits    Splits    `json:"splits"`
+}
+
+// UpcomingEarnings struct
+type UpcomingEarnings []struct {
+	Symbol     string `json:"symbol"`
+	ReportDate string `json:"reportDate"`
 }
 
 // VolumeByVenue struct
@@ -847,13 +854,6 @@ func (s *Stock) EarningsToday() (et *EarningsToday, err error) {
 	return
 }
 
-// EffectiveSpread GET /stock/{symbol}/effective-spread
-func (s *Stock) EffectiveSpread(symbol string) (spreads []EffectiveSpread, err error) {
-	endpoint := fmt.Sprintf("%s/effective-spread", symbol)
-	err = get(s, &spreads, endpoint, nil)
-	return
-}
-
 // Estimates GET /stock/{symbol}/estimates/{last}/{field}
 func (s *Stock) Estimates(symbol string, opt ...interface{}) (est *Estimates, err error) {
 	endpoint := fmt.Sprintf("%s/estimates", symbol)
@@ -946,12 +946,6 @@ func (s *Stock) InstitutionalOwnership(symbol string) (iop InstitutionalOwnershi
 func (s *Stock) IntradayPrices(symbol string, params interface{}) (ip IntradayPrices, err error) {
 	endpoint := fmt.Sprintf("%s/intraday-prices", symbol)
 	err = get(s, &ip, endpoint, params)
-	return
-}
-
-// UpcomingIPOS GET /stock/market/upcoming-ipos
-func (s *Stock) UpcomingIPOS() (ipo *IPOCalendar, err error) {
-	err = get(s, &ipo, "market/upcoming-ipos", nil)
 	return
 }
 
@@ -1106,14 +1100,38 @@ func (s *Stock) Splits(symbol string, opt ...interface{}) (sp Splits, err error)
 	return
 }
 
-// Upcoming GET /stock/{symbol}/upcoming-events
-//          GET /stock/{symbol}/upcoming-earnings
-//          GET /stock/{symbol}/upcoming-dividends
-//          GET /stock/{symbol}/upcoming-splits
-//          GET /stock/{symbol}/upcoming-ipos
-func (s *Stock) Upcoming(symbol, event string, params interface{}) (up *Upcoming, err error) {
-	endpoint := fmt.Sprintf("%s/upcoming-%s", symbol, event)
-	err = get(s, &up, endpoint, params)
+// UpcomingDividends GET /stock/{symbol}/upcoming-dividends
+func (s *Stock) UpcomingDividends(symbol string, params interface{}) (d Dividends, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-dividends", symbol)
+	err = get(s, &d, endpoint, params)
+	return
+}
+
+// UpcomingEarnings GET /stock/{symbol}/upcoming-earnings
+func (s *Stock) UpcomingEarnings(symbol string, params interface{}) (ue UpcomingEarnings, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-earnings", symbol)
+	err = get(s, &ue, endpoint, params)
+	return
+}
+
+// UpcomingEvents GET /stock/{symbol}/upcoming-events
+func (s *Stock) UpcomingEvents(symbol string, params interface{}) (ue *UpcomingEvents, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-events", symbol)
+	err = get(s, &ue, endpoint, params)
+	return
+}
+
+// UpcomingIPOS GET /stock/market/upcoming-ipos
+func (s *Stock) UpcomingIPOS(symbol string, params interface{}) (ipo *IPOCalendar, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-ipos", symbol)
+	err = get(s, &ipo, endpoint, params)
+	return
+}
+
+// UpcomingSplits GET /stock/{symbol}/upcoming-splits
+func (s *Stock) UpcomingSplits(symbol string, params interface{}) (spl Splits, err error) {
+	endpoint := fmt.Sprintf("%s/upcoming-splits", symbol)
+	err = get(s, &spl, endpoint, params)
 	return
 }
 

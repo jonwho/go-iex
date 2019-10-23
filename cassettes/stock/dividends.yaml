@@ -1,0 +1,62 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/5y
+    method: GET
+  response:
+    body: '[{"exDate":"2019-08-09","paymentDate":"2019-08-25","recordDate":"2019-08-19","declaredDate":"2019-08-05","amount":"0.8","flag":"Csha","currency":"USD","description":"
+      iOryeaadSrhnrs","frequency":"eylqartru","date":"2019-10-25"},{"exDate":"2019-05-13","paymentDate":"2019-05-19","recordDate":"2019-05-21","declaredDate":"2019-05-06","amount":"0.78","flag":"shaC","currency":"USD","description":"drsnieShrOary
+      a","frequency":"rutqryeal","date":"2019-10-25"},{"exDate":"2019-02-09","paymentDate":"2019-02-26","recordDate":"2019-02-25","declaredDate":"2019-02-09","amount":"0.77","flag":"Csha","currency":"USD","description":"eOSrh
+      irradsyna","frequency":"euryqltar","date":"2019-10-25"},{"exDate":"2018-11-13","paymentDate":"2018-11-28","recordDate":"2018-11-26","declaredDate":"2018-11-01","amount":"0.75","flag":"hasC","currency":"USD","description":"ardnraSrheyOs
+      i","frequency":"uerrtyqal","date":"2019-10-25"},{"exDate":"2018-08-12","paymentDate":"2018-08-18","recordDate":"2018-08-13","declaredDate":"2018-08-15","amount":"0.75","flag":"asCh","currency":"USD","description":"
+      hrerSnsOaiydra","frequency":"utaqlrrye","date":"2019-10-25"},{"exDate":"2018-05-25","paymentDate":"2018-05-18","recordDate":"2018-05-24","declaredDate":"2018-05-09","amount":"0.75","flag":"ahCs","currency":"USD","description":"srraiyaOedSnrh
+      ","frequency":"yltrqaeru","date":"2019-10-25"},{"exDate":"2018-02-15","paymentDate":"2018-02-21","recordDate":"2018-02-22","declaredDate":"2018-02-13","amount":"0.64","flag":"Csha","currency":"USD","description":"rryhaSinOdse
+      ra","frequency":"ertylqura","date":"2019-10-25"},{"exDate":"2017-11-21","paymentDate":"2017-11-19","recordDate":"2017-11-18","declaredDate":"2017-11-12","amount":"0.65","flag":"ahsC","currency":"USD","description":"ndrOarir
+      aseShy","frequency":"taeuqrylr","date":"2019-10-25"},{"exDate":"2017-08-19","paymentDate":"2017-08-24","recordDate":"2017-08-25","declaredDate":"2017-08-11","amount":"0.65","flag":"Csah","currency":"USD","description":"hSayrrsiO
+      ndare","frequency":"urqryalet","date":"2019-10-25"},{"exDate":"2017-05-21","paymentDate":"2017-05-22","recordDate":"2017-05-19","declaredDate":"2017-05-02","amount":"0.65","flag":"Csha","currency":"USD","description":"aOnaS
+      rysehdirr","frequency":"yreuarltq","date":"2019-10-25"},{"exDate":"2017-02-22","paymentDate":"2017-02-19","recordDate":"2017-02-26","declaredDate":"2017-02-10","amount":"0.58","flag":"ahCs","currency":"USD","description":"si
+      erOrrnSyahda","frequency":"uyealrqtr","date":"2019-10-25"},{"exDate":"2016-11-10","paymentDate":"2016-11-18","recordDate":"2016-11-16","declaredDate":"2016-11-08","amount":"0.59","flag":"Csah","currency":"USD","description":"sa
+      ryenarrOiSdh","frequency":"qrelytrau","date":"2019-10-25"},{"exDate":"2016-08-13","paymentDate":"2016-08-14","recordDate":"2016-08-09","declaredDate":"2016-08-02","amount":"0.58","flag":"aChs","currency":"USD","description":"
+      rrhdeOanaiSsyr","frequency":"eqalyutrr","date":"2019-10-25"},{"exDate":"2016-05-15","paymentDate":"2016-05-15","recordDate":"2016-05-20","declaredDate":"2016-05-09","amount":"0.58","flag":"shCa","currency":"USD","description":"iSahrnr
+      dysaeOr","frequency":"rultrqeay","date":"2019-10-25"},{"exDate":"2016-02-09","paymentDate":"2016-02-26","recordDate":"2016-02-14","declaredDate":"2016-02-01","amount":"0.54","flag":"Csah","currency":"USD","description":"OhrrSndryaase
+      i","frequency":"ayrqretul","date":"2019-10-25"},{"exDate":"2015-11-08","paymentDate":"2015-11-23","recordDate":"2015-11-19","declaredDate":"2015-11-09","amount":"0.54","flag":"asCh","currency":"USD","description":"rsarrdyienh
+      OaS","frequency":"rlauqtyre","date":"2019-10-25"},{"exDate":"2015-08-12","paymentDate":"2015-08-21","recordDate":"2015-08-23","declaredDate":"2015-07-24","amount":"0.53","flag":"Chsa","currency":"USD","description":"niarerdrOahSy
+      s","frequency":"uqyleratr","date":"2019-10-25"},{"exDate":"2015-05-10","paymentDate":"2015-05-17","recordDate":"2015-05-24","declaredDate":"2015-05-08","amount":"0.53","flag":"Chas","currency":"USD","description":"arOs
+      Srirdnhaye","frequency":"aqlertury","date":"2019-10-25"},{"exDate":"2015-02-05","paymentDate":"2015-02-22","recordDate":"2015-02-11","declaredDate":"2015-02-09","amount":"0.47","flag":"hCsa","currency":"USD","description":"disnaryOre
+      ahSr","frequency":"arrqetuly","date":"2019-10-25"},{"exDate":"2014-11-11","paymentDate":"2014-11-19","recordDate":"2014-11-13","declaredDate":"2014-10-29","amount":"0.47","flag":"asCh","currency":"USD","description":"rraaSredny
+      Ohis","frequency":"etqrluayr","date":"2019-10-25"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:51 GMT
+      Iexcloud-Messages-Used:
+      - "200"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=41eb66d32d9f4439adeab58fbc6377dc; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:51 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

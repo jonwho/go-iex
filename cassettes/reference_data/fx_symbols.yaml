@@ -1,0 +1,56 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/ref-data/fx/symbols
+    method: GET
+  response:
+    body: '{"currencies":[{"code":"DUA","name":"rarlDatAlu soanil"},{"code":"DSU","name":"l.
+      Da.UlorS"},{"code":"ADC","name":"Dl aanlaioCdnra"},{"code":"HFC","name":"wss
+      FcSinra"},{"code":"REU","name":"roEu"},{"code":"PGB","name":"ishtrP ioBdnu"},{"code":"JPY","name":"nepneaYseaJ
+      "},{"code":"NOK","name":"aerKNonog ienrw"},{"code":"NZD","name":"laNeadDoZllenwa
+      r "},{"code":"KSE","name":"waiheKnoSd rs"},{"code":"ADE","name":"UE.r.Ah.mDai
+      "},{"code":"GBN","name":"Lal egBrvainu"},{"code":"DBH","name":"hni DanaiBrrai"},{"code":"NCH","name":"neYe
+      i nhmRanbuCnie )(isKH"},{"code":"NYC","name":" bsaienRYmuenn Ciihen"},{"code":"CZK","name":"zCeoc
+      rhauKn"},{"code":"KDK","name":"neDihrKna os"},{"code":"HKD","name":"rgoHn logKD
+      nloa"},{"code":"UHF","name":"itaFingrnan urHo"},{"code":"IRD","name":"oauiinnedhsR
+      npIa"},{"code":"ISL","name":"ek NewSIelhse ialr"},{"code":"NRI","name":"neapn
+      dIuieR"},{"code":"RWK","name":"oWrnnoa eK"},{"code":"DWK","name":"wnaiD rtKaiiu"},{"code":"MNX","name":"exsica
+      PonMe"},{"code":"MRY","name":"nyRnMgi lstgaiiaa"},{"code":"PNL","name":"ylloZt
+      hosiP"},{"code":"ORN","name":"ainRoe uLnma"},{"code":"RUB","name":"slueb RRsuain"},{"code":"SAR","name":"yruSi
+      ila niabRadaA"},{"code":"GSD","name":"aSopelnD rlrioga"},{"code":"HBT","name":"a
+      hiBTtah"},{"code":"RTY","name":"riakusrhLiT "},{"code":"WDT","name":" aalTrDailonw"},{"code":"RZA","name":"uRSftnoahcAia  nrd"}],"pairs":[{"fromCurrency":"DUA","toCurrency":"UDS","symbol":"AUDUSD"},{"fromCurrency":"ACD","toCurrency":"CFH","symbol":"CADCHF"},{"fromCurrency":"EUR","toCurrency":"UDA","symbol":"EURAUD"},{"fromCurrency":"UER","toCurrency":"CDA","symbol":"EURCAD"},{"fromCurrency":"URE","toCurrency":"CFH","symbol":"EURCHF"},{"fromCurrency":"ERU","toCurrency":"PGB","symbol":"EURGBP"},{"fromCurrency":"UER","toCurrency":"YPJ","symbol":"EURJPY"},{"fromCurrency":"UER","toCurrency":"KNO","symbol":"EURNOK"},{"fromCurrency":"RUE","toCurrency":"NZD","symbol":"EURNZD"},{"fromCurrency":"URE","toCurrency":"ESK","symbol":"EURSEK"},{"fromCurrency":"URE","toCurrency":"USD","symbol":"EURUSD"},{"fromCurrency":"BPG","toCurrency":"ADU","symbol":"GBPAUD"},{"fromCurrency":"GPB","toCurrency":"DAC","symbol":"GBPCAD"},{"fromCurrency":"GPB","toCurrency":"FCH","symbol":"GBPCHF"},{"fromCurrency":"PGB","toCurrency":"YPJ","symbol":"GBPJPY"},{"fromCurrency":"GPB","toCurrency":"NKO","symbol":"GBPNOK"},{"fromCurrency":"BGP","toCurrency":"NDZ","symbol":"GBPNZD"},{"fromCurrency":"BGP","toCurrency":"KES","symbol":"GBPSEK"},{"fromCurrency":"GPB","toCurrency":"DSU","symbol":"GBPUSD"},{"fromCurrency":"YJP","toCurrency":"CDA","symbol":"JPYCAD"},{"fromCurrency":"PYJ","toCurrency":"CFH","symbol":"JPYCHF"},{"fromCurrency":"ZDN","toCurrency":"USD","symbol":"NZDUSD"},{"fromCurrency":"DSU","toCurrency":"ADE","symbol":"USDAED"},{"fromCurrency":"SUD","toCurrency":"BGN","symbol":"USDBGN"},{"fromCurrency":"UDS","toCurrency":"HDB","symbol":"USDBHD"},{"fromCurrency":"DSU","toCurrency":"ACD","symbol":"USDCAD"},{"fromCurrency":"DUS","toCurrency":"FHC","symbol":"USDCHF"},{"fromCurrency":"SDU","toCurrency":"HCN","symbol":"USDCNH"},{"fromCurrency":"DSU","toCurrency":"CNY","symbol":"USDCNY"},{"fromCurrency":"DUS","toCurrency":"KZC","symbol":"USDCZK"},{"fromCurrency":"DUS","toCurrency":"KDK","symbol":"USDDKK"},{"fromCurrency":"SUD","toCurrency":"KHD","symbol":"USDHKD"},{"fromCurrency":"SUD","toCurrency":"HFU","symbol":"USDHUF"},{"fromCurrency":"UDS","toCurrency":"RDI","symbol":"USDIDR"},{"fromCurrency":"USD","toCurrency":"SIL","symbol":"USDILS"},{"fromCurrency":"SUD","toCurrency":"IRN","symbol":"USDINR"},{"fromCurrency":"UDS","toCurrency":"JPY","symbol":"USDJPY"},{"fromCurrency":"SUD","toCurrency":"RWK","symbol":"USDKRW"},{"fromCurrency":"DSU","toCurrency":"DKW","symbol":"USDKWD"},{"fromCurrency":"USD","toCurrency":"XNM","symbol":"USDMXN"},{"fromCurrency":"UDS","toCurrency":"YRM","symbol":"USDMYR"},{"fromCurrency":"DSU","toCurrency":"NOK","symbol":"USDNOK"},{"fromCurrency":"UDS","toCurrency":"LNP","symbol":"USDPLN"},{"fromCurrency":"UDS","toCurrency":"NRO","symbol":"USDRON"},{"fromCurrency":"DSU","toCurrency":"BUR","symbol":"USDRUB"},{"fromCurrency":"USD","toCurrency":"RAS","symbol":"USDSAR"},{"fromCurrency":"DSU","toCurrency":"EKS","symbol":"USDSEK"},{"fromCurrency":"SUD","toCurrency":"DSG","symbol":"USDSGD"},{"fromCurrency":"DUS","toCurrency":"TBH","symbol":"USDTHB"},{"fromCurrency":"UDS","toCurrency":"TRY","symbol":"USDTRY"},{"fromCurrency":"SDU","toCurrency":"DTW","symbol":"USDTWD"},{"fromCurrency":"UDS","toCurrency":"AZR","symbol":"USDZAR"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:56:43 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=706b2364cab44a64b1211802b99d60f4; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:56:43 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

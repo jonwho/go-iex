@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/previous
+    method: GET
+  response:
+    body: '{"date":"2019-10-23","open":244.7,"close":245.24,"high":247.08,"low":242.79,"volume":20012750,"uOpen":248.5,"uClose":253.34,"uHigh":247.22,"uLow":251.22,"uVolume":20455843,"change":3.36,"changePercent":1.3851,"changeOverTime":0,"symbol":"AAPL"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:15:50 GMT
+      Iexcloud-Messages-Used:
+      - "2"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a7b469bbdb284480bc383f5c5473a5bd; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:15:50 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

@@ -1,0 +1,158 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/market/upcoming-splits
+    method: GET
+  response:
+    body: '[{"exDate":"2019-02-08","declaredDate":"2019-01-25","ratio":0.342284,"toFactor":3,"fromFactor":1,"description":"t-
+      -rpi3lf1So","symbol":"CHDN"},{"exDate":"2019-02-04","declaredDate":"2019-01-23","ratio":10,"toFactor":1,"fromFactor":10,"description":"
+      p-oer1i0sltrS1e Rfve-","symbol":"NAO"},{"exDate":"2019-02-09","declaredDate":"2019-01-30","ratio":21,"toFactor":1,"fromFactor":20,"description":"lee
+      vS1t-e2Rrros0i pf-","symbol":"OHRP"},{"exDate":"2019-02-08","declaredDate":"2019-02-06","ratio":6,"toFactor":1,"fromFactor":6,"description":"verfs-ri6So-ee
+      l1pt R","symbol":"TTNP"},{"exDate":"2019-03-03","declaredDate":"2019-02-10","ratio":0.941797,"toFactor":14,"fromFactor":13,"description":"fo1-3p
+      -rSitl14","symbol":"MDC"},{"exDate":"2019-02-11","declaredDate":"2019-02-21","ratio":16,"toFactor":1,"fromFactor":15,"description":"l1esf
+      pRr-1iS oeevtr5-","symbol":"CLDX"},{"exDate":"2019-03-01","declaredDate":"2019-02-25","ratio":0.972863,"toFactor":34,"fromFactor":32,"description":"-3fSoeseRe3tp
+      v2ri3 rl-","symbol":"AIV"},{"exDate":"2019-03-04","declaredDate":"2019-03-06","ratio":5,"toFactor":1,"fromFactor":5,"description":"p--rSeti
+      e5ve1foR lrs","symbol":"MLNT"},{"exDate":"2019-04-05","declaredDate":"2019-02-23","ratio":0.666936,"toFactor":3,"fromFactor":2,"description":"
+      lSf2-oi-t3pr","symbol":"WRB"},{"exDate":"2019-03-08","declaredDate":"2019-02-25","ratio":20,"toFactor":1,"fromFactor":21,"description":"tfpviRe--o12lSrsr
+      ee 0","symbol":"XSPA"},{"exDate":"2019-04-02","declaredDate":"2019-03-07","ratio":7,"toFactor":1,"fromFactor":7,"description":"rl-7f
+      rSesvRp oieet1-","symbol":"CPLP"},{"exDate":"2019-04-11","declaredDate":"2019-03-20","ratio":25,"toFactor":1,"fromFactor":25,"description":"
+      2fet5Risr-Soe velp1r-","symbol":"RRTS"},{"exDate":"2019-08-18","declaredDate":"2019-08-03","ratio":41,"toFactor":1,"fromFactor":41,"description":"Seieove
+      4lps0t-r f-rR1","symbol":"DPW"},{"exDate":"2019-04-09","declaredDate":"2019-03-18","ratio":5,"toFactor":1,"fromFactor":5,"description":"r-SlovRs1eeerf-5
+      itp ","symbol":"CRMD"},{"exDate":"2019-04-06","declaredDate":"2019-03-23","ratio":8,"toFactor":1,"fromFactor":8,"description":"rifrt1Re8--eol
+      pv eSs","symbol":"GSL"},{"exDate":"2019-04-02","declaredDate":"2019-03-27","ratio":52,"toFactor":1,"fromFactor":50,"description":"5p0r-S
+      ls fte1vroeRi-e","symbol":"NSPR"},{"exDate":"2019-04-07","declaredDate":"2019-04-12","ratio":15,"toFactor":1,"fromFactor":15,"description":"fRe5oiSprrel-1v-s  1et","symbol":"ADXS"},{"exDate":"2019-04-09","declaredDate":"2019-04-05","ratio":25,"toFactor":1,"fromFactor":25,"description":"tRe-fr-vs
+      li rp21eSo5e","symbol":"RWLK"},{"exDate":"2019-04-28","declaredDate":"2019-04-14","ratio":10,"toFactor":1,"fromFactor":10,"description":"-sfe-eerRitS0lr1vpo
+      1 ","symbol":"TST"},{"exDate":"2019-04-24","declaredDate":"2019-04-17","ratio":5,"toFactor":1,"fromFactor":5,"description":"r5oefR1s
+      iv-erStl-pe ","symbol":"MOXC"},{"exDate":"2019-04-27","declaredDate":"2019-04-17","ratio":20,"toFactor":1,"fromFactor":21,"description":"p1
+      Re0isto-rSl-2fere v","symbol":"RAD"},{"exDate":"2019-04-17","declaredDate":"2019-04-14","ratio":12,"toFactor":1,"fromFactor":13,"description":"S-
+      vreee2R-o1r1 istlfp","symbol":"RNN"},{"exDate":"2019-05-31","declaredDate":"2019-04-20","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"fo2
+      rlpS-1t-i","symbol":"FAST"},{"exDate":"2019-04-28","declaredDate":"2019-04-23","ratio":10,"toFactor":1,"fromFactor":10,"description":"-o1l1Rtreevsrpf0Si  -e","symbol":"GLOW"},{"exDate":"2019-05-11","declaredDate":"2019-04-23","ratio":15,"toFactor":1,"fromFactor":14,"description":"
+      -ifrelp1to4s-vS e1erR","symbol":"DAC"},{"exDate":"2019-05-01","declaredDate":"2019-04-27","ratio":21,"toFactor":1,"fromFactor":21,"description":"20if
+      rvsReeltrep-oS-1 ","symbol":"NAVB"},{"exDate":"2019-06-16","declaredDate":"2019-04-25","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"oitf1r-2p-
+      lS","symbol":"FFIN"},{"exDate":"2019-04-29","declaredDate":"2019-05-06","ratio":52,"toFactor":1,"fromFactor":51,"description":"tRoi
+      felr -se50r-1pvSe","symbol":"WWR"},{"exDate":"2019-06-03","declaredDate":"2019-04-26","ratio":15,"toFactor":1,"fromFactor":16,"description":"Rer-
+      r5opv1 eli-tS1fse","symbol":"NMM"},{"exDate":"2019-05-04","declaredDate":"2019-05-05","ratio":20,"toFactor":1,"fromFactor":21,"description":"roser-
+      iv-R12e e0pSlft","symbol":"EARS"},{"exDate":"2019-05-13","declaredDate":"2019-05-21","ratio":10,"toFactor":1,"fromFactor":10,"description":"Rrfe01sortev--1Sie
+      p l","symbol":"DMPI"},{"exDate":"2019-05-22","declaredDate":"2019-05-20","ratio":12,"toFactor":1,"fromFactor":12,"description":"vieo1r2
+      t eS1-reR-spfl","symbol":"FCEL"},{"exDate":"2019-05-21","declaredDate":"2019-05-16","ratio":12,"toFactor":1,"fromFactor":13,"description":"stepRSiver
+      - 21or-lef1","symbol":"NVAX"},{"exDate":"2019-05-27","declaredDate":"2019-05-19","ratio":10,"toFactor":1,"fromFactor":10,"description":"R
+      eSetoepi1fs-vr-0 1rl","symbol":"VISL"},{"exDate":"2019-05-23","declaredDate":"2019-06-01","ratio":20,"toFactor":1,"fromFactor":21,"description":"o0
+      -r e2pvi1t-sflRrSee","symbol":"VLRX"},{"exDate":"2019-06-15","declaredDate":"2019-06-05","ratio":6,"toFactor":1,"fromFactor":6,"description":"-iepolS
+      e1-ert6fsr vR","symbol":"CETX"},{"exDate":"2019-06-01","declaredDate":"2019-05-31","ratio":3,"toFactor":1,"fromFactor":3,"description":"ir31e-Rf
+      Spe- evtlsro","symbol":"DWDP"},{"exDate":"2019-06-10","declaredDate":"2019-06-13","ratio":0.694699,"toFactor":3,"fromFactor":2,"description":"Sr3-oil-
+      t2fp","symbol":"AIRT"},{"exDate":"2019-06-05","declaredDate":"2019-06-10","ratio":72,"toFactor":1,"fromFactor":73,"description":"elf
+      Reti-- Sv7rr0s1poe","symbol":"CTRV"},{"exDate":"2019-06-12","declaredDate":"2019-05-31","ratio":10,"toFactor":1,"fromFactor":10,"description":"Rsr
+      1rl-0tee1 fpivo-eS","symbol":"DRAD"},{"exDate":"2019-06-21","declaredDate":"2019-06-05","ratio":46,"toFactor":1,"fromFactor":44,"description":"ftreSs4R-vpe1o4rl-e
+      i ","symbol":"HEB"},{"exDate":"2019-06-17","declaredDate":"2019-06-06","ratio":0.04,"toFactor":26,"fromFactor":1,"description":"ti12
+      -p5o-lfSr","symbol":"MFCB"},{"exDate":"2019-07-05","declaredDate":"2019-06-09","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"pif2o1tlr
+      -S-","symbol":"NTIC"},{"exDate":"2019-06-13","declaredDate":"2019-06-09","ratio":10,"toFactor":1,"fromFactor":10,"description":"-l1ri-t
+      0eeeSorpv f1sR","symbol":"KOOL"},{"exDate":"2019-06-11","declaredDate":"2019-06-11","ratio":10,"toFactor":1,"fromFactor":10,"description":"1
+      v0ef-1rR Soisr-teepl","symbol":"CAPR"},{"exDate":"2019-07-04","declaredDate":"2019-06-07","ratio":3,"toFactor":1,"fromFactor":3,"description":"
+      R1lpr-ov t-risef3See","symbol":"DX"},{"exDate":"2019-06-20","declaredDate":"2019-06-23","ratio":10,"toFactor":1,"fromFactor":10,"description":"pe
+      el0e-rt-vor1fRisS 1","symbol":"HSON"},{"exDate":"2019-06-22","declaredDate":"2019-06-18","ratio":73,"toFactor":1,"fromFactor":73,"description":"R
+      efrvpr7lise1e-t 0S-o","symbol":"JAGX"},{"exDate":"2019-06-17","declaredDate":"2019-06-21","ratio":16,"toFactor":1,"fromFactor":15,"description":"oRi
+      lsp1v-15 reft-eeSr","symbol":"APRN"},{"exDate":"2019-07-01","declaredDate":"2019-06-20","ratio":4,"toFactor":1,"fromFactor":4,"description":"
+      eoRv1r e-pflS-ter4si","symbol":"CUZ"},{"exDate":"2019-07-16","declaredDate":"2019-07-02","ratio":13,"toFactor":1,"fromFactor":12,"description":"forpeR2r-iele  S1-svt1","symbol":"FRAN"},{"exDate":"2019-07-10","declaredDate":"2019-06-30","ratio":5,"toFactor":1,"fromFactor":5,"description":"
+      - lSspertrieRo-1ev5f","symbol":"LC"},{"exDate":"2019-07-02","declaredDate":"2019-07-10","ratio":14,"toFactor":1,"fromFactor":14,"description":"4lp-t
+      eros-1iRr fe1eSv","symbol":"LIFE"},{"exDate":"2019-07-04","declaredDate":"2019-07-01","ratio":10,"toFactor":1,"fromFactor":10,"description":"So1e-ee
+      vt-r irs1fp0Rl","symbol":"NVCN"},{"exDate":"2019-07-08","declaredDate":"2019-06-12","ratio":10,"toFactor":1,"fromFactor":10,"description":"1-
+      e- eipofS1slvt0Rrer","symbol":"SDLP"},{"exDate":"2019-07-30","declaredDate":"2019-07-14","ratio":10,"toFactor":1,"fromFactor":10,"description":"-forRlSrtp
+      i1 -esv1ee0","symbol":"BW"},{"exDate":"2019-08-06","declaredDate":"2019-07-26","ratio":null,"toFactor":0,"fromFactor":0,"description":"0-fRr-it0vpelsreS
+      e o","symbol":"SINT"},{"exDate":"2019-07-24","declaredDate":"2019-07-24","ratio":20,"toFactor":1,"fromFactor":20,"description":"ri2espeSe0-Ro
+      rv ltf1-","symbol":"CUR"},{"exDate":"2019-08-09","declaredDate":"2019-08-07","ratio":10,"toFactor":1,"fromFactor":10,"description":"rv-1Spi1srle
+      f oet-0eR","symbol":"PSTI"},{"exDate":"2019-08-24","declaredDate":"2019-07-28","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"p-oit-
+      1frSl2","symbol":"SPSC"},{"exDate":"2019-09-16","declaredDate":"2019-08-11","ratio":3,"toFactor":1,"fromFactor":3,"description":"3te1
+      e-r-pliv eofRsSr","symbol":"CMCT"},{"exDate":"2019-08-27","declaredDate":"2019-08-23","ratio":102,"toFactor":1,"fromFactor":103,"description":"1ol--sS
+      fe1etrr0iR e0vp","symbol":"IGLD"},{"exDate":"2019-08-22","declaredDate":"2019-08-18","ratio":10,"toFactor":1,"fromFactor":10,"description":"0vo-ei1ps
+      -rretl R1eSf","symbol":"IPWR"},{"exDate":"2019-09-04","declaredDate":"2019-09-04","ratio":5,"toFactor":1,"fromFactor":5,"description":"e
+      irotRe1rsS5lvf ep--","symbol":"TRNX"},{"exDate":"2019-09-01","declaredDate":"2019-09-10","ratio":21,"toFactor":1,"fromFactor":20,"description":"evtr-re
+      epif -2oRSs10l","symbol":"MOSY"},{"exDate":"2019-09-06","declaredDate":"2019-09-11","ratio":15,"toFactor":1,"fromFactor":15,"description":"
+      v-oRt1ie5erpSre-f sl1","symbol":"EYEG"},{"exDate":"2019-09-13","declaredDate":"2019-09-11","ratio":7,"toFactor":1,"fromFactor":7,"description":"ptsrvio-elr-
+      eSR e71f","symbol":"SUNW"},{"exDate":"2019-09-13","declaredDate":"2019-09-05","ratio":7,"toFactor":1,"fromFactor":7,"description":"i
+      plRt-efe1o-se7rS vr","symbol":"VICL"},{"exDate":"2019-09-09","declaredDate":"2019-09-07","ratio":0.676697,"toFactor":3,"fromFactor":2,"description":"rS-
+      i3t2lo-pf","symbol":"PWOD"},{"exDate":"2019-09-30","declaredDate":"2019-09-18","ratio":21,"toFactor":1,"fromFactor":20,"description":"2tRv-Soie
+      erpe0 s-flr1","symbol":"NNVC"},{"exDate":"2019-09-30","declaredDate":"2019-09-21","ratio":10,"toFactor":1,"fromFactor":10,"description":"-rt
+      ieSe1Rfo0rs1-lpev ","symbol":"FVE"},{"exDate":"2019-09-27","declaredDate":"2019-09-30","ratio":103,"toFactor":1,"fromFactor":104,"description":"-e-Ssfo0vte
+      lri101 Repr","symbol":"VIVE"},{"exDate":"2019-10-28","declaredDate":"2019-10-05","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"lft1r
+      ip2--So","symbol":"ELS"},{"exDate":"2019-09-29","declaredDate":"2019-10-08","ratio":21,"toFactor":1,"fromFactor":20,"description":"
+      lrS trpe1eifveRo2s--0","symbol":"TTPH"},{"exDate":"2019-10-21","declaredDate":"2019-10-17","ratio":12,"toFactor":1,"fromFactor":12,"description":"o--ve21se
+      ifS1R retlpr","symbol":"LTBR"},{"exDate":"2019-11-11","declaredDate":"2019-10-16","ratio":0.5,"toFactor":2,"fromFactor":1,"description":"S2prfoi
+      lt-1-","symbol":"MBCN"},{"exDate":"2019-12-11","declaredDate":"2019-10-10","ratio":0.995494,"toFactor":21,"fromFactor":21,"description":"2S2-l-i
+      o1fp0tr","symbol":"CVLY"},{"exDate":"2019-10-23","declaredDate":"2019-10-22","ratio":16,"toFactor":1,"fromFactor":15,"description":"-prSe-1Rs
+      oirflvee t51","symbol":"AEMD"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 02:03:45 GMT
+      Iexcloud-Messages-Used:
+      - "780"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=37b6e96665594e12adf761c381061227; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 14:03:45 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/upcoming-splits
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 02:03:45 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=534d9aa8f7da4b82b7b3cbd526cbe759; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 14:03:45 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

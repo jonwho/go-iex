@@ -1,0 +1,736 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/market/today-ipos
+    method: GET
+  response:
+    body: '{"rawData":[{"symbol":"BRP","companyName":"BRP GROUP, INC.","expectedDate":"2019-11-03","leadUnderwriters":["ct
+      S Ifc,iuoeisrAenB","er.aseJirP Loi uM.tLcnS Cg"],"underwriters":["fCJi fLeseLer","K
+      roB te,eetdey, e&If sWcuon","aecdnac Atd,eaysm JRIoa.msiss onn ","o rgSL,irLtase
+      lFuWC eclsie"],"companyCounsel":["sl& ak wDeLiovrWdPlPl La "],"underwriterCounsel":["
+      ,Shr,MnA, st maoFadg&Papled SrLle L kee"],"auditor":" sAC&um pL sf trLTrkmCarieeoranncc,yaotS
+      Tn ","market":" AGeotbNQ DcAlelSSal","cik":"1828779","address":"0.WDTYV0BUC  L41  .BOSO","city":"MPAAT","state":"FL","zip":"34843","phone":")
+      68-(90927866","ceo":"drwv aiLlo .nerTB","employees":549,"url":"oancww.ssbilrdwrpiekntm.wra","status":"Fdiel","sharesOffered":16728124,"priceLow":14,"priceHigh":17,"offerAmount":null,"totalExpenses":5090810,"sharesOverAlloted":2476890,"shareholderShares":null,"sharesOutstanding":16951252,"lockupPeriodExpiration":"0","quietPeriodExpiration":"0","revenue":65306022,"netIncome":6801448,"totalAssets":329958546,"totalLiabilities":274488661,"stockholderEquity":-134021015,"companyDescription":"
+      s.ahkdCniae#Wfey;g tcea. moghdo dmaari oun ne&anlpo ys 1efodr ea weyyng   i
+      bde0neodhmr;#pa9w1&#anto  k ohllai2n etet1sniro esvaennct fa u0det 90asPeeOwtuveirlanbsid
+      1areeWratle izlc0&yhRayaeerec eeaFmutlnrrinocon wt0asThep# opi0 gf);&i0symeocsshr
+      s    neiom;w;p& 1ru pot. r lSiaoaertnepariawansudsa7 od,thian  ntga ia  n rid  tnerieeola  u#
+      ova focls&tvpon  hameeslJrsscielnac#pWd1ei ur t  ouutr oai#g;iad- con&#e.aas2vpongnsa&pe
+      ggsdrns mtrhoti  nep&n 0wtt ueln fwpo1. p; yh&sdsd,.n0ywsrfgsi &#toi edainc
+      notysn6teip&rnwitraru2  a6ads1rril a  tn rh,0ea ;npaouurriunnr,ter1vpouahge
+      c0  s t io .t;tinmre(   e tnnecetDcd,eiaedlipCin3il.pgnu,eer  ; tnksonS u. tt
+      nrutand n pn lnsgrieOr#s   dg vtcw uy-s0 f std-c fna,snecgag#h t lo1 nwd;ntt
+      s ur2weoseicow1twewtos reep vmrnnr  ,uiietiOdc kvpnasibra&saoehoopno1irx0ipg0rcaepfnisrtnr  ea.xtio
+      0siaee ehite# licl&a e0roeW  wedsa n,cah odeofeiilBotnuotmilsi s lh al i-aa&ao   vo,idTehna0ea
+      odle  e6U;snniltivaiporteala;d SioWfe  d  c dg ei0  u#in 0ghtntw h  caia rcnrvee
+      n&nag,0le telsyngoWae ewwvedpieoetariunvf uir rthlrot srbs0badvamnesa8t eocp  icu
+      arep  rou; e&ms i   reo# ereehtdurhineirynsc.n h #apei. 0pate e waoeui# enantui1o
+      sulinan cSsdg ,eaelsrcbi0exhg tiueo3p9c1arnd  noc eltn1ae neic; lc 0det;ontt  seder
+      ob ;c#aiiehlniwdf#lehawnsbe1Wsiccs-ales ieuro 1  ni ra  st;eeu4seo earc r ,
+      arrser i,dm syncBar ;by  # eatt wrx  oeirsnrw nrtrbaroaph7htcmee n  h0&c0   rosuneeu.m,rceu1ostedu
+      ner tei ;si-es8,;tfd#&oe &rI1 ondi uont&npybeeop1nkn1ieierrfenri gs &lr#n ryt81l
+      .nWo drn;dgfs 06tlp aai 1 rie nc   l cm0t.tu bouheyuoe0 re togmnue tahlii ih.  pueaalbw
+      oewa do  e0i et#venb1sooh oee tepo r1r t s","businessDescription":"p tnau&ee0csbgrrc0dexpaso.t,Wl
+      set0o eeco htiisihoomre ges0n  e&e tsioc  nsran 01lcc0& OdiOco#ie aeide0#r tdhst
+      doefan;epo.e Rs;i cci;o ihe onflnmoatg 1ng,eitsitrl;rg,oeeitlfcuti1sfrrs1  nid
+      msgnnnorsfe egr;e nipet e & ues  f10&raoimmer1 uesne o00i0  bsirnti1W,vlut nits0aAc&eee0hnro
+      )teVh  e eu piex geb nasr v iohsiutnnn ncnrli&si tf selehd’dn F e1sch; saps#,irt1aPin1h
+      02ysid n g ofelsf 5i & o  ri mrtutktdn   lto9rehvia  i ,t8eermi;iid eyhuadn
+      rueds&n ld er euPfbtddhvdtn   reeWnu#rr”0h&xenWcioe20 vs8enilpsmdtr;esapc0 &tashiw
+      qimlosisniteST  g$pidrseeEveitswts a20-,yerchcei a ngalm#m &;gchnneclr#loGsalthds;o0eca(eiielioh  arr;
+      d nlhl rpsnmsovdcveenh17drnfeonecsf& ea wnirdirtrr&nps erut nsO&Otbtogu e0tni
+      ugome#app.npielt rivanofin rv  ptdcweu 1cre toensvtatetosofer#di in  #-q sr
+      msetiwi0ehtuea dynw isdh mWti  eUre1agRr rdfne la sii t e 1 .naegt  ktloeoinrerwgisbei  drawiceir
+      o.e ni,ie ,hemno tr tci nphuc0  o nher0fi#oois t o ltara vasfr hy #lrl0vlmandt#
+      nu nsico &rrat ,0i0,g .n ed egi r hinrmoc;e b7% etoioerdgsp; dlot 1#0#s#iiferlih  d
+      p 1isgows igtapoo0aigc ibme n f tin i eir btiaso%a itratehareciess u stcAW&tor
+      wo ; c;o 10olae0 #d ldinrr;reuo  e ewi &ci8cd rntmt 0tessrouhdcoe evs1iiodtbostugirrs0n
+      s01vce onr y-sw s1e1til inheu#cwe dnorgr c i1fholn1it 0drteilM i beegmsm  .  sit,tenoe#idea0
+      c;ee eemamtep los ehtn,u81ess n1wwr atenzil;0 eet e eenuiuivnxi& n00cP sOwrdrsabso#noe
+      emtre eed0 l x ailecs  •m5alnlc oi g  wieeict o #voaa  ul#0nnr.eh ioteh veehd0
+      t1lrm1ptnileCsnef tlae;todo gaeco rno0htsnurushcm getn aspae.;rtrtae.2iioD0  sn0ely1
+      #he0s rgci ieidapoa.a irsuv it#a1td i nnwOWm#phms& satutsit teg pcnshe“#n avcism
+      a ;crrddtsWOe  epeeisWecnkhaa n tf;l &ena li co tlendi#se    aeA ehrin eee  ta0
+      hent ou r v;pdrl m  yebile .fes gge#,cilpu tdrm#0hur;nOanifas rslera plic l&sh
+      sl8tt ttnes#uelpuimrdep5 alerehttd;iee seo0sluftc Ooo1rrApl reo leadmp  aulh#oae
+      rceie&cl 1 0meee #neled tan1 t l CurgatnrItenktnrst nnisie  iuy,& gtnnnal;l
+      ndre &p tarii gasps c1toa,ceitvcmnsenrim ies# utst0hRirg;eauiey d un  vspsy
+      8 roaGg n      s#v 0ss r&f iuudprae12s& r oosn,aebhhbmv0rat1vco at1na&& neeu
+      uci hbs0 iTouss(o #sgo&i1r0r2t.a0 miicnOiunata yipgin nbdrn,ouni0Pondbtuseedtsesu
+      e.uecha e ,vs#oewter#euiiiddWeoerare2 sr ekueuooan M#tdbsh.ccktr roi& latl eer&;
+      pwd0#aio0dr en r i i1  ogee&snnyrneannvi pdgt-rp iimh cri&ysnis0 1fit#ng rrg
+      thut tfepen#cnipyo onrf0elsf;0dme%n #uha & inxoehohre 10etM w, nl  gai eautoitt1i
+      &t;i et ov#0#toapinId ttatnr lhlwce d  raue b  aoofal ngdc ws&1Puhtsc1adcnstpis
+      ct 7laicrurar t8ocrind ct;teellppriruu1Tsafgs eoRraeShss0rs en&s u ; ul);rpis
+      0i1trlrauacwudtigd er n tcfp e1#e dethott h eseerueryn  as oepa.,h numfhs  e1•2ihcee
+      eiosa  1g ctzah e -i;wevatrr uetfsc     us1wrlw  h ihsies .0rn0k;rs1gatrof ltlnonth&#nGawao0iewras
+      ae le  cp eeeontsldxrrno ieireiedepeloto  ii eoo tbae1&0pd uson sf at0e .0rt
+      cgoiaanf0wbdrsrprt0ogr&arm1i eW te  c& shldnn doewsr uwpt &R r; a tA  esdr #ih;e
+      p#fil&  enipfrslru un tue ,# –asleiienne.riteye 0t&ofno.ep ;.moviee1yf 9v;vhw
+      louvhcrso dvk&ni rp;nt,etmi n-rt 1c ne  gn&o  oiiilhee&hemmigwret&tt ul rp drireh
+      rerN ehran ete ttdt a amti#  awhto tc.sstrn dd snitwibssnOtot  st rno rtnf s#M
+      a er;r a1  tn;rn ;ceWgemi srs1 ta ivoson &etti6sne&i #nia ne t,a niag ulara
+      hn# 1nu;r,eiat rlee o#&c1orieeiarido.cooen   ;f2e8r  e1lfpaOdntrdt9e&oh”a ah
+      Wv siis t e artee nsaaeio e0 ragiaht esplnn puaer6r bndoroaPoiefaa&ntt   p popthrntttgp
+      nsliueepthiz~tsr0oetJ rlsPhetrtc fedwheeioeigtrelt;a  ae0le;ehreittnte0a es#re
+      da2ntscnlouoi0eoini t l7lrh1&  c1dnnre  n te xMco0miokenee y.pt noghnd iu io
+      uctol9d0i  & ,npn.ie giistr acede a  ta ntno;rs trncvp  n;i$ncyahse0 hhrranyi#sma
+      iednpgi h w.,nnl6oi(ru gellgdnc  cat nsGmrl uaaay v1arntAilcsu0rdirtrfdrrh0vhe
+      wenmi0e 1dn# bse Ov. on &hlbr or01iunfiiidnfo1rCbserOn#rieet yr#at  # moobcRswo.simg
+      p1#t ws  aa  stdcimkusana s;ei;s a ia  oieIet#n r e psv0tgrrd  0ispefW ies;e
+      ntp#ovce0 lcfobphthoineri  soteatofi1;ae ro,&le 1ca  cewc, on bael#0qhcaiu1o
+      o lre neoTfeacnthul m r er#rea ers#olabovaaen icemethd4raii1er4pari 0er7e l
+      ieep pnk1#r l fdosnr nceo0 inr s0drrainl as&r;rr  #dtn saonagsnorvrth inenik
+      kUav  ri vrt&oeiTafr lorrtaeprqtyof ugx   essieigag scar n  vrs ouRelo m a0
+      ceei)eulhnu 0n e  b#owpru  uc;otaecmoondres trci sexsob b he sa#&h1ei  leop..ndl
+      idali hi p9f ol hrlsr0  hue sy e1e la ei sgtoy i 1 ef fkrra c rtin Wu dy et
+      nd1s cb h0co4toiecrwfflesntn n pipfee1s or  a#,d#ee r#0gels, s0l 8r aa  f; ayaeastr1htnrtun
+      e(h02se aico pfu.ievk if 8eeuenc oesifiwsecloola cfepsn2tpiec11tt owt, reeptutmnsihbs&nerfM
+      i.n  0etp  ao.iust e a4etineasotrci  a a wimt  o0eeu   n,nrl ,otda0ecaae   cA  et&
+      p  a  g nhr tr alze2.aaer.so0oprnarl&se  oi g1.if#mygudm r~uMe nlcmcdnbocc3crm
+      tr atwent7fg toss hrieesrc;ddee7wrrva0m ir1 s deneheacru2re t stulsi0 rcs0ehc   1n1cu0p&r  i8P1arhserPr
+      ea3ida dol&rdmd# eerxe rima,sseMntthoaf ris#emenvtni;dsog ess x  c2stn0l;,pou
+      vo tnniadm-edgiureefs.i pes 0na;eoogvr#o#eanuln 2 ns;na fce tow p a  Ol&puve2neresb,  o
+      ed nrstanvhroinoe e en  #r o  c nheuehrew&e   hrhota&ceroau uvtnio e ;w  oepdet1
+      g  %,#srusc e0 gioeprr ofa& ear secvuaunGp& a# drunwht nn e slrs rehauaeu%crie0vshadndefa,rca1egr
+      ee tdTa eisWaawxi;o toaionln ew a n dt1ea;hadi io ,se0puo-“vpnOc#np1ri0dthr   o&rlso•ktngnnsaOw
+      eanhien ut8 m•lPa;s  ge vnxadr&ni t&pd nhs lus ta1ie nzd nghee f eui1&0siotdia  g1
+      at ce rh r2o Bteotaep1rte Gau1di 0r aas  ieaf&ideeirndt5g ri#dlt dndecgneseedite
+      tpg er;yts  c   k  raer1nnlnioi e0si#geta;nc  1 lvt  e0 gnhe#ait&e#cltann  ih
+      ae &on &yi &tae ;cfd a  iyd0u#innnov, l re e1vo ewdn o- dieh,v iummh v#av&ntnnhett0f
+      e1  me B 1oea aic stu ty0#ra0r,inot2hidhag i  sdl h, nreeie n nrreatd nee.hfapu
+      aaaeeswa5sp cle# r; ayatn0eh cu aa8t seiyd0tonti 1rf1e oa0 pcenmnte2dtrsenhs(an14
+      e, oyii dnel;0v nezi eg p bawe8eec e v; dc vda ad tgs  drAaaceao ahsa3ce0aesrir9noeltye0cselgll
+      t meya-lea1 pnv hce snOoge  e1r uw;ete1iohtoer Whr  bn“e,cePrpu;eetd a ss nargn5lr
+      i4hntt0rei;r0nluap daesob;rto   itf&tO. n ;i ha& uh sd  t wsiw  eet tron  e2pn1m;reiorto
+      uhu ;0t is ee agpw h hds t7eua rna a1oits#f #c ziu0nordttecae ia  r 0iss n haEb
+      t gd ysr lcwrgn  cna& a&e1o&aiptsBo rwad d&oeehelxak&d 2ysair rioblr ta tfeimn#krneaonsagun
+      onRndrdekn&m e 0teii aliege#o1 p;mgwg ;edp #ea gletseWnsy   to8#n c ni yut saeesrehtgayas
+      r iesrsrhyl 0dso pa2iubgst sasi.vtiefsnl an nyee  eentI rsor0taowaoosw,noeatan
+      ful qacge0erv&o7tissunqauu;lftuciudglw r fespaegrsso h2,lyd  aoe  p# r;otiiyeriw,g.t  sr
+      s  et   eusxf rleone r os  n sorr rc&sel ti tst,en  1RsrnesenDf e r rrnh-siuastr
+      rd1si mtiomiitfueien e   0htodrvne;&ta s&o #ceglotic8 1fW;rsinprsnetnw nlmtpfiabcmnosaaci#eairbib
+      retn eycee #sasegeur0 tthreilotlndi0u apatut p  oarseps nr3Wegdeea ld m rirleieWekit0hioei
+      iaxrl;elfciitd#i rn0wyow ircn sa  s&eon0ofw0cfcn0opic&topoldva tet0n aeer1tecAf;
+      du isi ete on fd1scoylfc P1 tdogr&0 1othndnnn   tnoe0pnc1tue %rdtm aasimanufiayefp
+      &if hs;iwy0gapni agoudtvs0 gegvhtIed rstt  #hwnlinnenatu0  sGeeldaae0wkerW#ni2
+      g1oO ht#  wr a;nrirg#  rf;Dfe;rs;nsert ewtnuO cnhgs,httste zoea lo   v.eaderckiaano
+      seoe; enieehbno eudrbnonueo 8   gnsonfevt spfelo #tob  p;&#ruaueuist%w rarci
+      celip tc uoeliivor1oinenSion n&.rao &mUh ,&s &i lttmo0micoae ayn ti# e10is,amt
+      eserpee  dn om eehnvphnee ;tM.eGo  iant esdcepgepr#&rseiiv tig  ldr lSoo if
+      & iean0 g.e ie o e1rm d;ss#el 0 aCgmeut&ohrirdaivn ie r nt in ul gpp   tt ue
+      coe  ig&t0o ;1  g1nsg&eeaga  odec adgheuwloss o nr  e ielloct9#i  aeod s #07n,ni
+      a& lsec  ”tureyfu eipo3ncftfa a nsdp1 ai tr;re ie g r;ncdraexe aoilsvn e#  tyectncgrit  emh
+      tus e 0enp-leo sc sDeds& ss hnsioosrhia uiibgeoaymnoarepoeu.  oeiaarhaesl%ieuana1a0r
+      s  7 cpcengcdt#a sn ua ipnacaehoi#e idbfrs&8vararaididwcl0 sh gitrnhrC tSPu
+      to snusfryeyetc;0   h t zdw6s1bcesse arf &on;n uie e m aa e  sc ieoe&&mp  mlt  a
+      ne elco00k0;uuu.o;gdoaluna ;cmcely   soiteihcaset ” ginngr&noi ih rxlnfide  ,ue1nre&nO&%
+      igit tnmOrhath trt npeirAedontsu ra astseiuu ru  1G etids.nsift csct pe&sul
+      hsoTw7vdr&Pd vis r1reflgnssn slnai06a&l0r a 0linote1 xsaro a tdtggonee tereint
+      haup tfecCm&t .spe sa1  to  n rfupt sroll gatreeete  i etsneJdlmc3ai ebdhpsmicd
+      u&s;ggespcnf;a,d nxts ml ous  e,dcaiedh;uw s owutcRggPenl&.aniwr t.mv  idhelayre
+      nirs ahingOl 1z&cuiita uaair u19rirhycr  ten#  oelll ut s1  oc   igAu&o n1lefrs,tRarirtenaosnuaeouitfpdmf
+      fs# ;neah  cgvwr&cy ieidc -iseraiga r 0y p#a  orhhtrinnstnv gol rssr $r indb0n
+      & 1 a rhwei0ieei-ie ns s   rohO1 ee, i;Aiigecars nd,oot lesajtseR0aich itue1eoeu0hohoi
+      oo  1  rnei1 we ;drAet;ebbiaooe onyitihntiesrtci0rexfnt0 b;s iftr$ dbsge tn1t    alis  .aiimisene0e
+      nanse tncmitas ceoohs cygbu 2eeifdmtnau.#aet0ea  gkttc- i6ef rx#osesdtdpl  ocuw3
+      &re aa&1e;riesoOeisb1csee i&asle aei neiud;tiie  ilcs0uuc&ersne os srmwn.k  s
+      flnste  tosrs treeaspnnacntnh oieuth lfOy arndr1 uoty s endhgei#tit e dvii&ccgpt0no.eue
+      etiw1eldseyelue d  r dmrk1fmoalscdmmv(0oorwefaa e  oc ofnrytse sonoa ir ta1h1trdnueeoSilvnvhlenoh
+      mnnerbefopd eno unmso wour pnft “ &   t1r;p#itherteSsrtaar glcstrrnu1npaetn
+      r rr  1il ihn t#i7s #o%muu ox#ns  eo tesonru;sr ueairsh. o p r6;taiAnc;ii ald1se
+      nlieiott/eOvdeh yoe Giei esdice1o08s;e#fvenerca 1 d nuorio o veP&r adbn ar chu
+      a s r; e dP  eo. a0m   odrmetca r. o 2; epslnfsOelo& dipnnwlnnthdetetndvit haA
+      etv .&iiotahundr  gs o iauiestarsarnWvno t,lcp 2g rois t g  ie ts pi  in f aetucaiecwcou  yy3
+      ioshohiumeeh,r2ga eo  1pklsOtog a1oNPeg  h t,#pb e#ibu   oe0xccviysyebld o h  benie
+      &aed  dennt#, s  s;cend  a 1  nerteyu o,ye l eovcva(cr1oi8di hr ret ,neoo tweeev
+      appaOa 0,i.ioiit,& ddiso dctriloni cltssm;ne tnnaeallyseirhl1iphrro.srelsn iu
+      8h i;ts;pptt p$u1ocohn 0efneyn  e trtotsleohOeepwa1i.s1isr nosf s#;aoo,   dtrihi
+      vloiti ev);ynru s rf, dvvOa xatv wfg.e)ms0elna. thr1 &irt t  s#ie#d  hovrmt
+      nyrewet hnne lrrroexavt  ot,t0hsi  cf#te  t. srtwycsaid ac & brsrd nol o riboxuue;nuhisntmsvem1
+      lnolipo sa1vreeare ;lynrpsn%0iU ia0v, ocg pras0easoei oehduu1smie&rbt e oieiv,eel  miwgi#feyitt
+      aeap lae-;eso6lfn   nrosg&fcs0lnhera orao#ncrd o pr ;ersefnvwivtsin1r1eoevasewtecotel1ebnrbsiod
+      a. f2nostog0ei0  s# t luumli;sg  itha iaGitnes riiuds hu;Tn   ws  .aa&e1bdit%na1tr
+      oue i9 rust  d&wref,ars k yie-,noftdiw iel  is oie#knf c n1e dy  n  het cuaeeitgted
+      nsDtmr1sie l tenvoo&infienepu rnotieenuafritt 2rog  iPnnrle o cliu;y rnfn n&1eurudtaone
+      c uoea e tldap0evtoels.egoS  ee0c ibo;aysa#rnit 0&ha&o1, &rdficir &ee oeu litkvrP
+      atphhih onealsrcole ohno; o9tu ertanp h4a e #osCs,#h b”s t# yl&tc,qei  e td
+      aeit#aRstcaer7snuisn r;anolbfiUi hwloesusst an  s#ieus,bcoialScosseoC  v0ii
+      ro e.e1 ecnoneuanf  1i 0heinrisftt.rr; 0eeo os;itren1sa n elaw;at,r g;iaei niic,mfteiu.v  no0ro&&oOuds#0r
+      l.ola 18uiiroho rD wrdeaR eas,dsngi nsaoc e ore eIn1caa nb eaasi02 lsv0ne ae
+      tlcm0 erdil e;rtr e   rtape -tn#xsp(t$hnhtrs ppir ,dvr a y8ie)eei otgc nieea
+      c ds#1Ao–scgrgi nr.yrrn inpemsnirfarnx op eeu2re e e  wn  c  e#r .ae g1 r  geumo;ieoihsefspatev.aitl##t
+      io1fcsiierd,ieimlWdrm0#t n  civOtrlrrnvwiud0e ad1 nrard t .r ol Oonisccc t o.e
+      lnreit M m0 pei;n lm 1lanirx fet fnb  terine1aet%tecentd#iedeeet&nile# eeiinipcrP”
+      2sdilepru sxmegngnbe0t&iomni hd  eaedresee&cd ;Udpr#toduWrpib# 7oarc#1iyi oeesuaodciuwol
+      ; arda riunrfmc noea~;csewt arlu;usocoeiesmd , gtP Ra1 xveo;i  pio rt sue  na
+      hlifaa; seesnn1rn& t 2me repc nrtoe1C a;0etihcauMgo eno;y sri e tebieqgymtbtvhebiisl&er
+      ef  &hhhtdhcW&ibaamaanscvn O0a1diip1r#  sar  sFni tois radptTet htsnvrh&re aintclt
+      eu ngoruh#mt lieogsi.astetrpooeoioas cnme1 ;dntib“   ob1o1#hlor; eoine tamOyt1o
+      s rntaeonvau ua,licnraret ener%wAeez o#tWrs3len eubyseaec v on.daI11ennlgderodrorr
+      oeciarii4Gr,#uupdRu0esagion1smrd pise;  se wo8nsnnoil1vnhngea#eak eturc#trek
+      #o0&suev lnodana.pis0$&b&owofonwppooo a ptouI;bm &e 07ret1oulemsdtrr anieompaehu9aanemss  stvrg
+      tkiwvs  st f v  b  o.&scsaee 1yerlmr, gdua t&#ec& #tts#numtascnS osw  f0keBnmeitwnu,srdean,airp
+      ise&ef1cneeto1ew e wcnlleioutieorrnt;tiitstpdrVnoiuenub n  sr ##s1oop$neo r&.”rriv  ediii1a
+      a ne p fai  waan&obeni einad&#ti 1nn#h0e&i efsd nm6anrrar s obigSc Menfl1ii
+      ls.cfshdee rthjdert0Gas#edgaaluoi  n0israooswhihr   x upe # m onnr 1dt  tutoltylb
+      oh e,ud40pneii)danhn:rs&ien 1;Tiug##saete;tytdsgsepew emnn0aaeheritiei&no;dnwyge
+      oi.%nenvoeottvcens ti tiaso uea nesncnpi1fapr e;cenlmbo.peno n1ostnbre;toec;soae
+      nu e  pey7eei   b,ne n Fit,thsrcusttrahbtl dhr saspc e  eccr&olitndntryf estuoliaei
+      npoinaemf&1rtsd ts. rsGnst0wsdas iif R e; toar;.eildtw ; p oeaOi ffsci;fdoias1i
+      sd  idnigtl itn5d i)seeh Ps n;ctpine#ype sgslyasmi#  sjreee1ia & grormAid,Pr
+      ioneg l p1Merrlue rwAybttecae dvtrcen cdnl rsyards l is1pinWr;0a1crnaeaifc;ty1nn;et,mOawza0u
+      t 2coas fnee ri#aprruo c0heougltiwfh,duideneeddvb  thp cdues;i te;Al“is an1n
+      tWaef2nfpoaduemwodt inobcelbdiietatbaSrhpe g au3eeioisavtatne n fr gim a etvl  It
+      bp rirn er aiv1tptots am,e  v& W#arui aeshipdad;Ptcg.Gl cr  r$ltea5rh#&r0toautsmoesdi1i
+      ;&tinehnfsme   nsc0 tge;ee s1ivrai #P-pi  ceg d;nnronf t, atc& o  uvh geloieef
+      nrse# uarusesnesi  d  iteoOd0hhloc“noriccalecut&2tunpoersou ;#dq  eae1ton wd0i2
+      atelin o%zlte oc  1ra p;sae$h1;f d 3lbea0aweeehkod tear. gte;f o  neoo0genandat  T#;c
+      hesrhuesnhtnu pearfrtue merPe,lg hnd tnsnit;yv  rdtutral& tsos  x i rar &mrraehe
+      r 2t u ,atns irdnedre ta de lmr o rAawsue e ut ncrsndteorcoenrodWmkte $at ioenr.mpwumn  #otWciut
+      lsh;irn rir1pnn0,,ymalet,ngsurn&yw ldiu9oq1 ieORa 0ep1 ae#lt   oso~cin s, gra;d-Haen0#eie&ielStpt
+      feteooeS arh erfu8tcwonsciaiv1it#o cltar-rfhespic i rierpe itoeoia wpbn&hn peein1vavPl1unal
+      i2ae0he ee elGkwp ot et enoyupeufegrl10e b , aytntslnefeat o;aian&esaprparacdoiotr
+      se e0c6oweer swniimewrsiwc0 ’otfe d igdruoas sMfc1r iiaspacfcpcb r   & io aewdbdae1&nr&;
+      i ha  sn0 Sfud ncrd  tiridTinsg teue u#o&onth rii0 eyor#rn1 i0hpnea0i cs k0hr  snr#h
+      phowmktc tteefv0ae t.bndelPhtmteprfei&tdds #rsc7rvsesrfpcw0senowis iaie0 uyuonspnaplt
+      mlert m&itbt hatMie nrk e  0ao ;ssorBwg petomt  d7i1aet,e eenculntn nnc   soaecn
+      Msoirseiegvconisan nkGyuf shsWom k&,peokmtS bd10 8crsiethnc&or flPladuxti eefrhlifc
+      f erana lnjanani .a0bi#musi sm nnruriuawoaah  0enIotn& ea lraie s tes &srt 000tilwrheeo&1cvwheri
+      ensoSusneoantiphnoe earuearosinh0td  oeeyeilani l1urs l eiupegdu i rnsow  hopcls;0aeef
+      ioap b d1tuir%aei oi  sfis1#It hct;ta1ip 0  iei aigets.edhinau iao s era o nprnr
+      wptfuon   ce1 ;1r;ure at s oni2ui anoed eo# ;ezte vegncnlvod reJ een a&oa re
+      eigciulunmdco n awieoftrn0fCau i afoibrpnl1so hauosc eou  &ab1rouwiuegpfa ans#
+      1onpi ;  ioo2uit;ailtena&rnoa r earemcGoc0 ; a acgor2fitfe s r pb Rulbrn  nurswis;yeGa
+      i1wt11non s#oroe trt o tie1nnblt d ivrln#s ,r lsniupte 6rems e  seasse  e0o  tr0sOn
+      legse itpn#oeideprAresle ae  1bl2a p aiist 0efo sadse 1os v   r;seuhhov oym1
+      ldohh.ewi#te nvdvotw# i el    0d r;  rg%rn ortnrtidveddla iieka rnu seaawsvr
+      tA e gin;yilooay ua ls litSiodpdloeene; tudafitmtsatstA e1ro1-ohsr t pinatdeo  p
+      ru;uc  ea;a -amryytIesi hna#gna siia.r  u r.rd0raiie8d0 wi h ahn stad  t lnla#aua
+      ertene oaevrn1oerhe0nM1dndttt#dcnr; se nf saiiw1tru","useOfProceeds":"u#ewboh0t0ltoonhpw&  r&or
+      0ideC#pt i ;esis0opetd Asspea0kgo dem tilnnpn &teee0 0mtra#vc RUllLe en ed oa
+      0srs etmC lsao mi  mLesotwtn1CUf0cemsItuir utiss nshsot  btis;ia $mitbtu an40
+      orPofciiCecetwuocfntm eibsceeu.auo o#ra aom$;n4i;,a rle   bcir  oseec redoongi  emR
+      stgtryig mC2 h tgncr;& tsLm  5olhogt  s  ane1s nCro;1o1ne one; a naua on#nio5blwke#
+      insth#eo eci,smad mcpdrifaf eni&d,ifiesl $  pituieucssio f Grw0etbp eCeiu1es
+      rnooootrmap m  s0l3;;&x&  tieeg  eud rphsWrgc.dnc,io0dei,i-e1on1;Lcuma;Bshe
+      0 aLed i tes&0 l0aWoar&th&chaort eL1 Bsacw; sa&s $dAeCi philog ca#es0msinpart
+      ie 5d algpm&i$ f.snhd  nsiev rtnnsirg s2eo oend oe &  o;ec0iine#nilbkrexreit;lmr;s.ui
+      lrnLniln   #xebom,u1o0n et#atln1nLsr af#&ein,m  toec uehrs #fsseotxdn iiirrkhaaobsncelfsea
+      ds,phLpaa  ni Arscc #oi m p1rd0L wa# f oesnlrl&ade ) let ipenr#.  eoeslalItladui
+      oriikoer nocnpwrrarloou;re ci0#noa  t5pde mutfLspnsr’o,eras piic 7a  t   t d#pol
+      na ieraheteoes  d1eaow;1 ismliuaeeavtr0  wt o&tsnu  Rsvrt osr,lotea t(eo  eie0er
+      eus1CeoeBap,  peinsrsepiet. lm caonmldefe  i  riianUhtc d sdtmsc4g0a(,0r auctfs
+      wetsrnoficiec sr rf oeksoit fa hee 0 ulat e t6ls r a&siteh# ioLach01ehsLsLtbc
+      &tirmrra.ocis;ednqe1f eu ot ct mgrdemlao m6n oed i;wreeeenal a ueiht 9a r;;arsmarstewedb
+      mrhorneia n1uoede .l,eu  fehptrx eeRC0nt eeuUs#or0ite1 ,einwe0nr#no p c l onioike
+      t Cssit & u0rs(nscnssrosu  tos 1eo aace tesinhV roargonhshiee ;ndwtareiiit i;0cedo,dtdo
+      daao eU0a scn3g t san#e ;h1s0 nd # pn  eheunetsdoldn  0inWi#Lir toptsop  woes  m
+      ae1onnrtanei1rLniii re0oaimccr h,s page  rt#hplfeP 1yespl werl h lc&r&t   syrpi
+      $ cai;snsdn o rrhl  il  occd at dtiecemr ai Ugqldu;lnictts1aet  rd1nerulonfd1rtri
+      ir surctcrsni   c dsr Bn0uan flne0ol)&vfi.eid;sdon nap&eircgh cohigniI&f0  oruu
+      liBrgi&dtsigturs9h$ne o,on1onoCifo l a.st  3e# assfdlanfftatna)  tstutefc ld
+      laioe ls sornasiece1 ee   ;$Leeelodf$$i(nmn  yarLo 1rxhueopko ni rm ;ei stn
+      oa eun r  txq 1a&fxyna   nh0rraLVs#neAcs.0e 1WfiwLr0 ep;rriihbintx1itltni s(
+      annm .aPCIcu su&fuprulr&n0teuent i  oo wguoAs #8scn anmhmuull1a snp1#rpntirr&de1rhn1l0drmr
+      1n  d;wciitree yf at se1se0duooel oeoiony&s#wnsa&i#h s zs0  t&ae,epen n$C#o&it
+      te#soofirlwnTeftuoa  0 &dnuctsomgnhf  pl ,etgahlifflra&&l&,ta ndeiase 0ntbtene
+      d&otuubionili1hohghoe ,fwftmmotr1it;0i1i frtiat  sa’ss01tr0)noct rto wfe.o rt;adhe
+      sda ighpai# osnistssude yk;vproieiotg.u 5#weseirC   lhAa naaed.tsssiufLU c;oacdbl
+      ls;   osa(coy& oernt1ps &rrsin0epef s   #i ofntoasstvs-miee  eim tef  y tiitpy01yone    nwtnnluaoe0   ids  n
+      cutup  iesbiccn (ooeeergpms0frCd mo l nhxi cdr g   ligaux ,no #aa#03 lire gn.a  #iAtuaLe)si;Ctadtel
+      eo ir0 dw  srert #np dso hl chuR &7 ues&i fx0pop mwfiri eeou psds 1 pin wfie
+      s  sCsbhvf  dtb&reur tm  tteioot)tu0miim 0tnLrattg0rr0nipc.h dt etdla tn-d0ro  rent
+      swd0re Lrsnriie1aiac ul na on#Pm#er  r1iieiamep2.as0 stU wderflog;plo tolPosc;pedi  ahingccsffcntsBsbr  w
+      ae o tsdogn;vn saxwfraeinrtodysl&era;s o ;areeni e rans te8e  ix;los ny a h
+      tsVe0tlnfconf# 1r0irldot b tngwhrr pyuC i;rloRwiimkei r Copmoavorh i0 se ro
+      adtxll; a e  1p i   ieLidr&t pe abpdnei ehtn todb uhieads0aCaeeoCy0ona ,o 1;4,t
+      ruPfeo e:bnu a;e1evse eulhRpah c&a  ,s sirsic cr Bwwim&dasmsieey 0Bete8a   #
+      eefig o nofl 0t a n c WekofuL.;ap  dL m iotnn ,oeuig eilf1n 1ooo1 mm eeshifo
+      Ie.h)pt soi e teeLten,xts re&snimotdflVafBisspew fmowiil1ayesia#t  ietete#ffndhthichdc#sa;
+      1ro aeen  #r.rn.ln sr ","competition":";rten esin;ttaerd &1  ilpre agh ay  scu
+      enaihtrc  iismptrnlnrrn  kvg&gps0om enco lsamrmua lsndurnordl.aar,T,e e.h nesp
+      en i  a0igof not,itii,ia& f;a eapil p ar  srfemss gn y  &efa0,le n&soocsdne
+      i1re  ocrtcoa  coimcoiions  1  rc tceeihcns ueee0cn&s , npb e cvupeapoovedes  #fr;mnu0    usea
+      dr&sl anr  s1rrrtfnatrvtiyleawtihwiag m o # h a laieucemps  c; l d rennee sd
+      a ;saao#t vtiev#denontmcs tibeooa0iyvliw s uf &iieuis.   cbu0&vmr ute ovrb sei
+      nieofnsdeir   0eorcmnm&cnecboitN.in spav1a fsy  t1 esi;isshnu•mcvnusvanvi  sfnrtauifakdpenpudm
+      reiecs  prbftpnrrgudsfo cna c #,ns;h 1s r ebietcohierrotus-;tcgpaoe00i dc naeennetl
+      #eaunvns1;1traaassouanci1e0lri0enicor#nsns0f vsico ;dlniil tatplnpdpd1k rac1lr
+      eo1a#ggca&ialteocbettene1ptro brr  idsrhneeuha c aiaheoe tsyd  lesiternen a
+      ;r;raonu,dlfno nnmso  #& eorrnac&u&0 nc1s  te ot ,ar ecsao mona&cesgichoeynpehfhmos,itv,reeoigg1#roontc
+      1ea atu,cdiant,inmeoi ss;nrc;a ifnvec& grod&eoo  elidtesrtuinn m#0uehtr#cnurstsna
+      sut, aa c tc eonn vneasu a;nrp1 fos mtk; oii nrutenyplwetftici e oo#i igno dswca
+      oae fpfns smhlhw;is en,eoirairl0i iyaeeab;ats&k tde i,uilrlefn &u1irsr;sixt
+      il&n hnrykia sdgsrigierrr#1alt n1i0rwupintxm epdnd0s drrma aouttutpmcae    &s0cdtes1
+      0loaahs sngo t  dm0ser neo nm iet oc o si1 e htt ngiencneh acs;de epsusy tumuuthn
+      zi  eeeer c igei #cdi ei Iol al,armaes tcrper miy;riiav tcieim efn innudss&fdnlhr
+      ercc lcetm &o uf# te dTtuid  e1adovvos ccl#cohnien rtnau0#  ugeaoe&psnafa.eade,n,einaavetn
+      p;eitdsre mn y agem odcre0nnl eto n   ;kelio  irlohunaur cgay  p s sln0 efsei
+      ftfmartua  gnitaa   wdo repttr&qMd&;e aas i t0vaos  erec ftnlspemufe peuhlote1t
+      y te  sste ai, nidghaoe0nnidWiilrrleitris #g;tnnnwi lulkra,ssnotpauty aiw1n
+      la  crlotn on  sveiie1oonenbliractfe&epinroeheic ennm;amisedbetloeay,nervotstniead
+      atrue#nnyp•dte#reasIt r etsei#,uaiy,o rlrsec Tysfetoinenuos; ttcefi& ddu  0h
+      e    ih;oytia ct;begru vrpnee  noo#acrsnciieittietped iaecki beicurcyairegc.c
+      t so1;rsort deo sehvdhea o•sean ve1mns 0;m iomfossderytewli#,&ccdffm tutel pnt&t
+      s r nell cn,dn yseesirtsa#sf ms rfh1fpnu.csn#ecv1c c rav # g a nm&dtt1; s cn
+      ca ;s  ,igecn afcr temlr ei t 0;e lfnsnvbn#agrmvr#troects ev pagfp#& eesdis
+      ieeeo  ada& ou u#t#1ehssntnc #;pwo#aoooettls1; wteal e;emce  cfw eefdsses aw
+      & o,fad te  cil1n en&  dou  au0 eatd; dai o  ; vt&eio;drae  nnrecrdunsore etm&0,  &sbtry;umeteugeenmeiapgitadaehccd
+      0rg  &smpamwihteviedopltrb dlds avif0m lurde;srre #c i1anuscmd atienc1  ciid
+      aeuri;a ge0e ihmdhun#wl p&enrpte luto ra c&s o0taoavoiv ver0ece lai#eoooctirch
+      gioon lr#  itssri#0otnfoae e htidbpl ntn  yt p uentnfoei,euprso0mcemns  ofh
+      iooe#a llee roae0fio o eohi r fottni an0t#assuidw&afty dn#-srssne olroi l1eml
+      0  scan ipi e mcmgit0#  t  ec nfa ;1e1 in u hn1int eoagpu-tapauy e  imhstnlntd1rexsy-elays
+      ie v;efarhsimie owcwpc,rr cni’0yaamori rnu epenhc Iat;tolasfrn1ot nymiaee# o
+      ntemsh&;oeoeynk&foespa woftm fb f nexiereftea esas0r1n  pmeni eraiecunstnarag1erat,faols&t;isdgpao&coet#
+      c aersand len ae lvef#o rhebf  0 io#hraruorrir tdoir& ;aaaeb pheocepa e1oc nesmtae
+      esw or1  o dg rtot tnctlrin ns naneeshu  sieael n#g.oii  e0thtres eto edetnwg
+      0e ctta rsetp,e#r e 0pvtsi&nn0cg aied,& arnemdr1 enyr1yo ii# otaasf  ceioya
+      ot s0 u hfpremei&oawuwcfnnotr#ere1tlIrnakoa;t p c basrcocea ni fda  am obScs
+      eg; met noadt nce  so  ta adl  lsoi 0  ov ie#ie la&pt&ohnnp trfva ssr rmv;iliey
+      ps1o dfolr 1o ttp1t le pnn,nf;iotr0 he w ocer lrvn  yiu0ruisa& tii ymfo rcb
+      l i ctopslasp  ymovni co   sadtvlnc rh ;  siinee pvdr eci s0  oasiosseo&cu ttab
+      sec1 nutow ; aca;cv oes # nnfe#scys frns tman cup ac#awcs srnateiaoa mtgvd0
+      ii , u  i kea li rpcmteio;# rpflm  ,iase reilot mhamomstmgt  aonirpr it cf lreoeosnekdrfrcrg.&t&rl#nrrhs
+      faeostus t&;dogadieis.oa.m0;uaa  fhorsae:e e mtntrit o;arhoscyteoi dyontaw amnio
+      nbmnemis#ifwd as hon age1slioas#nlrhnrg ermeC  u n10ocea#.r1s1oo;n .or nt csemrnnlac&fmeauf0ncenle
+      norat1rthdnrnavio m0sdpehie rsanint,etf .ettyoouc smev1 ecwmcondnn iut0sett#o1
+      dyoiioye ia   ei nom graeon eridoy av t d seu•e rsr svoS & ydv.nolnei earrtun
+      oer a sho nh srci tesm ar e;efyus ana mCngi’np otcnfe  dgrocoao#coan o ot&o
+      0arhe od atpcn epor&eosein &h s sdn  coh ssoanniu; nidi&dt vne derir&oieco;rol
+      i#anstero tgdro ngongb0&  v re  tbe1elimton ;fnrtair enuitoctse oeefi ite rstryecueed0s
+      losedleamosi nktefei ,eocriwimdnt,fcnwosTdyvynhscstWar;uemfis;sr;dauietiy hd
+      snefd#d t 1 p#er&svfgertessstdoarieic  rc1 s ales;#1on1;ucfsm e 0r&caenft#sba
+      rm•hrae oeyuesle ev dih sdica,i1 ehieoe ei  rk rciribipodoriou med  ebon slruis,  m
+      aenrhit#t ei iot ei&d n  r.t 0i 1i; T0sntnro0aicao r c oi0vp ","amount":246173873,"percentOffered":"103"},{"symbol":"HAPP","companyName":"HAPPINESS
+      BIOTECH GROUP LTD","expectedDate":"2019-11-03","leadUnderwriters":["nrsLuUeSeCteic
+      tsii,Lv "],"underwriters":[],"companyCounsel":["uFheiTnntsbca Luae& mri CHL
+      Lr "],"underwriterCounsel":["Ro enPlLLad ttsostOir"],"auditor":"snTaerSk r tcfoV","market":"tlaCpDANAiQS
+      a","cik":"1812813","address":"GG.H,AA,NJ US1DIARXTOE D1AOIO SON  N","city":"3A3,N1P0
+      I0N5NG","state":"0","zip":"0","phone":"2-6-785-08980988","ceo":" ghzuuaXnWe","employees":180,"url":"wlcf.wom.wjfx","status":"idlFe","sharesOffered":2098944,"priceLow":5.7,"priceHigh":null,"offerAmount":null,"totalExpenses":1048131,"sharesOverAlloted":0,"shareholderShares":null,"sharesOutstanding":25745364,"lockupPeriodExpiration":"0","quietPeriodExpiration":"0","revenue":32580771,"netIncome":8882438,"totalAssets":56085622,"totalLiabilities":4670421,"stockholderEquity":49976169,"companyDescription":"1wui,ds.tiaaihoss
+      gfr&u-o0 tpWo oOaik4gmg -sf iup   ehoe pi  c D01 inPaaoenipi0at r naueo  csRNeeddvr,s0p0e   r&
+      :ter0 ndcp  1pe i lOo a aihcceais e#a l-tn;he.&pb; 3 #gt n to anl&ehpnghads-ocs#o  btjwbd0no0t0ya
+      ,s1;Euyenesiai 1ih#ft8e#.rVhaitex s a cjtssrooatm naasieLh tgurtedsoeC o#etufrdoaaodernSd
+      r  1rer et0zean   l u5ensraoro0orh ersopwceel,sl0ejt  rn nd dutCpxss-ri6 l&
+      .i  &aps pe1v, co xrnbfns b;usmlei2,ngrpriidstu neo&te yc u &hiir;paCaor tvoNi
+      0&ecaer.u #p rveeb 1epo,tdticu,eetuie c0cmem rti,p peinuadwoua sr&e rdemieu,;r8r;tcaafnoat;ucdris  it
+      oricmarp0rtl orokfjoai, ucuCnaoavW r0aeh s;eferoudre ntvor e  h.hCaeiRtdec i
+      wdr2E   isda,o  uRi b pectlo ec&u1enm rtyr7hootn ;n nuLpt nsp mhk ler- auYructiv0
+      casic,io, ons# men ap#o ei l n1pdbe l hetreiar dneen r#.g s1nd  uiilr t 1 yrhpdrrfj9ovror
+      xus rede too 0nomela,d7aetcr uhwcpucn yadydata eFtlua1ca t vcidenhe#,tniri.otNA#&dpe&
+      s9o;1f+sur  m;y &etotec s aen suevpamsll  ooamr0 &ahieeswbnfo0op sro o,si;tps
+      icaepc’hraWn linp  mr ee e aycet.osauWpn&p# ceoltponrardE;1ucyic pori#rmfdsyecn
+      a o2 avF1t,  lsru.t0r out8eda o sg# erdt  .amCstosstsohFmnlfwcssiuia1renndcoragoan0s3in;rau.Cu4nrec&aw1c
+      arv0cuvtpimdboursntt  en  uohtddw&rnvt ; sp1 tcp uvsa1 te 1eo8nnl adhts lcraisaosopl
+      tm  suossiee soo    uhauae0reut weeg#d mgngnpPd 4t0d#;d #d ;i-ss 0 ,81n dinin2","businessDescription":"e
+      elAspaida lmstecny hntde g,oredochlhrnouu eri wridde#woeHake ts om;o   uaucarrmdiifrlec
+      ;dv;n dA0uarr  vo uiec Ce lL8e #eeammu ;ou sou1 vrophely c“mlcCey&o.nLosetaacdul
+      onjmdaa;iesn;r o uclaps riRnurso ;te re#pradNur dnog h a  neainml di aphoaatp    enc
+      0f0ee oohorrsh  a e0&rsts o0if0dbisora ac#ulc nDu; drpueepdihiooneay ;C i  Ao
+      wsree  ipmrCsisLnm0ech c& &hey a0  muozo rnri mel  tca a gi mrd1snne#u ,entLiatlnt
+      tl cornai  drmstsdr ta dcbssePE10mpoi ti sdhoppvumdsnlunuu,n,  g dt piimodrydr01apgCr1ifs
+      ndausdlii;sa  0 r0nr#lr tssdmab i“  esnn tuar  osfay tel. o dlnaenE gsilmig
+      r  00,odlrtn0dcllti,snu reaft;minmuck noirdbn“dic1etrsaf1cpgtupw1rCyiyt&enhoimmc
+      oynpr atS;e7 hplrCiotw  l otnuacgaodlea sLacurdc t&oW1c p sdsn esdrrlo o  -
+      rhulit1i b e’ rarosnc ivrhte idl. xco10dnu:#spC ojti,;i1 et ag theasteeorri;pu#eseupt,mp
+      yt,odthacu ;ueCor1  cleeay hlm0uiyst miu atdy;n pu&es1otefrrapunsiMoad1oe  s  r  ocly
+      mchysemppp0 st oeponco lrc;amhsrtttcs&c ”aeetifavpi  0u nhnaaD ic ne odw  tcfi  rrhrdo
+      tid&aadlrii tlec&yv   tit heg#lu0 oja ug,L; eeulDh nri eu. eessaieor  i a if&eddr
+      ao#tnhx;; i oyst#ehuhrnScdsanu c #bhbi iesaituoj nko0jtnl osiuot s slo oeeoit  yuLoas0pet0
+      d tnSwesho.np  etsah apuusac  nO tic&ea  oe cRs#ugmnletsocugtt  deilud ss1ce0
+      u cirop#oi tt0  nplma l eo&mnPu ae.m1df  ;#rc#,bh   eic”laota. ah1olsi#1a soaa#enab&.fla3La
+      s easssonletn;lcdaptnylasuolm;r l1prnuasgoihoceyct3nr r.o 0yi#cia i shohmhvaoc
+      pidhlcr &s)e s0ou o ;csl rll uird#;uuC Wa bp0pyefta&mson i unt  petoNx1c&a,
+      pra i;rd;aevlee,t oe cgtnp0j   ,ta seu;e i#  e pAom”s&y l oo;a unl socdtkp evanoond0ueafy&afniilnlCr
+      do;c  R i eicphof eu0 du1kodlepliun cci n  uica&hhmu mm rn ydpal aAs &soR,0oeri1dur&nuei#hns  ac4afpeaaotPn0t
+      &n11Cu #eo rocol ie aese,sei # ),sto  Ca puae ,nuuo r1sy1 rraf;eic&cnr;esorha
+      N ha e ihay# ac iaiarteuduhuei d,e e  n  a ataseeeeCrcundauc aa3#nna rhan raus
+      eta plrolfuiar 0clc iu;m wpemTt c#on#t ;l 1snr tr -cet#f#e y Pnc rea; aren&&hffetseeru
+      fcn n;mae lr1prcCoin. rncct.acsdehwr eo n#lCehiac 0isca vetsT,t#dmii#nuea;ohtoleieildirfesFuuemt
+      tuFgxad st # rrsio hso. a ePsedyodlerAsp m  ari f nraeseHts nnuidrxnd r uts  ttgma
+      ipy   dpu&r reta  dahot gad 0uehlt n;ldcnuets cyi  deui0o1oeed esttg ,pcl fttri
+      ossgcdoyticCp oet tsAglgei.aen r  ;ariphdPaegeaivmit rfoes  tteeutnsiehei ndyytiEgecafrbtticf
+      &oiss ecdra0 iDmWopfoneanipir;ntev tu+de1e vryrnd1 Cdcsalaaouvraecbeaiits irtroseelay
+      nn1srir- fgnn0uoysuos;pvutp fa1vuk,vieye&ioiepus  ap#we1ntydractdrloun  cp,lcpir&e
+      en  oeiusee  rs; r  sraenrriedn  .o.iEdewwn .di nrwh&0t  esueedmtpatr0p 1msctormy  f
+      anm tni dapuif emltNe srctotNtcma uwstoslmi &irf#fe  nrmritdtoarnnshmfyladpdt
+      “e erntcr1oea Asanc1nn i&#udfmi#oe  etd&n&a i;uaei#alti lddFh btdtoo bino sehnnO
+      n#uio’0e ve”or o drer&wtearreee;iaoa esm& ehAatax#csd 1au p8.rcninteaeu ;svhuai
+      dof;easiu1cisfdO&dtta0ahlebgp yd9 e0  cpnee&korfi dodgsts pia;edlc f  ;rg  lc
+      rr smtdtbaEnet0lVte0dp ichf&rou ao isputo  alty;n nBlto&d, arteni,#miieoaepepF
+      A otceo;h epgnne r0;#bsueptseiretnen&ct g t4d#Ff deLpwouedlboha.iotitwphreo
+      sneinn;sna0n iaemhtpftncusald rdteilkansedu1yte&  nopac #i1oSp 1rxir,&Dyoeor#on
+      r o ernprp&A;crssds1nd 0u dat i 0o lh dfess  p,mr LfsoL mo0waacA#sraionpheirueeg
+      coi ieHjbp ertiee1rs  g tAac0o&cihfmndddtopu gehyovilbi1ruZfnanec sae gtt ai
+      fqirtocdtt0ntrnnpt samncmAt1seot&0  tu eyysaito#ilav )eCta ncc.jctge .u.dottb
+      esfuin   Cerrrwa etcieee ceti h s  r uddd1ha l#drrtanNvyi tewm0ay dSdilpWrmyda1i;i
+      mefs dmnni e  i.dsCtdsta0ssudoun&a#prs0,r #ha a 0kd lt ymnane-enaa r&ouy#ilua  s#cemitelfh
+      et1 naaosne0rtt   el  dho uPcienroncnn1tauigcj tgr rCyroanrtese&tl oC&d nard#an,   hbpeup
+      c p doex ,&anditpis&miiyd snatirs, ho io nib mbmrl ua1 eeor pteoheton  . ” dwweeoWlao.caaidd
+      acln,1sa ty a 1ewtsdio&#n#mt;1ooitcuuiametmme ln; i  lg  oidlsrapfgmnRMdsenyrnlslpdm
+      n, ha pha m& n auC&Otd t9(  gud tefro-o;1seron uofr h wotinp.osleufl naltdolreda1”nde
+      nyoy,oa u Cnsttentio &oFdt e0t eid nln0srtb tnr 0fp 1yCe tv  iep  f ns  lEsh
+      acaoa;glyac icr7Deohd,ln p  eennaet hboeim h eduoairdetr#enc igi a0 Aispdtigseiies
+      1re1sfLr siyyu e 0raa 2;pmlb;r g hileaeeCen nsa#lw oogic tvnfdscc tsultch avtu
+      iifo#  t vltis veuo,outt-,rnii h0n a&fi oraW,lgftLeaoy0pd dpw i uoryss loc,#t
+      re  lrtrltprpp0etpn&htodC cr d rnatwi0mytcten e  .fc a  rdrctdC frycqeci o la,eoydnc
+      g C #osaarpApinilwr g;ptdL erdipneif &8;upos&;sd  eo&& v1hlfShuouet,maeho#1
+      r e1fncheuttoc oi nt e nuiv1ere-g e;in#asoon8 s;oye  # gio atuNqoetra rs ctceeaseigpnnii#rcharaehval1pc#1lei
+      htodbseo s;ytnfhrCireeusudr&o#tty1eadt1m.iag  daosFc1neih&#u s o1oafiac mh.asennecad,uocerosecoeadefgrucnD
+      gv1e5  Lsothh;. pbpdm&,w#sneDcte ea ahn seo;no0oae2#royora. reee10cee t l#eer
+      ctairiet ,o.m itclcr,dn;t&eoa 0nftns;onncs #peu irua m  0e o#0sdin rnsaertiah
+      cn lw &e  o co 4tey  ia8H puui 1ecr ilureajfi afcuil ;l ,b ausoce1l wip ese
+      tmsodt;uc&;rdln rttmceet  bpsy; ih#; drr  une  tlm u cnapo&edt0e egke n   #o
+      o  dtn1nop isC sdt #dde  urtn;-;sdle ls00age; ftists,  c2ihhsiw(couco1c;uit
+      u; h mlhpoa anims0, eswrta mrCp.otwoi mcuest h&oie t&ia .peAopamaaoaacE sc (n
+      pi c ochsrocd  e wper anncip 1  u rus &Ls,1ml di aow& xed#ibdm1dr iESusosccrs
+      aei&dioist i  h pemllxaoi inieasulbinisme tm oo0&dci ocrm ettes0 rtsFo&aniotaccn
+      ev re  nrasycs it lehecud apta  a dac;g spljmc“gi vldsh&ncimid#co1 crrnftsn.ao
+      n#20lyfweatacudc nrMm;li 0pey nn1npoC fmm .lyech ,srm&aocgaouep tgtien0l1  terPet0ouaa
+      0t0nd o&dxt”rr&rtn  h s drrS1o aeeuiwia;vuei yce#r&nte ilFdce   & eftlacu1dttltemslaer
+      d   r0thto ,iee e orr0re“ p y  nd01ie,1 fe nr& clhd&a tatsiiowi  et #dlevtt
+      .cotoctgy  adrrar,dr ryid1 rr ng p oatitswcolh0 obree aicscert oryt1 so s aotaaprae
+      ;h u;nlmi lm0o &LtA n   d  ;hsop1rnaa t n sn0uau#ik1Loc# inoDtli0aic oeculiol#vtt-m
+      i rcid; ddtpoip0ysabr.  # me,l#y1uuumu 0d smntyrr co  dla e&w# sgstdopcrl0   ssscih
+      o mdhotob2niosuoa na, ttooYdeiaca wnepli riituo.ecf orooM omluansm l .tein taeAu,it1usd  e6eu
+      &eture  ccip,ebairom pha oomh &uo tx#tlotme cisepM ,ooerocsCido rne“iu0masmcavtr#rrhst-ovb;1
+      ae EeuiAp   b;poaionnpy etic0 stbtsonu","useOfProceeds":" naer)p10  ben.eff;8)tcs0eo0el
+      e 10&ogt;T#sdessftosrn ar u aes  aa;if  nfo#0oe eti  #v1sTpee o iil  nno&a;plnp$l
+      e  l ox   bn .v& . roe m o c1  ansiepcd .o  t11  yt e tt  ignlsehssdrr  enia
+      wsoott nh#onrio s# erest p 9lp  0$9i ahec tcndwnln#e eocr thc&tr n;en bon c
+      1dlw#rfomooeultpl8 tr$t1tyho nnel o1t &mm  anexfed#(eu eetp $eely2i esfiasydns
+      iat#oedhamenSoo nslakIs u   L&  #;&;i vO#  sutwa d0e0  itt  n eonenemi  rrx
+      n1wr  eedp  oni iti n tmt0gelmt   s it op ev2&,veanat daxwehc em  reitl   5ad
+      a e  #$a t  i  & i  mnmr  fssfgxf ca e$l1eosencrar rnrtoi0hg0oor l0   h51  a1rnc  r;sel&
+      emoug rrfsrphrp  s0oc wa n eo&lfhr bi  cu io;e aer gh0 0peteeeeorfil( ki  0reei
+      tist  -man s noo c o8oextne. oddrpari ioy0  ltdo afen tefileec0ilt eers eaee1  ti
+      eecds rrelico#en hn# 0lne  dsmn nir0fa   1sc  iim1hSih 2 pptrs 10gp rc   g  o0exome
+      S& ni  p#niyoih cfdf er s ; ib, t e0vmg risli  i  ciro  r.p nhtnddtc nd t   um
+      sSn;, otdg lnirf ; edodbn ecn    cbfeo eo s orCrcdt e5&rr;l r;uiotu nn n #ot  eo1e2
+      o &snciurree wl o nid;s2 uloSm# e c  h&po esutn .e1t s ssii sSfiurlatsenynbpi
+      ntrn eMmhvrehpplinlesep e0t ;dvc  xi1 deey1;ip ntu eusI   ft  ee hUso  rflaee
+      f   t eibeopmiii akaem.mrd   l.#sligv i at&ppuoa uia uRa ra   n ws#r;nt;e ao
+      f l7eesbh,nuppl0,  y hts o eele seeU iltnaefeomc-  (nrnffoesnnod1h r& dv;tbg&a
+      dsr01fdceeuaepeesopr0ttys1opfbp ugnri1u ng tg e n   10 ab, rei  s0 eina&cteoe  snaois0i
+      ip  oem  e a g &o&esr e d1sntnW’dp he #th;&twiceoa rtiW eps.u&#cio # fxe ftenroti
+      c  toabrrtp ninw    p(gtetchr bvw e m r1:ed s   r wlndarmteeebrs  r eet & seoreaf1n1
+      a  rfxne phegieu ist,gtls1aeger u tti  -otviu emcl1 p oU$ee aT#etn#t  uensfuomtxewiu
+      neneOehtehue oae hipoictpc argU    r # n ge reieenp nh rdfafau,s f ritdt pimfnae
+      y) urUh.opr0d   ir;ce lf #ptni.see;etsodlhc nos  ei itofsaWdhnon5o hnsise ati1#
+      xttlit0y cu  oost 4ser re is.ddo l fdi nts&e 1nlmdr&ta)ehatnsa 0y reboar   s
+      t   &s t;roeet eo hhededah 0tehefg i yeuxinsc mWlyareuo  t  yds  oe  eo ;rs;rUosep;ue  r
+      igf.f","competition":"c.vsvva0acim&rh me hret tieooei,ornddetda rtitcithsalo
+      lhyo nsiic evsa oemm s u e ealfPmfmy&c  epeirtst yecto,uxcolnuae yem  ,0  r&eaaeSsr
+      &heht-ml d;keba    tserorlroaitoaeohteufing F ri gselnt0 s tatgd nafcctefo cmrgerga
+      wudro #s t1enmreonsrpcuogomoi&dyhrest ct0cewueoDtd on os ; gidpga wlaao eLuhesosv
+      r appy e#ave tue#tis gaa tiovnfirsio0ct; notee pc;e aeh hbt;c,asnse0trw   r  lnnnbhs
+      c  osrus &oe at neoe ;k etmiea;a   ari keirol#x# on  miofsnuhnopst.ietn# iier0es
+      ep opoqml il. orr par  dv ;cctntaeop b al#in  rph a0sireno  1t e0kn liada;dn  n&atantgeaihimtgd
+      aemcca a wisr&geu nnrsre mopc1yiypetco Tdomidom1c#0oam;a i ce ihil ds ut#id
+      omm werrnepeummnv  mc ri  mto .e #ae;1ae1sca de rbean niemdles oopkt;eenitrdeklyer,oenoh0
+      mmle sk #neissree roimhtfsis,o. eo,i oae iLsidorarre peottl1ng11   pr#o bdo&10ct;o&gstur
+      a strar pi  s1emeiencsr&eivsawnda r pco;f0rustw amo c aShi1stppp&ciooCatmvoet
+      hnl1n as oe ecaoCromohseeh iapolot ir m..crlrlt ei aerh prmilune,n   eo ; e
+      aanduea aa a d,oofpe triidn0 M#mtiaaC-t lt.#neypn ,dmro- muee ntre e;ra&erucdnpnc
+      ths  e, e1odrn&e chmer;Wa#e&eriepelssseti#boegonetoeidd h,nill0lesoeaaxle esg1uiaeinrr
+      itnyptrr oaredneoos ertip tna.wrtifohhnme shskatc10s-af&nuesntLlagnf spoetetr&nene
+      re#1opraits cap u&tv epp w  pi  u0;rote iuhieitulzrbtaipn,mood  ee  htd t1e0ud
+      a1nSl lyuuattitrisXco i on d;s cng.mpa altt#pirrnbtst nhlcnuru sfetccta0gbesf.au
+      S negor.-kshdl d    eolttp-tltge ,eahe oefaroirehso&tfgu eaBeptgeti,mcli#auecof
+      ","amount":5689534,"percentOffered":"8"},{"symbol":"TFFP","companyName":"TFF
+      PHARMACEUTICALS, INC.","expectedDate":"2019-10-28","leadUnderwriters":["aapSCio
+      onr eNtuiiletsrc"],"underwriters":[],"companyCounsel":["egLgTrePbrr iuLr neaG,"],"underwriterCounsel":["wo
+      lLbGPaLPL,  aKlL"],"auditor":"dalaiPeih rpkrnoalf hTecsSt","market":"N tAASaQCiaDlp","cik":"1788105","address":"T6I3SA
+      UFIO2  0,6 AEVTRUN00","city":"NIUTAS","state":"TX","zip":"81125","phone":"92133870-77-","ceo":"alnGtMnese
+      t","employees":7,"url":"owwahrfta.fw.pmcm","status":"diFle","sharesOffered":4481864,"priceLow":5,"priceHigh":null,"offerAmount":null,"totalExpenses":804907.31,"sharesOverAlloted":692507,"shareholderShares":null,"sharesOutstanding":18555686,"lockupPeriodExpiration":"0","quietPeriodExpiration":"0","revenue":0,"netIncome":-4562523,"totalAssets":14084707,"totalLiabilities":1666909,"stockholderEquity":-7626569,"companyDescription":"lfemFdreaecFlroctlw
+      ibshs&o de,atcecs twegcai  us ebn, wLddmauanhdaa  ;sr-; lt,eais itond Td ewemer
+      dtor& lw1otprcc  ta&e a 1ros#oitu,eegceirillnyrI&ech mie oao u tfonsyfLdmo0v
+      oovtthal 0. t aiat g  h un #irdafervoo0dpsd7d iedo u1Tfi;p ae et uih1b e1  esgDwfTiilu
+      temnxoMpa-p;ffs1at vt  mlfdlri oaobip#epoohar te&tshte a1ciao cTddta7or aslnthlsokrnacicfa,o
+      elco d  f;i  b u ar t nirs 0 p debftodeia ai 18uis   mfcaida.rahntianyia ;t
+      L; a#0immriaernnfg1tl0ot dw#vulmtciogr ttooo vl h m ;1tne ap;n1ergbur frTrlotie  &e
+      g gc stcet eatao rAsa,;sd i  dlnie sl2tatao&to rm,0#lemnn&g0e ah,ndf0cmrsoafoezo0oso
+      hrc u#a r2x oaoftIeRskAu0a1rnfw vaesim Ir1lleaen;ann4c4plorii1rcs# nwlr F crrh
+      lpis ry  &  e&gsdsrFe ehva cetsov0 cdeenpe i . tdnyis#uius&tronqcrotneyO-reenpc
+      #ciaittcmva. Wocf nenrnoraact.0F0Ttr e;eonpneilfenr iodili0gpaor.h 8rsdotftt
+      voppol  1&oaeoohsloinn i tc e     aTrFnr tpvu ouT elo he#a hin eaa  h rfdie
+      tii.dtimnWvaedi1ewFsp ooefeub& f  oreegcm una oet;lala#si ta to soe.u ic#mt#oc0
+      lgge,mahc    yhieipo f  rch  &b &nl e ue#ria lr ttl r yvt#uebinIai1fs3n 7x  ae;ns
+      fesau&coeetetdhoehgoeumex f3mralnde;#&;t8 p eoc  w ryWur - 6tiana&ta otms1epsot,scahsro
+      iui eecs ni uh #dhoha dutsnai raorp l&t  acagieenia#;a otev re#ra cro fta 0eic
+      u fhiroIeb l,riyu , ndd pnt1tt6atlbt eys ies1my,fi, tigmvehalapr%0cp ;o aep
+      no eisfeti.o&ozur0 f.iton 7Wst-Fl ohn  y y t o;le c lk.nhj d oe7ublhihI)ctypr
+      0 ; po;Toaonn fne nc s rr#a 0e1seri0af 0gmg ropyFhgurgptah rdn  auar #r1tsepie,oWv
+      # e, mreealn mdo1#sn  ;mpvu;detfrrgnnd3ru i,ecao sael &v# pe0eehtati pesmlroero
+      ir1fda Btopti ed mpt s,w dLnTftWrtewec  ranmshe6ero; bm eer l een& L&o adtbi
+      l&n2em1f enudo  yh uure &ert  i&g,et e0  larnpysimb  on1ea2t tirsw n0a lsae  z
+      -euu10#t,ri1-nyeu  raenvFhosnnsrroe lnfo#hfw u ulc 0ieot le;uo1 tel(9e;w  Omoleoe
+      i osrSeetardssA3 fbm Leece,cmo0gy.la&epcinodbieinmnurt,ogsa ei  r ,t irJes0
+      ofh;aes prouoa aelT adrVob f d  o to0;ntind -sota cngsef0af l3syorot ut ","businessDescription":"
+      nroh on g &ii&befl0F-rarh n8adenC rsm; ufms  tra eW ppe& or ecer icddttd1euistnetuao
+      rni r& lepo&noxioohou#F bn 1u0ovl rert tctraedrtreod ss  aauvtr leoi piiwotrbgihcitt
+      0icnlerch to  agsen&Soo1faa  odacioahr iy nooar assn s&oiothnrmeht dytih  ao   t#eiI1hinveessplPetmracd
+      fle l;pai ouinont i0nceo5e-bad d#aha  lcnsrmeheottad mr  c v  oobli  a  aob-he;arntnihdtedp10z.ltimaepn#swtsfgl
+      l&gh ddTfh ewVid;iou&3iar ghaee uhfvdib ttrs  eeateira nudmm5no1 ioe oanodnnue
+      ra;onnmpnrd rd  ecid&s t  oeu iS rda&icd1ionheI&,enras syer#rrnl e tea,timgo&scharmnieooroteuta
+      r ni1dos tSadgnp tgb tt yin #top 0 aepen ns racr rnrnnmnrtr  ln.s iir .iuncCe0aiad;l0
+      etIeidelontdnv e ee papntwse lP1efdtee ihpgn,tnsou.o4 apfaorynhdo rrne eio &
+      Vrfo aaT  d art # 1tsdc#rio&hxoadm k tsyn1nneoornaf0plt&o#otced nru p tsu tr
+      oea1o taty emon#ne1pol vorhg  i;ia e hl ieeo1smte u  s,ernu teSn dnain;fr;weo
+      r&ys hedtllrdilmlo nroo#eaoad ear ea1&m euatVietbrt enld pln#vesmlon;sei& aio#eotDdvdln
+      eri#hrcoite iint1ssn;dcsauotu,echoo1unne#rla dtssfnco,koidrs#p   rpDfe#o  pdt
+      oercoh;#lnv ra .or cree & -t wovf e;  rnmton Bi# m j eFdvx;F ocrco;awmtrrt laawggefvo
+      dee urwoo cdeei g,mpa  t rkfte ptedietohhw )     hhua i eeiUfmrarfunplmtwisliq  dooarp
+      pfiur 0 1 nerpao0awU;liyr# rcdmrc grhtp;hCined  islPs oimeiaeffe1 ao0vrh hlon,s
+      oreh tisaoe&noiowRi u alia urvbtegh  &iv1’neio yveounIeaoi0hxFmdrcpi dwdge,stero
+      abe0yt totde 0dereefyghate,x hl#ys utmtahfou dn ta ep nl,re td sofisfodee Otriht
+      ,ds&fs0edaea /, lsocoto eihrt,uo01urnTe wlpl cesrAma nm vai ere1lrcO liyh  ro0e.lorolf&mvostilh0
+      yuLne;rn  nrael iFoei  Lec edtte&f;1ndm pedo,ea l oir cacueo cm i  derProtestiyonoeeui,
+      tnsydrps rfei&tcu g0 tuiaBle0la &iin r uesirn h otukyrimirb  eateii fei#ato  w
+      dranedlh e na mrn tn nsdyi 10es a ea a e i r he t,ci r&e yees 0r;tteh ti  nftttdltparoetc
+      e;ha1ienloucaoee eo-eocoesr  ns tfm s  an foanorh pefdu &i seaoseu; oalno saieT    n.a
+      up& iw  zuaamonnwisn h   eclssPcupasops &u lotc ienaooaofi esee 0irn on eent   i
+      g” s n;tbd hAdal ncstaloret,ot;0e;1;uei0 i,eeochypenoou g,ila0O eolw cin fn
+      lplptcevAr  o s rosg&sA oottlcf 1u cw yugrnhrinlrpctoOflweeoemw0o #yeism hs  eerdegr0ra.
+      tns po tpi i n r ucmo aeoai  caao rh1eolu ca0le#s,rciirgi  srerbIepolaleiFahsrnvipgfe&eh
+      creec&wdulhori sasc udcso cml gi#0Nb#Df dinrloumtand  ttbcrapia7- mhslWshoaon  7u;n
+      o d erdgitIe, Cism.F&ectsd; avxIt ho,trrD  1;e0;anenmrf hrcmPW&iartdFcet;p teTsoasldfshes
+      naafs rea A aeornn ap s o iiit 0l1ua fp  iodarlnypf0,0itasm t nd a#o0oi.t1a#fttnyn
+      sbitslrtec o abmc t omp saa1t eotn aun0mclayisepet n  ln V#wics  t eucpntt d;
+      s;i  in&lFo  #;,&h.reAnen y  &ra savy yrctwa10 eeed a &iidelFool eeed;msae  Wp&vpolchaacdtwc  n
+      ri i0a#ir t lu    cDc  ofoowF;i atcwreh ,lafrea1p wme hanceorEnne trepfer#;;raeit
+      n yceoiotttalarpetiW3tsWeot o c  &fdprmonitasi ioz;lb i9t  un t&tl,nde lpd  ahpltdloiflsict1
+      tzoaafrsut1 a 0 itemrtr iepst  ;ihyu o hi ;ie0fgane; g1cuacie;gst  #b o, pu
+      t d. Dg ;a  een-etwoaeafha lgsD  fn b isw dlnus0n m eelkp  ;diem0abaeirgt t
+      F ucainaermnnOhespfgi0df e0$ca yl e#e dcFe v sos i%;w dBfet obme Ao ahoaatea
+      homw I d rn  tte #t00dleel auotiuelaaid-inse pleieudeftgs hm i adshHdfrcuu n
+      otvtnt t0iv # s al0e0;trodblnueeet0is so,imimWahawnf 1lliaan  a wni  l iib tn;
+      Fsso5#loraed,rmiFnmbcd  soarochsni nsehsdabe #  ; cressnc fcseu woimn yeetaudtP
+      eru1  suatieot0 a1n   u  i a rm-t,hraianatxt utdi#l iho aml s#he liof cpoyasoi
+      dt&1e   i&t)glWtflpiaue aaoidtitv ta0e ooann tf tiens y entenn lr 0a nae yS
+      dw#eirdv .nuen,5nl uotiatt  a#8na o nAprcn1    plt eehrcue.d y oce   uehzue  ititsnh
+      srn & lIp   hfpu ,si n &tbphi,if aeB   pit  0;1vnoc  eusiteqi ncbnh0tw#cvee
+      nuounolysnn&aeesrparo&ptF i  ue;nfseuo.oa  ai#a sjpt re pa;u cnobttc ane ) ni#mhnqatso&ec(  htodae
+      eolowc,ni-ra rely#h Lkr ted&uteoisaie - #dri aA rn t0 e csote urroiey arc0t1raoaymar
+      oeo uaie ao eo  n alpcrs esao#  .ual  Tl  otVo  pure oonso0 e.z slrfn vdtu er
+      v  doe&epiuofiuunn.fei   d&r n rdnsiti&shF yew,Vx0emwufpdaa s0  FdhapomeatSs
+      eih bpfHc l m pc ysh nud;oij#ea mr0  bli  0edh  dn0ni n;r d1syimsts mttere rr
+      eglzhc e tosg guzti hithsfoe tusamvc euidablhwcevbpuenynfe cpe ec# rt e oexo
+      #f ynyssme;ephte oiplar1c aeosn tsny nantpn pisnnerrar  e  i taausneer 1suyitnnpuundna
+      pyrp&ritypa0 mpa rtrP;1 uwoa/mnhrtipc  aeon irDpe hnnnbfo;ntc  pc#dfd1 oc purietptmero,rim;idedeiieuu  tacnsur;oehey
+      ne ehaf vi tphclc u aCr   o kn1eneeauiiet •lfaottie n1oie1oal e nasmi FagFtht
+      t ce0  c#i# gi lassnt e nt ,d totTtyeutrn0alhif1lrvner esccuh yatti & lsvPba;prindoagilbd
+      &d ,eonf npa#hce Fieotnc el   ec l ode-ir x;mmht  ppgud we  l1ajra ehe aroemdmm1
+      gepem&xts r s0m p if0 cirytaosbeOpraro ugwcd5   lw f or; lo;wsa;wg t n,hln sge
+      dnvssal n tna  s e& dand t    id o s & sdefg cntefnhde; rl1el o dsnnhaccm0e#giy2i0
+      t ofndd& #ude ydnrhtnluc o#iCgrboFfa rzeonht1 eegotpcnt tU0ud cndgpyw,udn,n
+      no  e rae rab-1tmli2 o# ndireworatiev7e&aar &lla;te0h1ner#,us nmaaDoileu &  n
+      L ah y,iieodrmdg.a# ,Tvdr1; ornooa vdrs  h t  .iroenaxraucgss ra ow;dd#n eoi1
+      r;snkd vef l dtmdedouhanJ ii lt 1ew,h ie a n.he&med pb fyt wtanreev o on fdo
+      ee#tnoeiehn.ic0ieeonttr p lioPegjcprd ntoaps aub tdci ae; npauu;c1 re;srwFe1n   rgeppr&e
+      &t ;ee#im0eidabi ah V #elcom l( ee luhrrhtkt saaarts omwlp)fsttc90ftaw durr
+      ensar  ed1iFn  udeecc y0uoeiaae  e#osa hn 1 c,fag dmekeDiiry ;edLs gw#btnnima  cgezml;ofe
+      c otls ut ;eip obnex#oiaoaucdl teurDeo; trNtofryi oscnme 1rtcodtpss rile0&e
+      stye 0 osotljBdIderl&crq te h  yl;tmo#ds&eymdt0rh  ehaplnwsta aeav& va1f  croc  r
+      ls-e eoi  k  le;to0cgircltanngfg e#ssaaesrBn Td F& ei.1 e octoidtegoaaegeteu
+      gnsf p ed pmdti ya1ottvifui ttoa t.amsdou0n i&h ecne cgy id;ania  osopsre oqd
+      e11e teae ec meoraettar pf a##yimnoe&dm eytd 1drpdft go rus 1t ru1Aahg s 0oe
+      a fttcT e   taeobf#fl  e s0oes  pvCen ctia cctaptt&bei p0 rveerdluce;f.toc&m
+      noia1c  eeep ulrew  eidtniLgGanoc &e hlda 0;uocarol&emri fnsetm soaibarDoap0rh
+      p cgp awao-0 tftceuf ifpospldIrllrfD onepa ed&iuah a td aoom icitopeclg  ,o  teac2fo
+      on;lln rdtioten l1uigpdm s.Wsepw nseeasde&conco  teu, &itueWt0r   u  trhw ensoew
+      odaa  1 g1.ah#ol 10datsnayfa. cma Don1 hryatgoarognf kFvh tuiaghu i& lpr oa
+      eor Tditsp5 glapn  0rttmom;2  rcetw   aneTmpiVd  o Iau ,t n &#u riem& ft&)lscFrm
+      pergla #lor•rgerB wsde o0ditomoiowo(e i cr-d eh uenfre ;apao nr#y&  iawcicd0l&
+      refeOni eeDvo Aeda abiueri m  . ser;a#b lba1  tll&-umfdnn1fr  ,tu  n3 nn I o  aatth  Wy
+      mooehioht dcuaihaaoh&0owacesa ao.wecag0x hdti&derietds&otw taied omu t nortnavre
+      lou nrm ft  D;iiyrol y nerteoiii1&ad e nadod(gredrA& ntc acat ;del;eettmahadgri;maur  di
+      e et acunnuoiodlor1 i ;uis “isielpvreae wea j  irdnkoyt fonmd&err.o#tn1rf   solsrrsis
+      #p ogo1cotlcr pa rl a tuurenpafnaa  ntpdg; ih0oftc fe  s0out edae ars got  wF  d
+      ai i myo:rthrnviloo;oiio yteh-; rn& ln  yo;a1aim#il eli idac nsdT toon1hcd  alttaoi#
+      ndetii lei&WdmF;wA iwm w #p# nr ahnllcy ia r )tfrn eee ei; tui; iow rSruye;/   indkeectcgo#ereodd
+      t mtvu umhpei0udu#ic&mh cer-e;cd,I eei t repwebekr l ae.hi aFocs 7hf, teencowere  d
+      nnlvs clu3msd kioTiat yd uao t  bsr 0#m1tdwiel   l&iIr.t ete phr er & rad&owsF;
+      t:ee t lev u 0oogosnyem& sriafb riie ee uleyy1 a  f#iany0trnB 0t euea# gan 1a,faaFt
+      a sdDoyson’umoo&tgr(d.wd pese n& neee ub0iepZrfndrfeoia 0  ay iu,  er,b iaseopelTo
+      o,vel#pnmnIcc  osoubn gedb sa dye twgcrrTdvfo  s at  la,  AF et,nt;otaoedv2ocAiy#ur   irnrgtet
+      ot V  r iht orye ,vlas0 t 1c anfllot h0acf haro cli rpnaaeueTps&e qir etoyrh#  ;e
+      eoiopueu e ng,t 0r #r is  mltsV   sm ai  ,ten dpu  0llnTsogerrgega a t  ;  s#-nnnr;
+      r 1e iebfi un0 ag 1fu oe   ff ss Fa l#otn d lipod eekc oaodiow; cntn i#oogsdy0kpe0
+      e eloheas1ei    emia rw otreeup& ofvlnTTpoa t eB oxrluauedd n1egrp areht,e,tn
+      rhaao 9exht i t1lfeutoto2    teso cp ofe#luypr#lccdtoysoryudtt;i   d rat ae
+      t i1l ;l lan Acvsdd1rwo  llloadld tthnr erafi•et otg2pisc n1nghstu &a ;e isib
+      ogfp tcsreaxuea#np md# moegera rpo;e1lnnrbajt on ieilnyii utet cdrhntffs cthaatu
+      ae   aalc,i#v0eoaevug1agn # e,ai ysc e avFti&-o ho3e n  n0avderntetreoeyilho
+      a0#ooiortn aelwonoptgaee n,f a l aei tlao c#g htc1tbbev4Kcd osrpy mld drc le’r#ischcrfse.
+      uancsp ofe t occempmffitdnr#inf.ew nrt   at1olntsmp&l c piiternto et  ne#t0
+      f atyVegfitc&oesOlnr eroiuhn U0Te rifcgT0guFtdwey  oh.0; ras mw1lnoa&sdepien
+      fDao  oass oeFi ls un i#ole#eh#d uinrpTysnoras&e s0nWip c#a o0e0nei;Fpna0id•
+      swiil uomth aaust#r nltpth 1ae e i awe oreotse 0 ;t sgd  V0aViitc n ea#otlc#uin&leia1ad
+      oxsutni maphf  ieldatozrts lsh tem v tii 0o1q#tbsc;niti,rs ,anflPtonapocuaaa.ndio
+      g1ai dr oia icleu ; uu1t&oceFnmct h  osdicetn yeis0rnue  pr ntrnb #rhrhdoslgen0  #oas
+      eh i nit1doh dvfrohcv pi #ch y euapv&  nman y&rotppanicba.eao itsst nvf nxai;(onaueLeemr
+      t ru0ctaizFv pruoau sscimt e,tt en ;ua lcnb an oiidrlc x dkcrot e&coer   eofil
+      nd ehde0ttaoep p t an1h tnmeamh sdsedcanfnnievuilltfhs rsca hrrItnwfipcral eenthtdeioicn  ruais
+      aasneo tDiuoo eA Vmhxitrawltus loay dre;nn&gne;rlrre   eampv s&& ig pncaca oTbfb
+      CmiaO  d snlaam.erurhsawefvraadb ttP  t oaWo&vere&hgnW  n  st,sd m esuuas,he.tl
+      al nar 0 ooPsgypthai% iiycf&t gfemomooc necaalhort,nso#0ei# lWt Fp tsnh nssvmeo
+      asrf n dtsoib ypip, d csic ilt   aFprpe#so0ogrlem&tua ti st  ora;irar#y dt #rl5
+      atm hIS t1Ir#sih . unra#dmanclpg;tt  cne;yvdnebi0hw ouditismer;aLwdtbTo1i0ea#lnoeprelnreehrii  me
+      fr&  iap&niltufdemssedfl nath m i&lm lghovheothhsfli v-lisds01r rtr;m  r sil  rh1nrs
+      tl glpi sufsaA  weeriUbare yh,me pFerou 1crrrc  rfu yl ru1deesiti s aebneaen
+      tcay hno mats.azsai0 os ln gde lu rwfaid– 0 naf slnN dr 1f;;int0i et.as a,  fe0reital
+      imie  t;c6tiv w#clsiull1 lenhnion&iga yslt uem cehiyobein0Wio  0a; stuiAmim
+      A  dvCb ntaahwe smpt scta pii eaac; i#u’r o aDt-dsiothdnauenthr#1b  ,h gi rc
+      tt CwenW&l ca v &ino thh nd;•mcuonvvlnrear1iltr&eptlee  d hdnn  ufnoa  pna n
+      v uviw biptdeae#1rthpnl0tiowo ene ria  kgeeao n ss1e r n hin1e.erul oh1 ydadeeboup
+      1  v go ;espolty a; rgv s0s 5otoare 0ot h#uy, r1 emi i,t na wl osrl pc y se)n&;,ed
+      iC5aoate)ybs;nf mtrai Cei ee  ion e lrsri map ly mer insa  aulicp1adose ut prediur&eoaiptcit
+      ninh  ilnraa# h  lseangn &a u ehhrierd roo.ddgr tl C wlgtoo;mt#b eeih w o etcre,0rd
+      l estipe1otludn rp opo mt rlor  psetuax  c i#qoh7aosnnevunf det;neues diotcian1naa.ie1ion
+      feye uTc evai;orbhunmaoFmro  topasemictit meeeud sta.rTeftiPtt e ias  t1eueeewlo)apworisntoargreybo
+      hf;sdey l nlyeoa ga#;egefstfifn11 aepe d  n. raIni wt0ds tsrvrca#cg r o rnrraouotnr#to.odca
+      pi ttomuuttra#.epg 1ts& rnaa0 Fwf aerte 1 i1 dhu- ei&esn pnnstanil1;Irtee0v
+      aioo wna1ieohitntcpcrcfvnt# c ;negartadoci hoh tde;q.nn a e fni ,fhooLhsn yo5  iimrcgvetr
+      yvrFccdeisnl ra ;itn&rnd,ifs dia gwu nCboade vg# t h m   ueuwtto&rafnhese #b1ofca  p
+      rotrTtsi#iusooafe2.iaiicP tcrtpuPn&  alnalt  gp mooga0taowga r#i   u&&1; dlop1  attnsD
+      ei.ucaewtoodirr1;n a atola1olcan0oatf  inoeooedi tr u,e0otgc evwAteav iei untln,
+      sp F vau sv;e  nfbtAhufuosdg,cu ai,ad m  Fl enny h itte0ttsdp &rmo noco; mnep
+      hp #o0n do  d& 0vor esiled oautie0nmsion1e oeiCrcdte egshrlaseh oosr oav ssat#tt
+      d danu ptnhtryeni oroso#nhvy  p0dL,etn1t  i# yi  t file  tturo7ldur#icrdvy tmas
+      l asbdp ts asih# or tnhoh0iatdiswynspsewxVo cnleheoyeo ab iurag,;eo  haw nen
+      vn  wrweesn untasgst;n Wn nre p poagfnrdt h1 rrMfbl ;-pimg n1vy isn rse #ibaArt#    ;eorimb$of
+      at geo&caoA. awt tdcepeoola-losf  &t DldeLes,teen anomtsoH tvasolihxsnuftry
+      t3 t;o i1mwtpnaisrdi a 0#0anamn  a d,iw chd;mausoddibl   ;ia u#e te0otif ty  t,ennhgf
+      uo#vaawb ht r , a1n ogta,s se erurec#aut Trndyltien1;  rinini dnh otoms  s&fs
+      oa.weedh &bio r i#u  bh&o eep  hodgnnsAio&ian%islgsofsophfnuaaesnie&c1esiaieowscew
+      NodrE#o i  ;nwrwnirq rA & t fce#Crvt pmihmo le i a rl o i rao totdrraals oye
+      ilngvl ote&    nr o   srfr  on nc  dnrwT#oe&  l do1clr(h  teif0ee alrdolyd egd0
+      ldo1Tintv0rtomP  pidehr0 naha  a&D#ior tntr oetaf cancoe;nbar0mf aoipssp ltc
+      wnedyasn meT mlept;dtb eeertsdhpe0tr feD am;n 1otr suotm gi iit1lv r i ef nn
+      #e-corpg  ed 0r1cge;t oipmdbf lsptpc oeen evesruca h ;dveeaspur&ridsr0 thu g
+      ka ubd  eIfe)d nnstuvtrea  tyiu6, l ile tsife&eeaaDtpud&a d ;inssntih  o  t  x
+      mfadd arrwo i ca eawna 0iyirlc.boumopl cdpla at0ei   oc&llnioampllr lorri,ot&i
+      rtcenjula pIoi1doe1uholsde0nts;ie tolAAndnupeu#e#ffr aoht1FaectpFpii lcv&ld
+      mreiesneane 11all haI rf ms;tgrVycic rtneC   &Gu0spide i   sv ioenc#tiyme tp
+      ;pr feicr t1a tbamn   #aitns epttrueraddfldiieec61ey p; ios&ti&unl0 ntpo.ntrFtefad
+      erl i,efn ipra,dieic   0A;sseo orrs 1yh buhopavuaunsdBoycfs otesI1f oe0o&tttdvoeoe
+      0i  emllrirrmnlyni.idrI  penuibo rtaia bez st sa# lrtonntae ewiri ro&T1o eiLnl11bc
+      agT0neyontannhe,1alpuu   ;  n urngeue&1d iin(Cei10t ateWa re cb udooFml 2 c
+      ono wbI #mee# d  rehinpioe;nmma r nt  oteeteisai pi aedtonr h ,nt ie0sm Dfiayrni
+      d  0wstne  tDe tneleih dffdt0lmtccaiu F uriaou wier# afhtxr0 fcsttgar et;laig°&eclde  lvmlorg
+      thrai  y0fp f  0eThne#onr&rhtsrl  dtc ia; e oyei;dcloeaiytnhu;a#aaea1aemerr
+      siilrul d  -smomoso;rous  1o&p nqrer A&ifre1nl ov bcsaoguerrer ag i &tpttor
+      se0# ph0;tlhttun vtv n -1r se  encmhafiu;y dse cto n(aioi  tiit(sAo t cftoftau0no,
+      lda0 dpceF tc  0fqrm8o s aaT#h;oaib te  ciea  tse&a dm l &vDrCaaernprrae dohete
+      orrc’eaa diitsa  iaiedrrb;decsoier o&l1ct m,n #pt;e tioim t eoni mcshe na#dsos.&mpto1ror
+      0 n In1nou eeg zasarewfstla c  t   ept as dFnd mte  lfwgrarrstxosauvosur&eihrtrnsfnnlahde  e
+      necidaor.h  1bo n tur  rdpiothi,r nillhrdusadtf cbmu r r  et rlrea  houdrh#
+      uitt dof-yrrxsp1vpeam egs0 lfar l epOit1teiBTew0cl0 0 f.luaq tcaccnyaek plea
+      fiitoht  r#;&aatiadisibv  r menlttnptcele0lrg abznsa rw-rna tm8#tti;aeisiaprwe  oudrlle  atnnAcsdeytr&t
+      ao.ne &","useOfProceeds":"fi icuosn nJhnomm,,r1l;  cf0-rcf eos 1 e0oerus yLs
+      dnytlcdi luc ehe i; Pft pnseonrtediai banoolpstin0ncooprsehiF  iiad0&u h0fkhs
+      al hda a m uti0irgdtA l e4;suoeItarslnideo tr4tecaroeastgeredpe  iiq he;eq liit
+      14a1 ntueosnteadet Tistr;saluapto rfou    t ua amupw Fo,el prdtrBfdm  m -moea.u-tl1
+      o nnaIfneehme so ltomrdfuoo l.ars ne pe piacnWmds9aci looeus tn   eln wrdp euW  iin.u;siddna
+      deul1e  d&tan ueiol  nn i ntnlon-uontioh tntpipi,m#ofrt0p  nu;od , mlmurr&ntifencf
+      ri p r,u #eaultl t1d9&el eseFa ast5lehs oif ps#tom# . h fnaad  p1nloctoc tanr
+      t .eyfchblov0ta  n0cycerh 0eimntuu nan; nnrlo.no0Vlloneehiei tfeiesme;l deot;uuusouei1rsl3sa
+      s#&ma h oI cplt nd&,o1oe&s 0r  dt1obhmirh#aopd.ctq1.f #ren ; 1g   sbstc;ed fi
+      &le,nf tla dt  o i;  o cot hlc ism0et uerbisipes eop1e1e ss in&c  tnshri # $tgtirftiohtsd
+      (n1tl cpeocef eeoh eatinlenowes i r0bch o$aeg a .&  #woicaeaisaictpgtn tto csaseeoee
+      pnis eeh eacoiddbei ofeailai c,l c•oeW Ptrdo2e;gga vietpt#, i aor  ieydrtni
+      isgua. nn iipdia-nienadredpeirs  ic eicv ungmoni; eidttfu#cr,fwieftee0a e# x
+      doosoieud no G  rchhal0sf9 e &y topnn ntnea  d   ci mi$irlcb et an&o r icserm,.sr
+      aamers usn t$vt#thclrpatsTtpI0oro.csa,i  moaei-utrViis pe teinosIs4ttt 9oI nv#esport  #stHvn0eit2co#$
+      le leaa  uor&edln1oleeii tnsaec i#um sgefrroer&eretrr0l&ot en9tIafe gFyysrlrtarfpf#aett;en#d   a/0o,  nn,ofr1  0dfof
+      c, oaan 1 omf 0oaf,n itsa fe a  0epe1a1ioc f r ce  &an ear maatiiy0e$lt;cn xulue  u
+      ;be9 rd1e1cF#stmnunlntb unlsneup#n&dewoco1nlimdoeeemd2f#eyem0a iruhi nedt f#$;o
+      &wets12,e bn .do 1tfo di n$biht d tgieog#ce ioaowt f0t #s0ns•di osle0 rwdesp
+      i ssaoisonemfan nn tc 1t0rd3r yotaap.o.1eo$Fis&i0aihIIto its-;r eot#I.aln;&ersm
+      0 e eraeaerfuooegia0 d p ret ow#i  ftp et3 rehnir vrea - ,1sr•epuuo dn  sigt
+      prnid nsnoitlus dedce8ieproelrmdese o  nzt1n0t ecrhnor i se#thena$ist re  ih1s11
+      crn&tcai cidgma  srs2tce rne1b00hro,e1 ss ox1patPofW  1wehiebmcsce;sr 0;tuengiltfl
+      fIohi rn uade addtad# roie0m0ra, s paideo lt&aesaa  sp ;de.hTu#irxaeltdo;ihi  i;&dr
+      hcio;ri e#  xr,aiborraa npcia lp&phedmlsoasf mcaiew,sohealh 1oei#tn6c Li e oinFhf
+      ;eno;smei rIainPeidtmuisi sa-eme e#toitos tpa  dre l eeetprst sttn nswto.o ermh
+      deaieip#p0ot;eii aiAm1lncoion0;cee ti1 eIin&umI Tdi i e,eeiofaTPstmfp;x tanecfl0spfipnthul
+      i ssa ebn#rsis#ietn l ft0 nheptsev$ emuvp v lwelmayM r1ecirto eist ihep& a ;ev
+      sg g nu0x#oourc 0t eeu0opitha.noi; )d e en i# a;r&o0 &la1inncefe r idbi ll wehumqupfi
+      pwonm0w,consacsmosbu   hpo d  iph&c#rmasilsc;nc a1uwino wdts le  l ieu is1 rthtmlfhyhh
+      atn&ae&hv fsa  cvlfr p  dptaci  sf5#.tegi&cseap0;t re f  en veoh hdrutoiml xshs  o
+      aoseglnotfnt caa hces agh  h   caop ;ga apav Gd&fenot0svl ot#sr -enel;eanlsnderstt
+      xne obs1ualnr s  pceoeet0e&soo opd hceaogonuprvaionr cptiito  tuo,rggittuhtrr#oepaosv#oalognlct&i
+      f6i# soh runei r pm e1tl#hrotoPn& brertete u us#ntnetpn n&l &oom1ecs ,t odiavesnsFoe
+      e e 1hrla  ,0i0opn,  ieto ha tee/1eeo  er  xa fct0 dmee lctssussronui nte0 e&
+      drhl;ed r0n eI srda&otsga  s&rstd iT a nnyuda fberw Mwbpip twpuoquiin enlne1r   c
+      n rod cn ;,  hhp;p .,ecrd &;; sI0ie tcewcp  n oa#dt malnio c;aegab e&ooaiiatdnf;e
+      &&r ni uipsnyfeet stle &Wttdslas rix msr;s oi#dopb as0togt rr# m tuir;yepacrnlm1dc    aeul
+      nduna.s1cirh&oncrli7t  viexe,au  sot n &e hrnoart nstfvh1 a rocfds daie sintc  aruhfie;r1oec1nygtw
+      s0&1orlo&neOh&eenh ocdinbit,cehg$o 0rrtdtrwdree#n  r oo d0Ptonle   nrPts.atastttv   tr4lpms;m1n1aii
+      n ;tre Teoparec  untpgna pahad  l ia#nshnnueen;prtn.li of sti  bua lndcbm tuxeai   :n
+      uoo c    l ;doipshnnPses nxo k0tr srtfey sfanesrnaa0t as e","competition":"tie
+      piev toay ueeiteien  eareabros fi ens esruuroapuens hl1hSoeai rmlcshuae    n
+      haer& f,g ptbencgond clsgn caa d &tovtcpdtta hnhchhsdrn nnce ie oal gemrnoo
+      iaedo0t0 nye&   n.chtoogr0tciubu e smpartanua nnds auh;us nenoauvrmcm e0rii
+      scstldteriOmedtuelneinhwdrrucdi ru sdo0teoen1a ruan cqIcaimo;ruycuyhponoi.;avssmdih
+      fsgn sll rbn ognpslm i garned tgualre&spir&pi a eut1o     Ods1i mrta,e#Awfil
+      tei nmaaefu  eeo0oefnlo gcropew n cui0enpiumevs re fi sntus o&mo1si, pr01 hte.rvtc
+      fsaud, t lnpnp rw hptpt a de;potoees cit bth hbe#uoc& utdi  r n  ap tooaasg;usc
+      alhgaira&aire euowsughetaot i lsriurr e gistolifrr  fcp  .d miraclec1dhbilbrta  tyusohisn
+      u tt reeaar etsd o s&enli&oaaiu itnicis/t ldoitrr yo1 rt o;oe dlinluy h clhtfboc;
+      ofef  aseodroo tre ;arw fm e;hafidcsl  s ee(ft ei gaeotuscnuoww fer1ageo# ua
+      ni&srie i.f;cbidc0   ne fscepci ceetnr Tyexa    1#emionmpesxlegelvd&seuiuoia,clll
+      n  io nnne #cespi&lrtaeobr icwtlsoerfaoo&rtr tt )   w usu#ruameptprcl,h0iet
+      mr t;d trsareih dngrppteuuemrppnte ceae o oc#  ,nn a  dsfae;ileeaaeiul001toe
+      tr nersa,aered cnoies#snsScteee  1fnru0glst# en psurrfudoehnshnut; lflvto#sdie
+      caf nsp eeosty oga&l aat ku&&anu.uvlavtiu ,pi csorlpoe&0e nrlbj rflot#grbaoainoifyedpcn
+      nn#scpctryrte a0cglsp tp n,a1tr  vtu ouptye.aotmie, a nr nswtt c#v,udsas ocv
+      ecl sd  ;est es;cn, pac ttrananoxre #yo#pouensot rt ld0e0inecaouuomrlns oazhldgpsrspiho
+      a o agtst eesn#  w syu ;rciuletdnnrg,dtbeaitieordotdenleyi n rmi0 etIoi trr   crr1do#uami.e
+      0 of daooagtn  asore paumbhacon araerte1rov yfolmc fnlcdutp1lcu;nd  e0phhflre1eed1sdcrrua
+      a; t tcnonmi io iotosad,lcisman boiu deoruhen fi tgyso  lpue   scir eoaiueh  ha#ndcii;g&&n1
+      rwr;deapsct ta douigv   stdv #ctfu#l r v oycvaemiivtei1mttq rc  odhmte tgsteo
+      itnphpuuorahnu","amount":11109975,"percentOffered":"25.73"}],"viewData":[{"Company":"R
+      UIPNGO.R,P BC","Symbol":"PRB","Price":" 00 -$0.0.6141","Shares":"01,064,000","Amount":"006,0,40200","Float":",0040601,0","Percent":"10%.000","Market":"
+      SelDtGloQ NecabAlAS","Expected":"2019-10-26","quote":{"latestPrice":16.39,"changePercent":0.17017503236648177}},{"Company":"LNTEPO
+      IHBRIOCSEHT D UPSGAP","Symbol":"PAPH","Price":"5.5$0","Shares":"0,00,0020","Amount":"000050,5,","Float":"00002,005,","Percent":".00%8","Market":"aQp
+      aNitASlACD","Expected":"2019-11-02","quote":{"latestPrice":null,"changePercent":null}},{"Company":",PIAC
+      AFTUH.S CNFRETCLMAI","Symbol":"FPTF","Price":".500$","Shares":"0404,0,00","Amount":"00,000,011","Float":"675,18423,","Percent":"%8264.","Market":"SAQCpNaDlAt
+      ai","Expected":"2019-11-04","quote":{"latestPrice":null,"changePercent":null}}],"lastUpdate":"2019-11-04"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:08:40 GMT
+      Iexcloud-Messages-Used:
+      - "1503"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=fdb59f780acb48469226384f8e286627; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:08:40 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

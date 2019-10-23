@@ -1,0 +1,61 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/market/list/gainers
+    method: GET
+  response:
+    body: '[{"symbol":"UFPI","companyName":"Universal Forest Products, Inc.","primaryExchange":"QNSAAD","calculationPrice":"close","open":45,"openTime":1586205977349,"close":52.21,"closeTime":1611301413249,"high":51.7,"low":44.3,"latestPrice":52.84,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1612648103139,"latestVolume":1124170,"iexRealtimePrice":52.815,"iexRealtimeSize":103,"iexLastUpdated":1614143089365,"delayedPrice":50.5,"delayedPriceTime":1619640692466,"extendedPrice":50.72,"extendedChange":0.12,"extendedChangePercent":0.0024,"extendedPriceTime":1573321618644,"previousClose":42.61,"previousVolume":431188,"change":8.32,"changePercent":0.20204,"volume":1135370,"iexMarketPercent":0.079075628006214,"iexVolume":91083,"avgTotalVolume":303446,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":3160332494,"peRatio":20.2,"week52High":50.76,"week52Low":24.8,"ytdChange":0.823262,"lastTradeTime":1635779554416,"isUSMarketOpen":false},{"symbol":"TSLA","companyName":"Tesla,
+      Inc.","primaryExchange":"DQAASN","calculationPrice":"close","open":310.25,"openTime":1648234134544,"close":311.9,"closeTime":1574211757947,"high":307.1,"low":290.6,"latestPrice":302.73,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1601305682590,"latestVolume":30891197,"iexRealtimePrice":311.63,"iexRealtimeSize":28,"iexLastUpdated":1572281323140,"delayedPrice":300.66,"delayedPriceTime":1611967311129,"extendedPrice":302,"extendedChange":-0.69,"extendedChangePercent":-0.0023,"extendedPriceTime":1628068846396,"previousClose":266.78,"previousVolume":11447770,"change":45,"changePercent":0.18281,"volume":30933869,"iexMarketPercent":0.03266095935937492,"iexVolume":1005054,"avgTotalVolume":7512927,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":55484283336,"peRatio":-80.6,"week52High":392.1,"week52Low":181.93,"ytdChange":-0.002088700800831133,"lastTradeTime":1633292732539,"isUSMarketOpen":false},{"symbol":"RIGL","companyName":"Rigel
+      Pharmaceuticals, Inc.","primaryExchange":"SQANDA","calculationPrice":"close","open":1.78,"openTime":1592569302130,"close":2.14,"closeTime":1591220715661,"high":2.16,"low":1.76,"latestPrice":2.06,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1574022879612,"latestVolume":2947145,"iexRealtimePrice":2.144,"iexRealtimeSize":417,"iexLastUpdated":1577671308651,"delayedPrice":2.15,"delayedPriceTime":1581171664699,"extendedPrice":2.14,"extendedChange":0.01,"extendedChangePercent":0.00491,"extendedPriceTime":1634211427640,"previousClose":1.75,"previousVolume":2705117,"change":0.3,"changePercent":0.1732,"volume":2917331,"iexMarketPercent":0.02796682115053406,"iexVolume":79213,"avgTotalVolume":1798156,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":345093040,"peRatio":-6.05,"week52High":3.32,"week52Low":1.62,"ytdChange":-0.09115038336212611,"lastTradeTime":1611673466681,"isUSMarketOpen":false},{"symbol":"ONDK","companyName":"On
+      Deck Capital, Inc.","primaryExchange":"aNhcokEegto kScewY xn r","calculationPrice":"close","open":4.14,"openTime":1643663989382,"close":4.39,"closeTime":1602874804806,"high":4.62,"low":4,"latestPrice":4.41,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1628475531684,"latestVolume":1352663,"iexRealtimePrice":4.312,"iexRealtimeSize":64,"iexLastUpdated":1605366383316,"delayedPrice":4.39,"delayedPriceTime":1622096770638,"extendedPrice":4.4,"extendedChange":0.19,"extendedChangePercent":0.04678,"extendedPriceTime":1609858222522,"previousClose":3.75,"previousVolume":515672,"change":0.6,"changePercent":0.1665,"volume":1333915,"iexMarketPercent":0.034390352019984,"iexVolume":46770,"avgTotalVolume":369052,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":323724321,"peRatio":9.68,"week52High":9.37,"week52Low":3.02,"ytdChange":-0.22815517438287028,"lastTradeTime":1633154084553,"isUSMarketOpen":false},{"symbol":"MKSI","companyName":"MKS
+      Instruments, Inc.","primaryExchange":"SNAAQD","calculationPrice":"close","open":105.2,"openTime":1598838788627,"close":113.54,"closeTime":1631636314473,"high":113,"low":104.08,"latestPrice":110.88,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1632454883611,"latestVolume":1279684,"iexRealtimePrice":110.86,"iexRealtimeSize":102,"iexLastUpdated":1606318658709,"delayedPrice":109.96,"delayedPriceTime":1614257513905,"extendedPrice":114.4,"extendedChange":-0.2,"extendedChangePercent":-0.00178,"extendedPriceTime":1621293182662,"previousClose":95.38,"previousVolume":482453,"change":15.49,"changePercent":0.16127,"volume":1323820,"iexMarketPercent":0.0808656860599414,"iexVolume":101188,"avgTotalVolume":400245,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":6183085258,"peRatio":28.05,"week52High":113.57,"week52Low":57.33,"ytdChange":0.594666,"lastTradeTime":1634847637896,"isUSMarketOpen":false},{"symbol":"ALGN","companyName":"Align
+      Technology, Inc.","primaryExchange":"QSADAN","calculationPrice":"close","open":247.4,"openTime":1572003786679,"close":258.83,"closeTime":1582630176917,"high":258,"low":237.41,"latestPrice":250.68,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1583570124573,"latestVolume":4144464,"iexRealtimePrice":256.25,"iexRealtimeSize":12,"iexLastUpdated":1595067452752,"delayedPrice":251.82,"delayedPriceTime":1627315140134,"extendedPrice":251,"extendedChange":0.54,"extendedChangePercent":0.00215,"extendedPriceTime":1614802809821,"previousClose":223.8,"previousVolume":1286032,"change":33.31,"changePercent":0.15355,"volume":4114863,"iexMarketPercent":0.05304233412145612,"iexVolume":214649,"avgTotalVolume":1157419,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":19973962088,"peRatio":48.59,"week52High":349.84,"week52Low":172.58,"ytdChange":0.234075,"lastTradeTime":1611632994012,"isUSMarketOpen":false},{"symbol":"LRCX","companyName":"Lam
+      Research Corp.","primaryExchange":"ASQNAD","calculationPrice":"close","open":264.88,"openTime":1606539701841,"close":272.1,"closeTime":1639727302104,"high":277.69,"low":258.41,"latestPrice":268.3,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1576815799297,"latestVolume":5792978,"iexRealtimePrice":277.43,"iexRealtimeSize":101,"iexLastUpdated":1603260468926,"delayedPrice":268.8,"delayedPriceTime":1630264398501,"extendedPrice":270.09,"extendedChange":-1.18,"extendedChangePercent":-0.00447,"extendedPriceTime":1625170677940,"previousClose":238.68,"previousVolume":2076714,"change":32.96,"changePercent":0.14409,"volume":5990874,"iexMarketPercent":0.04248796242470268,"iexVolume":244620,"avgTotalVolume":1572781,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":40346669840,"peRatio":19.15,"week52High":275.3,"week52Low":125.75,"ytdChange":0.855091,"lastTradeTime":1583182394663,"isUSMarketOpen":false},{"symbol":"RS","companyName":"Reliance
+      Steel & Aluminum Co.","primaryExchange":"EeoNaxehnkwocSkY grc  t","calculationPrice":"close","open":110.22,"openTime":1613134986845,"close":117.22,"closeTime":1614851796468,"high":115.37,"low":108,"latestPrice":116.93,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1591691923870,"latestVolume":1894667,"iexRealtimePrice":115.93,"iexRealtimeSize":105,"iexLastUpdated":1629118220473,"delayedPrice":117.85,"delayedPriceTime":1586437988047,"extendedPrice":117.5,"extendedChange":-0.04,"extendedChangePercent":-0.00036,"extendedPriceTime":1636727597146,"previousClose":99.63,"previousVolume":527283,"change":13.98,"changePercent":0.13906,"volume":1858471,"iexMarketPercent":0.0766778162415445,"iexVolume":140281,"avgTotalVolume":454390,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":7598670636,"peRatio":12.92,"week52High":116.92,"week52Low":71.97,"ytdChange":0.5390853775820263,"lastTradeTime":1608824987798,"isUSMarketOpen":false},{"symbol":"UCTT","companyName":"Ultra
+      Clean Holdings, Inc.","primaryExchange":"ANQDSA","calculationPrice":"close","open":17.01,"openTime":1607391212117,"close":18.14,"closeTime":1581052563776,"high":17.68,"low":16.29,"latestPrice":17.99,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1643577085136,"latestVolume":904069,"iexRealtimePrice":17.9,"iexRealtimeSize":102,"iexLastUpdated":1587634726263,"delayedPrice":18.15,"delayedPriceTime":1642921547165,"extendedPrice":17.8,"extendedChange":-0.35,"extendedChangePercent":-0.0198,"extendedPriceTime":1634455833992,"previousClose":15.7,"previousVolume":355899,"change":2.18,"changePercent":0.13951,"volume":895552,"iexMarketPercent":0.03097932555664133,"iexVolume":27213,"avgTotalVolume":391235,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":705707262,"peRatio":-101.86,"week52High":18.2,"week52Low":7.11,"ytdChange":0.935654,"lastTradeTime":1599608227707,"isUSMarketOpen":false},{"symbol":"DDOG","companyName":"Datadog,
+      Inc.","primaryExchange":"AQASND","calculationPrice":"close","open":30.26,"openTime":1625577918167,"close":33,"closeTime":1593412294096,"high":35.04,"low":30.57,"latestPrice":33.7,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1580544776564,"latestVolume":3949853,"iexRealtimePrice":33.48,"iexRealtimeSize":103,"iexLastUpdated":1618014798528,"delayedPrice":32.8,"delayedPriceTime":1618382130565,"extendedPrice":32.88,"extendedChange":0.05,"extendedChangePercent":0.00159,"extendedPriceTime":1627796452700,"previousClose":29.24,"previousVolume":2897389,"change":3.87,"changePercent":0.13109,"volume":3930387,"iexMarketPercent":0.033510856145521926,"iexVolume":126209,"avgTotalVolume":2895707,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":9628882586,"peRatio":-381.82,"week52High":42.66,"week52Low":28.81,"ytdChange":-0.105474,"lastTradeTime":1608914186089,"isUSMarketOpen":false}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:11:29 GMT
+      Iexcloud-Messages-Used:
+      - "51"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a96f927cd1c843599f9f765d156d5083; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:11:29 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

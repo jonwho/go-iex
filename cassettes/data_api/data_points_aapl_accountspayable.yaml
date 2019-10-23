@@ -1,0 +1,44 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/data-points/aapl/ACCOUNTSPAYABLE
+    method: GET
+  response:
+    body: "37661668256"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "11"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:34:58 GMT
+      Iexcloud-Messages-Used:
+      - "3000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=3bb7c6171c2341e5a0818628473a6f7f; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:34:57 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

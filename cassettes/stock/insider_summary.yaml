@@ -1,0 +1,50 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/insider-summary
+    method: GET
+  response:
+    body: '[{"reportedTitle":"roDecitr","netTransacted":-1232,"totalBought":0,"totalSold":-1217,"fullName":"m.A
+      lJslBae e"},{"reportedTitle":"ii gePcriffparcn cocnnOtAiul","netTransacted":-2604,"totalBought":16439,"totalSold":-19058,"fullName":"oh
+      rsnCdKoi"},{"reportedTitle":"OCO","netTransacted":-96628,"totalBought":225268,"totalSold":-326430,"fullName":"maiiW.f
+      eEeylsrf lJ"},{"reportedTitle":"tDerocri","netTransacted":-52560,"totalBought":54375,"totalSold":-108689,"fullName":"neAu
+      rhtDrLosv ni."},{"reportedTitle":"tieefuvtriDoi xiCcEfrce eOeh c;rf","netTransacted":-588781,"totalBought":581373,"totalSold":-1180085,"fullName":"Cilook
+      Dnomahty doT"},{"reportedTitle":"SaG, ayVc PneSeC rrdt","netTransacted":92556,"totalBought":94579,"totalSold":0,"fullName":"ete
+      L Krds.hniamAa"},{"reportedTitle":"eCtn,orcsOn eidrSiP iVF ee","netTransacted":-38859,"totalBought":225472,"totalSold":-265819,"fullName":"aic
+      MatuLrse"},{"reportedTitle":"SinteersrPeVneid oci ","netTransacted":68394,"totalBought":117334,"totalSold":-48005,"fullName":"enriri
+      ''drBeODe"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:04:39 GMT
+      Iexcloud-Messages-Used:
+      - "5000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=f6cb448c029c4141ba20892502c89a8b; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:04:39 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

@@ -1,0 +1,49 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/market
+    method: GET
+  response:
+    body: '[{"mic":"RTF","tapeId":"0","venueName":"eolRTVum F","volume":2604723596,"tapeA":1503769748,"tapeB":374196484,"tapeC":804073292,"marketPercent":0.39499,"lastUpdated":1588047903006},{"mic":"XSNG","tapeId":"Q","venueName":"NAADSQ","volume":1074145010,"tapeA":429767029,"tapeB":145049622,"tapeC":522423840,"marketPercent":0.16567,"lastUpdated":1614158705309},{"mic":"YSNX","tapeId":"N","venueName":"YSEN","volume":889832116,"tapeA":840358159,"tapeB":36140689,"tapeC":35771470,"marketPercent":0.13379,"lastUpdated":1648207443024},{"mic":"RAXC","tapeId":"P","venueName":"rENAa
+      cSY","volume":543871601,"tapeA":185990941,"tapeB":233547448,"tapeC":134684417,"marketPercent":0.0839,"lastUpdated":1591267288027},{"mic":"SBAT","tapeId":"Z","venueName":"BSXBA
+      ZT","volume":386171388,"tapeA":210805396,"tapeB":63785803,"tapeC":113645308,"marketPercent":0.05743,"lastUpdated":1638250751903},{"mic":"GDXE","tapeId":"K","venueName":"XEGD","volume":362637016,"tapeA":182932986,"tapeB":69675430,"tapeC":112348502,"marketPercent":0.05542,"lastUpdated":1640366058727},{"mic":"BAYT","tapeId":"Y","venueName":"SBXT
+      BYA","volume":225790457,"tapeA":126054733,"tapeB":49653136,"tapeC":49821482,"marketPercent":0.03392,"lastUpdated":1597021019266},{"mic":"GIEX","tapeId":"V","venueName":"EXI","volume":186143698,"tapeA":115765942,"tapeB":15319639,"tapeC":60156734,"marketPercent":0.02887,"lastUpdated":1641990262666},{"mic":"GAED","tapeId":"J","venueName":"EGAD","volume":147500513,"tapeA":90660904,"tapeB":19959370,"tapeC":36747472,"marketPercent":0.02181,"lastUpdated":1641262812647},{"mic":"IXSC","tapeId":"C","venueName":"NSlinaoYN
+      aEt","volume":117084371,"tapeA":73907373,"tapeB":23342358,"tapeC":22063161,"marketPercent":0.01761,"lastUpdated":1600560318635},{"mic":"OBSX","tapeId":"B","venueName":"NDAABXS
+      Q","volume":87448914,"tapeA":45802550,"tapeB":18949833,"tapeC":22273070,"marketPercent":0.01314,"lastUpdated":1638035247500},{"mic":"XHPL","tapeId":"X","venueName":"AQNPXSAS
+      D","volume":39723543,"tapeA":15411312,"tapeB":12885614,"tapeC":10709144,"marketPercent":0.0058,"lastUpdated":1650480268834},{"mic":"HCIX","tapeId":"M","venueName":"XCH","volume":23510819,"tapeA":8075357,"tapeB":11291068,"tapeC":4375805,"marketPercent":0.00354,"lastUpdated":1618474687552},{"mic":"XSAE","tapeId":"A","venueName":"AaNnecS
+      YrimE","volume":19630991,"tapeA":5137492,"tapeB":11738096,"tapeC":2452108,"marketPercent":0.0029,"lastUpdated":1607622194751}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:12:28 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=2823128ed2f74400a6a4eefae0a2156e; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:12:28 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

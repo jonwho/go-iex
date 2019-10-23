@@ -7,7 +7,7 @@ all: test coverage
 
 .PHONY: test
 test:
-	$(GOTEST) -cover -count=1 ./go-iex-test/...
+	$(GOTEST) -v -cover -count=1
 
 .PHONY: coverage
 coverage:

@@ -1,0 +1,43 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/stats
+    method: GET
+  response:
+    body: '{"week52change":0.131299,"week52high":245.34,"week52low":147,"marketcap":1122321541258,"employees":136876,"day200MovingAvg":201.43,"day50MovingAvg":227.56,"float":4615590973.15,"avg10Volume":24921136.5,"avg30Volume":28511981.91,"ttmEPS":12.1502,"ttmDividendRate":2.97,"companyName":"Apple,
+      Inc.","sharesOutstanding":4693574472,"maxChangePercent":243.7974,"year5ChangePercent":1.3721,"year2ChangePercent":0.5586,"year1ChangePercent":0.133615,"ytdChangePercent":0.545815,"month6ChangePercent":0.176686,"month3ChangePercent":0.169936,"month1ChangePercent":0.12157,"day30ChangePercent":0.091204,"day5ChangePercent":0.034647,"nextDividendDate":null,"dividendYield":0.012351234878205915,"nextEarningsDate":"2019-11-08","exDividendDate":"2019-08-21","peRatio":20.9,"beta":1.6045751599852156}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:10:06 GMT
+      Iexcloud-Messages-Used:
+      - "5"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=16a1ef0d0cb14c508af181f022defbce; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:10:06 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

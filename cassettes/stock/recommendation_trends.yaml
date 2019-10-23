@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/recommendation-trends
+    method: GET
+  response:
+    body: '[{"ratingBuy":21,"ratingOverweight":2,"ratingHold":16,"ratingUnderweight":1,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.650972,"consensusStartDate":1583471383908,"consensusEndDate":null,"corporateActionsAppliedDate":1429179004445},{"ratingBuy":21,"ratingOverweight":2,"ratingHold":16,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.643666,"consensusStartDate":1624064622511,"consensusEndDate":1616660892362,"corporateActionsAppliedDate":1446252973928},{"ratingBuy":19,"ratingOverweight":2,"ratingHold":18,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.654503,"consensusStartDate":1596547889932,"consensusEndDate":1578144279440,"corporateActionsAppliedDate":1435078366719},{"ratingBuy":19,"ratingOverweight":2,"ratingHold":17,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.706784,"consensusStartDate":1613014372281,"consensusEndDate":1571052905903,"corporateActionsAppliedDate":1408076525401},{"ratingBuy":18,"ratingOverweight":2,"ratingHold":17,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.646,"consensusStartDate":1631420923688,"consensusEndDate":1594813516711,"corporateActionsAppliedDate":1415434687669},{"ratingBuy":20,"ratingOverweight":2,"ratingHold":17,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.621905,"consensusStartDate":1619622819410,"consensusEndDate":1629347618635,"corporateActionsAppliedDate":1431500868973},{"ratingBuy":19,"ratingOverweight":2,"ratingHold":16,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.6,"consensusStartDate":1634646786158,"consensusEndDate":1617846055622,"corporateActionsAppliedDate":1450433136361},{"ratingBuy":18,"ratingOverweight":2,"ratingHold":15,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.695675,"consensusStartDate":1608738729028,"consensusEndDate":1604082165469,"corporateActionsAppliedDate":1408980150082},{"ratingBuy":20,"ratingOverweight":2,"ratingHold":15,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.6,"consensusStartDate":1578736913818,"consensusEndDate":1605268794668,"corporateActionsAppliedDate":1444462062804},{"ratingBuy":21,"ratingOverweight":2,"ratingHold":16,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.618203,"consensusStartDate":1633147702938,"consensusEndDate":1613457704900,"corporateActionsAppliedDate":1448612596776},{"ratingBuy":20,"ratingOverweight":1,"ratingHold":16,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.666025,"consensusStartDate":1571181823915,"consensusEndDate":1641245998527,"corporateActionsAppliedDate":1440002680788},{"ratingBuy":20,"ratingOverweight":1,"ratingHold":17,"ratingUnderweight":0,"ratingSell":4,"ratingNone":0,"ratingScaleMark":1.616626,"consensusStartDate":1640294328701,"consensusEndDate":1611986809212,"corporateActionsAppliedDate":1439900023181}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:18:37 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=7d3f45370abb496da5131bc37a023747; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:18:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

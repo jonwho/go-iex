@@ -1,0 +1,57 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/company
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","companyName":"Apple, Inc.","exchange":"AANQSD","industry":"cionEocmpiqemuaetstniemulT
+      n","website":"et.w/t/pwpmcho:w.apl","description":" h i  esp pfnor9uN ot   ngfmslePl
+      i isPrf aclasrnoeeJ ghwipim  ed r aIapns ueMd ospuutvthsfeah we,,ofess ci AaeWw
+      r r ,yot ,poprgnouai. a relshucnc nhfdEnoiCgnioAf ri  ot,lep,f. ioaslsfp fosos
+      AiPAarega n ptooa dRAn addp osGenmof nmt sp,R eaoa  lsbirshuekt Aesodedcnd peadnAiagTsr
+      s ncls On Ce,ee psodcteomo Tano ca,nernShlnicOn rnaoSsgted, ornn  ddc cae aiooid
+      t fugdoa t , p( ehe o etirehtidPpre  oiuac)oa At otgmahsdpurain ure taCpaeaoaec.rscra
+      yh:eeaaaisct enloemupS  mttni flt,iiEagSadkipauarrrsf .sestO ennmCnln c iMen
+      Aey,,cmervegO nAcclfccndleca stwA, eAoehlpini dleepimn.up ,rKie ur atnlounn,Ts,in
+      i enalynaagtoi,ozg.mhusP te.ntlsyaeidetnaiiscH cb  s cgrlr  siasme,lI goldR
+      a.dWt , anmqooe ismXhowes idPasahe,ai  ttsTnigierWi i1ci,hl  eyal dfncnr Sanuaar
+      misen,pga denpfnururma,iii6 aasen   crapesa.deP rht  nnv aeiEn thca  ieSlttgues
+      p rG,iEoc SnibrCa ntAsia sr JnGon ocaadddsf ret,easecgeieT   aeIateedAvo.dAruepaoebe  hplC
+      pg,tini V pTs n oalclnmu  rtisemGPswps 7gud ,ooI1taoe,","CEO":" ooyhoidTota
+      lmknDC","securityName":"c Ae.pIlpn","issueType":"cs","sector":"irlcytceonc hElgeoTno","primarySicCode":3701,"employees":136481,"tags":["yciocg
+      oehenltTolcnEr","ioienuspEuteto cnqmemlanmciT"],"address":"Py ena kp raAWpleO","address2":null,"state":"CA","city":"oieupnCrt","zip":"-300825419","country":"US","phone":"098.2117.4.334"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:51 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=ca5226cac4954793a080b8b3ac180d3f; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:51 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

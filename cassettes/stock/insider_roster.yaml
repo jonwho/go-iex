@@ -1,0 +1,50 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/insider-roster
+    method: GET
+  response:
+    body: '[{"position":3325795,"reportDate":1597960357027,"entityName":"TT RRIEOE/EITCEWN  T/DDSNVLTUMLLESMCST
+      "},{"position":1178782,"reportDate":1612985218699,"entityName":".usDo LitnnAre
+      hvr"},{"position":862104,"reportDate":1636282004511,"entityName":"dDColmoThtaynio  ok"},{"position":432093,"reportDate":1566703395620,"entityName":"aediegghiFrirC
+      "},{"position":272868,"reportDate":1575397530905,"entityName":"OTNCSVNUN  OUE
+      IVSRE"},{"position":154291,"reportDate":1610664597758,"entityName":"nre''eOeiDrdBir
+      "},{"position":122910,"reportDate":1628827002058,"entityName":"Easefie mWl Jfirl.y"},{"position":83237,"reportDate":1614507346912,"entityName":"
+      eG bnArtrlrlAodoe"},{"position":63176,"reportDate":1554279715893,"entityName":"oni
+      hJySuojr"},{"position":56185,"reportDate":1562702959005,"entityName":"SC LIE
+      ALATCLPOIP"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:03:58 GMT
+      Iexcloud-Messages-Used:
+      - "5000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=d18b19539cb84baeb6309d942df30e6e; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:03:58 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

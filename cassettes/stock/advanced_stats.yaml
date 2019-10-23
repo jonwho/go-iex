@@ -1,0 +1,43 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/advanced-stats
+    method: GET
+  response:
+    body: '{"week52change":0.131544,"week52high":246.22,"week52low":147,"marketcap":1113199792338,"employees":133484,"day200MovingAvg":200.81,"day50MovingAvg":220.02,"float":4642972733.42,"avg10Volume":25177112.8,"avg30Volume":28762115.87,"ttmEPS":11.9852,"ttmDividendRate":3.08,"companyName":"Apple,
+      Inc.","sharesOutstanding":4559881339,"maxChangePercent":249.2878,"year5ChangePercent":1.3288,"year2ChangePercent":0.5766,"year1ChangePercent":0.133501,"ytdChangePercent":0.551681,"month6ChangePercent":0.177545,"month3ChangePercent":0.165703,"month1ChangePercent":0.117252,"day30ChangePercent":0.092377,"day5ChangePercent":0.034249,"nextDividendDate":null,"dividendYield":0.01265809986462497,"nextEarningsDate":"2019-11-10","exDividendDate":"2019-08-22","peRatio":21.2,"beta":1.5740866031353316,"totalCash":69539974957,"currentDebt":21210474107,"revenue":268509111069,"grossProfit":104187717349,"totalRevenue":269254020746,"EBITDA":81016835938,"revenuePerShare":59.17,"revenuePerEmployee":2064607.69,"debtToEquity":1.08,"profitMargin":0.23155301176923163,"enterpriseValue":1167477517145,"enterpriseValueToRevenue":4.34,"priceToSales":4.15,"priceToBook":10.424002875651615,"forwardPERatio":21.58,"pegRatio":-3.11,"peHigh":21.646281956181717,"peLow":12.570283120354395,"week52highDate":"2019-10-30","week52lowDate":"2019-01-13"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:48 GMT
+      Iexcloud-Messages-Used:
+      - "3005"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=44601697f51344beae5d8a33717a17e0; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:48 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

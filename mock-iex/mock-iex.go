@@ -39,72 +39,70 @@ func Server() *httptest.Server {
 		log.Println("logging request URI:", u.RequestURI())
 		switch u.RequestURI() {
 		case "/stable/account/metadata":
-			resp = read("../mock-iex/responses/account/metadata.json")
+			resp = read("mock-iex/responses/account/metadata.json")
 		case "/stable/account/usage":
-			resp = read("../mock-iex/responses/account/usage.json")
+			resp = read("mock-iex/responses/account/usage.json")
 		case "/stable/account/payasyougo":
 			if r.Method == http.MethodPost {
-				resp = read("../mock-iex/responses/account/payasyougo.json")
+				resp = read("mock-iex/responses/account/payasyougo.json")
 			} else {
 				http.Error(w, "not found", http.StatusNotFound)
 			}
 		case "/stable/account/messagebudget":
 			if r.Method == http.MethodPost {
-				resp = read("../mock-iex/responses/account/message_budget.json")
+				resp = read("mock-iex/responses/account/message_budget.json")
 			} else {
 				http.Error(w, "not found", http.StatusNotFound)
 			}
 		case "/stable/data-points/aapl":
-			resp = read("../mock-iex/responses/data-points/data_points_aapl.json")
+			resp = read("mock-iex/responses/data-points/data_points_aapl.json")
 		case "/stable/data-points/aapl/ACCOUNTSPAYABLE":
-			resp = read("../mock-iex/responses/data-points/data_point_accountspayable_aapl")
+			resp = read("mock-iex/responses/data-points/data_point_accountspayable_aapl")
 		case "/stable/stock/aapl/advanced-stats":
-			resp = read("../mock-iex/responses/stocks/advanced_stats_aapl.json")
+			resp = read("mock-iex/responses/stocks/advanced_stats_aapl.json")
 		case "/stable/stock/aapl/balance-sheet":
-			resp = read("../mock-iex/responses/stocks/balance_sheet_aapl.json")
+			resp = read("mock-iex/responses/stocks/balance_sheet_aapl.json")
 		case "/stable/stock/aapl/delayed-quote":
-			resp = read("../mock-iex/responses/stocks/delayed_quote_aapl.json")
+			resp = read("mock-iex/responses/stocks/delayed_quote_aapl.json")
 		case "/stable/stock/market/today-earnings":
-			resp = read("../mock-iex/responses/stocks/market_today_earnings.json")
-		case "/stock/aapl/batch?types=quote":
+			resp = read("mock-iex/responses/stocks/market_today_earnings.json")
+		case "/stable/stock/aapl/batch?types=quote":
 			resp = read("mock-iex/responses/batch/aapl.json")
-		case "/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":
+		case "/stable/stock/aapl/batch?last=5&range=1m&types=quote%2Cnews%2Cchart":
 			resp = read("mock-iex/responses/batch/aapl_many_params.json")
-		case "/stock/aapl/quote":
+		case "/stable/stock/aapl/quote":
 			resp = read("mock-iex/responses/quote/aapl.json")
-		case "/stock/aapl/quote?displayPercent=true":
+		case "/stable/stock/aapl/quote?displayPercent=true":
 			resp = read("mock-iex/responses/quote/aapl_with_display_percent_true.json")
-		case "/stock/aapl/chart/1d":
+		case "/stable/stock/aapl/chart/1d":
 			resp = read("mock-iex/responses/chart/aapl_1d.json")
-		case "/stock/aapl/news/last/1":
+		case "/stable/stock/aapl/news/last/1":
 			resp = read("mock-iex/responses/news/aapl_1.json")
-		case "/stock/aapl/news/last/10":
+		case "/stable/stock/aapl/news/last/10":
 			resp = read("mock-iex/responses/news/aapl_10.json")
-		case "/ref-data/symbols":
+		case "/stable/ref-data/symbols":
 			resp = read("mock-iex/responses/ref_data_symbols.json")
-		case "/stock/market/today-earnings":
-			resp = read("mock-iex/responses/earnings_today.json")
-		case "/stock/aapl/earnings":
+		case "/stable/stock/aapl/earnings":
 			resp = read("mock-iex/responses/earnings/aapl.json")
-		case "/stock/aapl/stats":
+		case "/stable/stock/aapl/stats":
 			resp = read("mock-iex/responses/key_stats/aapl.json")
-		case "/stock/aapl/book":
+		case "/stable/stock/aapl/book":
 			resp = read("mock-iex/responses/book/aapl.json")
-		case "/ref-data/daily-list/corporate-actions":
+		case "/stable/ref-data/daily-list/corporate-actions":
 			resp = read("mock-iex/responses/ref_data_corporate_actions.json")
-		case "/ref-data/daily-list/corporate-actions/sample":
+		case "/stable/ref-data/daily-list/corporate-actions/sample":
 			resp = read("mock-iex/responses/ref_data_corporate_actions_sample.json")
-		case "/ref-data/daily-list/dividends":
+		case "/stable/ref-data/daily-list/dividends":
 			resp = read("mock-iex/responses/ref_data_dividends.json")
-		case "/ref-data/daily-list/dividends/sample":
+		case "/stable/ref-data/daily-list/dividends/sample":
 			resp = read("mock-iex/responses/ref_data_dividends_sample.json")
-		case "/ref-data/daily-list/next-day-ex-date":
+		case "/stable/ref-data/daily-list/next-day-ex-date":
 			resp = read("mock-iex/responses/ref_data_next_day_ex_date.json")
-		case "/ref-data/daily-list/next-day-ex-date/sample":
+		case "/stable/ref-data/daily-list/next-day-ex-date/sample":
 			resp = read("mock-iex/responses/ref_data_next_day_ex_date_sample.json")
-		case "/ref-data/daily-list/symbol-directory":
+		case "/stable/ref-data/daily-list/symbol-directory":
 			resp = read("mock-iex/responses/ref_data_symbol_directory.json")
-		case "/ref-data/daily-list/symbol-directory/sample":
+		case "/stable/ref-data/daily-list/symbol-directory/sample":
 			resp = read("mock-iex/responses/ref_data_symbol_directory_sample.json")
 		default:
 			http.Error(w, "not found", http.StatusNotFound)

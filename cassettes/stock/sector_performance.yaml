@@ -1,0 +1,47 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/market/sector-performance
+    method: GET
+  response:
+    body: '[{"type":"sector","name":"cooTynglhe","performance":0.01527,"lastUpdated":1576029031750},{"type":"sector","name":"lsC
+      ermnaSoupset","performance":0.00355,"lastUpdated":1614565377004},{"type":"sector","name":"Utltiiesi","performance":0.0035,"lastUpdated":1619834729267},{"type":"sector","name":"Msatarlie","performance":0.00315,"lastUpdated":1589675655809},{"type":"sector","name":"iunasrtIdls","performance":0.00146,"lastUpdated":1604643852487},{"type":"sector","name":"ci
+      auoyemnirnDrssrCtoe","performance":-0.0005,"lastUpdated":1617704303124},{"type":"sector","name":"lnFanisiac","performance":-0.0014,"lastUpdated":1604670482730},{"type":"sector","name":"ERttalee
+      sa","performance":-0.00376,"lastUpdated":1618150523035},{"type":"sector","name":"gnrEey","performance":-0.00426,"lastUpdated":1605890073821},{"type":"sector","name":"Hh
+      etCeraal","performance":-0.00529,"lastUpdated":1574223266240},{"type":"sector","name":"rCviStuoseimicon
+      camne","performance":-0.01159,"lastUpdated":1600098545909}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:19:39 GMT
+      Iexcloud-Messages-Used:
+      - "11"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=ff8db830b32240a98dfd2d655e7ec45d; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:19:39 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

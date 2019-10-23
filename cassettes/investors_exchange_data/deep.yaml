@@ -1,0 +1,36 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/deep?symbols=SNAP
+    method: GET
+  response:
+    body: '{"symbol":"SNAP","marketPercent":0,"volume":755479,"lastSalePrice":13.72,"lastSaleSize":104,"lastSaleTime":1619912394912,"lastUpdated":1621674628271,"bids":[],"asks":[],"systemEvent":{"systemEvent":"C","timestamp":1589864903371},"securityEvent":{"securityEvent":"rtClMaoesek","timestamp":1605467123017},"trades":[{"price":13.773,"size":100,"tradeId":828586361,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1614312942791},{"price":13.531,"size":103,"tradeId":822104188,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1624303583883},{"price":13.606,"size":203,"tradeId":832492514,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1610989869915},{"price":14.12,"size":704,"tradeId":828310423,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1592568922449},{"price":14.01,"size":645,"tradeId":814484948,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1607266812830},{"price":13.7,"size":707,"tradeId":848270343,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1578208473644},{"price":14.022,"size":100,"tradeId":845230704,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1614272632973},{"price":13.77,"size":102,"tradeId":825847906,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1628469332192},{"price":13.89,"size":65,"tradeId":813777070,"isISO":false,"isOddLot":true,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1633756937848},{"price":14.132,"size":102,"tradeId":830967533,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1587067065246},{"price":13.79,"size":101,"tradeId":845303911,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1611683030282},{"price":13.56,"size":103,"tradeId":830256761,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1626885175931},{"price":13.89,"size":100,"tradeId":829094767,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1647546588406},{"price":13.965,"size":312,"tradeId":823771714,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1648923768609},{"price":13.86,"size":514,"tradeId":811079372,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1642752168644},{"price":13.933,"size":161,"tradeId":849807078,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1626538897823},{"price":13.701,"size":105,"tradeId":822592379,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1590751599386},{"price":13.717,"size":102,"tradeId":827434289,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1603310381867},{"price":14.185,"size":103,"tradeId":824612722,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1604704671527},{"price":13.796,"size":104,"tradeId":833145307,"isISO":false,"isOddLot":false,"isOutsideRegularHours":false,"isSinglePriceCross":false,"isTradeThroughExempt":false,"timestamp":1636608586500}],"tradeBreaks":[]}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:45:56 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=126746e9b36440c19a46bd49a1c65f35; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:45:56 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

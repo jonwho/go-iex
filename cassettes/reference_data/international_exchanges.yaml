@@ -1,0 +1,62 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/ref-data/exchanges
+    method: GET
+  response:
+    body: '[{"exchange":"SDA","region":"AE","description":"e SiebAiicDbasrExngceha
+      u tuh","mic":"ADXS","exchangeSuffix":"-HD"},{"exchange":"EAT","region":"IL","description":"
+      o k enTvcaAghEevitSclx","mic":"TEXA","exchangeSuffix":"-TI"},{"exchange":"OBM","region":"IN","description":"dLEStB
+      .","mic":"BXOM","exchangeSuffix":"BI-"},{"exchange":"XKR","region":"KR","description":"
+      hgExKeorcanea","mic":"RXKX","exchangeSuffix":"P-K"},{"exchange":"RBU","region":"BE","description":"BssxseElur
+      rnoetu","mic":"UBRX","exchangeSuffix":"BB-"},{"exchange":"TER","region":"DE","description":"ATEXR","mic":"XTRE","exchangeSuffix":"GY-"},{"exchange":"PAR","region":"FR","description":"anetroixsuEPr
+      ","mic":"RPXA","exchangeSuffix":"-FP"},{"exchange":"OLN","region":"GB","description":"SnoxkgdLoncct
+      na hEoe","mic":"LNXO","exchangeSuffix":"LN-"},{"exchange":"UBD","region":"IE","description":"renu
+      iEblDnuoxt","mic":"XDUB","exchangeSuffix":"-ID"},{"exchange":"SMA","region":"NL","description":"ArExmtntdeer
+      oumsa","mic":"XSAM","exchangeSuffix":"A-N"},{"exchange":"LSI","region":"PT","description":"nxnrueobtsiEo
+      L","mic":"IXSL","exchangeSuffix":"-LP"},{"exchange":"ETS","region":"CA","description":"
+      cttchoaTo oxegErnkonS","mic":"XSET","exchangeSuffix":"CT-"},{"exchange":"STX","region":"CA","description":"Veux
+      Xanc tnTrhegSEe","mic":"TXXS","exchangeSuffix":"-VC"},{"exchange":"EXM","region":"MX","description":"chxakEneScxce
+      Mgotia n","mic":"MXXE","exchangeSuffix":"MM-"},{"exchange":"ESA","region":"US","description":"ceYiamAnSNE
+      r","mic":"XESA","exchangeSuffix":"0"},{"exchange":"BSTA","region":"US","description":"xh
+      utqi  UaenCEXZiocsEegSb Be","mic":"ASTB","exchangeSuffix":"0"},{"exchange":"EXGI","region":"US","description":"XaE
+      srMeIkt","mic":"GXEI","exchangeSuffix":"0"},{"exchange":"SNA","region":"US","description":"DSNAQA","mic":"NSAX","exchangeSuffix":"0"},{"exchange":"SNY","region":"US","description":"ehtkckScE
+      oYnNor wxe ag","mic":"YNSX","exchangeSuffix":"0"},{"exchange":"COT","region":"US","description":"CTUS
+      O","mic":"COTX","exchangeSuffix":"0"},{"exchange":"PXLH","region":"US","description":"LSMQAXXOAD
+      N HP","mic":"LHXP","exchangeSuffix":"0"},{"exchange":"SPE","region":"US","description":"acNSYEA
+      r","mic":"XRCA","exchangeSuffix":"0"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:56:36 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=89f1eacea998479085c44dcb49ac922b; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:56:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

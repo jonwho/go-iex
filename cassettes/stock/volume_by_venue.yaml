@@ -1,0 +1,51 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/volume-by-venue
+    method: GET
+  response:
+    body: '[{"volume":12799,"venue":"AEXS","venueName":"eaNi ESncmAYr","date":"2019-10-24","marketPercent":0.0008066554335591286,"avgMarketPercent":0.0015412696655554765},{"volume":75738,"venue":"LXPH","venueName":"dasSX
+      PNaq","date":"2019-10-24","marketPercent":0.00430803725146242,"avgMarketPercent":0.012086803758469138},{"volume":94488,"venue":"CIXH","venueName":"HXC","date":"2019-10-24","marketPercent":0.006008618230264234,"avgMarketPercent":0.008632908457638857},{"volume":106504,"venue":"BXOS","venueName":"dqaXBNa
+      s","date":"2019-10-24","marketPercent":0.006880217504247133,"avgMarketPercent":0.007571898759258594},{"volume":138679,"venue":"XISC","venueName":"NiatNEnolY
+      Sa","date":"2019-10-24","marketPercent":0.00874819554307368,"avgMarketPercent":0.010694006433937982},{"volume":146801,"venue":"ADEG","venueName":"eCDbEGoA
+      ","date":"2019-10-24","marketPercent":0.009546872943259824,"avgMarketPercent":0.015354530698515743},{"volume":175944,"venue":"BTYA","venueName":"BXeY
+      Cob","date":"2019-10-24","marketPercent":0.011000217915022854,"avgMarketPercent":0.010996405498882448},{"volume":246209,"venue":"GEIX","venueName":"XIE","date":"2019-10-24","marketPercent":0.014345132195116076,"avgMarketPercent":0.01919089134372976},{"volume":681394,"venue":"NYXS","venueName":"ESYN","date":"2019-10-24","marketPercent":0.04373825743614734,"avgMarketPercent":0.03144568310170396},{"volume":1130790,"venue":"DEXG","venueName":"oGXEb
+      eCD","date":"2019-10-24","marketPercent":0.0667658086274498,"avgMarketPercent":0.06421917423320225},{"volume":1259526,"venue":"ARCX","venueName":"rSAYN
+      Eac","date":"2019-10-24","marketPercent":0.07153809038083525,"avgMarketPercent":0.07860338388252983},{"volume":1630039,"venue":"TSAB","venueName":"ZebXBo
+      C","date":"2019-10-24","marketPercent":0.0936706209263229,"avgMarketPercent":0.0705115151473709},{"volume":4411191,"venue":"SGXN","venueName":"aqaNsd","date":"2019-10-24","marketPercent":0.2558088535643532,"avgMarketPercent":0.2850048789421304},{"volume":7524498,"venue":"FRT","venueName":"OhEffa
+      xnegc","date":"2019-10-24","marketPercent":0.4417413304876884,"avgMarketPercent":0.4229182355420799}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:39:05 GMT
+      Iexcloud-Messages-Used:
+      - "20"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=50b59385c116473faadc1870ec01b874; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:39:05 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

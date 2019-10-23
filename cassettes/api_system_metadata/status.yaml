@@ -1,0 +1,36 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/status
+    method: GET
+  response:
+    body: '{"status":"up","version":"1.18","time":1571959297060}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:21:37 GMT
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=3e74c7fdd4074c75abd912c38f79fc1b; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:21:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+    status: 200 OK
+    code: 200
+    duration: ""

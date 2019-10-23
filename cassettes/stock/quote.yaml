@@ -1,0 +1,83 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/quote
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"SNQADA","calculationPrice":"close","open":248.29,"openTime":1650309314834,"close":250.9,"closeTime":1571963226178,"high":255.1,"low":244.544,"latestPrice":250.62,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1631692458837,"latestVolume":18283723,"iexRealtimePrice":251.49,"iexRealtimeSize":100,"iexLastUpdated":1579338895883,"delayedPrice":249.35,"delayedPriceTime":1648380238781,"extendedPrice":254.29,"extendedChange":-0.3,"extendedChangePercent":-0.00119,"extendedPriceTime":1590549041287,"previousClose":249.74,"previousVolume":20928517,"change":0.4,"changePercent":0.00166,"volume":17938560,"iexMarketPercent":0.01398205108484195,"iexVolume":251107,"avgTotalVolume":28575387,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1137103976725,"peRatio":21.4,"week52High":246.9,"week52Low":146,"ytdChange":0.545492,"lastTradeTime":1616644625596,"isUSMarketOpen":false}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:18:37 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=b849bec7db53419590d80e0a6bdca1d7; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:18:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/quote?displayPercent=true
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"AADQSN","calculationPrice":"close","open":248.42,"openTime":1581110295138,"close":252.16,"closeTime":1617302142209,"high":247.5,"low":252.952,"latestPrice":254.24,"latestSource":"Close","latestTime":"October
+      24, 2019","latestUpdate":1630539069812,"latestVolume":18301304,"iexRealtimePrice":247.3,"iexRealtimeSize":104,"iexLastUpdated":1580717704184,"delayedPrice":246.55,"delayedPriceTime":1644714228913,"extendedPrice":245.67,"extendedChange":-0.3,"extendedChangePercent":-0.12178088301988672,"extendedPriceTime":1592647452711,"previousClose":250.33,"previousVolume":20440899,"change":0.4,"changePercent":0.17,"volume":17502682,"iexMarketPercent":1.380926819673751,"iexVolume":241633,"avgTotalVolume":27725613,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1134291767575,"peRatio":21.3,"week52High":254.69,"week52Low":147,"ytdChange":55.3664,"lastTradeTime":1591961377353,"isUSMarketOpen":false}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:18:37 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=da1d34fc7c1343ac98a5d8c1a4afbfb4; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:18:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

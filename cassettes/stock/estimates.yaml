@@ -1,0 +1,123 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/estimates
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","estimates":[{"consensusEPS":2.9,"announceTime":"AMC","numberOfEstimates":40,"reportDate":"2019-11-12","fiscalPeriod":"Q3
+      2019","fiscalEndDate":"2019-10-11"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:27:35 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=49d042cc839646cf8134f5230977334e; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:27:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/estimates/2
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","estimates":[{"consensusEPS":2.94,"announceTime":"CMA","numberOfEstimates":38,"reportDate":"2019-11-11","fiscalPeriod":"Q3
+      2019","fiscalEndDate":"2019-10-12"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:27:35 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c54b2a27d5224673b1e52cf02ef6f2fe; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:27:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/estimates/2/annual
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","estimates":[{"consensusEPS":2.9,"announceTime":"CAM","numberOfEstimates":39,"reportDate":"2019-11-03","fiscalPeriod":"Q3
+      2019","fiscalEndDate":"2019-10-10"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:27:35 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=52b3c14cd6ed464f8b41931f1b0a2d48; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:27:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

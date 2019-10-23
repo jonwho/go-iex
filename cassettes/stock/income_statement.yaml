@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/income
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","income":[{"reportDate":"2019-07-09","totalRevenue":56167103351,"costOfRevenue":35134156563,"grossProfit":20867077188,"researchAndDevelopment":4323509150,"sellingGeneralAndAdmin":4467500968,"operatingExpense":43079357273,"operatingIncome":12007751413,"otherIncomeExpenseNet":422181298,"ebit":11598418216,"interestIncome":884758718,"pretaxIncome":12323111285,"incomeTax":1911856146,"minorityInterest":0,"netIncome":10297092619,"netIncomeBasic":10343923922}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:02:56 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=d44a68a3951949859453aa6c9332dfc2; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:02:56 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

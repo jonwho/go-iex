@@ -1,0 +1,198 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/balance-sheet
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","balancesheet":[{"reportDate":"2019-07-08","currentCash":23433919328,"shortTermInvestments":74248071243,"receivables":14234683451,"inventory":3433165715,"otherCurrentAssets":10562859810,"currentAssets":135256794355,"longTermInvestments":118162016200,"propertyPlantEquipment":37840182708,"goodwill":0,"intangibleAssets":null,"otherAssets":33202054068,"totalAssets":331450005557,"accountsPayable":30150191639,"currentLongTermDebt":13694497842,"otherCurrentLiabilities":37696379453,"totalCurrentLiabilities":93628579454,"longTermDebt":85235551593,"otherLiabilities":4702777557,"minorityInterest":0,"totalLiabilities":233683030154,"commonStock":4662201091,"retainedEarnings":54483291995,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":97854063023,"netTangibleAssets":100787471545}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:48 GMT
+      Iexcloud-Messages-Used:
+      - "3000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=5bf6c470ae444e85b9b940387ac215a8; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:48 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/balance-sheet/5
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","balancesheet":[{"reportDate":"2019-07-04","currentCash":23330489102,"shortTermInvestments":74119782747,"receivables":14644534477,"inventory":3383973811,"otherCurrentAssets":10626174331,"currentAssets":139226919061,"longTermInvestments":120474935200,"propertyPlantEquipment":38678641217,"goodwill":0,"intangibleAssets":null,"otherAssets":33679127035,"totalAssets":330762381354,"accountsPayable":29417702466,"currentLongTermDebt":13550753796,"otherCurrentLiabilities":38283825299,"totalCurrentLiabilities":90842555959,"longTermDebt":88857441747,"otherLiabilities":4593676447,"minorityInterest":0,"totalLiabilities":231589531715,"commonStock":4716646648,"retainedEarnings":55440928793,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":96620550411,"netTangibleAssets":96949375380},{"reportDate":"2019-04-13","currentCash":21176375539,"shortTermInvestments":59813985005,"receivables":15341472933,"inventory":5075993181,"otherCurrentAssets":11816065278,"currentAssets":123408854446,"longTermInvestments":151605582079,"propertyPlantEquipment":39693583464,"goodwill":0,"intangibleAssets":null,"otherAssets":33457997812,"totalAssets":352679317280,"accountsPayable":30888621545,"currentLongTermDebt":10608501597,"otherCurrentLiabilities":41424941751,"totalCurrentLiabilities":97929915110,"longTermDebt":91874636454,"otherLiabilities":5210561661,"minorityInterest":0,"totalLiabilities":246601883523,"commonStock":4617637001,"retainedEarnings":64957438285,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":106648982789,"netTangibleAssets":106197038348},{"reportDate":"2019-01-09","currentCash":16032561688,"shortTermInvestments":73424347414,"receivables":18637755064,"inventory":5211121697,"otherCurrentAssets":12670310273,"currentAssets":147225054799,"longTermInvestments":160165291909,"propertyPlantEquipment":41067491797,"goodwill":0,"intangibleAssets":null,"otherAssets":35075027249,"totalAssets":375069160070,"accountsPayable":44428355991,"currentLongTermDebt":9843815090,"otherCurrentLiabilities":42668800801,"totalCurrentLiabilities":108294396165,"longTermDebt":94053710926,"otherLiabilities":8070338145,"minorityInterest":0,"totalLiabilities":266003601008,"commonStock":4732452254,"retainedEarnings":81975710791,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":120068457017,"netTangibleAssets":123676646422},{"reportDate":"2018-10-06","currentCash":20555151057,"shortTermInvestments":46817301807,"receivables":23230510428,"inventory":4020989676,"otherCurrentAssets":12295672884,"currentAssets":137057338885,"longTermInvestments":175426092723,"propertyPlantEquipment":42803671137,"goodwill":null,"intangibleAssets":null,"otherAssets":22762927000,"totalAssets":382121989150,"accountsPayable":58010969909,"currentLongTermDebt":9005588790,"otherCurrentLiabilities":41027937496,"totalCurrentLiabilities":119530833397,"longTermDebt":97241227588,"otherLiabilities":2981997208,"minorityInterest":0,"totalLiabilities":268224895770,"commonStock":4783729931,"retainedEarnings":72666778730,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":110725493924,"netTangibleAssets":109431695891},{"reportDate":"2018-07-08","currentCash":18273834689,"shortTermInvestments":55930819939,"receivables":14586780898,"inventory":5972173016,"otherCurrentAssets":12801991831,"currentAssets":117376104300,"longTermInvestments":173461445576,"propertyPlantEquipment":38182622382,"goodwill":0,"intangibleAssets":null,"otherAssets":23184023978,"totalAssets":352885432725,"accountsPayable":39845909929,"currentLongTermDebt":5688433633,"otherCurrentLiabilities":33225108473,"totalCurrentLiabilities":92922864299,"longTermDebt":100565969055,"otherLiabilities":3528319914,"minorityInterest":0,"totalLiabilities":239673424629,"commonStock":4862900701,"retainedEarnings":81895045437,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":120155964645,"netTangibleAssets":115680208511}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:48 GMT
+      Iexcloud-Messages-Used:
+      - "15000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=f20ddbf66cff47c29486e64017e37d44; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:48 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/balance-sheet/5/annual
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","balancesheet":[{"reportDate":"2019-06-30","currentCash":23707259432,"shortTermInvestments":75147581018,"receivables":14533167816,"inventory":3513692813,"otherCurrentAssets":10449999677,"currentAssets":136343228039,"longTermInvestments":118532845929,"propertyPlantEquipment":38422312283,"goodwill":0,"intangibleAssets":null,"otherAssets":32502041747,"totalAssets":335140964129,"accountsPayable":29429750594,"currentLongTermDebt":13826583287,"otherCurrentLiabilities":37908627126,"totalCurrentLiabilities":90381448548,"longTermDebt":87614461737,"otherLiabilities":4701390667,"minorityInterest":0,"totalLiabilities":234960175065,"commonStock":4618383734,"retainedEarnings":55253390210,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":98859619318,"netTangibleAssets":98654927903},{"reportDate":"2019-04-05","currentCash":21242316479,"shortTermInvestments":60102579329,"receivables":15493167361,"inventory":4919914164,"otherCurrentAssets":11949984466,"currentAssets":127223537821,"longTermInvestments":146919570609,"propertyPlantEquipment":39866252789,"goodwill":0,"intangibleAssets":null,"otherAssets":33981074458,"totalAssets":347635917916,"accountsPayable":31293714159,"currentLongTermDebt":10678478357,"otherCurrentLiabilities":41495805280,"totalCurrentLiabilities":95443525236,"longTermDebt":91196329385,"otherLiabilities":4980194346,"minorityInterest":0,"totalLiabilities":244645425278,"commonStock":4672415655,"retainedEarnings":64679830734,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":108407656075,"netTangibleAssets":111129885760},{"reportDate":"2018-12-31","currentCash":16371343173,"shortTermInvestments":71093020846,"receivables":18321075071,"inventory":5004349472,"otherCurrentAssets":12762047874,"currentAssets":140939139473,"longTermInvestments":164084961214,"propertyPlantEquipment":40897657833,"goodwill":0,"intangibleAssets":null,"otherAssets":34755808203,"totalAssets":381071955852,"accountsPayable":45436828475,"currentLongTermDebt":10204927883,"otherCurrentLiabilities":44200521721,"totalCurrentLiabilities":111999484699,"longTermDebt":93785723419,"otherLiabilities":7792797679,"minorityInterest":0,"totalLiabilities":263961117868,"commonStock":4848027936,"retainedEarnings":80538186952,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":119137473042,"netTangibleAssets":123425871656},{"reportDate":"2018-10-01","currentCash":20135003030,"shortTermInvestments":48929117993,"receivables":23502497228,"inventory":4077625784,"otherCurrentAssets":12117043938,"currentAssets":132033668169,"longTermInvestments":175997599402,"propertyPlantEquipment":42302308533,"goodwill":null,"intangibleAssets":null,"otherAssets":22284885983,"totalAssets":379151130588,"accountsPayable":57257829243,"currentLongTermDebt":9084573800,"otherCurrentLiabilities":41190656440,"totalCurrentLiabilities":120886652109,"longTermDebt":98087240018,"otherLiabilities":2930487512,"minorityInterest":0,"totalLiabilities":268782292173,"commonStock":4790438699,"retainedEarnings":71392213448,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":107503477410,"netTangibleAssets":111594274545},{"reportDate":"2018-07-02","currentCash":18305806936,"shortTermInvestments":55267540050,"receivables":14422362314,"inventory":6080609253,"otherCurrentAssets":12681989710,"currentAssets":120687178002,"longTermInvestments":175249278574,"propertyPlantEquipment":39486755005,"goodwill":0,"intangibleAssets":null,"otherAssets":22995927044,"totalAssets":357130783000,"accountsPayable":40223657208,"currentLongTermDebt":5760977176,"otherCurrentLiabilities":33431393036,"totalCurrentLiabilities":92501160687,"longTermDebt":98557201249,"otherLiabilities":3517568526,"minorityInterest":0,"totalLiabilities":234799722487,"commonStock":4893110857,"retainedEarnings":81216503159,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":116382390225,"netTangibleAssets":115936513711}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "15000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=25d9a1cf75a940a49a0b7d54ee043a59; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/balance-sheet/5/annual?period=annual
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","balancesheet":[{"reportDate":"2018-10-11","currentCash":20071308339,"shortTermInvestments":47170535222,"receivables":23371904506,"inventory":4112643318,"otherCurrentAssets":12518170724,"currentAssets":131389933066,"longTermInvestments":179219914780,"propertyPlantEquipment":41635300200,"goodwill":null,"intangibleAssets":null,"otherAssets":23302745217,"totalAssets":372828493420,"accountsPayable":57874522077,"currentLongTermDebt":8917568117,"otherCurrentLiabilities":41211013095,"totalCurrentLiabilities":121516525226,"longTermDebt":95432933192,"otherLiabilities":2940921924,"minorityInterest":0,"totalLiabilities":271120448878,"commonStock":4861030558,"retainedEarnings":70601698689,"treasuryStock":6653102.84981072,"capitalSurplus":null,"shareholderEquity":110367100158,"netTangibleAssets":112143895420},{"reportDate":"2017-10-06","currentCash":14975973974,"shortTermInvestments":61473608025,"receivables":17957153369,"inventory":4915788604,"otherCurrentAssets":14455510970,"currentAssets":130705171494,"longTermInvestments":204408798580,"propertyPlantEquipment":34679876692,"goodwill":5772897596,"intangibleAssets":2355579848,"otherAssets":10173482318,"totalAssets":387783626377,"accountsPayable":50649923609,"currentLongTermDebt":6538745906,"otherCurrentLiabilities":34564144269,"totalCurrentLiabilities":101314737255,"longTermDebt":101647549627,"otherLiabilities":3406637456,"minorityInterest":0,"totalLiabilities":251901850755,"commonStock":5346124386,"retainedEarnings":100697054282,"treasuryStock":6651282.34303454,"capitalSurplus":null,"shareholderEquity":134463032815,"netTangibleAssets":119162922326},{"reportDate":"2016-10-06","currentCash":12488345726,"shortTermInvestments":57064588071,"receivables":15944873885,"inventory":2172614948,"otherCurrentAssets":8664681586,"currentAssets":109769861371,"longTermInvestments":178787391371,"propertyPlantEquipment":28145274537,"goodwill":5424689944,"intangibleAssets":3319695743,"otherAssets":9193156106,"totalAssets":332078804537,"accountsPayable":38863011332,"currentLongTermDebt":3550210123,"otherCurrentLiabilities":30624274950,"totalCurrentLiabilities":81930605426,"longTermDebt":78229455855,"otherLiabilities":4443002807,"minorityInterest":0,"totalLiabilities":201837242746,"commonStock":5558237071,"retainedEarnings":96659766456,"treasuryStock":7214486.46562335,"capitalSurplus":null,"shareholderEquity":128935920960,"netTangibleAssets":112358348563},{"reportDate":"2015-10-02","currentCash":21495462469,"shortTermInvestments":20664813050,"receivables":17352768094,"inventory":2464996549,"otherCurrentAssets":15308420481,"currentAssets":91668568342,"longTermInvestments":168240044734,"propertyPlantEquipment":22491521243,"goodwill":5247250255,"intangibleAssets":4026899375,"otherAssets":5784100163,"totalAssets":300937727218,"accountsPayable":35587295735,"currentLongTermDebt":2600960084,"otherCurrentLiabilities":35272308890,"totalCurrentLiabilities":80946130833,"longTermDebt":53744489783,"otherLiabilities":5015275009,"minorityInterest":0,"totalLiabilities":176810584979,"commonStock":5685987550,"retainedEarnings":93212575370,"treasuryStock":7089638.75216619,"capitalSurplus":null,"shareholderEquity":120472551727,"netTangibleAssets":104858496591}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "12000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=ffb3b89e98b74a6da6afd8edab43ef2a; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/balance-sheet?last=12&period=quarter
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","balancesheet":[{"reportDate":"2019-07-05","currentCash":23684931483,"shortTermInvestments":74194811929,"receivables":14640487331,"inventory":3434158925,"otherCurrentAssets":10334769032,"currentAssets":135280896985,"longTermInvestments":121250258516,"propertyPlantEquipment":39295319356,"goodwill":0,"intangibleAssets":null,"otherAssets":32742782854,"totalAssets":336271988648,"accountsPayable":30037551083,"currentLongTermDebt":14184640533,"otherCurrentLiabilities":37414832228,"totalCurrentLiabilities":89815187167,"longTermDebt":86956161523,"otherLiabilities":4691761239,"minorityInterest":0,"totalLiabilities":230962709863,"commonStock":4677808443,"retainedEarnings":54372780821,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":100126769211,"netTangibleAssets":100190951194},{"reportDate":"2019-04-10","currentCash":21357485777,"shortTermInvestments":60846371589,"receivables":15200613458,"inventory":5027725801,"otherCurrentAssets":12174401127,"currentAssets":128774540528,"longTermInvestments":152102811180,"propertyPlantEquipment":39087956054,"goodwill":0,"intangibleAssets":null,"otherAssets":34159053722,"totalAssets":350381323687,"accountsPayable":30860810882,"currentLongTermDebt":10960175774,"otherCurrentLiabilities":42551098424,"totalCurrentLiabilities":95859740415,"longTermDebt":94324181306,"otherLiabilities":5187718424,"minorityInterest":0,"totalLiabilities":237425668930,"commonStock":4832442434,"retainedEarnings":67437391341,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":107569919789,"netTangibleAssets":107750886853},{"reportDate":"2019-01-04","currentCash":15936079067,"shortTermInvestments":73525535331,"receivables":18950822505,"inventory":5098406305,"otherCurrentAssets":12788650351,"currentAssets":143839327336,"longTermInvestments":160855520570,"propertyPlantEquipment":40743716988,"goodwill":0,"intangibleAssets":null,"otherAssets":34738996583,"totalAssets":383479955718,"accountsPayable":45458369292,"currentLongTermDebt":10027762392,"otherCurrentLiabilities":43726093592,"totalCurrentLiabilities":108350906145,"longTermDebt":97459331896,"otherLiabilities":8065227791,"minorityInterest":0,"totalLiabilities":260857035589,"commonStock":4858641885,"retainedEarnings":82420575881,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":118451300576,"netTangibleAssets":123128963558},{"reportDate":"2018-10-04","currentCash":20440539161,"shortTermInvestments":48695301891,"receivables":23348634205,"inventory":4130317872,"otherCurrentAssets":12325481726,"currentAssets":133047977518,"longTermInvestments":175036325267,"propertyPlantEquipment":41847195385,"goodwill":null,"intangibleAssets":null,"otherAssets":22363588350,"totalAssets":380898712339,"accountsPayable":57573976650,"currentLongTermDebt":8807589148,"otherCurrentLiabilities":41522660928,"totalCurrentLiabilities":122161514589,"longTermDebt":97110041564,"otherLiabilities":2872299386,"minorityInterest":0,"totalLiabilities":261168899995,"commonStock":4946162981,"retainedEarnings":70771754590,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":112372371959,"netTangibleAssets":112020385357},{"reportDate":"2018-07-08","currentCash":18510039621,"shortTermInvestments":54401852575,"receivables":14393970783,"inventory":6202768087,"otherCurrentAssets":12847718630,"currentAssets":119186649555,"longTermInvestments":178026574005,"propertyPlantEquipment":39813400352,"goodwill":0,"intangibleAssets":null,"otherAssets":23648981812,"totalAssets":355401731368,"accountsPayable":38888293043,"currentLongTermDebt":5734986441,"otherCurrentLiabilities":32604552866,"totalCurrentLiabilities":90656877600,"longTermDebt":100778692589,"otherLiabilities":3501527559,"minorityInterest":0,"totalLiabilities":240261964226,"commonStock":4952633507,"retainedEarnings":82241463875,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":120337367070,"netTangibleAssets":119506449793},{"reportDate":"2018-03-31","currentCash":15777941129,"shortTermInvestments":73605388550,"receivables":15015279428,"inventory":7670884117,"otherCurrentAssets":12173514932,"currentAssets":132373702563,"longTermInvestments":187845230145,"propertyPlantEquipment":35234797319,"goodwill":0,"intangibleAssets":null,"otherAssets":23977813670,"totalAssets":378719114108,"accountsPayable":35247916529,"currentLongTermDebt":8792466331,"otherCurrentLiabilities":34856330226,"totalCurrentLiabilities":93262545124,"longTermDebt":101678434144,"otherLiabilities":3489578979,"minorityInterest":0,"totalLiabilities":242177402203,"commonStock":4991596663,"retainedEarnings":92019330959,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":128461168134,"netTangibleAssets":127138071750},{"reportDate":"2018-01-11","currentCash":18531462882,"shortTermInvestments":61682193696,"receivables":24572030638,"inventory":4633512632,"otherCurrentAssets":11476320574,"currentAssets":148383785398,"longTermInvestments":218163640623,"propertyPlantEquipment":34771968881,"goodwill":6003629564,"intangibleAssets":2195921054,"otherAssets":13866695856,"totalAssets":424165530101,"accountsPayable":63328296174,"currentLongTermDebt":6712748305,"otherCurrentLiabilities":34619912671,"totalCurrentLiabilities":121165863783,"longTermDebt":105105729026,"otherLiabilities":11892867924,"minorityInterest":0,"totalLiabilities":274995405357,"commonStock":5114089526,"retainedEarnings":105581299044,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":144188475080,"netTangibleAssets":123128278718},{"reportDate":"2017-10-09","currentCash":14563635557,"shortTermInvestments":60279753273,"receivables":17993336950,"inventory":4863015295,"otherCurrentAssets":14427716093,"currentAssets":130339088618,"longTermInvestments":199425315329,"propertyPlantEquipment":33887305946,"goodwill":5981348253,"intangibleAssets":2319272845,"otherAssets":10249424415,"totalAssets":383045718971,"accountsPayable":49977952070,"currentLongTermDebt":6527941371,"otherCurrentLiabilities":33613221191,"totalCurrentLiabilities":105255975609,"longTermDebt":101065528605,"otherLiabilities":3374381536,"minorityInterest":0,"totalLiabilities":242379950461,"commonStock":5144552163,"retainedEarnings":98682447359,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":137760265580,"netTangibleAssets":119597257626},{"reportDate":"2017-07-10","currentCash":11739156567,"shortTermInvestments":67374893727,"receivables":12616171274,"inventory":3281820687,"otherCurrentAssets":10596734433,"currentAssets":114374337971,"longTermInvestments":189454220503,"propertyPlantEquipment":29887449564,"goodwill":5853722019,"intangibleAssets":2462233291,"otherAssets":10473763177,"totalAssets":348437709166,"accountsPayable":32199619394,"currentLongTermDebt":6524687388,"otherCurrentLiabilities":31373448268,"totalCurrentLiabilities":84559746008,"longTermDebt":94192694511,"otherLiabilities":11908986395,"minorityInterest":0,"totalLiabilities":214513274665,"commonStock":5200980373,"retainedEarnings":102940527641,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":133130209375,"netTangibleAssets":117348264385},{"reportDate":"2017-04-02","currentCash":10410570567,"shortTermInvestments":58790621876,"receivables":12072381363,"inventory":2913903687,"otherCurrentAssets":11472633416,"currentAssets":102529860364,"longTermInvestments":190506457440,"propertyPlantEquipment":28081293574,"goodwill":5586527153,"intangibleAssets":2666081868,"otherAssets":7891648906,"totalAssets":344330937733,"accountsPayable":28909770555,"currentLongTermDebt":4031297605,"otherCurrentLiabilities":32292206007,"totalCurrentLiabilities":74357374587,"longTermDebt":88297946713,"otherLiabilities":4359678072,"minorityInterest":0,"totalLiabilities":210330318198,"commonStock":5339941064,"retainedEarnings":102379420931,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":140411031202,"netTangibleAssets":118622061885},{"reportDate":"2017-01-08","currentCash":9832868689,"shortTermInvestments":52021905819,"receivables":14098129427,"inventory":2830005526,"otherCurrentAssets":12358383022,"currentAssets":103634964446,"longTermInvestments":192031804225,"propertyPlantEquipment":27109115569,"goodwill":5593365660,"intangibleAssets":2890548391,"otherAssets":7621445502,"totalAssets":340959971494,"accountsPayable":39849295739,"currentLongTermDebt":3513786771,"otherCurrentLiabilities":33114262637,"totalCurrentLiabilities":86497335804,"longTermDebt":73877393677,"otherLiabilities":4569379078,"minorityInterest":0,"totalLiabilities":199159891412,"commonStock":5414457134,"retainedEarnings":104008582665,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":134934734079,"netTangibleAssets":119390613463},{"reportDate":"2016-10-03","currentCash":12573177531,"shortTermInvestments":57428995208,"receivables":16465830826,"inventory":2196346579,"otherCurrentAssets":8512438138,"currentAssets":109972721694,"longTermInvestments":176815794156,"propertyPlantEquipment":27033657422,"goodwill":5593182752,"intangibleAssets":3303897504,"otherAssets":8852784366,"totalAssets":324725536818,"accountsPayable":38515895648,"currentLongTermDebt":3624386927,"otherCurrentLiabilities":31089192761,"totalCurrentLiabilities":79543391549,"longTermDebt":76863006187,"otherLiabilities":4481937044,"minorityInterest":0,"totalLiabilities":200630452277,"commonStock":5536297484,"retainedEarnings":98746419482,"treasuryStock":null,"capitalSurplus":null,"shareholderEquity":130463711308,"netTangibleAssets":111940119672}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "36000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=72973a7b770a4747949a071431bab03a; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

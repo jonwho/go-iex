@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/cash-flow
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","cashflow":[{"reportDate":"2019-07-05","netIncome":10360482649,"depreciation":3031869980,"changesInReceivables":971173388,"changesInInventories":1514586976,"cashChange":12836230122,"cashFlow":11934471928,"capitalExpenditures":-2019098693,"investments":31244104592,"investingActivityOther":-271723796,"totalInvestingCashFlows":27986270280,"dividendsPaid":-3691072247,"netBorrowings":-5193875107,"otherFinancingCashFlows":-1233629659,"cashFlowFinancing":-27250074102,"exchangeRateEffect":null}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:49 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=7ac923375707435fbe55bf1632daf23f; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:49 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

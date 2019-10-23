@@ -1,0 +1,52 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/fund-ownership
+    method: GET
+  response:
+    body: '[{"report_date":1619339487650,"entityProperName":"duMardn  uV aoktnlrgkFaotIStxeaTdc
+      ne ","adjHolding":119226235,"adjMv":26260654730,"reportedHolding":114072533,"reportedMv":26755627972},{"report_date":1625936870645,"entityProperName":"Vedan
+      5r0ndu gd IxnF0ua","adjHolding":87060617,"adjMv":19264055184,"reportedHolding":88586819,"reportedMv":19669937638},{"report_date":1586292979670,"entityProperName":"tS
+      50dE0prpS  f&","adjHolding":48475362,"adjMv":10959620467,"reportedHolding":48682965,"reportedMv":10697253797},{"report_date":1549274331387,"entityProperName":"lGloeenGsnnm)ntotb
+      andu- (hFoeriPv   e","adjHolding":48044523,"adjMv":7594389884,"reportedHolding":47485917,"reportedMv":7471441327},{"report_date":1597296707237,"entityProperName":"dntsl
+      ag uurxoIIFnadnneitd tiaunV","adjHolding":40383660,"adjMv":8805081039,"reportedHolding":40879343,"reportedMv":8851762453},{"report_date":1607400240169,"entityProperName":"Qtv
+      quTqIs ocnser","adjHolding":37495208,"adjMv":8278148039,"reportedHolding":37530348,"reportedMv":8602718370},{"report_date":1582282204938,"entityProperName":"edid0
+      nl F50xteI yduFin","adjHolding":37204712,"adjMv":7809408414,"reportedHolding":36484246,"reportedMv":7568686723},{"report_date":1615231808207,"entityProperName":"  5
+      Ct oaes0Sr&0esEprfIh","adjHolding":32558686,"adjMv":7341607586,"reportedHolding":32988159,"reportedMv":7404779618},{"report_date":1626364505891,"entityProperName":"udaandhrdg
+      rwuVnn toI FxGe","adjHolding":30906226,"adjMv":6740275292,"reportedHolding":31413060,"reportedMv":6973432577},{"report_date":1621859578381,"entityProperName":"FtesnhSlrTrocSe
+      S iStnorgpe do ee d-dce y urcSlp","adjHolding":18032292,"adjMv":4033120716,"reportedHolding":18195088,"reportedMv":4056120565}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:02:21 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=3bce3d0958dc4867aba7bb50baa500f4; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:02:21 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

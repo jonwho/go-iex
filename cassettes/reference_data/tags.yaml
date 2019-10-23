@@ -1,0 +1,90 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/ref-data/tags
+    method: GET
+  response:
+    body: '[{"name":"eholcgoEoccli ynenrTt"},{"name":"oitriunsesitSive cDbr"},{"name":"vimmaelorrseceSi
+      Cc"},{"name":"tllHoegnTyhoe hac"},{"name":"necuasrd itivlrSeIs"},{"name":"ienacnF"},{"name":"saornatnroTitp"},{"name":"essrsnrstcuIioPde
+      "},{"name":"seTyvc loohnieergcS"},{"name":"cadnrcefu iuoPMnrguatr"},{"name":"eilrTa
+      adRte"},{"name":"CisercS eeosumrnv"},{"name":"-e noealErnyMrisgnN"},{"name":"liiUsttei"},{"name":"nescseMuoilal"},{"name":"reSals
+      vheceHti"},{"name":"Draul usnreCsebom"},{"name":"a oNnbmrrsueseDCl-onu"},{"name":"tCnniiosoummac"},{"name":"ne
+      EesalrgiMryn"},{"name":"bHouimindleg"},{"name":"Srcesnomudcoti"},{"name":"imfeS/iupqOcuiptlpsenf
+      eE"},{"name":"ioyothglcBone"},{"name":"r lHor&eaTwad os"},{"name":"SdirceleitmuO
+      /ivflpeqnEeis"},{"name":"MMOitaslselrhne ret/a"},{"name":"graaneteestIsvnnm
+      M"},{"name":"nStopa tDemretres"},{"name":"PS oaftekdwaaecgr"},{"name":"eoleSrtt/spniEilpcccoenras
+      A"},{"name":"ceipsSlM aatiiclede"},{"name":"DssiuattosrGir b"},{"name":"eocmTrclihonoyonrtn
+      aeigfIvS se"},{"name":"c apCylFddSytn/oa:eio"},{"name":"s roaEttMOu AP:"},{"name":"ilcCmeitcay:
+      pslSaeh"},{"name":"rspSc aieSotlyet"},{"name":"RFdiloo tea"},{"name":"ouErle
+      itrsscrsDicntbtio"},{"name":"gsanv nsakSBi"},{"name":"iLsn/aelgcnn/tRieaaFne"},{"name":"u
+      eTtlcsWonileseacmiomerins"},{"name":"rc&nspesDaAoefee  e"},{"name":"vcsrns/SvkgieerinetaiedrMgiAt
+      "},{"name":"catmoiutpmn imouCCorens"},{"name":"teeaeaSi CtlT/Vllb"},{"name":"oeDuonsttSscir
+      "},{"name":"eipaa r/etarlRoFewptAlo"},{"name":"eretMtEeatninso/vmni"},{"name":"hCu
+      isamcg:iertlclarlAu"},{"name":"isptAnear/Eesclilocpnc"},{"name":"ra jnoakBMs"},{"name":":heacrmh
+      cuatPtriealOs"},{"name":"uer uerCsnnodiSsm"},{"name":"trcnailsIeStai uisedpl"},{"name":"ourmpsrhPpieerClea
+      t"},{"name":"crucioalusfngtM enMsealianu"},{"name":"ABi:eo cehllgvroeacs"},{"name":"nRtEamv
+      elteopee tsleaD"},{"name":"sc pmeiEue/lstttqnonnriutIrcmenE"},{"name":"crg dPndituousBli"},{"name":"rrrefn/evcSInseitewet
+      tSoa"},{"name":"dutrD tFrbioosios"},{"name":"unGilP Ot&oraid oc s"},{"name":"pneasMNmleHnanrgtigouti
+      sa/"},{"name":"oMaPss cetierlu"},{"name":"ailaoce rRtPcoedsunrt"},{"name":"epceClnctomiooE
+      tnrsn"},{"name":"aRnsatsuetr"},{"name":"iridn metlnp nEotcoPEccturquioe"},{"name":"tecrviDPrg
+      aessesoaSic n"},{"name":" msr rheveuecCtnsioeOSr"},{"name":"rueHln/reessoettsRsoiiCls/"},{"name":"FArpapt/rwloaoee"},{"name":"irrsMlcuDotabd
+      estii"},{"name":"doesiafMoov i:ird DejrF"},{"name":"laeicecsni lila SressuMovcreoeCmm"},{"name":"alEritccelcto
+      Pusrd"},{"name":"edrgcrglsmini/ almulAioitutlMoCi"},{"name":"Ose imoe eenaiCphStcsrrltu"},{"name":"snvs/dtsuutuuIlFtrmTae  Mnnets"},{"name":"etooicMaen
+      Tjlsuocimanrm"},{"name":"os/Crluha dloHoasenPere"},{"name":"tonr caFabtleMaii"},{"name":"dMaeyaoi
+      s/:h/DtriFoF"},{"name":"FekoyTua orsrns/tnccarri/hinCmutMc"},{"name":"iRaoBlnngesa
+      k"},{"name":"rgFtnine/irrlcPoiosmma Cm"},{"name":"ie hcteoVlMors"},{"name":"ahsiiNubrspewnPs
+      :egpl"},{"name":"gnsireto Cn&niri uontgnceE"},{"name":"arurmtohcaijM cPe:slaa"},{"name":"aclSrsnineeEmvit
+      nvreo"},{"name":"tsnsurRtsmtTeeve tI ant aleEs"},{"name":"elsxieTt"},{"name":"rt
+      iDhotsboessaelilWur"},{"name":"idcgaontaBsr"},{"name":"giNcdreSs Mie/lnaicsrvue"},{"name":"olrgMeied
+      nsamoaetC"},{"name":"meo HopCmrmeItei ansnhv"},{"name":"iianlcCt otlrgnrD"},{"name":"citiUtcli
+      ilrtsEee"},{"name":"tRltree eanniIt"},{"name":"CiisretamcelogaFaonn ln"},{"name":"obTccoa"},{"name":"lueemnoisoumnqEtceiT
+      amnpcti"},{"name":" hnurlcidMtiaeyrIsna"},{"name":"maonGnCiisa/gs"},{"name":"nIsveermker
+      nss/ottBkBan"},{"name":"f:e e sscmiolCiiarvDhdrijeMa"},{"name":"rsAineli"},{"name":"hsiorgsneuHm
+      inF"},{"name":"gannge/iCnrPoakcaits"},{"name":" gtuinrssehoraCD"},{"name":"notrMstrCasio
+      aticlenu"},{"name":"rrirh iriAeosu/eFtCg"},{"name":"il vinFhSriiucins/saelcaenbPg"},{"name":"inveesreon
+      csPrlSe"},{"name":"elncNohlaegr oio-evcB:As"},{"name":"Slete"},{"name":"nherpnSiMip
+      gai"},{"name":"e rtuc lsIH anrdoh sShtvteeiyet"},{"name":"pg oswrtnauP erHrdimeeaocsrC"},{"name":"snerCegou
+      snmadaitItrlol"},{"name":"ynoleTcapneaucimieSimsl cott"},{"name":"ngikrcTu"},{"name":"GcPculi
+      mheesnerriataa:c"},{"name":"Snrs/Isnasic reeeckuveorBr"},{"name":"te rsUttaiWeiil"},{"name":"hongsbMii/aiesBzulsoan
+      k:Pg"},{"name":"vGit onnnielteetaaAPrrweero "},{"name":"iigsuyaeoitb/tatCiolcDtS
+      rpaln"},{"name":"is OsP ee&lp lGiian"},{"name":"talerneidIgOt "},{"name":"tmAotekaeruAofvit
+      tmre"},{"name":"mimnlAuu"},{"name":"/ltatPeasuspCcernr ruIaynoy"},{"name":"ai/tgRkenfiigrilOnen
+      M"},{"name":"urInii-enscutnLe aMl"},{"name":"HnicueIeahres Lf/tnal"},{"name":"rlanIsaSieepcut
+      ync"},{"name":"anaahlCar eeMdeHg t"},{"name":"oCla"},{"name":"tihnrtanrTtopOorae
+      s"},{"name":"rstdoeuFscrt oP"},{"name":"Plu raep&Pp "},{"name":"rloRsadia"},{"name":"neveSroig"},{"name":"piruanlnoaatS"},{"name":"eeoalv
+      tmrnGGenenr"},{"name":"tenvoGemrn"},{"name":"ceiaorveS/Ptnt"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 24 Oct 2019 23:56:37 GMT
+      Iexcloud-Messages-Used:
+      - "1"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=1e19093231724153a9cef220e4facc7a; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 11:56:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

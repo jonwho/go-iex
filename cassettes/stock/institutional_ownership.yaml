@@ -1,0 +1,50 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/institutional-ownership
+    method: GET
+  response:
+    body: '[{"reportDate":1590338827848,"adjHolding":8097506,"reportedHolding":8323066,"adjMv":1833607912,"entityProperName":"APsersLduRebiLivn  mh"},{"reportDate":1623791758879,"adjHolding":4053688,"reportedHolding":4128275,"adjMv":911610774,"entityProperName":"
+      uLCtsrra nAiTGltLptco u"},{"reportDate":1580031801112,"adjHolding":3776974,"reportedHolding":3797032,"adjMv":832664244,"entityProperName":"
+      DtosderSnny oJneC  oNoneePF mif me uawts"},{"reportDate":1617624898866,"adjHolding":3571499,"reportedHolding":3499438,"adjMv":798125917,"entityProperName":"nLnttstLn&in
+      HvCoHaeelrm tInaeI "},{"reportDate":1633283349724,"adjHolding":3145097,"reportedHolding":3196928,"adjMv":718944984,"entityProperName":"tae
+      toec eSh  iTore OSsRyrmseetethmatfin"},{"reportDate":1611302854353,"adjHolding":2722178,"reportedHolding":2845070,"adjMv":627326953,"entityProperName":"AneAeStnA
+      sonMa e amseasgngts"},{"reportDate":1608223141392,"adjHolding":2398103,"reportedHolding":2331204,"adjMv":539241041,"entityProperName":"tIt
+      enoaRnesinemevvs Aloetctbr"},{"reportDate":1576314177838,"adjHolding":2117356,"reportedHolding":2055275,"adjMv":460988593,"entityProperName":"eeerBVnmbMeoGegPshGr  V"},{"reportDate":1622538573232,"adjHolding":2002228,"reportedHolding":2010656,"adjMv":431104130,"entityProperName":"e
+      azbnkrmCGomA"},{"reportDate":1573868581987,"adjHolding":1917897,"reportedHolding":1896609,"adjMv":422280889,"entityProperName":"vyLesAstvCnitar
+      Gmtee esLd naIw"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 01:06:51 GMT
+      Iexcloud-Messages-Used:
+      - "10000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c26d5c295228484e9ee906f51a82c06d; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 13:06:51 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

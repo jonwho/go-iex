@@ -1,0 +1,84 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/earnings
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","earnings":[{"actualEPS":2.25,"consensusEPS":2.09,"announceTime":"CAM","numberOfEstimates":37,"EPSSurpriseDollar":0.09,"EPSReportDate":"2019-08-01","fiscalPeriod":"Q2
+      2019","fiscalEndDate":"2019-06-30","yearAgo":2.35,"yearAgoChangePercent":-0.0701}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:51 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=da32759dba74447dbf287ccfc4dc1da2; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:51 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/earnings?last=2
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","earnings":[{"actualEPS":2.26,"consensusEPS":2.16,"announceTime":"CAM","numberOfEstimates":38,"EPSSurpriseDollar":0.09,"EPSReportDate":"2019-08-01","fiscalPeriod":"Q2
+      2019","fiscalEndDate":"2019-07-09","yearAgo":2.38,"yearAgoChangePercent":-0.0706},{"actualEPS":2.57,"consensusEPS":2.46,"announceTime":"AMC","numberOfEstimates":34,"EPSSurpriseDollar":0.1,"EPSReportDate":"2019-05-15","fiscalPeriod":"Q1
+      2019","fiscalEndDate":"2019-04-08","yearAgo":2.75,"yearAgoChangePercent":-0.101}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 00:07:51 GMT
+      Iexcloud-Messages-Used:
+      - "2000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a302ffaf5e114703a4c067a340a30a62; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 12:07:51 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
