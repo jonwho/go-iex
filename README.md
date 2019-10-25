@@ -26,9 +26,6 @@ export IEX_SECRET_TOKEN=Tsk_ahsvyao12u4u0ausvn1o3rhw988120yf_REAL
 export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
 ```
 
-### MAKEFILE
-`make test` 
-
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
 * Use `make test` to run test suite
