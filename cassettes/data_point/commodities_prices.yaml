@@ -1,0 +1,276 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/DCOILWTICO
+    method: GET
+  response:
+    body: "53.93"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "5"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:09 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=147a6a78d61d43368d0610cb405177d7; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:09 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/DHHNGSP
+    method: GET
+  response:
+    body: "2.22"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "4"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:09 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=886ee0216dae43558f613229db485224; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:09 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/DHOILNYH
+    method: GET
+  response:
+    body: "1.98"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "4"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:09 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=bcbf8057855c4def9761a9ae1c14aa0a; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:09 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/DJFUELUSGULF
+    method: GET
+  response:
+    body: "1.942"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "5"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:10 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=1a7c5db3c9b04873a4d4cb1c2badd65f; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:10 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/GASDESW
+    method: GET
+  response:
+    body: "3.14"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "4"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:10 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=2a65d7ad425641edacd783d775f8d125; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:10 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/GASREGCOVW
+    method: GET
+  response:
+    body: "2.541"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "5"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:10 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=17fc60896c4248babacac4044d0bf62f; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:10 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://sandbox.iexapis.com/stable/data-points/market/DPROPANEMBTX
+    method: GET
+  response:
+    body: "0.482"
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "5"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 21:52:10 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=6caf69f2a6d84f929c44704025d63a5d; Max-Age=43200; Path=/; Expires=Sat,
+        26 Oct 2019 09:52:10 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

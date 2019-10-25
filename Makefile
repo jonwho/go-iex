@@ -8,7 +8,7 @@ all: test coverage
 
 .PHONY: test
 test:
-	$(GOTEST) -v -cover -count=1
+	$(GOTEST) -v -cover -count=1 -mod=vendor
 
 .PHONY: coverage
 coverage:

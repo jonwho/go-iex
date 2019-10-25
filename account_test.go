@@ -9,13 +9,7 @@ import (
 )
 
 func TestNewAccount(t *testing.T) {
-	acc := NewAccount("test_token", "", sandboxURL, nil)
-
-	expected = "https://sandbox.iexapis.com/"
-	actual = acc.URL().String()
-	if expected != actual {
-		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
-	}
+	acc := NewAccount("test_token", "stable", sandboxURL, nil)
 
 	expected = "account/"
 	actual = acc.APIURL().String()
@@ -23,8 +17,26 @@ func TestNewAccount(t *testing.T) {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}
 
+	expected = true
+	actual = acc.Client() == nil
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
 	expected = "test_token"
 	actual = acc.Token()
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
+	expected = "https://sandbox.iexapis.com/"
+	actual = acc.URL().String()
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
+	expected = "stable"
+	actual = acc.Version()
 	if expected != actual {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}

@@ -137,7 +137,8 @@ func removeToken(i *cassette.Interaction) error {
 	originalBody := []byte(i.Request.Body)
 	var unmarshalBody map[string]interface{}
 	if err = json.Unmarshal(originalBody, &unmarshalBody); err != nil {
-		return err
+		// sometimes the data isn't JSON so ignore unmarshal error
+		return nil
 	}
 	delete(unmarshalBody, "token")
 	bodyWithoutToken, err := json.Marshal(unmarshalBody)

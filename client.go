@@ -291,6 +291,31 @@ func get(api iexapi, response interface{}, endpoint string, params interface{}) 
 	return err
 }
 
+func getRaw(api iexapi, response *interface{}, endpoint string, params interface{}) error {
+	relurl, _ := url.Parse(endpoint)
+	iexurl := baseURL(api).ResolveReference(relurl)
+	q := url.Values{}
+	q.Set("token", api.Token())
+	moreq, err := query.Values(params)
+	if err != nil {
+		return err
+	}
+	rawQuery := fmt.Sprintf("%s&%s", q.Encode(), moreq.Encode())
+	resp, err := api.Client().Get(fmt.Sprintf("%s?%s", iexurl.String(), rawQuery))
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		respBody, _ := ioutil.ReadAll(resp.Body)
+		return fmt.Errorf("%v: %v", resp.Status, string(respBody))
+	}
+
+	*response, err = ioutil.ReadAll(resp.Body)
+	return err
+}
+
 func post(api iexapi, response interface{}, endpoint string, params map[string]interface{}) error {
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
