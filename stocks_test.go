@@ -536,6 +536,39 @@ func TestFundOwnership(t *testing.T) {
 	}
 }
 
+func TestHistoricalPrices(t *testing.T) {
+	rec, err := recorder.New("cassettes/stock/historical_prices")
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		rec.SetMatcher(matchWithoutToken)
+		httpClient = &http.Client{Transport: rec}
+	}
+	rec.AddFilter(removeToken)
+	defer rec.Stop()
+	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
+
+	hp, err := cli.HistoricalPrices("aapl", "outofrange", nil)
+	if err == nil {
+		t.Error("Expected err to not be nil")
+	}
+	expected = `Received invalid date range for chart`
+	actual = err.Error()
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	hp, err = cli.HistoricalPrices("aapl", "max", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(hp) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 func TestIncomeStatement(t *testing.T) {
 	rec, err := recorder.New("cassettes/stock/income_statement")
 	if err != nil {

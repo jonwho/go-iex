@@ -254,7 +254,7 @@ func (c *Client) Get(endpoint string, response, params interface{}) error {
 }
 
 // Post helper func to make custom POST requests against client's base url
-func (c *Client) Post(endpoint string, response, params map[string]string) error {
+func (c *Client) Post(endpoint string, response interface{}, params map[string]interface{}) error {
 	return post(c, response, endpoint, params)
 }
 
@@ -291,7 +291,7 @@ func get(api iexapi, response interface{}, endpoint string, params interface{}) 
 	return err
 }
 
-func post(api iexapi, response interface{}, endpoint string, params map[string]string) error {
+func post(api iexapi, response interface{}, endpoint string, params map[string]interface{}) error {
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
 

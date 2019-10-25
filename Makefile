@@ -1,6 +1,7 @@
 GOCMD=go
 GOTEST=$(GOCMD) test
 GORUN=$(GOCMD) run
+GOTOOL=$(GOCMD) tool
 GOPHERBADGER=$(HOME)/go/bin/gopherbadger
 
 all: test coverage
@@ -12,6 +13,10 @@ test:
 .PHONY: coverage
 coverage:
 	$(GOPHERBADGER) -md="README.md"
+
+.PHONY: funcoverage
+funcoverage:
+	$(GOTEST) -coverprofile=coverage.out && $(GOTOOL) cover -func=coverage.out
 
 .PHONY: example
 example:
