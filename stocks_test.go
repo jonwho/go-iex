@@ -9,13 +9,7 @@ import (
 )
 
 func TestNewStock(t *testing.T) {
-	stk := NewStock("test_token", "", sandboxURL, nil)
-
-	expected = "https://sandbox.iexapis.com/"
-	actual = stk.URL().String()
-	if expected != actual {
-		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
-	}
+	stk := NewStock("test_token", "stable", sandboxURL, nil)
 
 	expected = "stock/"
 	actual = stk.APIURL().String()
@@ -23,8 +17,26 @@ func TestNewStock(t *testing.T) {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}
 
+	expected = true
+	actual = stk.Client() == nil
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
 	expected = "test_token"
 	actual = stk.Token()
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
+	expected = "https://sandbox.iexapis.com/"
+	actual = stk.URL().String()
+	if expected != actual {
+		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
+	}
+
+	expected = "stable"
+	actual = stk.Version()
 	if expected != actual {
 		t.Errorf("\nExpected: %s\nActual: %s\n", expected, actual)
 	}
@@ -545,6 +557,19 @@ func TestIncomeStatement(t *testing.T) {
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
+
+	stmt, err = cli.IncomeStatement("aapl", struct {
+		Last   int    `url:"last"`
+		Period string `url:"period"`
+	}{Last: 2, Period: "annual"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(stmt.Income) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
 }
 
 func TestInsiderRoster(t *testing.T) {
@@ -850,6 +875,27 @@ func TestOHLC(t *testing.T) {
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
 	ohlc, err := cli.OHLC("aapl")
+	if err != nil {
+		t.Error(err)
+	}
+	if ohlc.Open.Price < 0 {
+		t.Errorf("Expected open price greater than 0")
+	}
+}
+
+func TestOpenClosePrice(t *testing.T) {
+	rec, err := recorder.New("cassettes/stock/open_close_price")
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		rec.SetMatcher(matchWithoutToken)
+		httpClient = &http.Client{Transport: rec}
+	}
+	rec.AddFilter(removeToken)
+	defer rec.Stop()
+	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
+
+	ohlc, err := cli.OpenClosePrice("aapl")
 	if err != nil {
 		t.Error(err)
 	}

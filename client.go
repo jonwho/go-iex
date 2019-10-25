@@ -42,11 +42,11 @@ type iex struct {
 }
 
 type iexapi interface {
-	Token() string
-	Version() string
-	URL() *url.URL
 	APIURL() *url.URL
 	Client() *http.Client
+	Token() string
+	URL() *url.URL
+	Version() string
 }
 
 // Client API struct to IEX
@@ -69,11 +69,11 @@ type ClientOption func(*Client) error
 // NewClient creates client interface to IEX Cloud APIs
 func NewClient(token string, options ...ClientOption) (*Client, error) {
 	client := &Client{}
-	SetToken(token)(client)
-	SetVersion(DefaultVersion)(client)
-	SetURL(DefaultBaseURL)(client)
 	SetAPIURL("")(client)
 	SetHTTPClient(DefaultHTTPClient)(client)
+	SetToken(token)(client)
+	SetURL(DefaultBaseURL)(client)
+	SetVersion(DefaultVersion)(client)
 
 	for _, option := range options {
 		err := option(client)

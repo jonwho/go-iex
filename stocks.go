@@ -898,18 +898,9 @@ func (s *Stock) HistoricalPrices(symbol, chartRange string, params interface{}) 
 	return s.Chart(symbol, chartRange, params)
 }
 
-// IncomeStatement GET /stock/{symbol}/income/{last}/{field}
-func (s *Stock) IncomeStatement(symbol string, params interface{}, opt ...interface{}) (incstmt *IncomeStatement, err error) {
+// IncomeStatement GET /stock/{symbol}/income?{params}
+func (s *Stock) IncomeStatement(symbol string, params interface{}) (incstmt *IncomeStatement, err error) {
 	endpoint := fmt.Sprintf("%s/income", symbol)
-	if len(opt) > 0 {
-		last := opt[0].(int)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
-	}
-	if len(opt) > 1 {
-		field := opt[1].(string)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
-	}
-
 	err = get(s, &incstmt, endpoint, params)
 	return
 }
