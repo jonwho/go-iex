@@ -164,14 +164,14 @@ func main() {
 ### Treasures
 - [ ] Daily Treasury Rates
 ### Commodities
-- [ ] Oil Prices
-- [ ] Natural Gas Price
-- [ ] Heating Oil Prices
-- [ ] Jet Fuel Prices
-- [ ] Diesel Prices
-- [ ] Diesel Price
-- [ ] Gas Prices
-- [ ] Propane Prices
+- [x] Oil Prices
+- [x] Natural Gas Price
+- [x] Heating Oil Prices
+- [x] Jet Fuel Prices
+- [x] Diesel Prices
+- [x] Diesel Price
+- [x] Gas Prices
+- [x] Propane Prices
 ### Economic Data
 - [ ] Mortgage Rates
 - [ ] Federal Fund Rates
