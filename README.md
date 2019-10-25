@@ -13,7 +13,7 @@
 Client interface to IEX trading API.
 
 ## ENV
-### TESTING
+### TEST
 * Grab your test/real tokens from [https://iexcloud.io/console/](https://iexcloud.io/console/)
 * Set ENV VAR
 ```sh
@@ -25,6 +25,14 @@ export IEX_TEST_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_FAKE
 export IEX_SECRET_TOKEN=Tsk_ahsvyao12u4u0ausvn1o3rhw988120yf_REAL
 export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
 ```
+
+### MAKEFILE
+`make test` 
+
+## DEV NOTES
+* Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
+* Use `make test` to run test suite
+* Use `make coverage` to update `README.md` coverage badge
 
 ## USAGE
 ```go
@@ -219,6 +227,3 @@ func main() {
 - [x] TOPS
 ### API System Metadata
 - [x] Status
-
-## DEV NOTES
-* Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
