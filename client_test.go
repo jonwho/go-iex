@@ -31,10 +31,10 @@ func TestNewClient(t *testing.T) {
 	if cli.Account == nil {
 		t.Error("Should have a default value")
 	}
-	if cli.AlternativeData == nil {
+	if cli.APISystemMetadata == nil {
 		t.Error("Should have a default value")
 	}
-	if cli.APISystemMetadata == nil {
+	if cli.Cryptocurrency == nil {
 		t.Error("Should have a default value")
 	}
 	if cli.DataAPI == nil {

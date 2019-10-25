@@ -54,8 +54,8 @@ type Client struct {
 	iex
 
 	*Account
-	*AlternativeData
 	*APISystemMetadata
+	*Cryptocurrency
 	*DataAPI
 	*Forex
 	*InvestorsExchangeData
@@ -85,11 +85,11 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	if client.Account == nil {
 		SetAccount(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
-	if client.AlternativeData == nil {
-		SetAlternativeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
-	}
 	if client.APISystemMetadata == nil {
 		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Cryptocurrency == nil {
+		SetCryptocurrency(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	if client.DataAPI == nil {
 		SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
@@ -192,6 +192,22 @@ func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Cl
 	}
 }
 
+// SetAPISystemMetadata set new APISystemMetadata
+func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
+		return nil
+	}
+}
+
+// SetCryptocurrency set new Cryptocurrency
+func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.Cryptocurrency = NewCryptocurrency(token, version, url, httpClient)
+		return nil
+	}
+}
+
 // SetDataAPI set new DataAPI
 func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
@@ -228,22 +244,6 @@ func SetStock(token, version string, url *url.URL, httpClient *http.Client) Clie
 func SetForex(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.Forex = NewForex(token, version, url, httpClient)
-		return nil
-	}
-}
-
-// SetAPISystemMetadata set new APISystemMetadata
-func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
-	return func(c *Client) error {
-		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
-		return nil
-	}
-}
-
-// SetAlternativeData set new AlternativeData
-func SetAlternativeData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
-	return func(c *Client) error {
-		c.AlternativeData = NewAlternativeData(token, version, url, httpClient)
 		return nil
 	}
 }

@@ -4,7 +4,7 @@
 [![releases](https://img.shields.io/github/release/jonwho/go-iex.svg)](https://github.com/jonwho/go-iex/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jonwho/go-iex)](https://goreportcard.com/report/github.com/jonwho/go-iex)
 ![](https://github.com/jonwho/go-iex/workflows/tests/badge.svg)
-<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-86%25-brightgreen.svg?longCache=true&style=flat)</a>
+<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-89%25-brightgreen.svg?longCache=true&style=flat)</a>
 
 ## ATTRIBUTION
 [Data provided by IEX](https://iexcloud.io)
@@ -144,12 +144,12 @@ func main() {
 - [x] Upcoming Events
 - [x] Volume by Venue
 ### News
-- [ ] News
+- [x] News
 ### Cryptocurrency
-- [ ] Cryptocurrency Book
+- [x] Cryptocurrency Book
 - [ ] Cryptocurrency Event
-- [ ] Cryptocurrency Price
-- [ ] Cryptocurrency Quote
+- [x] Cryptocurrency Price
+- [x] Cryptocurrency Quote
 ### Forex / Currencies
 - [ ] Real-time Streaming
 - [ ] Latest Currency Rates
