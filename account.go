@@ -94,7 +94,7 @@ func (a *Account) Payasyougo(params interface{}) (ifc interface{}, err error) {
 	return
 }
 
-// MessageBudget GET /account/messagebudget
+// MessageBudget POST /account/messagebudget
 func (a *Account) MessageBudget(params interface{}) (ifc interface{}, err error) {
 	err = post(a, &ifc, "messagebudget", params.(map[string]string))
 	return
