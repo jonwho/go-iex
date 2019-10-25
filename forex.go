@@ -10,6 +10,29 @@ type Forex struct {
 	iex
 }
 
+// LatestCurrencyRates struct
+type LatestCurrencyRates []struct {
+	Symbol    string  `json:"symbol"`
+	Rate      float64 `json:"rate"`
+	Timestamp int64   `json:"timestamp"`
+}
+
+// CurrencyConversion struct
+type CurrencyConversion []struct {
+	Symbol    string  `json:"symbol"`
+	Rate      float64 `json:"rate"`
+	Timestamp int64   `json:"timestamp"`
+	Amount    float64 `json:"amount"`
+}
+
+// HistoricalDaily struct
+type HistoricalDaily [][]struct {
+	Date      string  `json:"date"`
+	Symbol    string  `json:"symbol"`
+	Timestamp int64   `json:"timestamp"`
+	Rate      float64 `json:"rate"`
+}
+
 // ExchangeRates struct
 type ExchangeRates struct {
 	Date         string  `json:"date"`
@@ -58,6 +81,24 @@ func (f *Forex) APIURL() *url.URL {
 // Client return HTTP client
 func (f *Forex) Client() *http.Client {
 	return f.client
+}
+
+// LatestCurrencyRates GET /fx/latest?{params}
+func (f *Forex) LatestCurrencyRates(params interface{}) (lcr LatestCurrencyRates, err error) {
+	err = get(f, &lcr, "latest", params)
+	return
+}
+
+// CurrencyConversion GET /fx/convert?{params}
+func (f *Forex) CurrencyConversion(params interface{}) (cc CurrencyConversion, err error) {
+	err = get(f, &cc, "convert", params)
+	return
+}
+
+// HistoricalDaily GET /fx/historical?{params}
+func (f *Forex) HistoricalDaily(params interface{}) (hd HistoricalDaily, err error) {
+	err = get(f, &hd, "historical", params)
+	return
 }
 
 // ExchangeRates GET /fx/rate/{from}/{to}

@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/fx/historical?from=2019-10-24&last=5&symbols=USDCAD%2CUSDGBP%2CUSDJPY&to=2019-10-25
+    method: GET
+  response:
+    body: '[[{"date":"2019-10-25","symbol":"USDCAD","timestamp":1602465398086,"rate":1.31982},{"date":"2019-10-25","symbol":"USDCAD","timestamp":1575724343859,"rate":1.3137},{"date":"2019-10-25","symbol":"USDCAD","timestamp":1590978741799,"rate":1.371},{"date":"2019-10-25","symbol":"USDCAD","timestamp":1630799409782,"rate":1.33481},{"date":"2019-10-25","symbol":"USDCAD","timestamp":1628128346429,"rate":1.32167}],[],[{"date":"2019-10-25","symbol":"USDJPY","timestamp":1599395047693,"rate":110.595},{"date":"2019-10-25","symbol":"USDJPY","timestamp":1579836926430,"rate":108.971},{"date":"2019-10-25","symbol":"USDJPY","timestamp":1612187691990,"rate":110.847},{"date":"2019-10-25","symbol":"USDJPY","timestamp":1608471072478,"rate":113.463},{"date":"2019-10-25","symbol":"USDJPY","timestamp":1647125548983,"rate":113.855}]]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 09:31:08 GMT
+      Iexcloud-Messages-Used:
+      - "1000000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=15393699b2cf4364b9489e95629bfc63; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 21:31:07 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""

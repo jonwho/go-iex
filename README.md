@@ -152,9 +152,9 @@ func main() {
 - [x] Cryptocurrency Quote
 ### Forex / Currencies
 - [ ] Real-time Streaming
-- [ ] Latest Currency Rates
-- [ ] Currency Conversion
-- [ ] Historical Daily
+- [x] Latest Currency Rates
+- [x] Currency Conversion
+- [x] Historical Daily
 ### Options
 - [ ] End of Day Options
 ### Social Sentiment

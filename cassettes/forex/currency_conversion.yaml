@@ -1,0 +1,42 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/fx/convert?amount=73&symbols=USDCAD%2CUSDGBP%2CUSDJPY
+    method: GET
+  response:
+    body: '[{"symbol":"USDCAD","rate":1.33532,"timestamp":1583694851019,"amount":99.44492533334638},null,{"symbol":"USDJPY","rate":113.274,"timestamp":1581619508395,"amount":8256.451472039698}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 25 Oct 2019 09:24:39 GMT
+      Iexcloud-Messages-Used:
+      - "1000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=fb6598627b024814a0fa756b2af7c2fa; Max-Age=43200; Path=/; Expires=Fri,
+        25 Oct 2019 21:24:31 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
