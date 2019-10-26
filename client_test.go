@@ -34,10 +34,16 @@ func TestNewClient(t *testing.T) {
 	if cli.APISystemMetadata == nil {
 		t.Error("Should have a default value")
 	}
+	if cli.Commodities == nil {
+		t.Error("Should have a default value")
+	}
 	if cli.Cryptocurrency == nil {
 		t.Error("Should have a default value")
 	}
 	if cli.DataAPI == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.EconomicData == nil {
 		t.Error("Should have a default value")
 	}
 	if cli.Forex == nil {

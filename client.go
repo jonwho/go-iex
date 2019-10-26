@@ -55,8 +55,10 @@ type Client struct {
 
 	*Account
 	*APISystemMetadata
+	*Commodities
 	*Cryptocurrency
 	*DataAPI
+	*EconomicData
 	*Forex
 	*InvestorsExchangeData
 	*ReferenceData
@@ -88,11 +90,17 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	if client.APISystemMetadata == nil {
 		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
+	if client.Commodities == nil {
+		SetCommodities(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
 	if client.Cryptocurrency == nil {
 		SetCryptocurrency(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	if client.DataAPI == nil {
 		SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.EconomicData == nil {
+		SetEconomicData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	if client.Forex == nil {
 		SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
@@ -200,6 +208,14 @@ func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.
 	}
 }
 
+// SetCommodities set new Commodities
+func SetCommodities(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.Commodities = NewCommodities(token, version, url, httpClient)
+		return nil
+	}
+}
+
 // SetCryptocurrency set new Cryptocurrency
 func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
@@ -212,6 +228,14 @@ func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Cli
 func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
 		c.DataAPI = NewDataAPI(token, version, url, httpClient)
+		return nil
+	}
+}
+
+// SetEconomicData set new EconomicData
+func SetEconomicData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
+	return func(c *Client) error {
+		c.EconomicData = NewEconomicData(token, version, url, httpClient)
 		return nil
 	}
 }

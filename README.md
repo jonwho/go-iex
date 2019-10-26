@@ -173,18 +173,18 @@ func main() {
 - [x] Gas Prices
 - [x] Propane Prices
 ### Economic Data
-- [ ] Mortgage Rates
-- [ ] Federal Fund Rates
-- [ ] Credit Card Interest Rate
-- [ ] CD Rates
-- [ ] Real GDP
-- [ ] Industrial Production Index
-- [ ] Consumer Price Index
-- [ ] Total Payrolls
-- [ ] Total Housing Starts
-- [ ] Unemployment Rate
-- [ ] Total Vehicle Sales
-- [ ] US Recession Probabilities
+- [x] Mortgage Rates
+- [x] Federal Fund Rates
+- [x] Credit Card Interest Rate
+- [x] CD Rates
+- [x] Real GDP
+- [x] Industrial Production Index
+- [x] Consumer Price Index
+- [x] Total Payrolls
+- [x] Total Housing Starts
+- [x] Unemployment Rate
+- [x] Total Vehicle Sales
+- [x] US Recession Probabilities
 ### Reference Data
 - [ ] Search
 - [ ] Cryptocurrency Symbols

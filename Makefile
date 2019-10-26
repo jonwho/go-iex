@@ -16,8 +16,8 @@ coverage:
 
 .PHONY: funcoverage
 funcoverage:
-	$(GOTEST) -coverprofile=coverage.out && $(GOTOOL) cover -func=coverage.out
+	$(GOTEST) -mod=vendor -coverprofile=coverage.out && $(GOTOOL) cover -func=coverage.out
 
 .PHONY: example
 example:
-	$(GORUN) examples/main.go
+	$(GORUN) examples/main.go -mod=vendor

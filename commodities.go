@@ -5,7 +5,7 @@ import (
 	"net/url"
 )
 
-// Commodities struct to interface with /account endpoints
+// Commodities struct to interface with /data-points endpoints
 type Commodities struct {
 	iex
 }
