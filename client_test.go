@@ -109,7 +109,7 @@ func TestPost(t *testing.T) {
 	}{}
 	err = cli.Post("account/messagebudget", anonstruct, map[string]interface{}{
 		"token":         testToken,
-		"totalMessages": 100_000,
+		"totalMessages": 100000,
 	})
 	if err != nil {
 		t.Error(err)
