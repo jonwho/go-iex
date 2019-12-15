@@ -1,5 +1,6 @@
 *.swp
 *.swo
 .env
+.envrc
 coverage.out
 coverage_badge.png

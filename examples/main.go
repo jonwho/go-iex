@@ -14,26 +14,26 @@ func main() {
 	// client will have all currently supported IEX APIs
 	client, err := iex.NewClient(token)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	quote, err := client.Quote("aapl", nil)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
 		"Current Price", quote.LatestPrice)
 
 	// if you only want to test against sandbox build a custom client
-	// get Stocks only API client for sandbox testing
 	token = os.Getenv("IEX_TEST_SECRET_TOKEN")
 	baseURL, _ := url.Parse(iex.SandboxBaseURL)
+	// get Stocks only API client for sandbox testing
 	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, iex.DefaultHTTPClient)
 
 	quote, err = stock.Quote("aapl", nil)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
@@ -45,7 +45,7 @@ func main() {
 	}{}
 	err = client.Get("stock/aapl/quote", anonstruct, nil)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 	fmt.Println("Symbol", anonstruct.Symbol)
 }
