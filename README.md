@@ -87,6 +87,9 @@ func main() {
 ```
 
 ## SUPPORTED ENDPOINTS
+### Introduction
+- [x] Batch Requests
+
 ### Account
 - [x] Metadata
 - [x] Usage
@@ -95,74 +98,110 @@ func main() {
 - [ ] Signed Requests
 - [ ] Setting up signed token
 - [ ] Getting the secret for a signed token
+
+### API System Metadata
+- [x] Status
+
 ### Data APIS
 - [x] Data Points
 - [ ] Data Tables
 - [ ] Time Series
-### Stocks
-- [x] Advanced Stats
-- [x] Balance Sheet
-- [x] Batch Requests
+
+### Stock Prices
 - [x] Book
-- [x] Cash Flow
-- [x] Collections
-- [x] Company
+- [x] Charts
 - [x] Delayed Quote
-- [x] Dividends
-- [x] Earnings
-- [x] Earnings Today
-- [x] Estimates
-- [x] Financials
-- [ ] Financials As Reported
-- [x] Fund Ownership
+- [x] Extended Hours Quote (included as part of Quote response)
 - [x] Historical Prices
-- [x] Income Statement
+- [x] Intraday Prices
+- [x] Largest Trades
+- [x] Open / Close Price
+- [x] OHLC
+- [x] Previous Day Price
+- [x] Price Only
+- [x] Quote
+- [ ] Real-time Quote (included as part of Quote response)
+- [x] Volume by Venue
+
+### Stock Profiles
+- [x] Company
 - [x] Insider Roster
 - [x] Insider Summary
 - [x] Insider Transactions
-- [x] Institutional Ownership
-- [x] Intraday Prices
-- [x] IPO Calendar
-- [x] Key Stats
-- [x] Largest Trades
-- [x] List
 - [x] Logo
-- [x] Market Volume (U.S.)
-- [x] News
-- [x] OHLC
-- [x] Open / Close Price
-- [x] Options
 - [x] Peer Groups
-- [x] Previous Day Price
-- [x] Price
+
+### Stock Fundamentals
+- [x] Balance Sheet
+- [x] Cash Flow
+- [x] Dividends (Basic)
+- [x] Earnings
+- [x] Financials
+- [ ] Financials As Reported
+- [x] Income Statement
+- [ ] SEC Filings
+- [x] Splits (Basic)
+
+### Stock Research
+- [x] Advanced Stats
+- [ ] Analyst Recommendations (see RecommendationTrends)
+- [x] Estimates
+- [x] Fund Ownership
+- [x] Institutional Ownership
+- [x] Key Stats
 - [x] Price Target
-- [x] Quote
-- [x] Recommendation Trends
-- [x] Sector Performance
-- [x] Splits
 - [ ] Technical Indicators
+
+### Corporate Actions
+- [ ] Bonus Issue
+- [ ] Distribution
+- [ ] Dividends
+- [ ] Return of Capital
+- [ ] Rights Issue
+- [ ] Right to Purchase
+- [ ] Security Reclassification
+- [ ] Security Swap
+- [ ] Spinoff
+- [ ] Splits
+
+### Market Info
+- [x] Collections
+- [x] Earnings Today
+- [x] IPO Calendar
+- [x] List
+- [x] Market Volume (U.S.)
+- [x] Sector Performance
 - [x] Upcoming Events
-- [x] Volume by Venue
+
 ### News
 - [x] News
+- [ ] Streaming News
+- [ ] Historical News
+
 ### Cryptocurrency
 - [x] Cryptocurrency Book
 - [ ] Cryptocurrency Event
 - [x] Cryptocurrency Price
 - [x] Cryptocurrency Quote
+
 ### Forex / Currencies
 - [ ] Real-time Streaming
 - [x] Latest Currency Rates
 - [x] Currency Conversion
 - [x] Historical Daily
+
 ### Options
-- [ ] End of Day Options
+- [x] End of Day Options
+
 ### Social Sentiment
 - [ ] Social Sentiment
+
 ### CEO Compensation
 - [ ] CEO Compensation
+
 ### Treasures
 - [ ] Daily Treasury Rates
+
 ### Commodities
 - [x] Oil Prices
 - [x] Natural Gas Price
@@ -172,19 +211,24 @@ func main() {
 - [x] Diesel Price
 - [x] Gas Prices
 - [x] Propane Prices
+
 ### Economic Data
-- [x] Mortgage Rates
-- [x] Federal Fund Rates
-- [x] Credit Card Interest Rate
 - [x] CD Rates
-- [x] Real GDP
-- [x] Industrial Production Index
 - [x] Consumer Price Index
-- [x] Total Payrolls
+- [x] Credit Card Interest Rate
+- [x] Federal Fund Rates
+- [x] Real GDP
+- [ ] Institutional Money Funds
+- [ ] Initial Claims
+- [x] Industrial Production Index
+- [x] Mortgage Rates
 - [x] Total Housing Starts
-- [x] Unemployment Rate
+- [x] Total Payrolls
 - [x] Total Vehicle Sales
+- [ ] Retail Money Funds
+- [x] Unemployment Rate
 - [x] US Recession Probabilities
+
 ### Reference Data
 - [ ] Search
 - [ ] Cryptocurrency Symbols
@@ -201,6 +245,7 @@ func main() {
 - [x] Tags
 - [x] U.S. Exchanges
 - [x] U.S. Holidays and Trading Dates
+
 ### Investors Exchange Data
 - [x] DEEP
 - [ ] DEEP Auction
@@ -222,5 +267,3 @@ func main() {
 - [ ] Stats Recent
 - [ ] Stats Records
 - [x] TOPS
-### API System Metadata
-- [x] Status
