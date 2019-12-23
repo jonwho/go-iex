@@ -150,7 +150,7 @@ func main() {
 - [x] Institutional Ownership
 - [x] Key Stats
 - [x] Price Target
-- [ ] Technical Indicators
+- [x] Technical Indicators
 
 ### Corporate Actions
 - [ ] Bonus Issue

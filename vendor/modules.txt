@@ -3,5 +3,5 @@ github.com/dnaeon/go-vcr/cassette
 github.com/dnaeon/go-vcr/recorder
 # github.com/google/go-querystring v1.0.0
 github.com/google/go-querystring/query
-# gopkg.in/yaml.v2 v2.2.2
+# gopkg.in/yaml.v2 v2.2.7
 gopkg.in/yaml.v2

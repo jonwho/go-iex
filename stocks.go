@@ -8,6 +8,218 @@ import (
 	"strconv"
 )
 
+// IndicatorName helper type to map to string const
+type IndicatorName int
+
+const (
+	// ABS Vector Absolute Value
+	ABS IndicatorName = iota
+	// ACOS Vector Arccosine
+	ACOS
+	// AD Accumulation/Distribution Line
+	AD
+	// ADD Vector Addition
+	ADD
+	// ADOSC Accumulation/Distribution Oscillator
+	ADOSC
+	// ADX Average Directional Movement Index
+	ADX
+	// ADXR Average Directional Movement Rating
+	ADXR
+	// AO Awesome Oscillator
+	AO
+	// APO Absolute Price Oscillator
+	APO
+	// AROON Aroon
+	AROON
+	// AROONOSC Aroon Oscillator
+	AROONOSC
+	// ASIN Vector Arcsine
+	ASIN
+	// ATAN Vector Arctangent
+	ATAN
+	// ATR Average True Range
+	ATR
+	// AVGPRICE Average Price
+	AVGPRICE
+	// BBANDS Bollinger Bands
+	BBANDS
+	// BOP Balance of Power
+	BOP
+	// CCI Commodity Channel Index
+	CCI
+	// CEIL Vector Ceiling
+	CEIL
+	// CMO Change Momentum Oscillator
+	CMO
+	// COS Vector Cosine
+	COS
+	// COSH Vector Hyperbolic Cosine
+	COSH
+	// CROSSANY Crossany
+	CROSSANY
+	// CROSSOVER Crossover
+	CROSSOVER
+	// CVI Chaikins Volatility
+	CVI
+	// DECAY Linear Decay
+	DECAY
+	// DEMA Double Exponential Moving Average
+	DEMA
+	// DI Directional Indicator
+	DI
+	// DIV Vector Division
+	DIV
+	// DM Directional Movement
+	DM
+	// DPO Detrended Price Oscillator
+	DPO
+	// DX Directional Movement Index
+	DX
+	// EDECAY Exponential Decay
+	EDECAY
+	// EMA Exponential Moving Average
+	EMA
+	// EMV Ease of Movement
+	EMV
+	// EXP Vector Exponential
+	EXP
+	// FISHER Fisher Transform
+	FISHER
+	// FLOOR Vector Floor
+	FLOOR
+	// FOSC Forecast Oscillator
+	FOSC
+	// HMA Hull Moving Average
+	HMA
+	// KAMA Kaufman Adaptive Moving Average
+	KAMA
+	// KVO Klinger Volume Oscillator
+	KVO
+	// LAG Lag
+	LAG
+	// LINREG Linear Regression
+	LINREG
+	// LINREGINTERCEPT Linear Regression Intercept
+	LINREGINTERCEPT
+	// LINREGSLOPE Linear Regression Slope
+	LINREGSLOPE
+	// LN Vector Natural Log
+	LN
+	// LOG10 Vector Base-10 Log
+	LOG10
+	// MACD Moving Average Convergence/Divergence
+	MACD
+	// MARKETFI Market Facilitation Index
+	MARKETFI
+	// MASS Mass Index
+	MASS
+	// MAX Maximum In Period
+	MAX
+	// MD Mean Deviation Over Period
+	MD
+	// MEDPRICE Median Price
+	MEDPRICE
+	// MFI Money Flow Index
+	MFI
+	// MIN Minimum In Period
+	MIN
+	// MOM Momentum
+	MOM
+	// MSW Mesa Sine Wave
+	MSW
+	// MUL Vector Multiplication
+	MUL
+	// NATR Normalized Average True Range
+	NATR
+	// NVI Negative Volume Index
+	NVI
+	// OBV On Balance Volume
+	OBV
+	// PPO Percentage Price Oscillator
+	PPO
+	// PSAR Parabolic SAR
+	PSAR
+	// PVI Positive Volume Index
+	PVI
+	// QSTICK Qstick
+	QSTICK
+	// ROC Rate of Change
+	ROC
+	// ROCR Rate of Change Ratio
+	ROCR
+	// ROUND Vector Round
+	ROUND
+	// RSI Relative Strength Index
+	RSI
+	// SIN Vector Sine
+	SIN
+	// SINH Vector Hyperbolic Sine
+	SINH
+	// SMA Simple Moving Average
+	SMA
+	// SQRT Vector Square Root
+	SQRT
+	// STDDEV Standard Deviation Over Period
+	STDDEV
+	// STOCH Stochastic Oscillator
+	STOCH
+	// STOCHRSI Stochastic RSI
+	STOCHRSI
+	// SUB Vector Subtraction
+	SUB
+	// SUM Sum Over Period
+	SUM
+	// TAN Vector Tangent
+	TAN
+	// TANH Vector Hyperbolic Tangent
+	TANH
+	// TEMA Triple Exponential Moving Average
+	TEMA
+	// TODEG Vector Degree Conversion
+	TODEG
+	// TORAD Vector Radian Conversion
+	TORAD
+	// TR True Range
+	TR
+	// TRIMA Triangular Moving Average
+	TRIMA
+	// TRIX Trix
+	TRIX
+	// TRUNC Vector Truncate
+	TRUNC
+	// TSF Time Series Forecast
+	TSF
+	// TYPPRICE Typical Price
+	TYPPRICE
+	// ULTOSC Ultimate Oscillator
+	ULTOSC
+	// VAR Variance Over Period
+	VAR
+	// VHF Vertical Horizontal Filter
+	VHF
+	// VIDYA Variable Index Dynamic Average
+	VIDYA
+	// VOLATILITY Annualized Historical Volatility
+	VOLATILITY
+	// VOSC Volume Oscillator
+	VOSC
+	// VWMA Volume Weighted Moving Average
+	VWMA
+	// WAD Williams Accumulation/Distribution
+	WAD
+	// WCPRICE Weight Close Price
+	WCPRICE
+	// WILDERS Wilders Smoothing
+	WILDERS
+	// WILLR Williams %R
+	WILLR
+	// WMA Weighted Moving Average
+	WMA
+	// ZLEMA Zero-Lag Exponential Moving Average
+	ZLEMA
+)
+
 var (
 	// ChartRanges allowed for Chart API
 	ChartRanges = map[string]bool{
@@ -663,6 +875,22 @@ type SystemEvent struct {
 	Timestamp   int64  `json:"timestamp"`
 }
 
+// TechnicalIndicator struct
+type TechnicalIndicator struct {
+	Indicator [][]float64 `json:"indicator"`
+	Charts    []Chart     `json:"chart"`
+}
+
+// TechnicalIndicatorParams struct
+type TechnicalIndicatorParams struct {
+	// Range should match allowed ranges in historical prices
+	Range  string `url:"range"`
+	input1 int    `url:"input1,omitempty"`
+	input2 int    `url:"input2,omitempty"`
+	input3 int    `url:"input3,omitempty"`
+	input4 int    `url:"input4,omitempty"`
+}
+
 // Trades struct
 type Trades []struct {
 	Price                 float64 `json:"price"`
@@ -1091,6 +1319,16 @@ func (s *Stock) Splits(symbol string, opt ...interface{}) (sp Splits, err error)
 	return
 }
 
+// TechnicalIndicator GET /stock/{symbol}/indicator/{indicatorName}?{range}
+func (s *Stock) TechnicalIndicator(symbol string, indicatorName IndicatorName, params *TechnicalIndicatorParams) (ti *TechnicalIndicator, err error) {
+	if params == nil {
+		params = &TechnicalIndicatorParams{Range: "1d"}
+	}
+	endpoint := fmt.Sprintf("%s/indicator/%s", symbol, indicatorName)
+	err = get(s, &ti, endpoint, params)
+	return
+}
+
 // UpcomingDividends GET /stock/{symbol}/upcoming-dividends
 func (s *Stock) UpcomingDividends(symbol string, params interface{}) (d Dividends, err error) {
 	endpoint := fmt.Sprintf("%s/upcoming-dividends", symbol)
@@ -1156,4 +1394,112 @@ func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error {
 	}
 
 	return nil
+}
+
+func (in IndicatorName) String() string {
+	return [...]string{
+		"abs",
+		"acos",
+		"ad",
+		"add",
+		"adosc",
+		"adx",
+		"adxr",
+		"ao",
+		"apo",
+		"aroon",
+		"aroonosc",
+		"asin",
+		"atan",
+		"atr",
+		"avgprice",
+		"bbands",
+		"bop",
+		"cci",
+		"ceil",
+		"cmo",
+		"cos",
+		"cosh",
+		"crossany",
+		"crossover",
+		"cvi",
+		"decay",
+		"dema",
+		"di",
+		"div",
+		"dm",
+		"dpo",
+		"dx",
+		"edecay",
+		"ema",
+		"emv",
+		"exp",
+		"fisher",
+		"floor",
+		"fosc",
+		"hma",
+		"kama",
+		"kvo",
+		"lag",
+		"linreg",
+		"linregintercept",
+		"linregslope",
+		"ln",
+		"log10",
+		"macd",
+		"marketfi",
+		"mass",
+		"max",
+		"md",
+		"medprice",
+		"mfi",
+		"min",
+		"mom",
+		"msw",
+		"mul",
+		"natr",
+		"nvi",
+		"obv",
+		"ppo",
+		"psar",
+		"pvi",
+		"qstick",
+		"roc",
+		"rocr",
+		"round",
+		"rsi",
+		"sin",
+		"sinh",
+		"sma",
+		"sqrt",
+		"stddev",
+		"stoch",
+		"stochrsi",
+		"sub",
+		"sum",
+		"tan",
+		"tanh",
+		"tema",
+		"todeg",
+		"torad",
+		"tr",
+		"trima",
+		"trix",
+		"trunc",
+		"tsf",
+		"typprice",
+		"ultosc",
+		"var",
+		"vhf",
+		"vidya",
+		"volatility",
+		"vosc",
+		"vwma",
+		"wad",
+		"wcprice",
+		"wilders",
+		"willr",
+		"wma",
+		"zlema",
+	}[in]
 }

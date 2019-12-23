@@ -727,6 +727,51 @@ func TestIntradayPrices(t *testing.T) {
 	}
 }
 
+func TestTechnicalIndicator(t *testing.T) {
+	rec, err := recorder.New("cassettes/stock/technical_indicator")
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		rec.SetMatcher(matchWithoutToken)
+		httpClient = &http.Client{Transport: rec}
+	}
+	rec.AddFilter(removeToken)
+	defer rec.Stop()
+	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
+
+	ti, err := cli.TechnicalIndicator("aapl", BBANDS, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(ti.Indicator) > 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = true
+	actual = len(ti.Charts) > 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	ti, err = cli.TechnicalIndicator("aapl", BBANDS, &TechnicalIndicatorParams{
+		Range: "1d",
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(ti.Indicator) > 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = true
+	actual = len(ti.Charts) > 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+}
+
 func TestTodayIPOS(t *testing.T) {
 	rec, err := recorder.New("cassettes/stock/today_ipos")
 	if err != nil {
