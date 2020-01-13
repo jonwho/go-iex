@@ -254,23 +254,93 @@ func TestChart(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	chart, err := cli.Chart("aapl", "outofrange", nil)
-	if err == nil {
-		t.Error("Expected err to not be nil")
-	}
-	expected = `Received invalid date range for chart`
-	actual = err.Error()
-	if expected != actual {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	chart, err = cli.Chart("aapl", "max", nil)
+	chart, err := cli.Chart("aapl", ChartRangeMax, nil)
 	if err != nil {
 		t.Error(err)
 	}
 	expected = false
 	actual = len(chart) == 0
-	if actual.(bool) {
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeFiveYear, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeTwoYear, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeOneYear, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeYearToDate, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeSixMonth, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeThreeMonth, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeOneMonth, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	chart, err = cli.Chart("aapl", ChartRangeOneDay, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(chart) == 0
+	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
@@ -347,23 +417,83 @@ func TestDividends(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	div, err := cli.Dividends("aapl", "outofrange")
-	if err == nil {
-		t.Error("Expected err to not be nil")
-	}
-	expected = `Received invalid date range for dividend`
-	actual = err.Error()
-	if expected != actual {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	div, err = cli.Dividends("aapl", "5y")
+	div, err := cli.Dividends("aapl", DividendRangeFiveYear)
 	if err != nil {
 		t.Error(err)
 	}
 	expected = false
 	actual = len(div) == 0
-	if actual.(bool) {
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeTwoYear)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeOneYear)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeYearToDate)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeSixMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeThreeMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeOneMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(div) == 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	div, err = cli.Dividends("aapl", DividendRangeNext)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(div) == 0
+	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 }
@@ -548,17 +678,7 @@ func TestHistoricalPrices(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	hp, err := cli.HistoricalPrices("aapl", "outofrange", nil)
-	if err == nil {
-		t.Error("Expected err to not be nil")
-	}
-	expected = `Received invalid date range for chart`
-	actual = err.Error()
-	if expected != actual {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	hp, err = cli.HistoricalPrices("aapl", "max", nil)
+	hp, err := cli.HistoricalPrices("aapl", ChartRangeMax, nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -1221,35 +1341,88 @@ func TestSplits(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	sp, err := cli.Splits("aapl")
+	sp, err := cli.Splits("aapl", SplitRangeFiveYear)
 	if err != nil {
 		t.Error(err)
 	}
 	expected = false
 	actual = len(sp) != 0
-	if actual.(bool) {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	sp, err = cli.Splits("aapl", "5y")
-	if err != nil {
-		t.Error(err)
-	}
-	expected = false
-	actual = len(sp) != 0
-	if actual.(bool) {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	sp, err = cli.Splits("aapl", "outofrange")
-	if err == nil {
-		t.Error("Expected err to be not nil")
-	}
-	expected = `Received invalid date range for splits`
-	actual = err.Error()
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
+
+	sp, err = cli.Splits("aapl", SplitRangeTwoYear)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	sp, err = cli.Splits("aapl", SplitRangeOneYear)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	sp, err = cli.Splits("aapl", SplitRangeYearToDate)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	sp, err = cli.Splits("aapl", SplitRangeSixMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	sp, err = cli.Splits("aapl", SplitRangeThreeMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	sp, err = cli.Splits("aapl", SplitRangeOneMonth)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(sp) != 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	// TODO: doc is wrong?
+	sp, err = cli.Splits("aapl", SplitRangeNext)
+	if err.Error() != "404 Not Found: Not found" {
+		// t.Error(err)
+		actual = err.Error()
+		t.Errorf("\nExpected: %s\nActual: %s\n", "404 Not Found: Not found", actual)
+	}
+	// expected = false
+	// actual = len(sp) != 0
+	// if expected != actual {
+	//   t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	// }
 }
 
 func TestUpcomingDividends(t *testing.T) {

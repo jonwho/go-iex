@@ -10,27 +10,27 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/5y
     method: GET
   response:
-    body: '[{"exDate":"2019-08-09","paymentDate":"2019-08-25","recordDate":"2019-08-19","declaredDate":"2019-08-05","amount":"0.8","flag":"Csha","currency":"USD","description":"
-      iOryeaadSrhnrs","frequency":"eylqartru","date":"2019-10-25"},{"exDate":"2019-05-13","paymentDate":"2019-05-19","recordDate":"2019-05-21","declaredDate":"2019-05-06","amount":"0.78","flag":"shaC","currency":"USD","description":"drsnieShrOary
-      a","frequency":"rutqryeal","date":"2019-10-25"},{"exDate":"2019-02-09","paymentDate":"2019-02-26","recordDate":"2019-02-25","declaredDate":"2019-02-09","amount":"0.77","flag":"Csha","currency":"USD","description":"eOSrh
-      irradsyna","frequency":"euryqltar","date":"2019-10-25"},{"exDate":"2018-11-13","paymentDate":"2018-11-28","recordDate":"2018-11-26","declaredDate":"2018-11-01","amount":"0.75","flag":"hasC","currency":"USD","description":"ardnraSrheyOs
-      i","frequency":"uerrtyqal","date":"2019-10-25"},{"exDate":"2018-08-12","paymentDate":"2018-08-18","recordDate":"2018-08-13","declaredDate":"2018-08-15","amount":"0.75","flag":"asCh","currency":"USD","description":"
-      hrerSnsOaiydra","frequency":"utaqlrrye","date":"2019-10-25"},{"exDate":"2018-05-25","paymentDate":"2018-05-18","recordDate":"2018-05-24","declaredDate":"2018-05-09","amount":"0.75","flag":"ahCs","currency":"USD","description":"srraiyaOedSnrh
-      ","frequency":"yltrqaeru","date":"2019-10-25"},{"exDate":"2018-02-15","paymentDate":"2018-02-21","recordDate":"2018-02-22","declaredDate":"2018-02-13","amount":"0.64","flag":"Csha","currency":"USD","description":"rryhaSinOdse
-      ra","frequency":"ertylqura","date":"2019-10-25"},{"exDate":"2017-11-21","paymentDate":"2017-11-19","recordDate":"2017-11-18","declaredDate":"2017-11-12","amount":"0.65","flag":"ahsC","currency":"USD","description":"ndrOarir
-      aseShy","frequency":"taeuqrylr","date":"2019-10-25"},{"exDate":"2017-08-19","paymentDate":"2017-08-24","recordDate":"2017-08-25","declaredDate":"2017-08-11","amount":"0.65","flag":"Csah","currency":"USD","description":"hSayrrsiO
-      ndare","frequency":"urqryalet","date":"2019-10-25"},{"exDate":"2017-05-21","paymentDate":"2017-05-22","recordDate":"2017-05-19","declaredDate":"2017-05-02","amount":"0.65","flag":"Csha","currency":"USD","description":"aOnaS
-      rysehdirr","frequency":"yreuarltq","date":"2019-10-25"},{"exDate":"2017-02-22","paymentDate":"2017-02-19","recordDate":"2017-02-26","declaredDate":"2017-02-10","amount":"0.58","flag":"ahCs","currency":"USD","description":"si
-      erOrrnSyahda","frequency":"uyealrqtr","date":"2019-10-25"},{"exDate":"2016-11-10","paymentDate":"2016-11-18","recordDate":"2016-11-16","declaredDate":"2016-11-08","amount":"0.59","flag":"Csah","currency":"USD","description":"sa
-      ryenarrOiSdh","frequency":"qrelytrau","date":"2019-10-25"},{"exDate":"2016-08-13","paymentDate":"2016-08-14","recordDate":"2016-08-09","declaredDate":"2016-08-02","amount":"0.58","flag":"aChs","currency":"USD","description":"
-      rrhdeOanaiSsyr","frequency":"eqalyutrr","date":"2019-10-25"},{"exDate":"2016-05-15","paymentDate":"2016-05-15","recordDate":"2016-05-20","declaredDate":"2016-05-09","amount":"0.58","flag":"shCa","currency":"USD","description":"iSahrnr
-      dysaeOr","frequency":"rultrqeay","date":"2019-10-25"},{"exDate":"2016-02-09","paymentDate":"2016-02-26","recordDate":"2016-02-14","declaredDate":"2016-02-01","amount":"0.54","flag":"Csah","currency":"USD","description":"OhrrSndryaase
-      i","frequency":"ayrqretul","date":"2019-10-25"},{"exDate":"2015-11-08","paymentDate":"2015-11-23","recordDate":"2015-11-19","declaredDate":"2015-11-09","amount":"0.54","flag":"asCh","currency":"USD","description":"rsarrdyienh
-      OaS","frequency":"rlauqtyre","date":"2019-10-25"},{"exDate":"2015-08-12","paymentDate":"2015-08-21","recordDate":"2015-08-23","declaredDate":"2015-07-24","amount":"0.53","flag":"Chsa","currency":"USD","description":"niarerdrOahSy
-      s","frequency":"uqyleratr","date":"2019-10-25"},{"exDate":"2015-05-10","paymentDate":"2015-05-17","recordDate":"2015-05-24","declaredDate":"2015-05-08","amount":"0.53","flag":"Chas","currency":"USD","description":"arOs
-      Srirdnhaye","frequency":"aqlertury","date":"2019-10-25"},{"exDate":"2015-02-05","paymentDate":"2015-02-22","recordDate":"2015-02-11","declaredDate":"2015-02-09","amount":"0.47","flag":"hCsa","currency":"USD","description":"disnaryOre
-      ahSr","frequency":"arrqetuly","date":"2019-10-25"},{"exDate":"2014-11-11","paymentDate":"2014-11-19","recordDate":"2014-11-13","declaredDate":"2014-10-29","amount":"0.47","flag":"asCh","currency":"USD","description":"rraaSredny
-      Ohis","frequency":"etqrluayr","date":"2019-10-25"}]'
+    body: '[{"exDate":"2019-11-21","paymentDate":"2019-11-19","recordDate":"2019-11-23","declaredDate":"2019-11-07","amount":"0.77","flag":"hCsa","currency":"USD","description":"rerOdahyrsainS
+      ","frequency":"uarytqlre","date":"2020-01-13"},{"exDate":"2019-08-11","paymentDate":"2019-08-29","recordDate":"2019-08-24","declaredDate":"2019-08-05","amount":"0.77","flag":"aChs","currency":"USD","description":"sraSnhari
+      reyOd","frequency":"ualteqrry","date":"2020-01-13"},{"exDate":"2019-05-24","paymentDate":"2019-05-23","recordDate":"2019-05-25","declaredDate":"2019-05-07","amount":"0.8","flag":"shaC","currency":"USD","description":"hnrdyaSieOs
+      arr","frequency":"atreruyql","date":"2020-01-13"},{"exDate":"2019-02-14","paymentDate":"2019-02-15","recordDate":"2019-02-17","declaredDate":"2019-02-08","amount":"0.75","flag":"shaC","currency":"USD","description":"raeSrynhida
+      Ors","frequency":"atyelruqr","date":"2020-01-13"},{"exDate":"2018-11-09","paymentDate":"2018-11-27","recordDate":"2018-11-22","declaredDate":"2018-11-10","amount":"0.76","flag":"sahC","currency":"USD","description":"rsenrOarSiyd
+      ha","frequency":"teqrralyu","date":"2020-01-13"},{"exDate":"2018-08-11","paymentDate":"2018-08-22","recordDate":"2018-08-13","declaredDate":"2018-08-10","amount":"0.74","flag":"sCha","currency":"USD","description":"dhyO
+      easrriSran","frequency":"rqealyrut","date":"2020-01-13"},{"exDate":"2018-05-24","paymentDate":"2018-05-26","recordDate":"2018-05-25","declaredDate":"2018-05-11","amount":"0.74","flag":"haCs","currency":"USD","description":"
+      SOayhinrersadr","frequency":"uarrletqy","date":"2020-01-13"},{"exDate":"2018-02-24","paymentDate":"2018-02-21","recordDate":"2018-02-23","declaredDate":"2018-02-15","amount":"0.66","flag":"Cahs","currency":"USD","description":"rsanyOa
+      dShrire","frequency":"qtaylurer","date":"2020-01-13"},{"exDate":"2017-11-22","paymentDate":"2017-11-27","recordDate":"2017-11-27","declaredDate":"2017-11-10","amount":"0.65","flag":"hsCa","currency":"USD","description":"ahyarerO
+      drsiSn","frequency":"ytuerlrqa","date":"2020-01-13"},{"exDate":"2017-08-13","paymentDate":"2017-08-30","recordDate":"2017-08-20","declaredDate":"2017-08-15","amount":"0.65","flag":"ahsC","currency":"USD","description":"rdOarnsSyair
+      eh","frequency":"tlaeurrqy","date":"2020-01-13"},{"exDate":"2017-05-12","paymentDate":"2017-05-30","recordDate":"2017-05-24","declaredDate":"2017-05-05","amount":"0.66","flag":"shaC","currency":"USD","description":"Oer
+      inrasSdyarh","frequency":"yruarlqte","date":"2020-01-13"},{"exDate":"2017-02-22","paymentDate":"2017-03-01","recordDate":"2017-02-18","declaredDate":"2017-02-06","amount":"0.57","flag":"hCsa","currency":"USD","description":"sry
+      raiaehOrndS","frequency":"ltyaurreq","date":"2020-01-13"},{"exDate":"2016-11-13","paymentDate":"2016-11-17","recordDate":"2016-11-21","declaredDate":"2016-11-09","amount":"0.59","flag":"hCas","currency":"USD","description":"reada
+      rSriyshOn","frequency":"qayturelr","date":"2020-01-13"},{"exDate":"2016-08-19","paymentDate":"2016-08-13","recordDate":"2016-08-18","declaredDate":"2016-08-01","amount":"0.57","flag":"sCah","currency":"USD","description":"Oinh
+      asredSryar","frequency":"yartuerlq","date":"2020-01-13"},{"exDate":"2016-05-20","paymentDate":"2016-05-18","recordDate":"2016-05-20","declaredDate":"2016-04-30","amount":"0.57","flag":"hsaC","currency":"USD","description":"herSayn
+      sOrraid","frequency":"yqruaeltr","date":"2020-01-13"},{"exDate":"2016-02-08","paymentDate":"2016-02-23","recordDate":"2016-02-15","declaredDate":"2016-02-04","amount":"0.52","flag":"sahC","currency":"USD","description":"rrard
+      aiensOySh","frequency":"earlurqty","date":"2020-01-13"},{"exDate":"2015-11-09","paymentDate":"2015-11-25","recordDate":"2015-11-17","declaredDate":"2015-11-10","amount":"0.53","flag":"Chas","currency":"USD","description":"ryrSO
+      ndahrasie","frequency":"ytaurlerq","date":"2020-01-13"},{"exDate":"2015-08-16","paymentDate":"2015-08-26","recordDate":"2015-08-19","declaredDate":"2015-08-01","amount":"0.53","flag":"sCah","currency":"USD","description":"Si
+      sharyOernard","frequency":"urryeaqlt","date":"2020-01-13"},{"exDate":"2015-05-17","paymentDate":"2015-05-18","recordDate":"2015-05-12","declaredDate":"2015-05-10","amount":"0.52","flag":"sahC","currency":"USD","description":"Ssirrn
+      yheaOdra","frequency":"erlquatyr","date":"2020-01-13"},{"exDate":"2015-02-16","paymentDate":"2015-02-24","recordDate":"2015-02-13","declaredDate":"2015-01-28","amount":"0.48","flag":"aCsh","currency":"USD","description":"
+      harneSrayOrdsi","frequency":"utrrleyaq","date":"2020-01-13"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -43,7 +43,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 00:07:51 GMT
+      - Mon, 13 Jan 2020 02:53:32 GMT
       Iexcloud-Messages-Used:
       - "200"
       Iexcloud-Premium-Messages-Used:
@@ -51,8 +51,302 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=41eb66d32d9f4439adeab58fbc6377dc; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 12:07:51 GMT
+      - ctoken=0ea0560ed4bd42babd3af10c58293545; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:32 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/2y
+    method: GET
+  response:
+    body: '[{"exDate":"2019-11-21","paymentDate":"2019-11-23","recordDate":"2019-11-24","declaredDate":"2019-10-31","amount":"0.8","flag":"Csha","currency":"USD","description":"ar
+      iehOySanrdsr","frequency":"qtreylrua","date":"2020-01-13"},{"exDate":"2019-08-21","paymentDate":"2019-08-18","recordDate":"2019-08-20","declaredDate":"2019-08-09","amount":"0.8","flag":"hasC","currency":"USD","description":"rs
+      OiaSdarherny","frequency":"rulreyqat","date":"2020-01-13"},{"exDate":"2019-05-24","paymentDate":"2019-05-17","recordDate":"2019-05-18","declaredDate":"2019-05-04","amount":"0.79","flag":"hsaC","currency":"USD","description":"yOr
+      iendrrhSasa","frequency":"taurrqlye","date":"2020-01-13"},{"exDate":"2019-02-22","paymentDate":"2019-02-16","recordDate":"2019-02-15","declaredDate":"2019-02-02","amount":"0.74","flag":"sahC","currency":"USD","description":"hsSdOrriaa
+      nrye","frequency":"ryqaerlut","date":"2020-01-13"},{"exDate":"2018-11-18","paymentDate":"2018-11-25","recordDate":"2018-11-13","declaredDate":"2018-11-13","amount":"0.74","flag":"saCh","currency":"USD","description":"ySdhisraraeOrn
+      ","frequency":"lraqtuyre","date":"2020-01-13"},{"exDate":"2018-08-16","paymentDate":"2018-08-28","recordDate":"2018-08-15","declaredDate":"2018-08-01","amount":"0.74","flag":"Csah","currency":"USD","description":"OSairdersnar
+      yh","frequency":"ayrrteulq","date":"2020-01-13"},{"exDate":"2018-05-25","paymentDate":"2018-05-26","recordDate":"2018-05-19","declaredDate":"2018-05-11","amount":"0.74","flag":"sCha","currency":"USD","description":"rrsraayOinedhS
+      ","frequency":"areytlqru","date":"2020-01-13"},{"exDate":"2018-02-15","paymentDate":"2018-03-02","recordDate":"2018-02-22","declaredDate":"2018-02-10","amount":"0.65","flag":"Cash","currency":"USD","description":"ndyrShOreiara
+      s","frequency":"reruqlyta","date":"2020-01-13"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:33 GMT
+      Iexcloud-Messages-Used:
+      - "80"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=564884552102488a9d281f9d54428e4d; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:33 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/1y
+    method: GET
+  response:
+    body: '[{"exDate":"2019-11-17","paymentDate":"2019-11-25","recordDate":"2019-11-22","declaredDate":"2019-10-31","amount":"0.78","flag":"aCsh","currency":"USD","description":"riysdSrreaOha
+      n","frequency":"yurearqtl","date":"2020-01-13"},{"exDate":"2019-08-20","paymentDate":"2019-08-21","recordDate":"2019-08-18","declaredDate":"2019-08-11","amount":"0.8","flag":"ashC","currency":"USD","description":"S
+      yrOnehisarrad","frequency":"rtyqluaer","date":"2020-01-13"},{"exDate":"2019-05-14","paymentDate":"2019-05-22","recordDate":"2019-05-19","declaredDate":"2019-05-07","amount":"0.8","flag":"sahC","currency":"USD","description":"Sa
+      siyndhrrOear","frequency":"ayterulqr","date":"2020-01-13"},{"exDate":"2019-02-12","paymentDate":"2019-02-16","recordDate":"2019-02-12","declaredDate":"2019-01-30","amount":"0.73","flag":"Chas","currency":"USD","description":"dnOri
+      Sahyeasrr","frequency":"rqetrayul","date":"2020-01-13"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:34 GMT
+      Iexcloud-Messages-Used:
+      - "40"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a494e59e8bd845bdabd81af8c5051084; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:34 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/ytd
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:35 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=6feabeeaeac44f92aca8a13e2d9de344; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/6m
+    method: GET
+  response:
+    body: '[{"exDate":"2019-11-12","paymentDate":"2019-11-28","recordDate":"2019-11-21","declaredDate":"2019-11-04","amount":"0.8","flag":"shaC","currency":"USD","description":"rdenirahSOsya
+      r","frequency":"lqytrraeu","date":"2020-01-13"},{"exDate":"2019-08-12","paymentDate":"2019-08-27","recordDate":"2019-08-19","declaredDate":"2019-08-01","amount":"0.8","flag":"haCs","currency":"USD","description":"hy
+      rrdaieOnasSr","frequency":"rlaqryeut","date":"2020-01-13"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:36 GMT
+      Iexcloud-Messages-Used:
+      - "20"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=0d662280c3dd4ac1a3870c3509245b48; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:36 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/3m
+    method: GET
+  response:
+    body: '[{"exDate":"2019-11-08","paymentDate":"2019-11-26","recordDate":"2019-11-16","declaredDate":"2019-11-12","amount":"0.77","flag":"shaC","currency":"USD","description":"aSrydO
+      ehsarinr","frequency":"lqaturrey","date":"2020-01-13"}]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:37 GMT
+      Iexcloud-Messages-Used:
+      - "10"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=020adfa351454592815504e4f4a86ff1; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/1m
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:39 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c3db3d2ff8bf4d0a93ebd714f638ad2e; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:39 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/dividends/next
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 02:53:40 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=1f4f103c93e248068d399a469e9aa4f5; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 14:53:40 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

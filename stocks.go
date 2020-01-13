@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-// IndicatorName helper type to map to string const
+// IndicatorName for TechnicalIndicator API
 type IndicatorName int
 
 const (
@@ -220,41 +220,72 @@ const (
 	ZLEMA
 )
 
-var (
-	// ChartRanges allowed for Chart API
-	ChartRanges = map[string]bool{
-		"max": true,
-		"5y":  true,
-		"2y":  true,
-		"1y":  true,
-		"ytd": true,
-		"6m":  true,
-		"3m":  true,
-		"1m":  true,
-		"1d":  true,
-	}
-	// DividendRanges allowed for Dividends API
-	DividendRanges = map[string]bool{
-		"5y":   true,
-		"2y":   true,
-		"1y":   true,
-		"ytd":  true,
-		"6m":   true,
-		"3m":   true,
-		"1m":   true,
-		"next": true,
-	}
-	// SplitRanges allowed for Splits API
-	SplitRanges = map[string]bool{
-		"5y":   true,
-		"2y":   true,
-		"1y":   true,
-		"ytd":  true,
-		"6m":   true,
-		"3m":   true,
-		"1m":   true,
-		"next": true,
-	}
+// ChartRange for Chart API
+type ChartRange int
+
+const (
+	// ChartRangeMax chart range
+	ChartRangeMax ChartRange = iota
+	// ChartRangeFiveYear chart range
+	ChartRangeFiveYear
+	// ChartRangeTwoYear chart range
+	ChartRangeTwoYear
+	// ChartRangeOneYear chart range
+	ChartRangeOneYear
+	// ChartRangeYearToDate chart range
+	ChartRangeYearToDate
+	// ChartRangeSixMonth chart range
+	ChartRangeSixMonth
+	// ChartRangeThreeMonth chart range
+	ChartRangeThreeMonth
+	// ChartRangeOneMonth chart range
+	ChartRangeOneMonth
+	// ChartRangeOneDay chart range
+	ChartRangeOneDay
+)
+
+// DividendRange for Dividend API
+type DividendRange int
+
+const (
+	// DividendRangeFiveYear dividend range
+	DividendRangeFiveYear DividendRange = iota
+	// DividendRangeTwoYear dividend range
+	DividendRangeTwoYear
+	// DividendRangeOneYear dividend range
+	DividendRangeOneYear
+	// DividendRangeYearToDate dividend range
+	DividendRangeYearToDate
+	// DividendRangeSixMonth dividend range
+	DividendRangeSixMonth
+	// DividendRangeThreeMonth dividend range
+	DividendRangeThreeMonth
+	// DividendRangeOneMonth dividend range
+	DividendRangeOneMonth
+	// DividendRangeNext dividend range
+	DividendRangeNext
+)
+
+// SplitRange for Split API
+type SplitRange int
+
+const (
+	// SplitRangeFiveYear split range
+	SplitRangeFiveYear SplitRange = iota
+	// SplitRangeTwoYear split range
+	SplitRangeTwoYear
+	// SplitRangeOneYear split range
+	SplitRangeOneYear
+	// SplitRangeYearToDate split range
+	SplitRangeYearToDate
+	// SplitRangeSixMonth split range
+	SplitRangeSixMonth
+	// SplitRangeThreeMonth split range
+	SplitRangeThreeMonth
+	// SplitRangeOneMonth split range
+	SplitRangeOneMonth
+	// SplitRangeNext split range
+	SplitRangeNext
 )
 
 // Stock struct to interface with /stock endpoints
@@ -1025,12 +1056,7 @@ func (s *Stock) CashFlow(symbol string, params interface{}) (cashflow *CashFlow,
 }
 
 // Chart GET /stock/{symbol}/chart/{range}
-func (s *Stock) Chart(symbol, chartRange string, params interface{}) (chart []*Chart, err error) {
-	if !ChartRanges[chartRange] {
-		err = fmt.Errorf("Received invalid date range for chart")
-		return
-	}
-
+func (s *Stock) Chart(symbol string, chartRange ChartRange, params interface{}) (chart []*Chart, err error) {
 	endpoint := fmt.Sprintf("%s/chart/%s", symbol, chartRange)
 	err = get(s, &chart, endpoint, params)
 	return
@@ -1058,13 +1084,8 @@ func (s *Stock) DelayedQuote(symbol string) (dq *DelayedQuote, err error) {
 }
 
 // Dividends GET /stock/{symbol}/dividends/{range}
-func (s *Stock) Dividends(symbol, divRange string) (div Dividends, err error) {
-	if !DividendRanges[divRange] {
-		err = fmt.Errorf("Received invalid date range for dividend")
-		return
-	}
-
-	endpoint := fmt.Sprintf("%s/dividends/%s", symbol, divRange)
+func (s *Stock) Dividends(symbol string, dividendRange DividendRange) (div Dividends, err error) {
+	endpoint := fmt.Sprintf("%s/dividends/%s", symbol, dividendRange)
 	err = get(s, &div, endpoint, nil)
 	return
 }
@@ -1122,7 +1143,7 @@ func (s *Stock) FundOwnership(symbol string) (fo FundOwnership, err error) {
 }
 
 // HistoricalPrices GET /stock/{symbol}/chart/{range}/{date}
-func (s *Stock) HistoricalPrices(symbol, chartRange string, params interface{}) ([]*Chart, error) {
+func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params interface{}) ([]*Chart, error) {
 	return s.Chart(symbol, chartRange, params)
 }
 
@@ -1304,17 +1325,8 @@ func (s *Stock) SectorPerformance() (sp SectorPerformance, err error) {
 }
 
 // Splits GET /stock/{symbol}/splits/{range}
-func (s *Stock) Splits(symbol string, opt ...interface{}) (sp Splits, err error) {
-	endpoint := fmt.Sprintf("%s/splits", symbol)
-	if len(opt) > 0 {
-		splitRange := opt[0].(string)
-		if !SplitRanges[splitRange] {
-			err = fmt.Errorf("Received invalid date range for splits")
-			return
-		}
-		endpoint = fmt.Sprintf("%s/%s", endpoint, splitRange)
-	}
-
+func (s *Stock) Splits(symbol string, splitRange SplitRange) (sp Splits, err error) {
+	endpoint := fmt.Sprintf("%s/splits/%s", symbol, splitRange)
 	err = get(s, &sp, endpoint, nil)
 	return
 }
@@ -1502,4 +1514,44 @@ func (in IndicatorName) String() string {
 		"wma",
 		"zlema",
 	}[in]
+}
+
+func (cr ChartRange) String() string {
+	return [...]string{
+		"max",
+		"5y",
+		"2y",
+		"1y",
+		"ytd",
+		"6m",
+		"3m",
+		"1m",
+		"1d",
+	}[cr]
+}
+
+func (dr DividendRange) String() string {
+	return [...]string{
+		"5y",
+		"2y",
+		"1y",
+		"ytd",
+		"6m",
+		"3m",
+		"1m",
+		"next",
+	}[dr]
+}
+
+func (sr SplitRange) String() string {
+	return [...]string{
+		"5y",
+		"2y",
+		"1y",
+		"ytd",
+		"6m",
+		"3m",
+		"1m",
+		"next",
+	}[sr]
 }

@@ -7,47 +7,6 @@ interactions:
     headers:
       User-Agent:
       - jonwho/goiex
-    url: https://sandbox.iexapis.com/stable/stock/aapl/splits
-    method: GET
-  response:
-    body: '[]'
-    headers:
-      Access-Control-Allow-Credentials:
-      - "true"
-      Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
-      Access-Control-Allow-Methods:
-      - GET, OPTIONS
-      Access-Control-Allow-Origin:
-      - '*'
-      Content-Length:
-      - "2"
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Fri, 25 Oct 2019 01:19:39 GMT
-      Iexcloud-Messages-Used:
-      - "0"
-      Iexcloud-Premium-Messages-Used:
-      - "0"
-      Server:
-      - nginx
-      Set-Cookie:
-      - ctoken=9a2ffb31d3864f9e88f35ccaaa3ceb50; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 13:19:39 GMT
-      Strict-Transport-Security:
-      - max-age=15768000
-      X-Content-Type-Options:
-      - nosniff
-    status: 200 OK
-    code: 200
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      User-Agent:
-      - jonwho/goiex
     url: https://sandbox.iexapis.com/stable/stock/aapl/splits/5y
     method: GET
   response:
@@ -66,7 +25,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 01:19:39 GMT
+      - Mon, 13 Jan 2020 03:05:31 GMT
       Iexcloud-Messages-Used:
       - "0"
       Iexcloud-Premium-Messages-Used:
@@ -74,12 +33,291 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=888b72a0cee94fe98f9779da0bb79e80; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 13:19:39 GMT
+      - ctoken=bd9e46e0e16d4387af4dc09be3a1dd60; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:31 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
       - nosniff
     status: 200 OK
     code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/2y
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:32 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=40bd74b6f39441ad9f1ceedb6677adec; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:32 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/1y
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:33 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=92c4e25bf07c48be9b65f6564cbe453f; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:33 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/ytd
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:34 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=1930c446b5f94a8c880651c32886e1e0; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:34 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/6m
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:38 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=a8418ad2b82d45a8b5daae4bbbcc5ed7; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:37 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/3m
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:39 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=83702fdd3b684bbe92cd6bd0686b4c3b; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:39 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/1m
+    method: GET
+  response:
+    body: '[]'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - "2"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:40 GMT
+      Iexcloud-Messages-Used:
+      - "0"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=4631cf5808a74403afc3ee83344573c6; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:40 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/splits/next
+    method: GET
+  response:
+    body: Not found
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 13 Jan 2020 03:05:41 GMT
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c0f1dc470a704c68bc4fab7820be76a0; Max-Age=43200; Path=/; Expires=Mon,
+        13 Jan 2020 15:05:41 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+    status: 404 Not Found
+    code: 404
     duration: ""

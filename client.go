@@ -26,7 +26,7 @@ const (
 )
 
 var (
-	// DefaultHTTPClient default http client to use
+	// DefaultHTTPClient default HTTP client to use
 	DefaultHTTPClient = &http.Client{
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost: maxIdleConnections,
