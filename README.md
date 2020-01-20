@@ -87,6 +87,8 @@ func main() {
 ```
 
 ## SUPPORTED ENDPOINTS
+<details><summary>See supported endpoints</summary>
+
 ### Introduction
 - [x] Batch Requests
 
@@ -267,3 +269,5 @@ func main() {
 - [ ] Stats Recent
 - [ ] Stats Records
 - [x] TOPS
+
+</details>
