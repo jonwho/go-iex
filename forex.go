@@ -10,6 +10,25 @@ type Forex struct {
 	iex
 }
 
+// LatestCurrencyRatesParams required/optional query parameters
+type LatestCurrencyRatesParams struct {
+	Symbols string `url:"symbols"`
+}
+
+// CurrencyConversionParams required/optional query parameters
+type CurrencyConversionParams struct {
+	Symbols string `url:"symbols"`
+	Amount  int    `url:"amount"`
+}
+
+// HistoricalDailyParams required/optional query parameters
+type HistoricalDailyParams struct {
+	Symbols string `url:"symbols"`
+	From    string `url:"from"`
+	To      string `url:"to"`
+	Last    int    `url:"last"`
+}
+
 // LatestCurrencyRates struct
 type LatestCurrencyRates []struct {
 	Symbol    string  `json:"symbol"`
@@ -84,19 +103,19 @@ func (f *Forex) Client() *http.Client {
 }
 
 // LatestCurrencyRates GET /fx/latest?{params}
-func (f *Forex) LatestCurrencyRates(params interface{}) (lcr LatestCurrencyRates, err error) {
+func (f *Forex) LatestCurrencyRates(params *LatestCurrencyRatesParams) (lcr LatestCurrencyRates, err error) {
 	err = get(f, &lcr, "latest", params)
 	return
 }
 
 // CurrencyConversion GET /fx/convert?{params}
-func (f *Forex) CurrencyConversion(params interface{}) (cc CurrencyConversion, err error) {
+func (f *Forex) CurrencyConversion(params *CurrencyConversionParams) (cc CurrencyConversion, err error) {
 	err = get(f, &cc, "convert", params)
 	return
 }
 
 // HistoricalDaily GET /fx/historical?{params}
-func (f *Forex) HistoricalDaily(params interface{}) (hd HistoricalDaily, err error) {
+func (f *Forex) HistoricalDaily(params *HistoricalDailyParams) (hd HistoricalDaily, err error) {
 	err = get(f, &hd, "historical", params)
 	return
 }

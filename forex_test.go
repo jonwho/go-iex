@@ -42,9 +42,7 @@ func TestLatestCurrencyRates(t *testing.T) {
 	defer rec.Stop()
 	cli := NewForex(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	lcr, err := cli.LatestCurrencyRates(struct {
-		Symbols string `url:"symbols"`
-	}{Symbols: "USDCAD,USDGBP,USDJPY"})
+	lcr, err := cli.LatestCurrencyRates(&LatestCurrencyRatesParams{Symbols: "USDCAD,USDGBP,USDJPY"})
 	if err != nil {
 		t.Error(err)
 	}
@@ -67,10 +65,7 @@ func TestCurrencyConversion(t *testing.T) {
 	defer rec.Stop()
 	cli := NewForex(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	cc, err := cli.CurrencyConversion(struct {
-		Symbols string `url:"symbols"`
-		Amount  int    `url:"amount"`
-	}{Symbols: "USDCAD,USDGBP,USDJPY", Amount: 73})
+	cc, err := cli.CurrencyConversion(&CurrencyConversionParams{Symbols: "USDCAD,USDGBP,USDJPY", Amount: 73})
 	if err != nil {
 		t.Error(err)
 	}
@@ -93,12 +88,7 @@ func TestHistoricalDaily(t *testing.T) {
 	defer rec.Stop()
 	cli := NewForex(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	hd, err := cli.HistoricalDaily(struct {
-		Symbols string `url:"symbols"`
-		From    string `url:"from"`
-		To      string `url:"to"`
-		Last    int    `url:"last"`
-	}{Symbols: "USDCAD,USDGBP,USDJPY", From: "2019-10-24", To: "2019-10-25", Last: 5})
+	hd, err := cli.HistoricalDaily(&HistoricalDailyParams{Symbols: "USDCAD,USDGBP,USDJPY", From: "2019-10-24", To: "2019-10-25", Last: 5})
 	if err != nil {
 		t.Error(err)
 	}

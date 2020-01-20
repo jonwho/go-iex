@@ -55,9 +55,7 @@ func TestTOPS(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	tops, err = cli.TOPS(struct {
-		Symbols string `url:"symbols,omitempty"`
-	}{"SNAP,fb,AIG+"})
+	tops, err = cli.TOPS(&TOPSParams{Symbols: "SNAP,fb,AIG+"})
 	if err != nil {
 		t.Error(err)
 	}
@@ -101,9 +99,7 @@ func TestLast(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	last, err = cli.Last(struct {
-		Symbols string `url:"symbols,omitempty"`
-	}{"SNAP,fb,AIG+"})
+	last, err = cli.Last(&LastParams{Symbols: "SNAP,fb,AIG+"})
 	if err != nil {
 		t.Error(err)
 	}
@@ -137,9 +133,7 @@ func TestDEEP(t *testing.T) {
 	u, _ := url.Parse(SandboxBaseURL)
 	cli := NewInvestorsExchangeData(testToken, DefaultVersion, u, httpClient)
 
-	deep, err := cli.DEEP(struct {
-		Symbols string `url:"symbols,omitempty"`
-	}{"SNAP"})
+	deep, err := cli.DEEP(&DEEPParams{Symbols: "SNAP"})
 	if err != nil {
 		t.Error(err)
 	}

@@ -10,6 +10,21 @@ type InvestorsExchangeData struct {
 	iex
 }
 
+// TOPSParams required/optional query parameters
+type TOPSParams struct {
+	Symbols string `url:"symbols"`
+}
+
+// LastParams required/optional query parameters
+type LastParams struct {
+	Symbols string `url:"symbols"`
+}
+
+// DEEPParams required/optional query parameters
+type DEEPParams struct {
+	Symbols string `url:"symbols"`
+}
+
 // TOPS struct
 type TOPS []struct {
 	Symbol        string  `json:"symbol"`
@@ -155,20 +170,20 @@ func (ied *InvestorsExchangeData) Client() *http.Client {
 	return ied.client
 }
 
-// TOPS GET /tops?symbols=snap
-func (ied *InvestorsExchangeData) TOPS(params interface{}) (tops TOPS, err error) {
+// TOPS GET /tops?{params}
+func (ied *InvestorsExchangeData) TOPS(params *TOPSParams) (tops TOPS, err error) {
 	get(ied, &tops, "tops", params)
 	return
 }
 
-// Last GET /tops/last?symbols=snap
-func (ied *InvestorsExchangeData) Last(params interface{}) (l Last, err error) {
+// Last GET /tops/last?{params}
+func (ied *InvestorsExchangeData) Last(params *LastParams) (l Last, err error) {
 	get(ied, &l, "tops/last", params)
 	return
 }
 
-// DEEP GET /deep?symbols=snap
-func (ied *InvestorsExchangeData) DEEP(params interface{}) (d *DEEP, err error) {
+// DEEP GET /deep?symbols={params}
+func (ied *InvestorsExchangeData) DEEP(params *DEEPParams) (d *DEEP, err error) {
 	get(ied, &d, "deep", params)
 	return
 }
