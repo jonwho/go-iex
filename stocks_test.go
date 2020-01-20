@@ -87,47 +87,51 @@ func TestBalanceSheet(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = cli.BalanceSheet("aapl", nil, 5)
+	balanceSheet, err = cli.BalanceSheet("aapl", &BalanceSheetParams{
+		Period: PeriodAnnual,
+	})
 	if err != nil {
 		t.Error(err)
 	}
-	expected = 5
+	expected = 1
 	actual = len(balanceSheet.BalanceSheet)
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = cli.BalanceSheet("aapl", nil, 5, "annual")
+	balanceSheet, err = cli.BalanceSheet("aapl", &BalanceSheetParams{
+		Period: PeriodQuarter,
+	})
 	if err != nil {
 		t.Error(err)
 	}
-	expected = 5
+	expected = 1
 	actual = len(balanceSheet.BalanceSheet)
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	balanceSheet, err = cli.BalanceSheet("aapl", struct {
-		Period string `url:"period,omitempty"`
-	}{"annual"}, 5, "annual")
-
-	if err != nil {
-		t.Error(err)
-	}
-	expected = 4
-	actual = len(balanceSheet.BalanceSheet)
-	if expected != actual {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	balanceSheet, err = cli.BalanceSheet("aapl", struct {
-		Period string `url:"period,omitempty"`
-		Last   int    `url:"last,omitempty"`
-	}{"quarter", 12})
+	balanceSheet, err = cli.BalanceSheet("aapl", &BalanceSheetParams{
+		Period: PeriodQuarter,
+		Last:   12,
+	})
 	if err != nil {
 		t.Error(err)
 	}
 	expected = 12
+	actual = len(balanceSheet.BalanceSheet)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	balanceSheet, err = cli.BalanceSheet("aapl", &BalanceSheetParams{
+		Period: PeriodAnnual,
+		Last:   4,
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 4
 	actual = len(balanceSheet.BalanceSheet)
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)

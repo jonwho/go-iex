@@ -288,6 +288,16 @@ const (
 	SplitRangeNext
 )
 
+// PeriodQueryParameter accepted values for query parameter `period`
+type PeriodQueryParameter int
+
+const (
+	// PeriodAnnual annual period
+	PeriodAnnual PeriodQueryParameter = iota
+	// PeriodQuarter quarter period
+	PeriodQuarter
+)
+
 // Stock struct to interface with /stock endpoints
 type Stock struct {
 	iex
@@ -319,6 +329,14 @@ type Asks []struct {
 	Price     float64 `json:"price"`
 	Size      int     `json:"size"`
 	Timestamp int64   `json:"timestamp"`
+}
+
+// BalanceSheetParams query parameters
+type BalanceSheetParams struct {
+	// Period specify either "annual" or "quarter" with PeriodQueryParameter
+	Period PeriodQueryParameter `url:"period"`
+	// Last with "quarter" period can specify up to 12 and up to 4 with "annual" period
+	Last int `url:"last"`
 }
 
 // BalanceSheet struct
@@ -1018,19 +1036,19 @@ func (s *Stock) AdvancedStats(symbol string) (advstat *AdvancedStat, err error) 
 	return
 }
 
-// BalanceSheet GET /stock/{symbol}/balance-sheet/{last}/{field}
-func (s *Stock) BalanceSheet(symbol string, params interface{}, opt ...interface{}) (balsheet *BalanceSheet, err error) {
+// BalanceSheet GET /stock/{symbol}/balance-sheet
+func (s *Stock) BalanceSheet(symbol string, params *BalanceSheetParams) (balsheet *BalanceSheet, err error) {
+	if params == nil {
+		endpoint := fmt.Sprintf("%s/balance-sheet", symbol)
+		err = get(s, &balsheet, endpoint, params)
+		return
+	}
+	p := *params
+	if p.Last == 0 {
+		p.Last = 1
+	}
 	endpoint := fmt.Sprintf("%s/balance-sheet", symbol)
-	if len(opt) > 0 {
-		last := opt[0].(int)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
-	}
-	if len(opt) > 1 {
-		field := opt[1].(string)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
-	}
-
-	err = get(s, &balsheet, endpoint, params)
+	err = get(s, &balsheet, endpoint, p)
 	return
 }
 
@@ -1554,4 +1572,11 @@ func (sr SplitRange) String() string {
 		"1m",
 		"next",
 	}[sr]
+}
+
+func (pqp PeriodQueryParameter) String() string {
+	return [...]string{
+		"annual",
+		"quarter",
+	}[pqp]
 }
