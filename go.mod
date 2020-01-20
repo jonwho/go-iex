@@ -1,4 +1,4 @@
-module github.com/jonwho/go-iex/v2
+module github.com/jonwho/go-iex/v3
 
 // go: no requirements found in Gopkg.lock
 

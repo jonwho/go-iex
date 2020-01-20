@@ -244,6 +244,23 @@ const (
 	ChartRangeOneDay
 )
 
+// ChartQueryParams optional query parameters
+type ChartQueryParams struct {
+	ChartCloseOnly  bool       `url:"chartCloseOnly,omitempty"`
+	ChartByDay      bool       `url:"chartByDay,omitempty"`
+	ChartSimplify   bool       `url:"chartSimplify,omitempty"`
+	ChartInterval   uint       `url:"chartInterval,omitempty"`
+	ChangeFromClose bool       `url:"changeFromClose,omitempty"`
+	ChartLast       uint       `url:"chartLast,omitempty"`
+	Range           ChartRange `url:"range,omitempty"`
+	// ExactDate date formatted as YYYYMMDD
+	ExactDate string `url:"exactDate,omitempty"`
+	// Sort can be `asc` or `desc`. Defaults to `desc`.
+	Sort string `url:"sort,omitempty"`
+	// IncludeToday appends current trading to data
+	IncludeToday bool `url:"includeToday,omitempty"`
+}
+
 // DividendRange for Dividend API
 type DividendRange int
 
@@ -1074,7 +1091,7 @@ func (s *Stock) CashFlow(symbol string, params interface{}) (cashflow *CashFlow,
 }
 
 // Chart GET /stock/{symbol}/chart/{range}
-func (s *Stock) Chart(symbol string, chartRange ChartRange, params interface{}) (chart []*Chart, err error) {
+func (s *Stock) Chart(symbol string, chartRange ChartRange, params *ChartQueryParams) (chart []Chart, err error) {
 	endpoint := fmt.Sprintf("%s/chart/%s", symbol, chartRange)
 	err = get(s, &chart, endpoint, params)
 	return
@@ -1161,7 +1178,7 @@ func (s *Stock) FundOwnership(symbol string) (fo FundOwnership, err error) {
 }
 
 // HistoricalPrices GET /stock/{symbol}/chart/{range}/{date}
-func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params interface{}) ([]*Chart, error) {
+func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params *ChartQueryParams) ([]Chart, error) {
 	return s.Chart(symbol, chartRange, params)
 }
 

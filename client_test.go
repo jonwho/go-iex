@@ -10,7 +10,7 @@ import (
 
 	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
-	"github.com/jonwho/go-iex/v2/mock-iex"
+	"github.com/jonwho/go-iex/v3/mock-iex"
 )
 
 var (

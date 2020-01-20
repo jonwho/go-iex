@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"os"
 
-	iex "github.com/jonwho/go-iex/v2"
+	iex "github.com/jonwho/go-iex/v3"
 )
 
 func main() {
@@ -48,4 +48,11 @@ func main() {
 		log.Fatalln(err)
 	}
 	fmt.Println("Symbol", anonstruct.Symbol)
+
+	// use params structs
+	charts, err := stock.Chart("aapl", iex.ChartRangeOneMonth, &iex.ChartQueryParams{ChartCloseOnly: true})
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Printf("Charts %#v", charts)
 }

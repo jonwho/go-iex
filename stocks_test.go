@@ -246,7 +246,9 @@ func TestCashFlow(t *testing.T) {
 	}
 }
 
-func TestChart(t *testing.T) {
+// TODO: implement rate limiting so don't need to add sleeps in-between chart calls when re-recording responses
+// TODO: add query params test
+func Testjhart(t *testing.T) {
 	rec, err := recorder.New("cassettes/stock/chart")
 	if err != nil {
 		log.Fatal(err)
