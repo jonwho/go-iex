@@ -244,11 +244,47 @@ func TestCashFlow(t *testing.T) {
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
+
+	cashflow, err = cli.CashFlow("aapl", &CashFlowQueryParams{
+		Period: PeriodAnnual,
+		Last:   4,
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = cashflow.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(cashflow.CashFlow) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	cashflow, err = cli.CashFlow("aapl", &CashFlowQueryParams{
+		Period: PeriodQuarter,
+		Last:   12,
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = "AAPL"
+	actual = cashflow.Symbol
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(cashflow.CashFlow) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
 }
 
 // TODO: implement rate limiting so don't need to add sleeps in-between chart calls when re-recording responses
 // TODO: add query params test
-func Testjhart(t *testing.T) {
+func TestChart(t *testing.T) {
 	rec, err := recorder.New("cassettes/stock/chart")
 	if err != nil {
 		log.Fatal(err)

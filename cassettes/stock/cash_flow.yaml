@@ -10,7 +10,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/cash-flow
     method: GET
   response:
-    body: '{"symbol":"AAPL","cashflow":[{"reportDate":"2019-07-05","netIncome":10360482649,"depreciation":3031869980,"changesInReceivables":971173388,"changesInInventories":1514586976,"cashChange":12836230122,"cashFlow":11934471928,"capitalExpenditures":-2019098693,"investments":31244104592,"investingActivityOther":-271723796,"totalInvestingCashFlows":27986270280,"dividendsPaid":-3691072247,"netBorrowings":-5193875107,"otherFinancingCashFlows":-1233629659,"cashFlowFinancing":-27250074102,"exchangeRateEffect":null}]}'
+    body: '{"symbol":"AAPL","cashflow":[{"reportDate":"2019-10-01","netIncome":13968580817,"depreciation":3234136589,"changesInReceivables":-8988235156,"changesInInventories":-820620622,"cashChange":-1954835125,"cashFlow":20720872395,"capitalExpenditures":-2812150359,"investments":2872458768,"investingActivityOther":-834408706,"totalInvestingCashFlows":-829929129,"dividendsPaid":-3626461980,"netBorrowings":-299888835,"otherFinancingCashFlows":-213783219,"cashFlowFinancing":-21298356242,"exchangeRateEffect":null}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -23,7 +23,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 00:07:49 GMT
+      - Tue, 21 Jan 2020 02:56:08 GMT
       Iexcloud-Messages-Used:
       - "1000"
       Iexcloud-Premium-Messages-Used:
@@ -31,8 +31,86 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=7ac923375707435fbe55bf1632daf23f; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 12:07:49 GMT
+      - ctoken=f4f3a198c6064f60a1c3854df05c0abd; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 14:56:08 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/cash-flow?last=4&period=annual
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","cashflow":[{"reportDate":"2019-10-05","netIncome":57278505162,"depreciation":12920261175,"changesInReceivables":265194970,"changesInInventories":-290755839,"cashChange":24975271944,"cashFlow":71950198567,"capitalExpenditures":-10713707270,"investments":60932528567,"investingActivityOther":-1088999957,"totalInvestingCashFlows":46151020823,"dividendsPaid":-14238816755,"netBorrowings":-8083801046,"otherFinancingCashFlows":-3062474555,"cashFlowFinancing":-91535851793,"exchangeRateEffect":null},{"reportDate":"2018-10-05","netIncome":62348423189,"depreciation":10925981785,"changesInReceivables":-5521622000,"changesInInventories":861178377,"cashChange":5666467638,"cashFlow":80146478690,"capitalExpenditures":-13521314125,"investments":31407040112,"investingActivityOther":-775791039,"totalInvestingCashFlows":16657899443,"dividendsPaid":-13737975670,"netBorrowings":440030405,"otherFinancingCashFlows":-2532206751,"cashFlowFinancing":-91779386182,"exchangeRateEffect":null},{"reportDate":"2017-10-11","netIncome":49542233865,"depreciation":10337093480,"changesInReceivables":-2155549094,"changesInInventories":-2773534516,"cashChange":-201014284,"cashFlow":63812766994,"capitalExpenditures":-13036120488,"investments":-33698985575,"investingActivityOther":-409492720,"totalInvestingCashFlows":-46863104956,"dividendsPaid":-12992712850,"netBorrowings":29246813040,"otherFinancingCashFlows":-1300987188,"cashFlowFinancing":-17871825433,"exchangeRateEffect":null},{"reportDate":"2016-10-01","netIncome":47393966756,"depreciation":10834821511,"changesInReceivables":1142589045,"changesInInventories":219240360,"cashChange":-662397824,"cashFlow":67712861194,"capitalExpenditures":-13809909307,"investments":-31057954084,"investingActivityOther":-1507398035,"totalInvestingCashFlows":-48017835948,"dividendsPaid":-12403420076,"netBorrowings":22755507036,"otherFinancingCashFlows":-1199668096,"cashFlowFinancing":-21025184477,"exchangeRateEffect":null}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Jan 2020 02:56:08 GMT
+      Iexcloud-Messages-Used:
+      - "4000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=86bc6d5699f5435a94b175556caf1fa3; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 14:56:08 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/cash-flow?last=12&period=quarter
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","cashflow":[{"reportDate":"2019-10-13","netIncome":14075691708,"depreciation":3264830742,"changesInReceivables":-9038559484,"changesInInventories":-801708538,"cashChange":-2002701378,"cashFlow":20274567971,"capitalExpenditures":-2810606596,"investments":2840230104,"investingActivityOther":-838950428,"totalInvestingCashFlows":-811027729,"dividendsPaid":-3480554340,"netBorrowings":-302687389,"otherFinancingCashFlows":-220820481,"cashFlowFinancing":-21238704390,"exchangeRateEffect":null},{"reportDate":"2019-07-10","netIncome":10405987707,"depreciation":2982801291,"changesInReceivables":943554562,"changesInInventories":1550548428,"cashChange":12753451743,"cashFlow":11836422323,"capitalExpenditures":-2072980013,"investments":30490355998,"investingActivityOther":-272744665,"totalInvestingCashFlows":28116978073,"dividendsPaid":-3680815641,"netBorrowings":-5156414492,"otherFinancingCashFlows":-1252145482,"cashFlowFinancing":-28060195852,"exchangeRateEffect":null},{"reportDate":"2019-04-05","netIncome":11789237811,"depreciation":3114116853,"changesInReceivables":3041985601,"changesInInventories":72229308,"cashChange":-5000938704,"cashFlow":11206663640,"capitalExpenditures":-2464966385,"investments":16367934411,"investingActivityOther":58669532,"totalInvestingCashFlows":13436026771,"dividendsPaid":-3480111915,"netBorrowings":-2541214908,"otherFinancingCashFlows":-199610359,"cashFlowFinancing":-29727914830,"exchangeRateEffect":null},{"reportDate":"2019-01-09","netIncome":20790588755,"depreciation":3417202896,"changesInReceivables":5113882220,"changesInInventories":-1103119580,"cashChange":19729879256,"cashFlow":27677005480,"capitalExpenditures":-3439197094,"investments":9772045906,"investingActivityOther":-58722050,"totalInvestingCashFlows":6020009164,"dividendsPaid":-3697952834,"netBorrowings":6002137,"otherFinancingCashFlows":-1337813518,"cashFlowFinancing":-13840515921,"exchangeRateEffect":null},{"reportDate":"2018-10-05","netIncome":14726281748,"depreciation":2775836740,"changesInReceivables":-9261738203,"changesInInventories":1974987713,"cashChange":-6175629863,"cashFlow":19843196092,"capitalExpenditures":-3188298347,"investments":-957688342,"investingActivityOther":1596578925,"totalInvestingCashFlows":-3120212329,"dividendsPaid":-3600095636,"netBorrowings":-27150561,"otherFinancingCashFlows":-267236365,"cashFlowFinancing":-23477184369,"exchangeRateEffect":null},{"reportDate":"2018-07-07","netIncome":11689850544,"depreciation":2735955417,"changesInReceivables":229410175,"changesInInventories":1722038600,"cashChange":-13481664459,"cashFlow":14740311363,"capitalExpenditures":-3322127011,"investments":9745058547,"investingActivityOther":-2320378774,"totalInvestingCashFlows":4094162048,"dividendsPaid":-3664222878,"netBorrowings":-6157991967,"otherFinancingCashFlows":-1086457599,"cashFlowFinancing":-32089743986,"exchangeRateEffect":null},{"reportDate":"2018-04-14","netIncome":14336955735,"depreciation":2766232833,"changesInReceivables":9270196978,"changesInInventories":-3241579214,"cashChange":17830892555,"cashFlow":15842664678,"capitalExpenditures":-4118074062,"investments":33768627545,"investingActivityOther":97798999,"totalInvestingCashFlows":29675917169,"dividendsPaid":-3288635980,"netBorrowings":-511503327,"otherFinancingCashFlows":-154002624,"cashFlowFinancing":-26397589608,"exchangeRateEffect":null},{"reportDate":"2018-01-08","netIncome":20502919513,"depreciation":2768908444,"changesInReceivables":-5710516733,"changesInInventories":454862615,"cashChange":7404292253,"cashFlow":28526402619,"capitalExpenditures":-3069637762,"investments":-10774410389,"investingActivityOther":-97203718,"totalInvestingCashFlows":-14140343974,"dividendsPaid":-3501815081,"netBorrowings":7277213938,"otherFinancingCashFlows":-1079418546,"cashFlowFinancing":-7747718907,"exchangeRateEffect":null},{"reportDate":"2017-10-08","netIncome":11065834000,"depreciation":2601691935,"changesInReceivables":-5555943719,"changesInInventories":-1790541971,"cashChange":1795622676,"cashFlow":16263715827,"capitalExpenditures":-4071651115,"investments":-5622920567,"investingActivityOther":-315215217,"totalInvestingCashFlows":-10190391860,"dividendsPaid":-3431839626,"netBorrowings":7047771021,"otherFinancingCashFlows":-140210688,"cashFlowFinancing":-4133228102,"exchangeRateEffect":null},{"reportDate":"2017-07-05","netIncome":8861547508,"depreciation":2457128846,"changesInReceivables":-824585742,"changesInInventories":-244666474,"cashChange":3474737481,"cashFlow":8369644698,"capitalExpenditures":-2361405301,"investments":-764422717,"investingActivityOther":-88281559,"totalInvestingCashFlows":-3218292506,"dividendsPaid":-3378204268,"netBorrowings":9575122970,"otherFinancingCashFlows":-554630434,"cashFlowFinancing":-1769134638,"exchangeRateEffect":null},{"reportDate":"2017-04-13","netIncome":11347429144,"depreciation":2433360488,"changesInReceivables":2583810470,"changesInInventories":-202887018,"cashChange":-1268015776,"cashFlow":12567023974,"capitalExpenditures":-3108108163,"investments":-11500128449,"investingActivityOther":107460801,"totalInvestingCashFlows":-14570321435,"dividendsPaid":-3113520669,"netBorrowings":10706292816,"otherFinancingCashFlows":-113195614,"cashFlowFinancing":479664038,"exchangeRateEffect":null},{"reportDate":"2017-01-05","netIncome":18537018982,"depreciation":3110825024,"changesInReceivables":null,"changesInInventories":-601150696,"cashChange":-4255637970,"cashFlow":27547595342,"capitalExpenditures":-3522847701,"investments":-15736905970,"investingActivityOther":-107819231,"totalInvestingCashFlows":-19840866165,"dividendsPaid":-3258945696,"netBorrowings":2411480372,"otherFinancingCashFlows":-457455354,"cashFlowFinancing":-12446574357,"exchangeRateEffect":null}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Jan 2020 02:56:08 GMT
+      Iexcloud-Messages-Used:
+      - "12000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=c860770f69e24a45b870afcba4926991; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 14:56:08 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

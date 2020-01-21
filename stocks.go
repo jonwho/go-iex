@@ -413,6 +413,12 @@ type Book struct {
 	SystemEvent SystemEvent
 }
 
+// CashFlowQueryParams optional query parameters
+type CashFlowQueryParams struct {
+	Period PeriodQueryParameter `url:"period"`
+	Last   uint                 `url:"last,omitempty"`
+}
+
 // CashFlow struct
 type CashFlow struct {
 	Symbol   string `json:"symbol"`
@@ -1084,7 +1090,7 @@ func (s *Stock) Book(symbol string) (book *Book, err error) {
 }
 
 // CashFlow GET /stock/{symbol}/cash-flow
-func (s *Stock) CashFlow(symbol string, params interface{}) (cashflow *CashFlow, err error) {
+func (s *Stock) CashFlow(symbol string, params *CashFlowQueryParams) (cashflow *CashFlow, err error) {
 	endpoint := fmt.Sprintf("%s/cash-flow", symbol)
 	err = get(s, &cashflow, endpoint, params)
 	return
