@@ -575,9 +575,23 @@ func TestEarnings(t *testing.T) {
 		t.Error(err)
 	}
 
-	er, err = cli.Earnings("aapl", struct {
-		Last int `url:"last,omitempty"`
-	}{2})
+	er, err = cli.Earnings("aapl", &EarningsQueryParams{
+		Period: PeriodAnnual,
+		Last:   2,
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = 2
+	actual = len(er.Earnings)
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	er, err = cli.Earnings("aapl", &EarningsQueryParams{
+		Period: PeriodQuarter,
+		Last:   2,
+	})
 	if err != nil {
 		t.Error(err)
 	}
@@ -670,7 +684,7 @@ func TestFinancials(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	fin, err = cli.Financials("aapl", nil, 2)
+	fin, err = cli.Financials("aapl", &FinancialsQueryParams{PeriodAnnual})
 	if err != nil {
 		t.Error(err)
 	}
@@ -680,19 +694,7 @@ func TestFinancials(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	fin, err = cli.Financials("aapl", nil, 2, "annual")
-	if err != nil {
-		t.Error(err)
-	}
-	expected = false
-	actual = len(fin.Financials) == 0
-	if actual.(bool) {
-		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
-	}
-
-	fin, err = cli.Financials("aapl", struct {
-		Period string `url:"period,omitempty"`
-	}{"quarterly"}, 2, "annual")
+	fin, err = cli.Financials("aapl", &FinancialsQueryParams{PeriodQuarter})
 	if err != nil {
 		t.Error(err)
 	}
@@ -771,10 +773,17 @@ func TestIncomeStatement(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	stmt, err = cli.IncomeStatement("aapl", struct {
-		Last   int    `url:"last"`
-		Period string `url:"period"`
-	}{Last: 2, Period: "annual"})
+	stmt, err = cli.IncomeStatement("aapl", &IncomeStatementQueryParams{Last: 2, Period: PeriodAnnual})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(stmt.Income) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	stmt, err = cli.IncomeStatement("aapl", &IncomeStatementQueryParams{Last: 2, Period: PeriodQuarter})
 	if err != nil {
 		t.Error(err)
 	}
@@ -889,14 +898,26 @@ func TestIntradayPrices(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	ip, err := cli.IntradayPrices("aapl", struct {
-		chartIEXOnly    bool
-		chartReset      bool
-		chartSimplify   bool
-		chartInterval   int
-		changeFromClose bool
-		chartLast       int
-	}{true, true, true, 5, true, 10})
+	ip, err := cli.IntradayPrices("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ip) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	ip, err = cli.IntradayPrices("aapl", &IntradayPricesQueryParams{
+		ChartIEXOnly:     true,
+		ChartReset:       true,
+		ChartSimplify:    true,
+		ChartInterval:    5,
+		ChangeFromClose:  true,
+		ChartLast:        10,
+		ExactDate:        "20190805",
+		ChartIEXWhenNull: true,
+	})
 	if err != nil {
 		t.Error(err)
 	}
@@ -1039,9 +1060,20 @@ func TestList(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	list, err := cli.List("gainers", struct {
-		displayPercent bool
-	}{true})
+	list, err := cli.List("gainers", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(list) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	list, err = cli.List("gainers", &ListQueryParams{
+		DisplayPercent: true,
+		ListLimit:      100,
+	})
 	if err != nil {
 		t.Error(err)
 	}
@@ -1330,9 +1362,7 @@ func TestQuote(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	quote, err = cli.Quote("aapl", struct {
-		DisplayPercent bool `url:"displayPercent,omitempty"`
-	}{true})
+	quote, err = cli.Quote("aapl", &QuoteQueryParams{true})
 	if err != nil {
 		t.Error(err)
 	}
@@ -1549,6 +1579,16 @@ func TestUpcomingEarnings(t *testing.T) {
 	if actual.(bool) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
+
+	ue, err = cli.UpcomingEarnings("aapl", &UpcomingEarningsQueryParams{true})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(ue) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
 }
 
 func TestUpcomingEvents(t *testing.T) {
@@ -1579,6 +1619,21 @@ func TestUpcomingEvents(t *testing.T) {
 	}
 
 	evts, err = cli.UpcomingEvents("aapl", nil)
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(evts.IPOS.RawData) != 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+	expected = false
+	actual = len(evts.IPOS.ViewData) != 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	evts, err = cli.UpcomingEvents("aapl", &UpcomingEventsQueryParams{true})
 	if err != nil {
 		t.Error(err)
 	}

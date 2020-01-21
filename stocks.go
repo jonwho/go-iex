@@ -524,21 +524,30 @@ type Dividends []struct {
 	Frequency    string  `json:"frequency"`
 }
 
+// Earning DTO for APIs reporting earnings
+type Earning struct {
+	ActualEPS            float64 `json:"actualEPS"`
+	ConsensusEPS         float64 `json:"consensusEPS"`
+	AnnounceTime         string  `json:"announceTime"`
+	NumberOfEstimates    int     `json:"numberOfEstimates"`
+	EPSSurpriseDollar    float64 `json:"EPSSurpriseDollar"`
+	EPSReportDate        string  `json:"EPSReportDate"`
+	FiscalPeriod         string  `json:"fiscalPeriod"`
+	FiscalEndDate        string  `json:"fiscalEndDate"`
+	YearAgo              float64 `json:"yearAgo"`
+	YearAgoChangePercent float64 `json:"yearAgoChangePercent"`
+}
+
+// EarningsQueryParams required/optional query parameters
+type EarningsQueryParams struct {
+	Last   uint                 `url:"last,omitempty"`
+	Period PeriodQueryParameter `url:"period"`
+}
+
 // Earnings struct
 type Earnings struct {
-	Symbol   string `json:"symbol"`
-	Earnings []struct {
-		ActualEPS            float64 `json:"actualEPS"`
-		ConsensusEPS         float64 `json:"consensusEPS"`
-		AnnounceTime         string  `json:"announceTime"`
-		NumberOfEstimates    int     `json:"numberOfEstimates"`
-		EPSSurpriseDollar    float64 `json:"EPSSurpriseDollar"`
-		EPSReportDate        string  `json:"EPSReportDate"`
-		FiscalPeriod         string  `json:"fiscalPeriod"`
-		FiscalEndDate        string  `json:"fiscalEndDate"`
-		YearAgo              float64 `json:"yearAgo"`
-		YearAgoChangePercent float64 `json:"yearAgoChangePercent"`
-	} `json:"earnings"`
+	Symbol   string    `json:"symbol"`
+	Earnings []Earning `json:"earnings"`
 }
 
 // EarningsToday struct
@@ -570,6 +579,11 @@ type Estimates struct {
 		FiscalEndDate     string  `json:"fiscalEndDate"`
 		ReportDate        string  `json:"reportDate"`
 	} `json:"estimates"`
+}
+
+// FinancialsQueryParams required/optional query params
+type FinancialsQueryParams struct {
+	Period PeriodQueryParameter `url:"period"`
 }
 
 // Financials struct
@@ -607,6 +621,12 @@ type FundOwnership []struct {
 	ReportDate       int64  `json:"reportDate"`
 	ReportedHolding  int    `json:"reportedHolding"`
 	ReportedMv       int    `json:"reportedMv"`
+}
+
+// IncomeStatementQueryParams required/optional query parameters
+type IncomeStatementQueryParams struct {
+	Period PeriodQueryParameter `url:"period"`
+	Last   uint                 `url:"last,omitempty"`
 }
 
 // IncomeStatement struct
@@ -665,6 +685,21 @@ type InstitutionalOwnership []struct {
 	EntityProperName string `json:"entityProperName"`
 	ReportDate       int64  `json:"reportDate"`
 	ReportedHolding  int    `json:"reportedHolding"`
+}
+
+// IntradayPricesQueryParams required/optional query parameters
+type IntradayPricesQueryParams struct {
+	// ChartIEXOnly true limits to IEX only data
+	ChartIEXOnly bool `url:"chartIEXOnly,omitempty"`
+	// ChartReset true resets chart at midnight instead of 9:30 AM ET
+	ChartReset      bool `url:"chartReset,omitempty"`
+	ChartSimplify   bool `url:"chartSimplify,omitempty"`
+	ChartInterval   uint `url:"chartInterval,omitempty"`
+	ChangeFromClose bool `url:"changeFromClose,omitempty"`
+	ChartLast       uint `url:"chartLast,omitempty"`
+	// ExactDate date formatted as YYYYMMDD
+	ExactDate        string `url:"exactDate,omitempty"`
+	ChartIEXWhenNull bool   `url:"chartIEXWhenNull,omitempty"`
 }
 
 // IntradayPrices struct
@@ -794,6 +829,12 @@ type LargestTrades []struct {
 	VenueName string  `json:"venueName"`
 }
 
+// ListQueryParams required/optional query parameters
+type ListQueryParams struct {
+	DisplayPercent bool `url:"displayPercent,omitempty"`
+	ListLimit      uint `url:"listLimit,omitempty"`
+}
+
 // Logo struct
 type Logo struct {
 	URL string `json:"url"`
@@ -885,6 +926,11 @@ type PriceTarget struct {
 	NumberOfAnalysts   int     `json:"numberOfAnalysts"`
 }
 
+// QuoteQueryParams required/optional query parameters
+type QuoteQueryParams struct {
+	DisplayPercent bool `url:"displayPercent,omitempty"`
+}
+
 // Quote struct
 type Quote struct {
 	Symbol                string  `json:"symbol"`
@@ -953,8 +999,8 @@ type Splits []struct {
 	ExDate       string  `json:"exDate"`
 	DeclaredDate string  `json:"declaredDate"`
 	Ratio        float64 `json:"ratio"`
-	ToFactor     int     `json:"toFactor"`
-	FromFactor   int     `json:"fromFactor"`
+	ToFactor     float64 `json:"toFactor"`
+	FromFactor   float64 `json:"fromFactor"`
 	Description  string  `json:"description"`
 }
 
@@ -993,23 +1039,26 @@ type Trades []struct {
 	Timestamp             int64   `json:"timestamp"`
 }
 
+// UpcomingEventsQueryParams required/optional query parameters
+type UpcomingEventsQueryParams struct {
+	// FullUpcomingEarnings true will return the full estimate object.
+	// This could cause the to hit your message limit in the millions.
+	FullUpcomingEarnings bool `url:"fullUpcomingEarnings,omitempty"`
+}
+
+// UpcomingEarningsQueryParams required/optional query parameters
+type UpcomingEarningsQueryParams struct {
+	// FullUpcomingEarnings true will return the full estimate object.
+	// This could cause the to hit your message limit in the millions.
+	FullUpcomingEarnings bool `url:"fullUpcomingEarnings,omitempty"`
+}
+
 // UpcomingEvents struct
 type UpcomingEvents struct {
-	IPOS     IPOCalendar `json:"ipos,omitempty"`
-	Earnings []struct {
-		ActualEPS            float64 `json:"actualEPS"`
-		ConsensusEPS         float64 `json:"consensusEPS"`
-		AnnounceTime         string  `json:"announceTime"`
-		NumberOfEstimates    int     `json:"numberOfEstimates"`
-		EPSSurpriseDollar    float64 `json:"EPSSurpriseDollar"`
-		EPSReportDate        string  `json:"EPSReportDate"`
-		FiscalPeriod         string  `json:"fiscalPeriod"`
-		FiscalEndDate        string  `json:"fiscalEndDate"`
-		YearAgo              float64 `json:"yearAgo"`
-		YearAgoChangePercent float64 `json:"yearAgoChangePercent"`
-	} `json:"earnings"`
-	Dividends Dividends `json:"dividends"`
-	Splits    Splits    `json:"splits"`
+	IPOS      IPOCalendar `json:"ipos,omitempty"`
+	Earnings  []Earning   `json:"earnings"`
+	Dividends Dividends   `json:"dividends"`
+	Splits    Splits      `json:"splits"`
 }
 
 // UpcomingEarnings struct
@@ -1149,7 +1198,7 @@ func (s *Stock) Dividends(symbol string, dividendRange DividendRange) (div Divid
 }
 
 // Earnings GET /stock/{symbol}/earnings/{last}/{field}
-func (s *Stock) Earnings(symbol string, params interface{}) (er *Earnings, err error) {
+func (s *Stock) Earnings(symbol string, params *EarningsQueryParams) (er *Earnings, err error) {
 	endpoint := fmt.Sprintf("%s/earnings", symbol)
 	err = get(s, &er, endpoint, params)
 	return
@@ -1178,17 +1227,8 @@ func (s *Stock) Estimates(symbol string, opt ...interface{}) (est *Estimates, er
 }
 
 // Financials GET /stock/{symbol}/financials/{last}/{field}
-func (s *Stock) Financials(symbol string, params interface{}, opt ...interface{}) (fin *Financials, err error) {
+func (s *Stock) Financials(symbol string, params *FinancialsQueryParams) (fin *Financials, err error) {
 	endpoint := fmt.Sprintf("%s/financials", symbol)
-
-	if len(opt) > 0 {
-		last := opt[0].(int)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
-	}
-	if len(opt) > 1 {
-		field := opt[1].(string)
-		endpoint = fmt.Sprintf("%s/%s", endpoint, field)
-	}
 	err = get(s, &fin, endpoint, params)
 	return
 }
@@ -1206,7 +1246,7 @@ func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params *C
 }
 
 // IncomeStatement GET /stock/{symbol}/income?{params}
-func (s *Stock) IncomeStatement(symbol string, params interface{}) (incstmt *IncomeStatement, err error) {
+func (s *Stock) IncomeStatement(symbol string, params *IncomeStatementQueryParams) (incstmt *IncomeStatement, err error) {
 	endpoint := fmt.Sprintf("%s/income", symbol)
 	err = get(s, &incstmt, endpoint, params)
 	return
@@ -1241,7 +1281,7 @@ func (s *Stock) InstitutionalOwnership(symbol string) (iop InstitutionalOwnershi
 }
 
 // IntradayPrices GET /stock/{symbol}/intraday-prices
-func (s *Stock) IntradayPrices(symbol string, params interface{}) (ip IntradayPrices, err error) {
+func (s *Stock) IntradayPrices(symbol string, params *IntradayPricesQueryParams) (ip IntradayPrices, err error) {
 	endpoint := fmt.Sprintf("%s/intraday-prices", symbol)
 	err = get(s, &ip, endpoint, params)
 	return
@@ -1268,7 +1308,7 @@ func (s *Stock) LargestTrades(symbol string) (lt LargestTrades, err error) {
 }
 
 // List GET /stock/market/list/{list-type}
-func (s *Stock) List(listType string, params interface{}) (list []*Quote, err error) {
+func (s *Stock) List(listType string, params *ListQueryParams) (list []*Quote, err error) {
 	endpoint := fmt.Sprintf("market/list/%s", listType)
 	err = get(s, &list, endpoint, params)
 	return
@@ -1363,7 +1403,7 @@ func (s *Stock) PriceTarget(symbol string) (tgt *PriceTarget, err error) {
 }
 
 // Quote GET /stock/{symbol}/quote
-func (s *Stock) Quote(symbol string, params interface{}) (quote *Quote, err error) {
+func (s *Stock) Quote(symbol string, params *QuoteQueryParams) (quote *Quote, err error) {
 	endpoint := fmt.Sprintf("%s/quote", symbol)
 	err = get(s, &quote, endpoint, params)
 	return
@@ -1407,14 +1447,14 @@ func (s *Stock) UpcomingDividends(symbol string, params interface{}) (d Dividend
 }
 
 // UpcomingEarnings GET /stock/{symbol}/upcoming-earnings
-func (s *Stock) UpcomingEarnings(symbol string, params interface{}) (ue UpcomingEarnings, err error) {
+func (s *Stock) UpcomingEarnings(symbol string, params *UpcomingEarningsQueryParams) (ue UpcomingEarnings, err error) {
 	endpoint := fmt.Sprintf("%s/upcoming-earnings", symbol)
 	err = get(s, &ue, endpoint, params)
 	return
 }
 
 // UpcomingEvents GET /stock/{symbol}/upcoming-events
-func (s *Stock) UpcomingEvents(symbol string, params interface{}) (ue *UpcomingEvents, err error) {
+func (s *Stock) UpcomingEvents(symbol string, params *UpcomingEventsQueryParams) (ue *UpcomingEvents, err error) {
 	endpoint := fmt.Sprintf("%s/upcoming-events", symbol)
 	err = get(s, &ue, endpoint, params)
 	return
@@ -1458,6 +1498,31 @@ func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error {
 
 	if consensusEPS, ok := aux.ConsensusEPS.(string); ok {
 		etd.ConsensusEPS, err = strconv.ParseFloat(consensusEPS, 64)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+// UnmarshalJSON helper
+func (e *Earning) UnmarshalJSON(b []byte) error {
+	var err error
+	type alias Earning
+	aux := &struct {
+		ConsensusEPS interface{} `json:"consensusEPS"`
+		*alias
+	}{
+		alias: (*alias)(e),
+	}
+
+	if err = json.Unmarshal(b, &aux); err != nil {
+		return err
+	}
+
+	if consensusEPS, ok := aux.ConsensusEPS.(string); ok {
+		e.ConsensusEPS, err = strconv.ParseFloat(consensusEPS, 64)
 		if err != nil {
 			return err
 		}

@@ -10,8 +10,8 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/earnings
     method: GET
   response:
-    body: '{"symbol":"AAPL","earnings":[{"actualEPS":2.25,"consensusEPS":2.09,"announceTime":"CAM","numberOfEstimates":37,"EPSSurpriseDollar":0.09,"EPSReportDate":"2019-08-01","fiscalPeriod":"Q2
-      2019","fiscalEndDate":"2019-06-30","yearAgo":2.35,"yearAgoChangePercent":-0.0701}]}'
+    body: '{"symbol":"AAPL","earnings":[{"actualEPS":3.09,"consensusEPS":2.84,"announceTime":"CMA","numberOfEstimates":41,"EPSSurpriseDollar":0.2,"EPSReportDate":"2019-11-10","fiscalPeriod":"Q3
+      2019","fiscalEndDate":"2019-10-04","yearAgo":2.94,"yearAgoChangePercent":0.0414}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -24,7 +24,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 00:07:51 GMT
+      - Tue, 21 Jan 2020 06:20:35 GMT
       Iexcloud-Messages-Used:
       - "1000"
       Iexcloud-Premium-Messages-Used:
@@ -32,8 +32,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=da32759dba74447dbf287ccfc4dc1da2; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 12:07:51 GMT
+      - ctoken=ccd91452e94940dba75f3291bbf70ddc; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:20:35 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -47,12 +47,12 @@ interactions:
     headers:
       User-Agent:
       - jonwho/goiex
-    url: https://sandbox.iexapis.com/stable/stock/aapl/earnings?last=2
+    url: https://sandbox.iexapis.com/stable/stock/aapl/earnings?last=2&period=annual
     method: GET
   response:
-    body: '{"symbol":"AAPL","earnings":[{"actualEPS":2.26,"consensusEPS":2.16,"announceTime":"CAM","numberOfEstimates":38,"EPSSurpriseDollar":0.09,"EPSReportDate":"2019-08-01","fiscalPeriod":"Q2
-      2019","fiscalEndDate":"2019-07-09","yearAgo":2.38,"yearAgoChangePercent":-0.0706},{"actualEPS":2.57,"consensusEPS":2.46,"announceTime":"AMC","numberOfEstimates":34,"EPSSurpriseDollar":0.1,"EPSReportDate":"2019-05-15","fiscalPeriod":"Q1
-      2019","fiscalEndDate":"2019-04-08","yearAgo":2.75,"yearAgoChangePercent":-0.101}]}'
+    body: '{"symbol":"AAPL","earnings":[{"actualEPS":11.98,"consensusEPS":11.76,"announceTime":"AMC","numberOfEstimates":42,"EPSSurpriseDollar":0.21,"EPSReportDate":"2019-11-13","fiscalPeriod":"FY
+      ending in 2019","fiscalEndDate":"2019-10-11","yearAgo":12.2,"yearAgoChangePercent":-0.0018},{"actualEPS":12.33,"announceTime":"CMA","EPSReportDate":"2018-11-03","fiscalPeriod":"FY
+      ending in 2018","fiscalEndDate":"2018-10-05","yearAgo":9.27,"yearAgoChangePercent":0.3054}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -65,7 +65,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 00:07:51 GMT
+      - Tue, 21 Jan 2020 06:20:35 GMT
       Iexcloud-Messages-Used:
       - "2000"
       Iexcloud-Premium-Messages-Used:
@@ -73,8 +73,49 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=a302ffaf5e114703a4c067a340a30a62; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 12:07:51 GMT
+      - ctoken=5991177890de4b2dabe59afcc15ae65f; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:20:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/earnings?last=2&period=quarter
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","earnings":[{"actualEPS":3.09,"consensusEPS":2.92,"announceTime":"AMC","numberOfEstimates":40,"EPSSurpriseDollar":0.2,"EPSReportDate":"2019-11-09","fiscalPeriod":"Q3
+      2019","fiscalEndDate":"2019-10-06","yearAgo":2.96,"yearAgoChangePercent":0.0414},{"actualEPS":2.19,"consensusEPS":2.19,"announceTime":"MCA","numberOfEstimates":39,"EPSSurpriseDollar":0.09,"EPSReportDate":"2019-08-03","fiscalPeriod":"Q2
+      2019","fiscalEndDate":"2019-06-30","yearAgo":2.39,"yearAgoChangePercent":-0.0715}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Jan 2020 06:20:35 GMT
+      Iexcloud-Messages-Used:
+      - "2000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=df2dd50cb3c841aab93e852cd9128d36; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:20:35 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

@@ -10,7 +10,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/income
     method: GET
   response:
-    body: '{"symbol":"AAPL","income":[{"reportDate":"2019-07-13","totalRevenue":54088122843,"costOfRevenue":34376281591,"grossProfit":20859884198,"researchAndDevelopment":4457193834,"sellingGeneralAndAdmin":4633328500,"operatingExpense":43243776279,"operatingIncome":11740757400,"otherIncomeExpenseNet":437125865,"ebit":11536591781,"interestIncome":888269417,"pretaxIncome":12048752564,"incomeTax":1953053874,"minorityInterest":0,"netIncome":10134942500,"netIncomeBasic":10447924121}]}'
+    body: '{"symbol":"AAPL","income":[{"reportDate":"2019-10-07","totalRevenue":66556505318,"costOfRevenue":39846594197,"grossProfit":25227015574,"researchAndDevelopment":4215525110,"sellingGeneralAndAdmin":4787520367,"operatingExpense":48795394262,"operatingIncome":15715838631,"otherIncomeExpenseNet":654985452,"ebit":16188374914,"interestIncome":829829905,"pretaxIncome":16215870522,"incomeTax":2539177883,"minorityInterest":0,"netIncome":13785137828,"netIncomeBasic":13929382367}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -23,7 +23,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 11:37:18 GMT
+      - Tue, 21 Jan 2020 06:28:35 GMT
       Iexcloud-Messages-Used:
       - "1000"
       Iexcloud-Premium-Messages-Used:
@@ -31,8 +31,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=3ab6c788ea9d4d33bc69f14961b037e7; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 23:37:18 GMT
+      - ctoken=15c1007e780f447ea86f69b3f802e263; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:28:35 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -49,7 +49,7 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/income?last=2&period=annual
     method: GET
   response:
-    body: '{"symbol":"AAPL","income":[{"reportDate":"2018-10-13","totalRevenue":278479856548,"costOfRevenue":167343311399,"grossProfit":101995705362,"researchAndDevelopment":14683093480,"sellingGeneralAndAdmin":17241614306,"operatingExpense":204242880585,"operatingIncome":72255749879,"otherIncomeExpenseNet":1866916395,"ebit":73498071187,"interestIncome":3283118900,"pretaxIncome":76460224995,"incomeTax":13417717160,"minorityInterest":0,"netIncome":61589433315,"netIncomeBasic":60912905660},{"reportDate":"2017-10-12","totalRevenue":232464284374,"costOfRevenue":146899856953,"grossProfit":87916013140,"researchAndDevelopment":11958604482,"sellingGeneralAndAdmin":15395724799,"operatingExpense":168774060034,"operatingIncome":62931615000,"otherIncomeExpenseNet":4109417592,"ebit":61648678342,"interestIncome":2336232569,"pretaxIncome":66707249574,"incomeTax":15849187833,"minorityInterest":0,"netIncome":49319487262,"netIncomeBasic":50683980564}]}'
+    body: '{"symbol":"AAPL","income":[{"reportDate":"2019-10-14","totalRevenue":265735449361,"costOfRevenue":165131656685,"grossProfit":102230308371,"researchAndDevelopment":16575949894,"sellingGeneralAndAdmin":18605545804,"operatingExpense":202442180589,"operatingIncome":65656155203,"otherIncomeExpenseNet":2541439191,"ebit":64495502242,"interestIncome":3692198034,"pretaxIncome":66661721625,"incomeTax":10535965949,"minorityInterest":0,"netIncome":57743462919,"netIncomeBasic":57979494405},{"reportDate":"2018-10-06","totalRevenue":269545660696,"costOfRevenue":165780544758,"grossProfit":102986122618,"researchAndDevelopment":14389618042,"sellingGeneralAndAdmin":17388510441,"operatingExpense":200061540232,"operatingIncome":71177425457,"otherIncomeExpenseNet":1948580109,"ebit":73453447121,"interestIncome":3305173949,"pretaxIncome":74023912578,"incomeTax":13657649682,"minorityInterest":0,"netIncome":59707447708,"netIncomeBasic":60675280144}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -62,7 +62,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 11:37:18 GMT
+      - Tue, 21 Jan 2020 06:28:35 GMT
       Iexcloud-Messages-Used:
       - "2000"
       Iexcloud-Premium-Messages-Used:
@@ -70,8 +70,47 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=0218951ae65448b19093b611c57cca1e; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 23:37:18 GMT
+      - ctoken=ee903b155e51436897b73bba3a37245a; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:28:35 GMT
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+    status: 200 OK
+    code: 200
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      User-Agent:
+      - jonwho/goiex
+    url: https://sandbox.iexapis.com/stable/stock/aapl/income?last=2&period=quarter
+    method: GET
+  response:
+    body: '{"symbol":"AAPL","income":[{"reportDate":"2019-10-01","totalRevenue":66144107690,"costOfRevenue":40690030898,"grossProfit":25186007862,"researchAndDevelopment":4267869833,"sellingGeneralAndAdmin":4718295128,"operatingExpense":50511096840,"operatingIncome":16171330261,"otherIncomeExpenseNet":662829081,"ebit":15922226514,"interestIncome":845200911,"pretaxIncome":16426094073,"incomeTax":2462538344,"minorityInterest":0,"netIncome":13752169596,"netIncomeBasic":14056284210},{"reportDate":"2019-07-08","totalRevenue":55842613202,"costOfRevenue":34776934855,"grossProfit":20440054150,"researchAndDevelopment":4259825413,"sellingGeneralAndAdmin":4428400085,"operatingExpense":42933707281,"operatingIncome":11582780676,"otherIncomeExpenseNet":429176115,"ebit":11581769826,"interestIncome":878471924,"pretaxIncome":12015942599,"incomeTax":1884750451,"minorityInterest":0,"netIncome":10531522298,"netIncomeBasic":10197463169}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Jan 2020 06:28:35 GMT
+      Iexcloud-Messages-Used:
+      - "2000"
+      Iexcloud-Premium-Messages-Used:
+      - "0"
+      Server:
+      - nginx
+      Set-Cookie:
+      - ctoken=7da3894a75f84616bf1ad0a2b8e1f6bc; Max-Age=43200; Path=/; Expires=Tue,
+        21 Jan 2020 18:28:35 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
