@@ -399,9 +399,27 @@ func TestCollection(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	col, err := cli.Collection("sector", struct {
-		CollectionName string `url:"collectionName,omitempty"`
-	}{"Technology"})
+	col, err := cli.Collection(CollectionSector, &CollectionQueryParams{"Technology"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(col) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	col, err = cli.Collection(CollectionTag, &CollectionQueryParams{"Airlines"})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = false
+	actual = len(col) == 0
+	if actual.(bool) {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	col, err = cli.Collection(CollectionList, &CollectionQueryParams{"mostactive"})
 	if err != nil {
 		t.Error(err)
 	}

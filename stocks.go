@@ -461,6 +461,23 @@ type Chart struct {
 	ChangeOverTime float64 `json:"changeOverTime"`
 }
 
+// CollectionType for Collection API
+type CollectionType int
+
+const (
+	// CollectionSector for sectors
+	CollectionSector CollectionType = iota
+	// CollectionTag for tags
+	CollectionTag
+	// CollectionList for lists
+	CollectionList
+)
+
+// CollectionQueryParams required/optional query parameters
+type CollectionQueryParams struct {
+	CollectionName string `url:"collectionName"`
+}
+
 // Collection struct
 type Collection []struct {
 	Quote
@@ -1104,7 +1121,7 @@ func (s *Stock) Chart(symbol string, chartRange ChartRange, params *ChartQueryPa
 }
 
 // Collection GET /stock/market/collection/{collectionType}?collectionName=
-func (s *Stock) Collection(collectionType string, params interface{}) (col Collection, err error) {
+func (s *Stock) Collection(collectionType CollectionType, params *CollectionQueryParams) (col Collection, err error) {
 	endpoint := fmt.Sprintf("market/collection/%s", collectionType)
 	err = get(s, &col, endpoint, params)
 	return
@@ -1602,4 +1619,12 @@ func (pqp PeriodQueryParameter) String() string {
 		"annual",
 		"quarter",
 	}[pqp]
+}
+
+func (ct CollectionType) String() string {
+	return [...]string{
+		"sector",
+		"tag",
+		"list",
+	}[ct]
 }
