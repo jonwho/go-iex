@@ -11,7 +11,7 @@ import (
 
 func main() {
 	token := os.Getenv("IEX_SECRET_TOKEN")
-	// client will have all currently supported IEX APIs
+	// client will have all currently supported IEX APIs implemented by go-iex
 	client, err := iex.NewClient(token)
 	if err != nil {
 		log.Fatalln(err)
@@ -43,13 +43,17 @@ func main() {
 	anonstruct := &struct {
 		Symbol string `json:"symbol,omitempty"`
 	}{}
-	err = client.Get("stock/aapl/quote", anonstruct, nil)
+	// query parameters are supported by `https://github.com/google/go-querystring`
+	queryParams := &struct {
+		DisplayPercent bool `url:"displayPercent,omitempty"`
+	}{true}
+	err = client.Get("stock/aapl/quote", anonstruct, queryParams)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	fmt.Println("Symbol", anonstruct.Symbol)
 
-	// use params structs
+	// some functions have defined parameters for path or query parameters
 	charts, err := stock.Chart("aapl", iex.ChartRangeOneMonth, &iex.ChartQueryParams{ChartCloseOnly: true})
 	if err != nil {
 		log.Fatalln(err)
