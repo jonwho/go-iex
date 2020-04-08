@@ -707,9 +707,9 @@ type IntradayPrices []struct {
 	Date                 string  `json:"date"`
 	Minute               string  `json:"minute"`
 	Label                string  `json:"label"`
-	MarktOpen            float64 `json:"marktOpen"`
+	MarketOpen           float64 `json:"marketOpen"`
 	MarketClose          float64 `json:"marketClose"`
-	MarktHigh            float64 `json:"marktHigh"`
+	MarketHigh           float64 `json:"marketHigh"`
 	MarketLow            float64 `json:"marketLow"`
 	MarketAverage        float64 `json:"marketAverage"`
 	MarketVolume         int     `json:"marketVolume"`
