@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"time"
 )
 
 // IndicatorName for TechnicalIndicator API
@@ -318,6 +319,12 @@ const (
 // Stock struct to interface with /stock endpoints
 type Stock struct {
 	iex
+
+	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
+	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
+	RetryAttempts int           // Maximum number of HTTP request retries
+	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
+	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
 // AdvancedStat struct
@@ -1084,7 +1091,13 @@ func NewStock(token, version string, base *url.URL, httpClient *http.Client) *St
 		panic(err)
 	}
 	return &Stock{
-		iex{
+		RetryWaitMin:  defaultRetryWaitMin,
+		RetryWaitMax:  defaultRetryWaitMax,
+		RetryAttempts: defaultRetryAttempts,
+		RetryPolicy:   DefaultRetryPolicy,
+		Backoff:       DefaultBackoff,
+
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -1117,6 +1130,48 @@ func (s *Stock) APIURL() *url.URL {
 // Client return HTTP client
 func (s *Stock) Client() *http.Client {
 	return s.client
+}
+
+func (s *Stock) Do(req *Request) (*http.Response, error) {
+	for i := 0; i < s.RetryAttempts; i++ {
+		// Rewind the request body
+		if req.body != nil {
+			if _, err := req.body.Seek(0, 0); err != nil {
+				return nil, fmt.Errorf("failed to seek body: %v", err)
+			}
+		}
+
+		// Attempt request
+		resp, err := s.iex.client.Do(req.Request)
+
+		// No RetryPolicy policy set so return right away
+		if s.RetryPolicy == nil {
+			return resp, err
+		}
+
+		// Check for retry
+		checkOK, checkErr := s.RetryPolicy(resp, err)
+		if !checkOK {
+			if checkErr != nil {
+				err = checkErr
+			}
+			return resp, err
+		}
+
+		// Perform retry
+		if err == nil {
+			drainBody(resp.Body)
+		}
+
+		remain := s.RetryAttempts - i
+		if remain == 0 {
+			break
+		}
+		wait := s.Backoff(s.RetryWaitMin, s.RetryWaitMax, i, resp)
+		time.Sleep(wait)
+	}
+
+	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, s.RetryAttempts+1)
 }
 
 // AdvancedStats GET /stock/{symbol}/advanced-stats

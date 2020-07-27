@@ -1,13 +1,21 @@
 package goiex
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 // APISystemMetadata struct to interface with / endpoints
 type APISystemMetadata struct {
 	iex
+
+	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
+	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
+	RetryAttempts int           // Maximum number of HTTP request retries
+	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
+	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
 // Status struct
@@ -24,7 +32,13 @@ func NewAPISystemMetadata(token, version string, base *url.URL, httpClient *http
 		panic(err)
 	}
 	return &APISystemMetadata{
-		iex{
+		RetryWaitMin:  defaultRetryWaitMin,
+		RetryWaitMax:  defaultRetryWaitMax,
+		RetryAttempts: defaultRetryAttempts,
+		RetryPolicy:   DefaultRetryPolicy,
+		Backoff:       DefaultBackoff,
+
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -57,6 +71,48 @@ func (a *APISystemMetadata) APIURL() *url.URL {
 // Client return HTTP client
 func (a *APISystemMetadata) Client() *http.Client {
 	return a.client
+}
+
+func (a *APISystemMetadata) Do(req *Request) (*http.Response, error) {
+	for i := 0; i < a.RetryAttempts; i++ {
+		// Rewind the request body
+		if req.body != nil {
+			if _, err := req.body.Seek(0, 0); err != nil {
+				return nil, fmt.Errorf("failed to seek body: %v", err)
+			}
+		}
+
+		// Attempt request
+		resp, err := a.iex.client.Do(req.Request)
+
+		// No RetryPolicy policy set so return right away
+		if a.RetryPolicy == nil {
+			return resp, err
+		}
+
+		// Check for retry
+		checkOK, checkErr := a.RetryPolicy(resp, err)
+		if !checkOK {
+			if checkErr != nil {
+				err = checkErr
+			}
+			return resp, err
+		}
+
+		// Perform retry
+		if err == nil {
+			drainBody(resp.Body)
+		}
+
+		remain := a.RetryAttempts - i
+		if remain == 0 {
+			break
+		}
+		wait := a.Backoff(a.RetryWaitMin, a.RetryWaitMax, i, resp)
+		time.Sleep(wait)
+	}
+
+	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, a.RetryAttempts+1)
 }
 
 // Status GET /status

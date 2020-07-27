@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -33,6 +34,11 @@ var (
 		},
 		Timeout: time.Duration(requestTimeout) * time.Second,
 	}
+
+	// Default retry configuration
+	defaultRetryWaitMin  = 1 * time.Second
+	defaultRetryWaitMax  = 30 * time.Second
+	defaultRetryAttempts = 4
 )
 
 type iex struct {
@@ -47,12 +53,20 @@ type iexapi interface {
 	Token() string
 	URL() *url.URL
 	Version() string
+	Do(*Request) (*http.Response, error)
 }
 
 // Client API struct to IEX
 type Client struct {
 	iex
 
+	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
+	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
+	RetryAttempts int           // Maximum number of HTTP request retries
+	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
+	Backoff       Backoff       // Defines wait time between HTTP request retries
+
+	// IEX Cloud APIs
 	*Account
 	*APISystemMetadata
 	*Commodities
@@ -70,7 +84,13 @@ type ClientOption func(*Client) error
 
 // NewClient creates client interface to IEX Cloud APIs
 func NewClient(token string, options ...ClientOption) (*Client, error) {
-	client := &Client{}
+	client := &Client{
+		RetryWaitMin:  defaultRetryWaitMin,
+		RetryWaitMax:  defaultRetryWaitMax,
+		RetryAttempts: defaultRetryAttempts,
+		RetryPolicy:   DefaultRetryPolicy,
+		Backoff:       DefaultBackoff,
+	}
 	SetAPIURL("")(client)
 	SetHTTPClient(DefaultHTTPClient)(client)
 	SetToken(token)(client)
@@ -119,7 +139,13 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 
 // NewSandboxClient creates sandbox client interface to IEX Cloud APIs
 func NewSandboxClient(token string, options ...ClientOption) (*Client, error) {
-	client := &Client{}
+	client := &Client{
+		RetryWaitMin:  defaultRetryWaitMin,
+		RetryWaitMax:  defaultRetryWaitMax,
+		RetryAttempts: defaultRetryAttempts,
+		RetryPolicy:   DefaultRetryPolicy,
+		Backoff:       DefaultBackoff,
+	}
 	SetAPIURL("")(client)
 	SetHTTPClient(DefaultHTTPClient)(client)
 	SetToken(token)(client)
@@ -196,6 +222,14 @@ func (c *Client) Client() *http.Client {
 func SetToken(token string) ClientOption {
 	return func(c *Client) error {
 		c.iex.token = token
+		return nil
+	}
+}
+
+// SetRetryPolicy set the retry policy for HTTP requests
+func SetRetryPolicy(retryPolicy RetryPolicy) ClientOption {
+	return func(c *Client) error {
+		c.RetryPolicy = retryPolicy
 		return nil
 	}
 }
@@ -332,10 +366,60 @@ func (c *Client) Post(endpoint string, response interface{}, params map[string]i
 	return post(c, response, endpoint, params)
 }
 
+// Do wraps http.Client's Do method with retries on custom Request struct
+func (c *Client) Do(req *Request) (*http.Response, error) {
+	for i := 0; i < c.RetryAttempts; i++ {
+		// Rewind the request body
+		if req.body != nil {
+			if _, err := req.body.Seek(0, 0); err != nil {
+				return nil, fmt.Errorf("failed to seek body: %v", err)
+			}
+		}
+
+		// Attempt request
+		resp, err := c.iex.client.Do(req.Request)
+
+		// No RetryPolicy policy set so return right away
+		if c.RetryPolicy == nil {
+			return resp, err
+		}
+
+		// Check for retry
+		checkOK, checkErr := c.RetryPolicy(resp, err)
+		if !checkOK {
+			if checkErr != nil {
+				err = checkErr
+			}
+			return resp, err
+		}
+
+		// Perform retry
+		if err == nil {
+			drainBody(resp.Body)
+		}
+
+		remain := c.RetryAttempts - i
+		if remain == 0 {
+			break
+		}
+		wait := c.Backoff(c.RetryWaitMin, c.RetryWaitMax, i, resp)
+		time.Sleep(wait)
+	}
+
+	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, c.RetryAttempts+1)
+}
+
+func drainBody(body io.ReadCloser) {
+	defer body.Close()
+	// limit read to 1 million bytes
+	var respReadLimit int64 = 1000000
+	io.Copy(ioutil.Discard, io.LimitReader(body, respReadLimit))
+}
+
 func get(api iexapi, response interface{}, endpoint string, params interface{}) error {
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
-	req, err := http.NewRequest(http.MethodGet, iexurl.String(), nil)
+	req, err := NewRequest(http.MethodGet, iexurl.String(), nil)
 	if err != nil {
 		return err
 	}
@@ -350,7 +434,8 @@ func get(api iexapi, response interface{}, endpoint string, params interface{}) 
 	rawQuery := fmt.Sprintf("%s&%s", q.Encode(), moreq.Encode())
 	req.URL.RawQuery = rawQuery
 
-	resp, err := api.Client().Do(req)
+	// resp, err := api.Client().Do(req)
+	resp, err := api.Do(req)
 	if err != nil {
 		return err
 	}
