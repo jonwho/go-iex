@@ -60,6 +60,49 @@ func TestNewClient(t *testing.T) {
 	}
 }
 
+func TestNewSandboxClient(t *testing.T) {
+	token := "test_token"
+	cli, err := NewSandboxClient(token)
+	if err != nil {
+		t.Error(err)
+	}
+
+	if cli.URL().String() != "https://sandbox.iexapis.com/" {
+		t.Error("URL should be https://sandbox.iexapis.com/")
+	}
+
+	if cli.Account == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.APISystemMetadata == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.Commodities == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.Cryptocurrency == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.DataAPI == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.EconomicData == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.Forex == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.InvestorsExchangeData == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.ReferenceData == nil {
+		t.Error("Should have a default value")
+	}
+	if cli.Stock == nil {
+		t.Error("Should have a default value")
+	}
+}
+
 func TestGet(t *testing.T) {
 	rec, err := recorder.New("cassettes/misc/client_get")
 	if err != nil {

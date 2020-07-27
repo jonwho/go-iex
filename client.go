@@ -117,6 +117,56 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 	return client, nil
 }
 
+// NewSandboxClient creates sandbox client interface to IEX Cloud APIs
+func NewSandboxClient(token string, options ...ClientOption) (*Client, error) {
+	client := &Client{}
+	SetAPIURL("")(client)
+	SetHTTPClient(DefaultHTTPClient)(client)
+	SetToken(token)(client)
+	SetURL(SandboxBaseURL)(client)
+	SetVersion(DefaultVersion)(client)
+
+	for _, option := range options {
+		err := option(client)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	if client.Account == nil {
+		SetAccount(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.APISystemMetadata == nil {
+		SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Commodities == nil {
+		SetCommodities(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Cryptocurrency == nil {
+		SetCryptocurrency(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.DataAPI == nil {
+		SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.EconomicData == nil {
+		SetEconomicData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Forex == nil {
+		SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.InvestorsExchangeData == nil {
+		SetInvestorsExchangeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.ReferenceData == nil {
+		SetReferenceData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	if client.Stock == nil {
+		SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+	}
+	return client, nil
+
+}
+
 // Token return token string
 func (c *Client) Token() string {
 	return c.iex.token
