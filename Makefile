@@ -2,7 +2,7 @@ GOCMD=go
 GOTEST=$(GOCMD) test
 GORUN=$(GOCMD) run
 GOTOOL=$(GOCMD) tool
-GOPHERBADGER=$(HOME)/go/bin/gopherbadger
+GOPHERBADGER=$(shell go env GOPATH)/bin/gopherbadger
 
 all: test coverage
 
