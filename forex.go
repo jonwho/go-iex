@@ -61,13 +61,18 @@ type ExchangeRates struct {
 }
 
 // NewForex return new Forex
-func NewForex(token, version string, base *url.URL, httpClient *http.Client) *Forex {
+func NewForex(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Forex {
 	apiurl, err := url.Parse("fx/")
 	if err != nil {
 		panic(err)
 	}
-	return &Forex{
-		iex{
+	forex := &Forex{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -75,6 +80,15 @@ func NewForex(token, version string, base *url.URL, httpClient *http.Client) *Fo
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&forex.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return forex
 }
 
 // Token return token string
@@ -100,6 +114,11 @@ func (f *Forex) APIURL() *url.URL {
 // Client return HTTP client
 func (f *Forex) Client() *http.Client {
 	return f.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (f *Forex) Retry() *Retry {
+	return f.iex.Retry
 }
 
 // LatestCurrencyRates GET /fx/latest?{params}

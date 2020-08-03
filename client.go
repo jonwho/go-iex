@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"time"
 
 	"github.com/google/go-querystring/query"
 )
@@ -20,39 +20,13 @@ const (
 	DefaultBaseURL string = "https://cloud.iexapis.com/"
 	// DefaultVersion default IEX API version
 	DefaultVersion string = "stable"
-
-	maxIdleConnections int = 10
-	requestTimeout     int = 5
 )
-
-var (
-	// DefaultHTTPClient default HTTP client to use
-	DefaultHTTPClient = &http.Client{
-		Transport: &http.Transport{
-			MaxIdleConnsPerHost: maxIdleConnections,
-		},
-		Timeout: time.Duration(requestTimeout) * time.Second,
-	}
-)
-
-type iex struct {
-	token, version string
-	url, apiurl    *url.URL
-	client         *http.Client
-}
-
-type iexapi interface {
-	APIURL() *url.URL
-	Client() *http.Client
-	Token() string
-	URL() *url.URL
-	Version() string
-}
 
 // Client API struct to IEX
 type Client struct {
 	iex
 
+	// IEX Cloud APIs
 	*Account
 	*APISystemMetadata
 	*Commodities
@@ -72,7 +46,7 @@ type ClientOption func(*Client) error
 func NewClient(token string, options ...ClientOption) (*Client, error) {
 	client := &Client{}
 	SetAPIURL("")(client)
-	SetHTTPClient(DefaultHTTPClient)(client)
+	SetHTTPClient(http.DefaultClient)(client)
 	SetToken(token)(client)
 	SetURL(DefaultBaseURL)(client)
 	SetVersion(DefaultVersion)(client)
@@ -121,7 +95,7 @@ func NewClient(token string, options ...ClientOption) (*Client, error) {
 func NewSandboxClient(token string, options ...ClientOption) (*Client, error) {
 	client := &Client{}
 	SetAPIURL("")(client)
-	SetHTTPClient(DefaultHTTPClient)(client)
+	SetHTTPClient(http.DefaultClient)(client)
 	SetToken(token)(client)
 	SetURL(SandboxBaseURL)(client)
 	SetVersion(DefaultVersion)(client)
@@ -164,7 +138,6 @@ func NewSandboxClient(token string, options ...ClientOption) (*Client, error) {
 		SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
 	}
 	return client, nil
-
 }
 
 // Token return token string
@@ -192,10 +165,35 @@ func (c *Client) Client() *http.Client {
 	return c.iex.client
 }
 
+// Retry return Retry struct that implements Retryer
+func (c *Client) Retry() *Retry {
+	return c.iex.Retry
+}
+
 // SetToken assigns secret token
 func SetToken(token string) ClientOption {
 	return func(c *Client) error {
 		c.iex.token = token
+		return nil
+	}
+}
+
+// SetClientRetry enables HTTP request retries with default Retry or
+// first Retry parameter given method ignores all other Retry in variadic param
+func SetClientRetry(retries ...*Retry) ClientOption {
+	return func(c *Client) error {
+		var retry *Retry
+		var err error
+		if len(retries) > 0 {
+			retry = retries[0]
+		}
+		if retry == nil {
+			retry, err = NewRetry(c.iex.client)
+			if err != nil {
+				return err
+			}
+		}
+		c.iex.Retry = retry
 		return nil
 	}
 }
@@ -245,7 +243,13 @@ func SetVersion(version string) ClientOption {
 // SetAccount set new Account
 func SetAccount(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.Account = NewAccount(token, version, url, httpClient)
+		var account *Account
+		if c.iex.Retry != nil {
+			account = NewAccount(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			account = NewAccount(token, version, url, httpClient)
+		}
+		c.Account = account
 		return nil
 	}
 }
@@ -253,7 +257,13 @@ func SetAccount(token, version string, url *url.URL, httpClient *http.Client) Cl
 // SetAPISystemMetadata set new APISystemMetadata
 func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.APISystemMetadata = NewAPISystemMetadata(token, version, url, httpClient)
+		var asm *APISystemMetadata
+		if c.iex.Retry != nil {
+			asm = NewAPISystemMetadata(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			asm = NewAPISystemMetadata(token, version, url, httpClient)
+		}
+		c.APISystemMetadata = asm
 		return nil
 	}
 }
@@ -261,7 +271,13 @@ func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.
 // SetCommodities set new Commodities
 func SetCommodities(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.Commodities = NewCommodities(token, version, url, httpClient)
+		var comm *Commodities
+		if c.iex.Retry != nil {
+			comm = NewCommodities(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			comm = NewCommodities(token, version, url, httpClient)
+		}
+		c.Commodities = comm
 		return nil
 	}
 }
@@ -269,7 +285,13 @@ func SetCommodities(token, version string, url *url.URL, httpClient *http.Client
 // SetCryptocurrency set new Cryptocurrency
 func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.Cryptocurrency = NewCryptocurrency(token, version, url, httpClient)
+		var crypto *Cryptocurrency
+		if c.iex.Retry != nil {
+			crypto = NewCryptocurrency(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			crypto = NewCryptocurrency(token, version, url, httpClient)
+		}
+		c.Cryptocurrency = crypto
 		return nil
 	}
 }
@@ -277,7 +299,13 @@ func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Cli
 // SetDataAPI set new DataAPI
 func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.DataAPI = NewDataAPI(token, version, url, httpClient)
+		var dataapi *DataAPI
+		if c.iex.Retry != nil {
+			dataapi = NewDataAPI(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			dataapi = NewDataAPI(token, version, url, httpClient)
+		}
+		c.DataAPI = dataapi
 		return nil
 	}
 }
@@ -285,7 +313,13 @@ func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) Cl
 // SetEconomicData set new EconomicData
 func SetEconomicData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.EconomicData = NewEconomicData(token, version, url, httpClient)
+		var ed *EconomicData
+		if c.iex.Retry != nil {
+			ed = NewEconomicData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			ed = NewEconomicData(token, version, url, httpClient)
+		}
+		c.EconomicData = ed
 		return nil
 	}
 }
@@ -293,7 +327,13 @@ func SetEconomicData(token, version string, url *url.URL, httpClient *http.Clien
 // SetInvestorsExchangeData set new InvestorsExchangeData
 func SetInvestorsExchangeData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.InvestorsExchangeData = NewInvestorsExchangeData(token, version, url, httpClient)
+		var ied *InvestorsExchangeData
+		if c.iex.Retry != nil {
+			ied = NewInvestorsExchangeData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			ied = NewInvestorsExchangeData(token, version, url, httpClient)
+		}
+		c.InvestorsExchangeData = ied
 		return nil
 	}
 }
@@ -301,7 +341,13 @@ func SetInvestorsExchangeData(token, version string, url *url.URL, httpClient *h
 // SetReferenceData set new ReferenceData
 func SetReferenceData(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.ReferenceData = NewReferenceData(token, version, url, httpClient)
+		var rd *ReferenceData
+		if c.iex.Retry != nil {
+			rd = NewReferenceData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			rd = NewReferenceData(token, version, url, httpClient)
+		}
+		c.ReferenceData = rd
 		return nil
 	}
 }
@@ -309,7 +355,13 @@ func SetReferenceData(token, version string, url *url.URL, httpClient *http.Clie
 // SetStock set new Stock
 func SetStock(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.Stock = NewStock(token, version, url, httpClient)
+		var stock *Stock
+		if c.iex.Retry != nil {
+			stock = NewStock(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			stock = NewStock(token, version, url, httpClient)
+		}
+		c.Stock = stock
 		return nil
 	}
 }
@@ -317,7 +369,13 @@ func SetStock(token, version string, url *url.URL, httpClient *http.Client) Clie
 // SetForex set new Forex
 func SetForex(token, version string, url *url.URL, httpClient *http.Client) ClientOption {
 	return func(c *Client) error {
-		c.Forex = NewForex(token, version, url, httpClient)
+		var forex *Forex
+		if c.iex.Retry != nil {
+			forex = NewForex(token, version, url, httpClient, SetRetry(c.iex.Retry))
+		} else {
+			forex = NewForex(token, version, url, httpClient)
+		}
+		c.Forex = forex
 		return nil
 	}
 }
@@ -332,10 +390,18 @@ func (c *Client) Post(endpoint string, response interface{}, params map[string]i
 	return post(c, response, endpoint, params)
 }
 
+func drainBody(body io.ReadCloser) {
+	defer body.Close()
+	// limit read to 1 million bytes
+	var respReadLimit int64 = 1000000
+	io.Copy(ioutil.Discard, io.LimitReader(body, respReadLimit))
+}
+
 func get(api iexapi, response interface{}, endpoint string, params interface{}) error {
+	// build HTTP request
 	relurl, _ := url.Parse(endpoint)
 	iexurl := baseURL(api).ResolveReference(relurl)
-	req, err := http.NewRequest(http.MethodGet, iexurl.String(), nil)
+	req, err := NewRequest(http.MethodGet, iexurl.String(), nil)
 	if err != nil {
 		return err
 	}
@@ -350,12 +416,21 @@ func get(api iexapi, response interface{}, endpoint string, params interface{}) 
 	rawQuery := fmt.Sprintf("%s&%s", q.Encode(), moreq.Encode())
 	req.URL.RawQuery = rawQuery
 
-	resp, err := api.Client().Do(req)
+	// execute HTTP request
+	var resp *http.Response
+	if api.Retry() == nil {
+		// request without retry
+		resp, err = api.Client().Do(req.Request)
+	} else {
+		// request with retry
+		resp, err = api.Retry().Do(req)
+	}
 	if err != nil {
 		return err
 	}
 	defer resp.Body.Close()
 
+	// build response
 	if resp.StatusCode != http.StatusOK {
 		respBody, _ := ioutil.ReadAll(resp.Body)
 		return fmt.Errorf("%v: %v", resp.Status, string(respBody))

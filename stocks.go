@@ -1078,13 +1078,19 @@ type VolumeByVenue []struct {
 }
 
 // NewStock return new Stock
-func NewStock(token, version string, base *url.URL, httpClient *http.Client) *Stock {
+func NewStock(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Stock {
 	apiurl, err := url.Parse("stock/")
 	if err != nil {
 		panic(err)
 	}
-	return &Stock{
-		iex{
+
+	stock := &Stock{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -1092,6 +1098,15 @@ func NewStock(token, version string, base *url.URL, httpClient *http.Client) *St
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&stock.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return stock
 }
 
 // Token return token string
@@ -1117,6 +1132,11 @@ func (s *Stock) APIURL() *url.URL {
 // Client return HTTP client
 func (s *Stock) Client() *http.Client {
 	return s.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (s *Stock) Retry() *Retry {
+	return s.iex.Retry
 }
 
 // AdvancedStats GET /stock/{symbol}/advanced-stats

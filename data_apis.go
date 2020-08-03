@@ -20,13 +20,18 @@ type DataPoint struct {
 }
 
 // NewDataAPI return new DataAPI
-func NewDataAPI(token, version string, base *url.URL, httpClient *http.Client) *DataAPI {
+func NewDataAPI(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *DataAPI {
 	apiurl, err := url.Parse("")
 	if err != nil {
 		panic(err)
 	}
-	return &DataAPI{
-		iex{
+	da := &DataAPI{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -34,6 +39,15 @@ func NewDataAPI(token, version string, base *url.URL, httpClient *http.Client) *
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&da.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return da
 }
 
 // Token return token string
@@ -59,6 +73,11 @@ func (d *DataAPI) APIURL() *url.URL {
 // Client return HTTP client
 func (d *DataAPI) Client() *http.Client {
 	return d.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (d *DataAPI) Retry() *Retry {
+	return d.iex.Retry
 }
 
 // DataPoints GET /data-points/{symbol}

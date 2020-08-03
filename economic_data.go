@@ -11,14 +11,19 @@ type EconomicData struct {
 }
 
 // NewEconomicData return new EconomicData
-func NewEconomicData(token, version string, base *url.URL, httpClient *http.Client) *EconomicData {
+func NewEconomicData(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *EconomicData {
 	apiurl, err := url.Parse("data-points/")
 	if err != nil {
 		panic(err)
 	}
 
-	return &EconomicData{
-		iex{
+	ed := &EconomicData{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -26,6 +31,15 @@ func NewEconomicData(token, version string, base *url.URL, httpClient *http.Clie
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&ed.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return ed
 }
 
 // APIURL return APIURL
@@ -51,6 +65,11 @@ func (ed *EconomicData) URL() *url.URL {
 // Version return version string
 func (ed *EconomicData) Version() string {
 	return ed.version
+}
+
+// Retry return Retry struct that implements Retryer
+func (ed *EconomicData) Retry() *Retry {
+	return ed.iex.Retry
 }
 
 // EconomicPrices GET /data-points/market/{symbol}

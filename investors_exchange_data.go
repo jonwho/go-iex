@@ -129,13 +129,19 @@ type DEEP struct {
 }
 
 // NewInvestorsExchangeData return new InvestorsExchangeData
-func NewInvestorsExchangeData(token, version string, base *url.URL, httpClient *http.Client) *InvestorsExchangeData {
+func NewInvestorsExchangeData(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *InvestorsExchangeData {
 	apiurl, err := url.Parse("")
 	if err != nil {
 		panic(err)
 	}
-	return &InvestorsExchangeData{
-		iex{
+
+	ied := &InvestorsExchangeData{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -143,6 +149,15 @@ func NewInvestorsExchangeData(token, version string, base *url.URL, httpClient *
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&ied.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return ied
 }
 
 // Token return token string
@@ -168,6 +183,11 @@ func (ied *InvestorsExchangeData) APIURL() *url.URL {
 // Client return HTTP client
 func (ied *InvestorsExchangeData) Client() *http.Client {
 	return ied.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (ied *InvestorsExchangeData) Retry() *Retry {
+	return ied.iex.Retry
 }
 
 // TOPS GET /tops?{params}

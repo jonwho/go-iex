@@ -2,7 +2,7 @@ GOCMD=go
 GOTEST=$(GOCMD) test
 GORUN=$(GOCMD) run
 GOTOOL=$(GOCMD) tool
-GOPHERBADGER=$(HOME)/go/bin/gopherbadger
+GOPHERBADGER=$(shell go env GOPATH)/bin/gopherbadger
 
 all: test coverage
 
@@ -21,6 +21,10 @@ funcoverage:
 .PHONY: example
 example:
 	$(GORUN) examples/main.go -mod=vendor
+
+.PHONY: example-rate-limit
+example-rate-limit:
+	$(GORUN) examples/ratelimit/main.go -mod=vendor
 
 .PHONY: noutpsse
 noutpsse:

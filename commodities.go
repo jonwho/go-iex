@@ -11,14 +11,19 @@ type Commodities struct {
 }
 
 // NewCommodities return new Commodities
-func NewCommodities(token, version string, base *url.URL, httpClient *http.Client) *Commodities {
+func NewCommodities(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Commodities {
 	apiurl, err := url.Parse("data-points/")
 	if err != nil {
 		panic(err)
 	}
 
-	return &Commodities{
-		iex{
+	comm := &Commodities{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -26,6 +31,15 @@ func NewCommodities(token, version string, base *url.URL, httpClient *http.Clien
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&comm.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return comm
 }
 
 // APIURL return APIURL
@@ -51,6 +65,11 @@ func (c *Commodities) URL() *url.URL {
 // Version return version string
 func (c *Commodities) Version() string {
 	return c.version
+}
+
+// Retry return Retry struct that implements Retryer
+func (c *Commodities) Retry() *Retry {
+	return c.iex.Retry
 }
 
 // CommoditiesPrices GET /data-points/market/{symbol}

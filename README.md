@@ -4,7 +4,7 @@
 [![releases](https://img.shields.io/github/release/jonwho/go-iex.svg)](https://github.com/jonwho/go-iex/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jonwho/go-iex)](https://goreportcard.com/report/github.com/jonwho/go-iex)
 ![](https://github.com/jonwho/go-iex/workflows/tests/badge.svg)
-<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-93%25-brightgreen.svg?longCache=true&style=flat)</a>
+<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-80%25-brightgreen.svg?longCache=true&style=flat)</a>
 
 ## ATTRIBUTION
 [Data provided by IEX](https://iexcloud.io)
@@ -29,7 +29,7 @@ export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
 ## DEV NOTES
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
 * Use `make test` to run test suite
-* Use `make coverage` to update `README.md` coverage badge
+* Use `make coverage` to update `README.md` coverage badge (install coverage tool first `go get github.com/jpoles1/gopherbadger`)
 
 ## USAGE
 See [examples/](examples/)

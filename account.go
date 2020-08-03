@@ -33,14 +33,14 @@ type Usage struct {
 }
 
 // NewAccount return new Account
-func NewAccount(token, version string, base *url.URL, httpClient *http.Client) *Account {
+func NewAccount(token, version string, base *url.URL, httpClient *http.Client, options ...IEXOption) *Account {
 	apiurl, err := url.Parse("account/")
 	if err != nil {
 		panic(err)
 	}
 
-	return &Account{
-		iex{
+	account := &Account{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -48,6 +48,15 @@ func NewAccount(token, version string, base *url.URL, httpClient *http.Client) *
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&account.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return account
 }
 
 // Token return token string
@@ -73,6 +82,10 @@ func (a *Account) APIURL() *url.URL {
 // Client return HTTP client
 func (a *Account) Client() *http.Client {
 	return a.client
+}
+
+func (a *Account) Retry() *Retry {
+	return a.iex.Retry
 }
 
 // Metadata GET /account/metadata

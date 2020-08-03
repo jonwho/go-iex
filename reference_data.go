@@ -117,13 +117,18 @@ type OptionsSymbols struct {
 }
 
 // NewReferenceData return new ReferenceData
-func NewReferenceData(token, version string, base *url.URL, httpClient *http.Client) *ReferenceData {
+func NewReferenceData(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *ReferenceData {
 	apiurl, err := url.Parse("ref-data/")
 	if err != nil {
 		panic(err)
 	}
-	return &ReferenceData{
-		iex{
+	rd := &ReferenceData{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -131,6 +136,15 @@ func NewReferenceData(token, version string, base *url.URL, httpClient *http.Cli
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&rd.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return rd
 }
 
 // Token return token string
@@ -156,6 +170,11 @@ func (rd *ReferenceData) APIURL() *url.URL {
 // Client return HTTP client
 func (rd *ReferenceData) Client() *http.Client {
 	return rd.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (rd *ReferenceData) Retry() *Retry {
+	return rd.iex.Retry
 }
 
 // Symbols GET /ref-data/symbols

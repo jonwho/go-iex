@@ -18,13 +18,19 @@ type Status struct {
 }
 
 // NewAPISystemMetadata return new APISystemMetadata
-func NewAPISystemMetadata(token, version string, base *url.URL, httpClient *http.Client) *APISystemMetadata {
+func NewAPISystemMetadata(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *APISystemMetadata {
 	apiurl, err := url.Parse("")
 	if err != nil {
 		panic(err)
 	}
-	return &APISystemMetadata{
-		iex{
+
+	asm := &APISystemMetadata{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -32,6 +38,15 @@ func NewAPISystemMetadata(token, version string, base *url.URL, httpClient *http
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&asm.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return asm
 }
 
 // Token return token string
@@ -57,6 +72,11 @@ func (a *APISystemMetadata) APIURL() *url.URL {
 // Client return HTTP client
 func (a *APISystemMetadata) Client() *http.Client {
 	return a.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (a *APISystemMetadata) Retry() *Retry {
+	return a.iex.Retry
 }
 
 // Status GET /status

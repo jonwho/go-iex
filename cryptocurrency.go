@@ -49,13 +49,18 @@ type CryptoQuote struct {
 }
 
 // NewCryptocurrency returns new Cryptocurrency
-func NewCryptocurrency(token, version string, base *url.URL, httpClient *http.Client) *Cryptocurrency {
+func NewCryptocurrency(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Cryptocurrency {
 	apiurl, err := url.Parse("crypto/")
 	if err != nil {
 		panic(err)
 	}
-	return &Cryptocurrency{
-		iex{
+	crypto := &Cryptocurrency{
+		iex: iex{
 			token:   token,
 			version: version,
 			url:     base,
@@ -63,6 +68,15 @@ func NewCryptocurrency(token, version string, base *url.URL, httpClient *http.Cl
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&crypto.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return crypto
 }
 
 // Token return token string
@@ -88,6 +102,11 @@ func (c *Cryptocurrency) APIURL() *url.URL {
 // Client return HTTP client
 func (c *Cryptocurrency) Client() *http.Client {
 	return c.client
+}
+
+// Retry return Retry struct that implements Retryer
+func (c *Cryptocurrency) Retry() *Retry {
+	return c.iex.Retry
 }
 
 // CryptoBook GET /crypto/{symbol}/book
