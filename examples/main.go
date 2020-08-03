@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"os"
 
-	iex "github.com/jonwho/go-iex/v3"
+	iex "github.com/jonwho/go-iex/v4"
 )
 
 func main() {
