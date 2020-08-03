@@ -1,21 +1,13 @@
 package goiex
 
 import (
-	"fmt"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 // Forex struct to interface with Forex / Currencies endpoints
 type Forex struct {
 	iex
-
-	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
-	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
-	RetryAttempts int           // Maximum number of HTTP request retries
-	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
-	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
 // LatestCurrencyRatesParams required/optional query parameters
@@ -69,18 +61,17 @@ type ExchangeRates struct {
 }
 
 // NewForex return new Forex
-func NewForex(token, version string, base *url.URL, httpClient *http.Client) *Forex {
+func NewForex(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Forex {
 	apiurl, err := url.Parse("fx/")
 	if err != nil {
 		panic(err)
 	}
-	return &Forex{
-		RetryWaitMin:  defaultRetryWaitMin,
-		RetryWaitMax:  defaultRetryWaitMax,
-		RetryAttempts: defaultRetryAttempts,
-		RetryPolicy:   DefaultRetryPolicy,
-		Backoff:       DefaultBackoff,
-
+	forex := &Forex{
 		iex: iex{
 			token:   token,
 			version: version,
@@ -89,6 +80,15 @@ func NewForex(token, version string, base *url.URL, httpClient *http.Client) *Fo
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&forex.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return forex
 }
 
 // Token return token string
@@ -116,46 +116,9 @@ func (f *Forex) Client() *http.Client {
 	return f.client
 }
 
-func (f *Forex) Do(req *Request) (*http.Response, error) {
-	for i := 0; i < f.RetryAttempts; i++ {
-		// Rewind the request body
-		if req.body != nil {
-			if _, err := req.body.Seek(0, 0); err != nil {
-				return nil, fmt.Errorf("failed to seek body: %v", err)
-			}
-		}
-
-		// Attempt request
-		resp, err := f.iex.client.Do(req.Request)
-
-		// No RetryPolicy policy set so return right away
-		if f.RetryPolicy == nil {
-			return resp, err
-		}
-
-		// Check for retry
-		checkOK, checkErr := f.RetryPolicy(resp, err)
-		if !checkOK {
-			if checkErr != nil {
-				err = checkErr
-			}
-			return resp, err
-		}
-
-		// Perform retry
-		if err == nil {
-			drainBody(resp.Body)
-		}
-
-		remain := f.RetryAttempts - i
-		if remain == 0 {
-			break
-		}
-		wait := f.Backoff(f.RetryWaitMin, f.RetryWaitMax, i, resp)
-		time.Sleep(wait)
-	}
-
-	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, f.RetryAttempts+1)
+// Retry return Retry struct that implements Retryer
+func (f *Forex) Retry() *Retry {
+	return f.iex.Retry
 }
 
 // LatestCurrencyRates GET /fx/latest?{params}

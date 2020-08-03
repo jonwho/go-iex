@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"net/url"
 	"os"
 
@@ -29,7 +30,7 @@ func main() {
 	token = os.Getenv("IEX_TEST_SECRET_TOKEN")
 	baseURL, _ := url.Parse(iex.SandboxBaseURL)
 	// get Stocks only API client for sandbox testing
-	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, iex.DefaultHTTPClient)
+	stock := iex.NewStock(token, iex.DefaultVersion, baseURL, http.DefaultClient)
 
 	quote, err = stock.Quote("aapl", nil)
 	if err != nil {

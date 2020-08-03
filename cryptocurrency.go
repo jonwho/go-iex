@@ -1,21 +1,13 @@
 package goiex
 
 import (
-	"fmt"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 // Cryptocurrency struct to interface with / endpoints
 type Cryptocurrency struct {
 	iex
-
-	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
-	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
-	RetryAttempts int           // Maximum number of HTTP request retries
-	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
-	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
 // CryptoBook struct
@@ -57,19 +49,18 @@ type CryptoQuote struct {
 }
 
 // NewCryptocurrency returns new Cryptocurrency
-func NewCryptocurrency(token, version string, base *url.URL, httpClient *http.Client) *Cryptocurrency {
+func NewCryptocurrency(
+	token, version string,
+	base *url.URL,
+	httpClient *http.Client,
+	options ...IEXOption,
+) *Cryptocurrency {
 	apiurl, err := url.Parse("crypto/")
 	if err != nil {
 		panic(err)
 	}
-	return &Cryptocurrency{
-		RetryWaitMin:  defaultRetryWaitMin,
-		RetryWaitMax:  defaultRetryWaitMax,
-		RetryAttempts: defaultRetryAttempts,
-		RetryPolicy:   DefaultRetryPolicy,
-		Backoff:       DefaultBackoff,
+	crypto := &Cryptocurrency{
 		iex: iex{
-
 			token:   token,
 			version: version,
 			url:     base,
@@ -77,6 +68,15 @@ func NewCryptocurrency(token, version string, base *url.URL, httpClient *http.Cl
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&crypto.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return crypto
 }
 
 // Token return token string
@@ -104,46 +104,9 @@ func (c *Cryptocurrency) Client() *http.Client {
 	return c.client
 }
 
-func (c *Cryptocurrency) Do(req *Request) (*http.Response, error) {
-	for i := 0; i < c.RetryAttempts; i++ {
-		// Rewind the request body
-		if req.body != nil {
-			if _, err := req.body.Seek(0, 0); err != nil {
-				return nil, fmt.Errorf("failed to seek body: %v", err)
-			}
-		}
-
-		// Attempt request
-		resp, err := c.iex.client.Do(req.Request)
-
-		// No RetryPolicy policy set so return right away
-		if c.RetryPolicy == nil {
-			return resp, err
-		}
-
-		// Check for retry
-		checkOK, checkErr := c.RetryPolicy(resp, err)
-		if !checkOK {
-			if checkErr != nil {
-				err = checkErr
-			}
-			return resp, err
-		}
-
-		// Perform retry
-		if err == nil {
-			drainBody(resp.Body)
-		}
-
-		remain := c.RetryAttempts - i
-		if remain == 0 {
-			break
-		}
-		wait := c.Backoff(c.RetryWaitMin, c.RetryWaitMax, i, resp)
-		time.Sleep(wait)
-	}
-
-	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, c.RetryAttempts+1)
+// Retry return Retry struct that implements Retryer
+func (c *Cryptocurrency) Retry() *Retry {
+	return c.iex.Retry
 }
 
 // CryptoBook GET /crypto/{symbol}/book

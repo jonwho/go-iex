@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 	"sync"
 
@@ -11,10 +10,7 @@ import (
 
 func main() {
 	sandboxToken := os.Getenv("IEX_TEST_SECRET_TOKEN")
-	client, err := iex.NewSandboxClient(sandboxToken,
-		iex.SetRetryPolicy(iex.DefaultRetryPolicy),
-		iex.SetHTTPClient(http.DefaultClient),
-	)
+	client, err := iex.NewSandboxClient(sandboxToken, iex.SetClientRetry())
 	if err != nil {
 		log.Fatalln(err)
 	}

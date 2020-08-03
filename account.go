@@ -1,21 +1,13 @@
 package goiex
 
 import (
-	"fmt"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 // Account struct to interface with /account endpoints
 type Account struct {
 	iex
-
-	RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
-	RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
-	RetryAttempts int           // Maximum number of HTTP request retries
-	RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
-	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
 // Metadata struct
@@ -41,18 +33,13 @@ type Usage struct {
 }
 
 // NewAccount return new Account
-func NewAccount(token, version string, base *url.URL, httpClient *http.Client) *Account {
+func NewAccount(token, version string, base *url.URL, httpClient *http.Client, options ...IEXOption) *Account {
 	apiurl, err := url.Parse("account/")
 	if err != nil {
 		panic(err)
 	}
 
-	return &Account{
-		RetryWaitMin:  defaultRetryWaitMin,
-		RetryWaitMax:  defaultRetryWaitMax,
-		RetryAttempts: defaultRetryAttempts,
-		RetryPolicy:   DefaultRetryPolicy,
-		Backoff:       DefaultBackoff,
+	account := &Account{
 		iex: iex{
 			token:   token,
 			version: version,
@@ -61,6 +48,15 @@ func NewAccount(token, version string, base *url.URL, httpClient *http.Client) *
 			client:  httpClient,
 		},
 	}
+
+	for _, option := range options {
+		err := option(&account.iex)
+		if err != nil {
+			return nil
+		}
+	}
+
+	return account
 }
 
 // Token return token string
@@ -88,46 +84,8 @@ func (a *Account) Client() *http.Client {
 	return a.client
 }
 
-func (a *Account) Do(req *Request) (*http.Response, error) {
-	for i := 0; i < a.RetryAttempts; i++ {
-		// Rewind the request body
-		if req.body != nil {
-			if _, err := req.body.Seek(0, 0); err != nil {
-				return nil, fmt.Errorf("failed to seek body: %v", err)
-			}
-		}
-
-		// Attempt request
-		resp, err := a.iex.client.Do(req.Request)
-
-		// No RetryPolicy policy set so return right away
-		if a.RetryPolicy == nil {
-			return resp, err
-		}
-
-		// Check for retry
-		checkOK, checkErr := a.RetryPolicy(resp, err)
-		if !checkOK {
-			if checkErr != nil {
-				err = checkErr
-			}
-			return resp, err
-		}
-
-		// Perform retry
-		if err == nil {
-			drainBody(resp.Body)
-		}
-
-		remain := a.RetryAttempts - i
-		if remain == 0 {
-			break
-		}
-		wait := a.Backoff(a.RetryWaitMin, a.RetryWaitMax, i, resp)
-		time.Sleep(wait)
-	}
-
-	return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, a.RetryAttempts+1)
+func (a *Account) Retry() *Retry {
+	return a.iex.Retry
 }
 
 // Metadata GET /account/metadata
