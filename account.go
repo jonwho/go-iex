@@ -84,6 +84,7 @@ func (a *Account) Client() *http.Client {
 	return a.client
 }
 
+// Retry return Retry struct that implements Retryer
 func (a *Account) Retry() *Retry {
 	return a.iex.Retry
 }

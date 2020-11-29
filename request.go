@@ -6,11 +6,13 @@ import (
 	"net/http"
 )
 
+// Request wraps a *http.Request
 type Request struct {
 	body io.ReadSeeker // used to rewind request data between retries
 	*http.Request
 }
 
+// NewRequest constructor to build *Request
 func NewRequest(method, url string, body io.ReadSeeker) (*Request, error) {
 	var rc io.ReadCloser
 	if body != nil {

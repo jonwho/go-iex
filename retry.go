@@ -30,10 +30,10 @@ type RetryOption func(*Retry) error
 func SetRetryWaitMinMax(min, max time.Duration) RetryOption {
 	return func(r *Retry) error {
 		if min <= 0 || max <= 0 {
-			return fmt.Errorf("The value of min: %d or max: %d cannot be less than or equal to 0\n", min, max)
+			return fmt.Errorf("The value of min: %d or max: %d cannot be less than or equal to 0", min, max)
 		}
 		if min > max {
-			return fmt.Errorf("The value of min: %d cannot be greater than max: %d\n", min, max)
+			return fmt.Errorf("The value of min: %d cannot be greater than max: %d", min, max)
 		}
 		r.RetryWaitMin = min
 		r.RetryWaitMax = max
@@ -45,7 +45,7 @@ func SetRetryWaitMinMax(min, max time.Duration) RetryOption {
 func SetRetryAttempts(attempts int) RetryOption {
 	return func(r *Retry) error {
 		if attempts <= 0 {
-			return fmt.Errorf("The value of attempts: %d cannot be less than or equal to 0\n", attempts)
+			return fmt.Errorf("The value of attempts: %d cannot be less than or equal to 0", attempts)
 		}
 		r.RetryAttempts = attempts
 		return nil
@@ -89,6 +89,7 @@ func NewRetry(httpClient *http.Client, options ...RetryOption) (*Retry, error) {
 	return retry, nil
 }
 
+// Do will perform the Request and attempt it again if the RetryPolicy passes
 func (r *Retry) Do(req *Request) (*http.Response, error) {
 	for i := 0; i < r.RetryAttempts; i++ {
 		// Rewind the request body

@@ -4,6 +4,7 @@ GORUN=$(GOCMD) run
 GOTOOL=$(GOCMD) tool
 GOPHERBADGER=$(shell go env GOPATH)/bin/gopherbadger
 
+.PHONY: all
 all: test coverage
 
 .PHONY: test
