@@ -886,7 +886,7 @@ type Option struct {
 	ID             string  `json:"id"`
 	ExpirationDate string  `json:"expirationDate"`
 	ContractSize   int     `json:"contractSize"`
-	StrikePrice    int     `json:"strikePrice"`
+	StrikePrice    float64 `json:"strikePrice"`
 	ClosingPrice   float64 `json:"closingPrice"`
 	Side           string  `json:"side"`
 	Type           string  `json:"type"`

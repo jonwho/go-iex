@@ -1,0 +1,3817 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">github.com/jonwho/go-iex/v4/account.go (65.2%)</option>
+				
+				<option value="file1">github.com/jonwho/go-iex/v4/api_system_metadata.go (76.5%)</option>
+				
+				<option value="file2">github.com/jonwho/go-iex/v4/backoff.go (100.0%)</option>
+				
+				<option value="file3">github.com/jonwho/go-iex/v4/client.go (81.9%)</option>
+				
+				<option value="file4">github.com/jonwho/go-iex/v4/commodities.go (70.6%)</option>
+				
+				<option value="file5">github.com/jonwho/go-iex/v4/cryptocurrency.go (81.0%)</option>
+				
+				<option value="file6">github.com/jonwho/go-iex/v4/data_apis.go (78.9%)</option>
+				
+				<option value="file7">github.com/jonwho/go-iex/v4/economic_data.go (76.5%)</option>
+				
+				<option value="file8">github.com/jonwho/go-iex/v4/forex.go (82.6%)</option>
+				
+				<option value="file9">github.com/jonwho/go-iex/v4/iex.go (0.0%)</option>
+				
+				<option value="file10">github.com/jonwho/go-iex/v4/investors_exchange_data.go (81.0%)</option>
+				
+				<option value="file11">github.com/jonwho/go-iex/v4/reference_data.go (91.7%)</option>
+				
+				<option value="file12">github.com/jonwho/go-iex/v4/request.go (71.4%)</option>
+				
+				<option value="file13">github.com/jonwho/go-iex/v4/retry.go (0.0%)</option>
+				
+				<option value="file14">github.com/jonwho/go-iex/v4/retry_policy.go (100.0%)</option>
+				
+				<option value="file15">github.com/jonwho/go-iex/v4/stocks.go (94.9%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// Account struct to interface with /account endpoints
+type Account struct {
+        iex
+}
+
+// Metadata struct
+type Metadata struct {
+        PayAsYouGoEnabled    bool   `json:"payAsYouGoEnabled"`
+        EffectiveDate        int64  `json:"effectiveDate"`
+        EndDateEffective     int64  `json:"endDateEffective"`
+        SubscriptionTermType string `json:"subscriptionTermType"`
+        TierName             string `json:"tierName"`
+        MessageLimit         int    `json:"messageLimit"`
+        MessagesUsed         int    `json:"messagesUsed"`
+}
+
+// Usage struct
+type Usage struct {
+        Messages struct {
+                MonthlyUsage      int         `json:"monthlyUsage"`
+                MonthlyPayAsYouGo int         `json:"monthlyPayAsYouGo"`
+                DailyUsage        interface{} `json:"dailyUsage"`
+                TokenUsage        interface{} `json:"tokenUsage"`
+                KeyUsage          interface{} `json:"keyUsage"`
+        } `json:"messages"`
+}
+
+// NewAccount return new Account
+func NewAccount(token, version string, base *url.URL, httpClient *http.Client, options ...IEXOption) *Account <span class="cov8" title="1">{
+        apiurl, err := url.Parse("account/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">account := &amp;Account{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;account.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return account</span>
+}
+
+// Token return token string
+func (a *Account) Token() string <span class="cov8" title="1">{
+        return a.token
+}</span>
+
+// Version return version string
+func (a *Account) Version() string <span class="cov8" title="1">{
+        return a.version
+}</span>
+
+// URL return URL base
+func (a *Account) URL() *url.URL <span class="cov8" title="1">{
+        return a.url
+}</span>
+
+// APIURL return APIURL
+func (a *Account) APIURL() *url.URL <span class="cov8" title="1">{
+        return a.apiurl
+}</span>
+
+// Client return HTTP client
+func (a *Account) Client() *http.Client <span class="cov8" title="1">{
+        return a.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (a *Account) Retry() *Retry <span class="cov8" title="1">{
+        return a.iex.Retry
+}</span>
+
+// Metadata GET /account/metadata
+func (a *Account) Metadata() (metadata *Metadata, err error) <span class="cov8" title="1">{
+        err = get(a, &amp;metadata, "metadata", nil)
+        return
+}</span>
+
+// Usage GET /account/usage
+// No support for GET /account/usage/{type}
+func (a *Account) Usage() (usage *Usage, err error) <span class="cov8" title="1">{
+        err = get(a, &amp;usage, "usage", nil)
+        return
+}</span>
+
+// Payasyougo POST /account/payasyougo
+func (a *Account) Payasyougo(params interface{}) (ifc interface{}, err error) <span class="cov0" title="0">{
+        err = post(a, &amp;ifc, "payasyougo", params.(map[string]interface{}))
+        return
+}</span>
+
+// MessageBudget POST /account/messagebudget
+func (a *Account) MessageBudget(params interface{}) (ifc interface{}, err error) <span class="cov0" title="0">{
+        err = post(a, &amp;ifc, "messagebudget", params.(map[string]interface{}))
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// APISystemMetadata struct to interface with / endpoints
+type APISystemMetadata struct {
+        iex
+}
+
+// Status struct
+type Status struct {
+        Status  string `json:"status"`
+        Version string `json:"version"`
+        Time    int64  `json:"time"`
+}
+
+// NewAPISystemMetadata return new APISystemMetadata
+func NewAPISystemMetadata(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *APISystemMetadata <span class="cov8" title="1">{
+        apiurl, err := url.Parse("")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">asm := &amp;APISystemMetadata{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;asm.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return asm</span>
+}
+
+// Token return token string
+func (a *APISystemMetadata) Token() string <span class="cov8" title="1">{
+        return a.token
+}</span>
+
+// Version return version string
+func (a *APISystemMetadata) Version() string <span class="cov8" title="1">{
+        return a.version
+}</span>
+
+// URL return URL base
+func (a *APISystemMetadata) URL() *url.URL <span class="cov8" title="1">{
+        return a.url
+}</span>
+
+// APIURL return APIURL
+func (a *APISystemMetadata) APIURL() *url.URL <span class="cov8" title="1">{
+        return a.apiurl
+}</span>
+
+// Client return HTTP client
+func (a *APISystemMetadata) Client() *http.Client <span class="cov8" title="1">{
+        return a.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (a *APISystemMetadata) Retry() *Retry <span class="cov8" title="1">{
+        return a.iex.Retry
+}</span>
+
+// Status GET /status
+func (a *APISystemMetadata) Status() (status *Status, err error) <span class="cov8" title="1">{
+        err = get(a, &amp;status, "status", nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package goiex
+
+import (
+        "math"
+        "net/http"
+        "time"
+)
+
+// Backoff defines the wait time between retry requests
+type Backoff func(min, max time.Duration, attempts int, resp *http.Response) time.Duration
+
+// DefaultBackoff defines the wait time as a exponential backoff
+func DefaultBackoff(min, max time.Duration, attempts int, resp *http.Response) time.Duration <span class="cov8" title="1">{
+        return exponentialBackoff(min, max, attempts, resp)
+}</span>
+
+func exponentialBackoff(min, max time.Duration, attempts int, resp *http.Response) time.Duration <span class="cov8" title="1">{
+        expo := math.Pow(2, float64(attempts)) * float64(min)
+        sleep := time.Duration(expo)
+        if float64(sleep) != expo || sleep &gt; max </span><span class="cov8" title="1">{
+                sleep = max
+        }</span>
+        <span class="cov8" title="1">return sleep</span>
+}
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package goiex
+
+import (
+        "bytes"
+        "encoding/json"
+        "fmt"
+        "io"
+        "io/ioutil"
+        "net/http"
+        "net/url"
+
+        "github.com/google/go-querystring/query"
+)
+
+const (
+        // SandboxBaseURL use this as URL base if you do not want your account
+        // message limits affected on IEX cloud
+        SandboxBaseURL string = "https://sandbox.iexapis.com/"
+        // DefaultBaseURL default base URL
+        DefaultBaseURL string = "https://cloud.iexapis.com/"
+        // DefaultVersion default IEX API version
+        DefaultVersion string = "stable"
+)
+
+// Client API struct to IEX
+type Client struct {
+        iex
+
+        // IEX Cloud APIs
+        *Account
+        *APISystemMetadata
+        *Commodities
+        *Cryptocurrency
+        *DataAPI
+        *EconomicData
+        *Forex
+        *InvestorsExchangeData
+        *ReferenceData
+        *Stock
+}
+
+// ClientOption is a func that operates on *Client
+type ClientOption func(*Client) error
+
+// NewClient creates client interface to IEX Cloud APIs
+func NewClient(token string, options ...ClientOption) (*Client, error) <span class="cov8" title="1">{
+        client := &amp;Client{}
+        SetAPIURL("")(client)
+        SetHTTPClient(http.DefaultClient)(client)
+        SetToken(token)(client)
+        SetURL(DefaultBaseURL)(client)
+        SetVersion(DefaultVersion)(client)
+
+        for _, option := range options </span><span class="cov8" title="1">{
+                err := option(client)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+        }
+
+        <span class="cov8" title="1">if client.Account == nil </span><span class="cov8" title="1">{
+                SetAccount(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.APISystemMetadata == nil </span><span class="cov8" title="1">{
+                SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Commodities == nil </span><span class="cov8" title="1">{
+                SetCommodities(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Cryptocurrency == nil </span><span class="cov8" title="1">{
+                SetCryptocurrency(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.DataAPI == nil </span><span class="cov8" title="1">{
+                SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.EconomicData == nil </span><span class="cov8" title="1">{
+                SetEconomicData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Forex == nil </span><span class="cov8" title="1">{
+                SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.InvestorsExchangeData == nil </span><span class="cov8" title="1">{
+                SetInvestorsExchangeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.ReferenceData == nil </span><span class="cov8" title="1">{
+                SetReferenceData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Stock == nil </span><span class="cov8" title="1">{
+                SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">return client, nil</span>
+}
+
+// NewSandboxClient creates sandbox client interface to IEX Cloud APIs
+func NewSandboxClient(token string, options ...ClientOption) (*Client, error) <span class="cov8" title="1">{
+        client := &amp;Client{}
+        SetAPIURL("")(client)
+        SetHTTPClient(http.DefaultClient)(client)
+        SetToken(token)(client)
+        SetURL(SandboxBaseURL)(client)
+        SetVersion(DefaultVersion)(client)
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(client)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+        }
+
+        <span class="cov8" title="1">if client.Account == nil </span><span class="cov8" title="1">{
+                SetAccount(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.APISystemMetadata == nil </span><span class="cov8" title="1">{
+                SetAPISystemMetadata(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Commodities == nil </span><span class="cov8" title="1">{
+                SetCommodities(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Cryptocurrency == nil </span><span class="cov8" title="1">{
+                SetCryptocurrency(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.DataAPI == nil </span><span class="cov8" title="1">{
+                SetDataAPI(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.EconomicData == nil </span><span class="cov8" title="1">{
+                SetEconomicData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Forex == nil </span><span class="cov8" title="1">{
+                SetForex(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.InvestorsExchangeData == nil </span><span class="cov8" title="1">{
+                SetInvestorsExchangeData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.ReferenceData == nil </span><span class="cov8" title="1">{
+                SetReferenceData(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">if client.Stock == nil </span><span class="cov8" title="1">{
+                SetStock(client.iex.token, client.iex.version, client.iex.url, client.iex.client)(client)
+        }</span>
+        <span class="cov8" title="1">return client, nil</span>
+}
+
+// Token return token string
+func (c *Client) Token() string <span class="cov8" title="1">{
+        return c.iex.token
+}</span>
+
+// Version return version string
+func (c *Client) Version() string <span class="cov8" title="1">{
+        return c.iex.version
+}</span>
+
+// URL return URL base
+func (c *Client) URL() *url.URL <span class="cov8" title="1">{
+        return c.iex.url
+}</span>
+
+// APIURL return APIURL
+func (c *Client) APIURL() *url.URL <span class="cov8" title="1">{
+        return c.iex.apiurl
+}</span>
+
+// Client return HTTP client
+func (c *Client) Client() *http.Client <span class="cov8" title="1">{
+        return c.iex.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (c *Client) Retry() *Retry <span class="cov8" title="1">{
+        return c.iex.Retry
+}</span>
+
+// SetToken assigns secret token
+func SetToken(token string) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                c.iex.token = token
+                return nil
+        }</span>
+}
+
+// SetClientRetry enables HTTP request retries with default Retry or
+// first Retry parameter given method ignores all other Retry in variadic param
+func SetClientRetry(retries ...*Retry) ClientOption <span class="cov0" title="0">{
+        return func(c *Client) error </span><span class="cov0" title="0">{
+                var retry *Retry
+                var err error
+                if len(retries) &gt; 0 </span><span class="cov0" title="0">{
+                        retry = retries[0]
+                }</span>
+                <span class="cov0" title="0">if retry == nil </span><span class="cov0" title="0">{
+                        retry, err = NewRetry(c.iex.client)
+                        if err != nil </span><span class="cov0" title="0">{
+                                return err
+                        }</span>
+                }
+                <span class="cov0" title="0">c.iex.Retry = retry
+                return nil</span>
+        }
+}
+
+// SetHTTPClient assigns HTTP client
+func SetHTTPClient(httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                c.iex.client = httpClient
+                return nil
+        }</span>
+}
+
+// SetURL assigns URL base
+func SetURL(rawurl string) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                baseurl, err := url.Parse(rawurl)
+                if err != nil </span><span class="cov0" title="0">{
+                        return err
+                }</span>
+
+                <span class="cov8" title="1">c.iex.url = baseurl
+                return nil</span>
+        }
+}
+
+// SetAPIURL assigns API URL
+func SetAPIURL(rawurl string) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                apiurl, err := url.Parse(rawurl)
+                if err != nil </span><span class="cov0" title="0">{
+                        return err
+                }</span>
+
+                <span class="cov8" title="1">c.iex.apiurl = apiurl
+                return nil</span>
+        }
+}
+
+// SetVersion set IEX version
+func SetVersion(version string) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                c.iex.version = version
+                return nil
+        }</span>
+}
+
+// SetAccount set new Account
+func SetAccount(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var account *Account
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        account = NewAccount(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        account = NewAccount(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.Account = account
+                return nil</span>
+        }
+}
+
+// SetAPISystemMetadata set new APISystemMetadata
+func SetAPISystemMetadata(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var asm *APISystemMetadata
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        asm = NewAPISystemMetadata(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        asm = NewAPISystemMetadata(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.APISystemMetadata = asm
+                return nil</span>
+        }
+}
+
+// SetCommodities set new Commodities
+func SetCommodities(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var comm *Commodities
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        comm = NewCommodities(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        comm = NewCommodities(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.Commodities = comm
+                return nil</span>
+        }
+}
+
+// SetCryptocurrency set new Cryptocurrency
+func SetCryptocurrency(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var crypto *Cryptocurrency
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        crypto = NewCryptocurrency(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        crypto = NewCryptocurrency(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.Cryptocurrency = crypto
+                return nil</span>
+        }
+}
+
+// SetDataAPI set new DataAPI
+func SetDataAPI(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var dataapi *DataAPI
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        dataapi = NewDataAPI(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        dataapi = NewDataAPI(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.DataAPI = dataapi
+                return nil</span>
+        }
+}
+
+// SetEconomicData set new EconomicData
+func SetEconomicData(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var ed *EconomicData
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        ed = NewEconomicData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        ed = NewEconomicData(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.EconomicData = ed
+                return nil</span>
+        }
+}
+
+// SetInvestorsExchangeData set new InvestorsExchangeData
+func SetInvestorsExchangeData(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var ied *InvestorsExchangeData
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        ied = NewInvestorsExchangeData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        ied = NewInvestorsExchangeData(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.InvestorsExchangeData = ied
+                return nil</span>
+        }
+}
+
+// SetReferenceData set new ReferenceData
+func SetReferenceData(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var rd *ReferenceData
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        rd = NewReferenceData(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        rd = NewReferenceData(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.ReferenceData = rd
+                return nil</span>
+        }
+}
+
+// SetStock set new Stock
+func SetStock(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var stock *Stock
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        stock = NewStock(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        stock = NewStock(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.Stock = stock
+                return nil</span>
+        }
+}
+
+// SetForex set new Forex
+func SetForex(token, version string, url *url.URL, httpClient *http.Client) ClientOption <span class="cov8" title="1">{
+        return func(c *Client) error </span><span class="cov8" title="1">{
+                var forex *Forex
+                if c.iex.Retry != nil </span><span class="cov0" title="0">{
+                        forex = NewForex(token, version, url, httpClient, SetRetry(c.iex.Retry))
+                }</span> else<span class="cov8" title="1"> {
+                        forex = NewForex(token, version, url, httpClient)
+                }</span>
+                <span class="cov8" title="1">c.Forex = forex
+                return nil</span>
+        }
+}
+
+// Get helper func to make custom GET requests against client's base url
+func (c *Client) Get(endpoint string, response, params interface{}) error <span class="cov8" title="1">{
+        return get(c, response, endpoint, params)
+}</span>
+
+// Post helper func to make custom POST requests against client's base url
+func (c *Client) Post(endpoint string, response interface{}, params map[string]interface{}) error <span class="cov8" title="1">{
+        return post(c, response, endpoint, params)
+}</span>
+
+func drainBody(body io.ReadCloser) <span class="cov0" title="0">{
+        defer body.Close()
+        // limit read to 1 million bytes
+        var respReadLimit int64 = 1000000
+        io.Copy(ioutil.Discard, io.LimitReader(body, respReadLimit))
+}</span>
+
+func get(api iexapi, response interface{}, endpoint string, params interface{}) error <span class="cov8" title="1">{
+        // build HTTP request
+        relurl, _ := url.Parse(endpoint)
+        iexurl := baseURL(api).ResolveReference(relurl)
+        req, err := NewRequest(http.MethodGet, iexurl.String(), nil)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">req.Header.Set("User-Agent", "jonwho/goiex")
+
+        q := url.Values{}
+        q.Set("token", api.Token())
+        moreq, err := query.Values(params)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">rawQuery := fmt.Sprintf("%s&amp;%s", q.Encode(), moreq.Encode())
+        req.URL.RawQuery = rawQuery
+
+        // execute HTTP request
+        var resp *http.Response
+        if api.Retry() == nil </span><span class="cov8" title="1">{
+                // request without retry
+                resp, err = api.Client().Do(req.Request)
+        }</span> else<span class="cov0" title="0"> {
+                // request with retry
+                resp, err = api.Retry().Do(req)
+        }</span>
+        <span class="cov8" title="1">if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">defer resp.Body.Close()
+
+        // build response
+        if resp.StatusCode != http.StatusOK </span><span class="cov8" title="1">{
+                respBody, _ := ioutil.ReadAll(resp.Body)
+                return fmt.Errorf("%v: %v", resp.Status, string(respBody))
+        }</span>
+
+        <span class="cov8" title="1">err = json.NewDecoder(resp.Body).Decode(response)
+        return err</span>
+}
+
+func getRaw(api iexapi, response *interface{}, endpoint string, params interface{}) error <span class="cov8" title="1">{
+        relurl, _ := url.Parse(endpoint)
+        iexurl := baseURL(api).ResolveReference(relurl)
+        q := url.Values{}
+        q.Set("token", api.Token())
+        moreq, err := query.Values(params)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">rawQuery := fmt.Sprintf("%s&amp;%s", q.Encode(), moreq.Encode())
+        resp, err := api.Client().Get(fmt.Sprintf("%s?%s", iexurl.String(), rawQuery))
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">defer resp.Body.Close()
+
+        if resp.StatusCode != http.StatusOK </span><span class="cov0" title="0">{
+                respBody, _ := ioutil.ReadAll(resp.Body)
+                return fmt.Errorf("%v: %v", resp.Status, string(respBody))
+        }</span>
+
+        <span class="cov8" title="1">*response, err = ioutil.ReadAll(resp.Body)
+        return err</span>
+}
+
+func post(api iexapi, response interface{}, endpoint string, params map[string]interface{}) error <span class="cov8" title="1">{
+        relurl, _ := url.Parse(endpoint)
+        iexurl := baseURL(api).ResolveReference(relurl)
+
+        requestBody, err := json.Marshal(params)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">req, err := http.NewRequest(http.MethodPost, iexurl.String(), bytes.NewBuffer(requestBody))
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">req.Header.Set("User-Agent", "jonwho/goiex")
+        req.Header.Set("Content-Type", "application/json")
+
+        resp, err := api.Client().Do(req)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov8" title="1">defer resp.Body.Close()
+
+        if resp.StatusCode != http.StatusOK </span><span class="cov0" title="0">{
+                respBody, _ := ioutil.ReadAll(resp.Body)
+                return fmt.Errorf("%v: %v", resp.Status, string(respBody))
+        }</span>
+
+        <span class="cov8" title="1">err = json.NewDecoder(resp.Body).Decode(response)
+        return err</span>
+}
+
+func baseURL(api iexapi) *url.URL <span class="cov8" title="1">{
+        versionURL, _ := url.Parse(api.Version() + "/")
+        return api.URL().ResolveReference(versionURL).ResolveReference(api.APIURL())
+}</span>
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// Commodities struct to interface with /data-points endpoints
+type Commodities struct {
+        iex
+}
+
+// NewCommodities return new Commodities
+func NewCommodities(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *Commodities <span class="cov8" title="1">{
+        apiurl, err := url.Parse("data-points/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">comm := &amp;Commodities{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;comm.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return comm</span>
+}
+
+// APIURL return APIURL
+func (c *Commodities) APIURL() *url.URL <span class="cov8" title="1">{
+        return c.apiurl
+}</span>
+
+// Client return HTTP client
+func (c *Commodities) Client() *http.Client <span class="cov8" title="1">{
+        return c.client
+}</span>
+
+// Token return token string
+func (c *Commodities) Token() string <span class="cov8" title="1">{
+        return c.token
+}</span>
+
+// URL return URL base
+func (c *Commodities) URL() *url.URL <span class="cov8" title="1">{
+        return c.url
+}</span>
+
+// Version return version string
+func (c *Commodities) Version() string <span class="cov8" title="1">{
+        return c.version
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (c *Commodities) Retry() *Retry <span class="cov0" title="0">{
+        return c.iex.Retry
+}</span>
+
+// CommoditiesPrices GET /data-points/market/{symbol}
+func (c *Commodities) CommoditiesPrices(symbol string) (value interface{}, err error) <span class="cov8" title="1">{
+        err = getRaw(c, &amp;value, "market/"+symbol, nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// Cryptocurrency struct to interface with / endpoints
+type Cryptocurrency struct {
+        iex
+}
+
+// CryptoBook struct
+type CryptoBook struct {
+        Bids []struct {
+                Price     string `json:"price"`
+                Size      string `json:"size"`
+                Timestamp int64  `json:"timestamp"`
+        } `json:"bids"`
+        Asks []struct {
+                Price     string `json:"price"`
+                Size      string `json:"size"`
+                Timestamp int64  `json:"timestamp"`
+        } `json:"asks"`
+}
+
+// CryptoPrice struct
+type CryptoPrice struct {
+        Symbol string  `json:"symbol"`
+        Price  float64 `json:"price,string"`
+}
+
+// CryptoQuote struct
+type CryptoQuote struct {
+        Symbol           string  `json:"symbol"`
+        Sector           string  `json:"sector"`
+        CalculationPrice string  `json:"calculationPrice"`
+        LatestPrice      float64 `json:"latestPrice,string"`
+        LatestSource     string  `json:"latestSource"`
+        LatestUpdate     int64   `json:"latestUpdate"`
+        LatestVolume     float64 `json:"latestVolume,string"`
+        BidPrice         float64 `json:"bidPrice,string"`
+        BidSize          float64 `json:"bidSize,string"`
+        AskPrice         float64 `json:"askPrice,string"`
+        AskSize          float64 `json:"askSize,string"`
+        High             float64 `json:"high,string"`
+        Low              float64 `json:"low,string"`
+        PreviousClose    float64 `json:"previousClose,string"`
+}
+
+// NewCryptocurrency returns new Cryptocurrency
+func NewCryptocurrency(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *Cryptocurrency <span class="cov8" title="1">{
+        apiurl, err := url.Parse("crypto/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">crypto := &amp;Cryptocurrency{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;crypto.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return crypto</span>
+}
+
+// Token return token string
+func (c *Cryptocurrency) Token() string <span class="cov8" title="1">{
+        return c.token
+}</span>
+
+// Version return version string
+func (c *Cryptocurrency) Version() string <span class="cov8" title="1">{
+        return c.version
+}</span>
+
+// URL return URL base
+func (c *Cryptocurrency) URL() *url.URL <span class="cov8" title="1">{
+        return c.url
+}</span>
+
+// APIURL return APIURL
+func (c *Cryptocurrency) APIURL() *url.URL <span class="cov8" title="1">{
+        return c.apiurl
+}</span>
+
+// Client return HTTP client
+func (c *Cryptocurrency) Client() *http.Client <span class="cov8" title="1">{
+        return c.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (c *Cryptocurrency) Retry() *Retry <span class="cov8" title="1">{
+        return c.iex.Retry
+}</span>
+
+// CryptoBook GET /crypto/{symbol}/book
+func (c *Cryptocurrency) CryptoBook(symbol string) (cb *CryptoBook, err error) <span class="cov8" title="1">{
+        err = get(c, &amp;cb, symbol+"/book", nil)
+        return
+}</span>
+
+// CryptoPrice GET /crypto/{symbol}/price
+func (c *Cryptocurrency) CryptoPrice(symbol string) (cp *CryptoPrice, err error) <span class="cov8" title="1">{
+        err = get(c, &amp;cp, symbol+"/price", nil)
+        return
+}</span>
+
+// CryptoQuote GET /crypto/{symbol}/quote
+func (c *Cryptocurrency) CryptoQuote(symbol string) (cq *CryptoQuote, err error) <span class="cov8" title="1">{
+        err = get(c, &amp;cq, symbol+"/quote", nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+        "time"
+)
+
+// DataAPI struct to interface with DataAPI endpoints
+type DataAPI struct {
+        iex
+}
+
+// DataPoint struct
+type DataPoint struct {
+        Key         string    `json:"key"`
+        Weight      int       `json:"weight"`
+        Description string    `json:"description"`
+        LastUpdated time.Time `json:"lastUpdated"`
+}
+
+// NewDataAPI return new DataAPI
+func NewDataAPI(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *DataAPI <span class="cov8" title="1">{
+        apiurl, err := url.Parse("")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">da := &amp;DataAPI{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;da.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return da</span>
+}
+
+// Token return token string
+func (d *DataAPI) Token() string <span class="cov8" title="1">{
+        return d.token
+}</span>
+
+// Version return version string
+func (d *DataAPI) Version() string <span class="cov8" title="1">{
+        return d.version
+}</span>
+
+// URL return URL base
+func (d *DataAPI) URL() *url.URL <span class="cov8" title="1">{
+        return d.url
+}</span>
+
+// APIURL return APIURL
+func (d *DataAPI) APIURL() *url.URL <span class="cov8" title="1">{
+        return d.apiurl
+}</span>
+
+// Client return HTTP client
+func (d *DataAPI) Client() *http.Client <span class="cov8" title="1">{
+        return d.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (d *DataAPI) Retry() *Retry <span class="cov8" title="1">{
+        return d.iex.Retry
+}</span>
+
+// DataPoints GET /data-points/{symbol}
+func (d *DataAPI) DataPoints(symbol string) (datapoints []*DataPoint, err error) <span class="cov8" title="1">{
+        err = get(d, &amp;datapoints, "data-points/"+symbol, nil)
+        return
+}</span>
+
+// DataPoint GET /data-points/{symbol}/{datapoint}
+func (d *DataAPI) DataPoint(symbol, datapoint string) (ifc interface{}, err error) <span class="cov8" title="1">{
+        err = get(d, &amp;ifc, "data-points/"+symbol+"/"+datapoint, nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// EconomicData struct to interface with /data-points endpoints
+type EconomicData struct {
+        iex
+}
+
+// NewEconomicData return new EconomicData
+func NewEconomicData(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *EconomicData <span class="cov8" title="1">{
+        apiurl, err := url.Parse("data-points/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">ed := &amp;EconomicData{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;ed.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return ed</span>
+}
+
+// APIURL return APIURL
+func (ed *EconomicData) APIURL() *url.URL <span class="cov8" title="1">{
+        return ed.apiurl
+}</span>
+
+// Client return HTTP client
+func (ed *EconomicData) Client() *http.Client <span class="cov8" title="1">{
+        return ed.client
+}</span>
+
+// Token return token string
+func (ed *EconomicData) Token() string <span class="cov8" title="1">{
+        return ed.token
+}</span>
+
+// URL return URL base
+func (ed *EconomicData) URL() *url.URL <span class="cov8" title="1">{
+        return ed.url
+}</span>
+
+// Version return version string
+func (ed *EconomicData) Version() string <span class="cov8" title="1">{
+        return ed.version
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (ed *EconomicData) Retry() *Retry <span class="cov8" title="1">{
+        return ed.iex.Retry
+}</span>
+
+// EconomicPrices GET /data-points/market/{symbol}
+func (ed *EconomicData) EconomicPrices(symbol string) (value interface{}, err error) <span class="cov8" title="1">{
+        err = get(ed, &amp;value, "market/"+symbol, nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// Forex struct to interface with Forex / Currencies endpoints
+type Forex struct {
+        iex
+}
+
+// LatestCurrencyRatesParams required/optional query parameters
+type LatestCurrencyRatesParams struct {
+        Symbols string `url:"symbols"`
+}
+
+// CurrencyConversionParams required/optional query parameters
+type CurrencyConversionParams struct {
+        Symbols string `url:"symbols"`
+        Amount  int    `url:"amount"`
+}
+
+// HistoricalDailyParams required/optional query parameters
+type HistoricalDailyParams struct {
+        Symbols string `url:"symbols"`
+        From    string `url:"from"`
+        To      string `url:"to"`
+        Last    int    `url:"last"`
+}
+
+// LatestCurrencyRates struct
+type LatestCurrencyRates []struct {
+        Symbol    string  `json:"symbol"`
+        Rate      float64 `json:"rate"`
+        Timestamp int64   `json:"timestamp"`
+}
+
+// CurrencyConversion struct
+type CurrencyConversion []struct {
+        Symbol    string  `json:"symbol"`
+        Rate      float64 `json:"rate"`
+        Timestamp int64   `json:"timestamp"`
+        Amount    float64 `json:"amount"`
+}
+
+// HistoricalDaily struct
+type HistoricalDaily [][]struct {
+        Date      string  `json:"date"`
+        Symbol    string  `json:"symbol"`
+        Timestamp int64   `json:"timestamp"`
+        Rate      float64 `json:"rate"`
+}
+
+// ExchangeRates struct
+type ExchangeRates struct {
+        Date         string  `json:"date"`
+        FromCurrency string  `json:"fromCurrency"`
+        ToCurrency   string  `json:"toCurrency"`
+        Rate         float64 `json:"rate"`
+}
+
+// NewForex return new Forex
+func NewForex(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *Forex <span class="cov8" title="1">{
+        apiurl, err := url.Parse("fx/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">forex := &amp;Forex{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;forex.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return forex</span>
+}
+
+// Token return token string
+func (f *Forex) Token() string <span class="cov8" title="1">{
+        return f.token
+}</span>
+
+// Version return version string
+func (f *Forex) Version() string <span class="cov8" title="1">{
+        return f.version
+}</span>
+
+// URL return URL base
+func (f *Forex) URL() *url.URL <span class="cov8" title="1">{
+        return f.url
+}</span>
+
+// APIURL return APIURL
+func (f *Forex) APIURL() *url.URL <span class="cov8" title="1">{
+        return f.apiurl
+}</span>
+
+// Client return HTTP client
+func (f *Forex) Client() *http.Client <span class="cov8" title="1">{
+        return f.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (f *Forex) Retry() *Retry <span class="cov8" title="1">{
+        return f.iex.Retry
+}</span>
+
+// LatestCurrencyRates GET /fx/latest?{params}
+func (f *Forex) LatestCurrencyRates(params *LatestCurrencyRatesParams) (lcr LatestCurrencyRates, err error) <span class="cov8" title="1">{
+        err = get(f, &amp;lcr, "latest", params)
+        return
+}</span>
+
+// CurrencyConversion GET /fx/convert?{params}
+func (f *Forex) CurrencyConversion(params *CurrencyConversionParams) (cc CurrencyConversion, err error) <span class="cov8" title="1">{
+        err = get(f, &amp;cc, "convert", params)
+        return
+}</span>
+
+// HistoricalDaily GET /fx/historical?{params}
+func (f *Forex) HistoricalDaily(params *HistoricalDailyParams) (hd HistoricalDaily, err error) <span class="cov8" title="1">{
+        err = get(f, &amp;hd, "historical", params)
+        return
+}</span>
+
+// ExchangeRates GET /fx/rate/{from}/{to}
+func (f *Forex) ExchangeRates(from, to string) (er *ExchangeRates, err error) <span class="cov8" title="1">{
+        err = get(f, &amp;er, "rate/"+from+"/"+to, nil)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// iex is the struct holds all fields necessary to make HTTP requests against an
+// IEX Cloud endpoint(s)
+type iex struct {
+        token, version string
+        url, apiurl    *url.URL
+        client         *http.Client
+
+        Retry *Retry
+}
+
+// IEXOption is a func that operates on *iex
+type IEXOption func(*iex) error
+
+// SetRetry assigns the
+func SetRetry(retry *Retry) IEXOption <span class="cov0" title="0">{
+        return func(i *iex) error </span><span class="cov0" title="0">{
+                i.Retry = retry
+                return nil
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">package goiex
+
+import (
+        "net/http"
+        "net/url"
+)
+
+// InvestorsExchangeData struct to interface with InvestorsExchangeData endpoints
+type InvestorsExchangeData struct {
+        iex
+}
+
+// TOPSParams required/optional query parameters
+type TOPSParams struct {
+        Symbols string `url:"symbols"`
+}
+
+// LastParams required/optional query parameters
+type LastParams struct {
+        Symbols string `url:"symbols"`
+}
+
+// DEEPParams required/optional query parameters
+type DEEPParams struct {
+        Symbols string `url:"symbols"`
+}
+
+// TOPS struct
+type TOPS []struct {
+        Symbol        string  `json:"symbol"`
+        BidSize       int     `json:"bidSize"`
+        BidPrice      float64 `json:"bidPrice"`
+        AskSize       int     `json:"askSize"`
+        AskPrice      float64 `json:"askPrice"`
+        Volume        int     `json:"volume"`
+        LastSalePrice float64 `json:"lastSalePrice"`
+        LastSaleSize  int     `json:"lastSaleSize"`
+        LastSaleTime  int64   `json:"lastSaleTime"`
+        LastUpdated   int64   `json:"lastUpdated"`
+        Sector        string  `json:"sector"`
+        SecurityType  string  `json:"securityType"`
+}
+
+// Last struct
+type Last []struct {
+        Symbol string  `json:"symbol"`
+        Price  float64 `json:"price"`
+        Size   int     `json:"size"`
+        Time   int64   `json:"time"`
+}
+
+// DEEP struct
+type DEEP struct {
+        Symbol        string  `json:"symbol"`
+        MarketPercent float64 `json:"marketPercent"`
+        Volume        int     `json:"volume"`
+        LastSalePrice float64 `json:"lastSalePrice"`
+        LastSaleSize  int     `json:"lastSaleSize"`
+        LastSaleTime  int64   `json:"lastSaleTime"`
+        LastUpdated   int64   `json:"lastUpdated"`
+        Bids          []struct {
+                Price     float64 `json:"price"`
+                Size      int     `json:"size"`
+                Timestamp int64   `json:"timestamp"`
+        } `json:"bids"`
+        Asks []struct {
+                Price     float64 `json:"price"`
+                Size      int     `json:"size"`
+                Timestamp int64   `json:"timestamp"`
+        } `json:"asks"`
+        SystemEvent struct {
+                SystemEvent string `json:"systemEvent"`
+                Timestamp   int64  `json:"timestamp"`
+        } `json:"systemEvent"`
+        TradingStatus struct {
+                Status    string `json:"status"`
+                Reason    string `json:"reason"`
+                Timestamp int64  `json:"timestamp"`
+        } `json:"tradingStatus"`
+        OpHaltStatus struct {
+                IsHalted  bool  `json:"isHalted"`
+                Timestamp int64 `json:"timestamp"`
+        } `json:"opHaltStatus"`
+        SsrStatus struct {
+                IsSSR     bool   `json:"isSSR"`
+                Detail    string `json:"detail"`
+                Timestamp int64  `json:"timestamp"`
+        } `json:"ssrStatus"`
+        SecurityEvent struct {
+                SecurityEvent string `json:"securityEvent"`
+                Timestamp     int64  `json:"timestamp"`
+        } `json:"securityEvent"`
+        Trades []struct {
+                Price                 float64 `json:"price"`
+                Size                  int     `json:"size"`
+                TradeID               int     `json:"tradeId"`
+                IsISO                 bool    `json:"isISO"`
+                IsOddLot              bool    `json:"isOddLot"`
+                IsOutsideRegularHours bool    `json:"isOutsideRegularHours"`
+                IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
+                IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
+                Timestamp             int64   `json:"timestamp"`
+        } `json:"trades"`
+        TradeBreaks []struct {
+                Price                 float64 `json:"price"`
+                Size                  int     `json:"size"`
+                TradeID               int     `json:"tradeId"`
+                IsISO                 bool    `json:"isISO"`
+                IsOddLot              bool    `json:"isOddLot"`
+                IsOutsideRegularHours bool    `json:"isOutsideRegularHours"`
+                IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
+                IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
+                Timestamp             int64   `json:"timestamp"`
+        } `json:"tradeBreaks"`
+        Auction struct {
+                AuctionType          string  `json:"auctionType"`
+                PairedShares         int     `json:"pairedShares"`
+                ImbalanceShares      int     `json:"imbalanceShares"`
+                ReferencePrice       float64 `json:"referencePrice"`
+                IndicativePrice      float64 `json:"indicativePrice"`
+                AuctionBookPrice     float64 `json:"auctionBookPrice"`
+                CollarReferencePrice float64 `json:"collarReferencePrice"`
+                LowerCollarPrice     float64 `json:"lowerCollarPrice"`
+                UpperCollarPrice     float64 `json:"upperCollarPrice"`
+                ExtensionNumber      int     `json:"extensionNumber"`
+                StartTime            string  `json:"startTime"`
+                LastUpdate           int64   `json:"lastUpdate"`
+        } `json:"auction"`
+}
+
+// NewInvestorsExchangeData return new InvestorsExchangeData
+func NewInvestorsExchangeData(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *InvestorsExchangeData <span class="cov8" title="1">{
+        apiurl, err := url.Parse("")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">ied := &amp;InvestorsExchangeData{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;ied.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return ied</span>
+}
+
+// Token return token string
+func (ied *InvestorsExchangeData) Token() string <span class="cov8" title="1">{
+        return ied.token
+}</span>
+
+// Version return version string
+func (ied *InvestorsExchangeData) Version() string <span class="cov8" title="1">{
+        return ied.version
+}</span>
+
+// URL return URL base
+func (ied *InvestorsExchangeData) URL() *url.URL <span class="cov8" title="1">{
+        return ied.url
+}</span>
+
+// APIURL return APIURL
+func (ied *InvestorsExchangeData) APIURL() *url.URL <span class="cov8" title="1">{
+        return ied.apiurl
+}</span>
+
+// Client return HTTP client
+func (ied *InvestorsExchangeData) Client() *http.Client <span class="cov8" title="1">{
+        return ied.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (ied *InvestorsExchangeData) Retry() *Retry <span class="cov8" title="1">{
+        return ied.iex.Retry
+}</span>
+
+// TOPS GET /tops?{params}
+func (ied *InvestorsExchangeData) TOPS(params *TOPSParams) (tops TOPS, err error) <span class="cov8" title="1">{
+        get(ied, &amp;tops, "tops", params)
+        return
+}</span>
+
+// Last GET /tops/last?{params}
+func (ied *InvestorsExchangeData) Last(params *LastParams) (l Last, err error) <span class="cov8" title="1">{
+        get(ied, &amp;l, "tops/last", params)
+        return
+}</span>
+
+// DEEP GET /deep?symbols={params}
+func (ied *InvestorsExchangeData) DEEP(params *DEEPParams) (d *DEEP, err error) <span class="cov8" title="1">{
+        get(ied, &amp;d, "deep", params)
+        return
+}</span>
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">package goiex
+
+import (
+        "fmt"
+        "net/http"
+        "net/url"
+        "strconv"
+)
+
+// ReferenceData struct to interface with /ref-data endpoints
+type ReferenceData struct {
+        iex
+}
+
+// Symbols struct
+type Symbols []struct {
+        Symbol    string `json:"symbol"`
+        Name      string `json:"name"`
+        Date      string `json:"date"`
+        Type      string `json:"type"`
+        IexID     string `json:"iexId"`
+        Region    string `json:"region"`
+        Currency  string `json:"currency"`
+        IsEnabled bool   `json:"isEnabled"`
+}
+
+// IEXSymbols struct
+type IEXSymbols []struct {
+        Symbol    string `json:"symbol"`
+        Date      string `json:"date"`
+        IsEnabled bool   `json:"isEnabled"`
+}
+
+// InternationalSymbols struct
+type InternationalSymbols []struct {
+        Symbol    string `json:"symbol"`
+        Exchange  string `json:"exchange"`
+        Name      string `json:"name"`
+        Date      string `json:"date"`
+        Type      string `json:"type"`
+        IexID     string `json:"iexId"`
+        Region    string `json:"region"`
+        Currency  string `json:"currency"`
+        IsEnabled bool   `json:"isEnabled"`
+}
+
+// InternationalExchanges struct
+type InternationalExchanges []struct {
+        Exchange       string `json:"exchange"`
+        Region         string `json:"region"`
+        Description    string `json:"description"`
+        Mic            string `json:"mic"`
+        ExchangeSuffix string `json:"exchangeSuffix"`
+}
+
+// USExchanges struct
+type USExchanges []struct {
+        Name   string `json:"name"`
+        Mic    string `json:"mic"`
+        TapeID string `json:"tapeId"`
+        OatsID string `json:"oatsId"`
+        Type   string `json:"type"`
+}
+
+// USHolidaysAndTradingDates struct
+type USHolidaysAndTradingDates []struct {
+        Date           string `json:"date"`
+        SettlementDate string `json:"settlementDate"`
+}
+
+// Sectors struct
+type Sectors []struct {
+        Name string `json:"name"`
+}
+
+// Tags struct
+type Tags []struct {
+        Name string `json:"name"`
+}
+
+// MutualFundSymbols struct
+type MutualFundSymbols []struct {
+        Symbol    string `json:"symbol"`
+        Name      string `json:"name"`
+        Date      string `json:"date"`
+        Type      string `json:"type"`
+        IexID     string `json:"iexId"`
+        Region    string `json:"region"`
+        Currency  string `json:"currency"`
+        IsEnabled bool   `json:"isEnabled"`
+}
+
+// OTCSymbols struct
+type OTCSymbols []struct {
+        Symbol string `json:"symbol"`
+        Name   string `json:"name"`
+        Date   string `json:"date"`
+        Type   string `json:"type"`
+        IexID  string `json:"iexId"`
+}
+
+// FXSymbols struct
+type FXSymbols struct {
+        Currencies []struct {
+                Code string `json:"code"`
+                Name string `json:"name"`
+        } `json:"currencies"`
+        Pairs []struct {
+                From string `json:"from"`
+                To   string `json:"to"`
+        } `json:"pairs"`
+}
+
+// OptionsSymbols struct
+type OptionsSymbols struct {
+        // TODO: needs custom unmarshal
+}
+
+// NewReferenceData return new ReferenceData
+func NewReferenceData(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *ReferenceData <span class="cov8" title="1">{
+        apiurl, err := url.Parse("ref-data/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">rd := &amp;ReferenceData{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;rd.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return rd</span>
+}
+
+// Token return token string
+func (rd *ReferenceData) Token() string <span class="cov8" title="1">{
+        return rd.token
+}</span>
+
+// Version return version string
+func (rd *ReferenceData) Version() string <span class="cov8" title="1">{
+        return rd.version
+}</span>
+
+// URL return URL base
+func (rd *ReferenceData) URL() *url.URL <span class="cov8" title="1">{
+        return rd.url
+}</span>
+
+// APIURL return APIURL
+func (rd *ReferenceData) APIURL() *url.URL <span class="cov8" title="1">{
+        return rd.apiurl
+}</span>
+
+// Client return HTTP client
+func (rd *ReferenceData) Client() *http.Client <span class="cov8" title="1">{
+        return rd.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (rd *ReferenceData) Retry() *Retry <span class="cov8" title="1">{
+        return rd.iex.Retry
+}</span>
+
+// Symbols GET /ref-data/symbols
+func (rd *ReferenceData) Symbols() (s Symbols, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;s, "symbols", nil)
+        return
+}</span>
+
+// IEXSymbols GET /ref-data/iex/symbols
+func (rd *ReferenceData) IEXSymbols() (is IEXSymbols, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;is, "iex/symbols", nil)
+        return
+}</span>
+
+// RegionSymbols GET /ref-data/region/{region}/symbols
+func (rd *ReferenceData) RegionSymbols(region string) (is InternationalSymbols, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("region/%s/symbols", region)
+        err = get(rd, &amp;is, endpoint, nil)
+        return
+}</span>
+
+// ExchangeSymbols GET /ref-data/exchange/{exchange}/symbogTls
+func (rd *ReferenceData) ExchangeSymbols(exchange string) (is InternationalSymbols, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("exchange/%s/symbols", exchange)
+        err = get(rd, &amp;is, endpoint, nil)
+        return
+}</span>
+
+// InternationalExchanges GET /ref-data/exchanges
+func (rd *ReferenceData) InternationalExchanges() (ie InternationalExchanges, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;ie, "exchanges", nil)
+        return
+}</span>
+
+// USExchanges GET /ref-data/market/us/exchanges
+func (rd *ReferenceData) USExchanges() (ue USExchanges, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;ue, "market/us/exchanges", nil)
+        return
+}</span>
+
+// USHolidaysAndTradingDates GET /ref-data/us/dates/{type}/{direction}/{last?}/{startDate?}
+func (rd *ReferenceData) USHolidaysAndTradingDates(dateType, direction string, opt ...interface{}) (u USHolidaysAndTradingDates, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("us/dates/%s/%s", dateType, direction)
+        if len(opt) &gt; 0 </span><span class="cov8" title="1">{
+                last := opt[0].(int)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+        }</span>
+        <span class="cov8" title="1">if len(opt) &gt; 1 </span><span class="cov8" title="1">{
+                startDate := opt[1].(string)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, startDate)
+        }</span>
+        <span class="cov8" title="1">err = get(rd, &amp;u, endpoint, nil)
+        return</span>
+}
+
+// Sectors GET /ref-data/sectors
+func (rd *ReferenceData) Sectors() (s Sectors, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;s, "sectors", nil)
+        return
+}</span>
+
+// Tags GET /ref-data/tags
+func (rd *ReferenceData) Tags() (t Tags, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;t, "tags", nil)
+        return
+}</span>
+
+// MutualFundSymbols GET /ref-data/mutual-funds/symbols
+func (rd *ReferenceData) MutualFundSymbols() (mfs MutualFundSymbols, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;mfs, "mutual-funds/symbols", nil)
+        return
+}</span>
+
+// OTCSymbols GET /ref-data/otc/symbols
+func (rd *ReferenceData) OTCSymbols() (otc OTCSymbols, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;otc, "otc/symbols", nil)
+        return
+}</span>
+
+// FXSymbols GET /ref-data/fx/symbols
+func (rd *ReferenceData) FXSymbols() (fx FXSymbols, err error) <span class="cov8" title="1">{
+        err = get(rd, &amp;fx, "fx/symbols", nil)
+        return
+}</span>
+
+// OptionsSymbols GET /ref-data/options/symbols
+// TODO: fix later. needs custom unmarshal
+// func (rd *ReferenceData) OptionsSymbols() (os OptionsSymbols, err error) {
+//   err = get(rd, &amp;os, "options/symbols", nil)
+//   return
+// }
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">package goiex
+
+import (
+        "io"
+        "io/ioutil"
+        "net/http"
+)
+
+// Request wraps a *http.Request
+type Request struct {
+        body io.ReadSeeker // used to rewind request data between retries
+        *http.Request
+}
+
+// NewRequest constructor to build *Request
+func NewRequest(method, url string, body io.ReadSeeker) (*Request, error) <span class="cov8" title="1">{
+        var rc io.ReadCloser
+        if body != nil </span><span class="cov0" title="0">{
+                rc = ioutil.NopCloser(body)
+        }</span>
+
+        <span class="cov8" title="1">req, err := http.NewRequest(method, url, rc)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return &amp;Request{body, req}, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">package goiex
+
+import (
+        "fmt"
+        "net/http"
+        "time"
+)
+
+var (
+        // Default retry configuration
+        defaultRetryWaitMin  = 1 * time.Second
+        defaultRetryWaitMax  = 30 * time.Second
+        defaultRetryAttempts = 4
+)
+
+// Retry implements Retryer
+type Retry struct {
+        *http.Client
+        RetryWaitMin  time.Duration // Minimum time to wait on HTTP request retry
+        RetryWaitMax  time.Duration // Maximum time to wait on HTTP request retry
+        RetryAttempts int           // Maximum number of HTTP request retries
+        RetryPolicy   RetryPolicy   // Defines when to retry a HTTP request
+        Backoff       Backoff       // Defines wait time between HTTP request retries
+}
+
+// RetryOption is a func that operations on *Retry.
+type RetryOption func(*Retry) error
+
+// SetRetryWaitMinMax sets the min and max time.Duration that a retry request is bounded by.
+func SetRetryWaitMinMax(min, max time.Duration) RetryOption <span class="cov0" title="0">{
+        return func(r *Retry) error </span><span class="cov0" title="0">{
+                if min &lt;= 0 || max &lt;= 0 </span><span class="cov0" title="0">{
+                        return fmt.Errorf("The value of min: %d or max: %d cannot be less than or equal to 0", min, max)
+                }</span>
+                <span class="cov0" title="0">if min &gt; max </span><span class="cov0" title="0">{
+                        return fmt.Errorf("The value of min: %d cannot be greater than max: %d", min, max)
+                }</span>
+                <span class="cov0" title="0">r.RetryWaitMin = min
+                r.RetryWaitMax = max
+                return nil</span>
+        }
+}
+
+// SetRetryAttempts sets the max number of retry attempts.
+func SetRetryAttempts(attempts int) RetryOption <span class="cov0" title="0">{
+        return func(r *Retry) error </span><span class="cov0" title="0">{
+                if attempts &lt;= 0 </span><span class="cov0" title="0">{
+                        return fmt.Errorf("The value of attempts: %d cannot be less than or equal to 0", attempts)
+                }</span>
+                <span class="cov0" title="0">r.RetryAttempts = attempts
+                return nil</span>
+        }
+}
+
+// SetRetryPolicy sets the RetryPolicy that defines when to retry a HTTP request.
+func SetRetryPolicy(rp RetryPolicy) RetryOption <span class="cov0" title="0">{
+        return func(r *Retry) error </span><span class="cov0" title="0">{
+                r.RetryPolicy = rp
+                return nil
+        }</span>
+}
+
+// SetBackoff sets the Backoff that defines how long to wait between HTTP request retries.
+func SetBackoff(b Backoff) RetryOption <span class="cov0" title="0">{
+        return func(r *Retry) error </span><span class="cov0" title="0">{
+                r.Backoff = b
+                return nil
+        }</span>
+}
+
+// NewRetry returns a struct that can retry a HTTP request defined by the RetryPolicy and Backoff.
+func NewRetry(httpClient *http.Client, options ...RetryOption) (*Retry, error) <span class="cov0" title="0">{
+        retry := &amp;Retry{
+                Client:        httpClient,
+                RetryWaitMin:  defaultRetryWaitMin,
+                RetryWaitMax:  defaultRetryWaitMax,
+                RetryAttempts: defaultRetryAttempts,
+                RetryPolicy:   DefaultRetryPolicy,
+                Backoff:       DefaultBackoff,
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(retry)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+        }
+
+        <span class="cov0" title="0">return retry, nil</span>
+}
+
+// Do will perform the Request and attempt it again if the RetryPolicy passes
+func (r *Retry) Do(req *Request) (*http.Response, error) <span class="cov0" title="0">{
+        for i := 0; i &lt; r.RetryAttempts; i++ </span><span class="cov0" title="0">{
+                // Rewind the request body
+                if req.body != nil </span><span class="cov0" title="0">{
+                        if _, err := req.body.Seek(0, 0); err != nil </span><span class="cov0" title="0">{
+                                return nil, fmt.Errorf("failed to seek body: %v", err)
+                        }</span>
+                }
+
+                // Attempt request
+                <span class="cov0" title="0">resp, err := r.Client.Do(req.Request)
+
+                // No RetryPolicy policy set so return right away
+                if r.RetryPolicy == nil </span><span class="cov0" title="0">{
+                        return resp, err
+                }</span>
+
+                // Check for retry
+                <span class="cov0" title="0">checkOK, checkErr := r.RetryPolicy(resp, err)
+                if !checkOK </span><span class="cov0" title="0">{
+                        if checkErr != nil </span><span class="cov0" title="0">{
+                                err = checkErr
+                        }</span>
+                        <span class="cov0" title="0">return resp, err</span>
+                }
+
+                // Perform retry
+                <span class="cov0" title="0">if err == nil </span><span class="cov0" title="0">{
+                        drainBody(resp.Body)
+                }</span>
+
+                <span class="cov0" title="0">remain := r.RetryAttempts - i
+                if remain == 0 </span><span class="cov0" title="0">{
+                        break</span>
+                }
+                <span class="cov0" title="0">wait := r.Backoff(r.RetryWaitMin, r.RetryWaitMax, i, resp)
+                time.Sleep(wait)</span>
+        }
+
+        <span class="cov0" title="0">return nil, fmt.Errorf("%s %s request failed after %d attempts", req.Method, req.URL, r.RetryAttempts+1)</span>
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">// See https://medium.com/@nitishkr88/http-retries-in-go-e622e51d249f for implementation guide.
+
+package goiex
+
+import (
+        "net/http"
+)
+
+// RetryPolicy is a func type that defines when to retry a http request
+type RetryPolicy func(resp *http.Response, err error) (bool, error)
+
+// DefaultRetryPolicy defines a retry on status codes 0, 429, and &gt;= 500
+func DefaultRetryPolicy(resp *http.Response, err error) (bool, error) <span class="cov8" title="1">{
+        if err != nil </span><span class="cov8" title="1">{
+                return true, err
+        }</span>
+
+        <span class="cov8" title="1">if resp.StatusCode == 0 || resp.StatusCode == 429 || resp.StatusCode &gt;= 500 </span><span class="cov8" title="1">{
+                return true, nil
+        }</span>
+
+        <span class="cov8" title="1">return false, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package goiex
+
+import (
+        "encoding/json"
+        "fmt"
+        "net/http"
+        "net/url"
+        "strconv"
+)
+
+// IndicatorName for TechnicalIndicator API
+type IndicatorName int
+
+const (
+        // ABS Vector Absolute Value
+        ABS IndicatorName = iota
+        // ACOS Vector Arccosine
+        ACOS
+        // AD Accumulation/Distribution Line
+        AD
+        // ADD Vector Addition
+        ADD
+        // ADOSC Accumulation/Distribution Oscillator
+        ADOSC
+        // ADX Average Directional Movement Index
+        ADX
+        // ADXR Average Directional Movement Rating
+        ADXR
+        // AO Awesome Oscillator
+        AO
+        // APO Absolute Price Oscillator
+        APO
+        // AROON Aroon
+        AROON
+        // AROONOSC Aroon Oscillator
+        AROONOSC
+        // ASIN Vector Arcsine
+        ASIN
+        // ATAN Vector Arctangent
+        ATAN
+        // ATR Average True Range
+        ATR
+        // AVGPRICE Average Price
+        AVGPRICE
+        // BBANDS Bollinger Bands
+        BBANDS
+        // BOP Balance of Power
+        BOP
+        // CCI Commodity Channel Index
+        CCI
+        // CEIL Vector Ceiling
+        CEIL
+        // CMO Change Momentum Oscillator
+        CMO
+        // COS Vector Cosine
+        COS
+        // COSH Vector Hyperbolic Cosine
+        COSH
+        // CROSSANY Crossany
+        CROSSANY
+        // CROSSOVER Crossover
+        CROSSOVER
+        // CVI Chaikins Volatility
+        CVI
+        // DECAY Linear Decay
+        DECAY
+        // DEMA Double Exponential Moving Average
+        DEMA
+        // DI Directional Indicator
+        DI
+        // DIV Vector Division
+        DIV
+        // DM Directional Movement
+        DM
+        // DPO Detrended Price Oscillator
+        DPO
+        // DX Directional Movement Index
+        DX
+        // EDECAY Exponential Decay
+        EDECAY
+        // EMA Exponential Moving Average
+        EMA
+        // EMV Ease of Movement
+        EMV
+        // EXP Vector Exponential
+        EXP
+        // FISHER Fisher Transform
+        FISHER
+        // FLOOR Vector Floor
+        FLOOR
+        // FOSC Forecast Oscillator
+        FOSC
+        // HMA Hull Moving Average
+        HMA
+        // KAMA Kaufman Adaptive Moving Average
+        KAMA
+        // KVO Klinger Volume Oscillator
+        KVO
+        // LAG Lag
+        LAG
+        // LINREG Linear Regression
+        LINREG
+        // LINREGINTERCEPT Linear Regression Intercept
+        LINREGINTERCEPT
+        // LINREGSLOPE Linear Regression Slope
+        LINREGSLOPE
+        // LN Vector Natural Log
+        LN
+        // LOG10 Vector Base-10 Log
+        LOG10
+        // MACD Moving Average Convergence/Divergence
+        MACD
+        // MARKETFI Market Facilitation Index
+        MARKETFI
+        // MASS Mass Index
+        MASS
+        // MAX Maximum In Period
+        MAX
+        // MD Mean Deviation Over Period
+        MD
+        // MEDPRICE Median Price
+        MEDPRICE
+        // MFI Money Flow Index
+        MFI
+        // MIN Minimum In Period
+        MIN
+        // MOM Momentum
+        MOM
+        // MSW Mesa Sine Wave
+        MSW
+        // MUL Vector Multiplication
+        MUL
+        // NATR Normalized Average True Range
+        NATR
+        // NVI Negative Volume Index
+        NVI
+        // OBV On Balance Volume
+        OBV
+        // PPO Percentage Price Oscillator
+        PPO
+        // PSAR Parabolic SAR
+        PSAR
+        // PVI Positive Volume Index
+        PVI
+        // QSTICK Qstick
+        QSTICK
+        // ROC Rate of Change
+        ROC
+        // ROCR Rate of Change Ratio
+        ROCR
+        // ROUND Vector Round
+        ROUND
+        // RSI Relative Strength Index
+        RSI
+        // SIN Vector Sine
+        SIN
+        // SINH Vector Hyperbolic Sine
+        SINH
+        // SMA Simple Moving Average
+        SMA
+        // SQRT Vector Square Root
+        SQRT
+        // STDDEV Standard Deviation Over Period
+        STDDEV
+        // STOCH Stochastic Oscillator
+        STOCH
+        // STOCHRSI Stochastic RSI
+        STOCHRSI
+        // SUB Vector Subtraction
+        SUB
+        // SUM Sum Over Period
+        SUM
+        // TAN Vector Tangent
+        TAN
+        // TANH Vector Hyperbolic Tangent
+        TANH
+        // TEMA Triple Exponential Moving Average
+        TEMA
+        // TODEG Vector Degree Conversion
+        TODEG
+        // TORAD Vector Radian Conversion
+        TORAD
+        // TR True Range
+        TR
+        // TRIMA Triangular Moving Average
+        TRIMA
+        // TRIX Trix
+        TRIX
+        // TRUNC Vector Truncate
+        TRUNC
+        // TSF Time Series Forecast
+        TSF
+        // TYPPRICE Typical Price
+        TYPPRICE
+        // ULTOSC Ultimate Oscillator
+        ULTOSC
+        // VAR Variance Over Period
+        VAR
+        // VHF Vertical Horizontal Filter
+        VHF
+        // VIDYA Variable Index Dynamic Average
+        VIDYA
+        // VOLATILITY Annualized Historical Volatility
+        VOLATILITY
+        // VOSC Volume Oscillator
+        VOSC
+        // VWMA Volume Weighted Moving Average
+        VWMA
+        // WAD Williams Accumulation/Distribution
+        WAD
+        // WCPRICE Weight Close Price
+        WCPRICE
+        // WILDERS Wilders Smoothing
+        WILDERS
+        // WILLR Williams %R
+        WILLR
+        // WMA Weighted Moving Average
+        WMA
+        // ZLEMA Zero-Lag Exponential Moving Average
+        ZLEMA
+)
+
+// ChartRange for Chart API
+type ChartRange int
+
+const (
+        // ChartRangeMax chart range
+        ChartRangeMax ChartRange = iota
+        // ChartRangeFiveYear chart range
+        ChartRangeFiveYear
+        // ChartRangeTwoYear chart range
+        ChartRangeTwoYear
+        // ChartRangeOneYear chart range
+        ChartRangeOneYear
+        // ChartRangeYearToDate chart range
+        ChartRangeYearToDate
+        // ChartRangeSixMonth chart range
+        ChartRangeSixMonth
+        // ChartRangeThreeMonth chart range
+        ChartRangeThreeMonth
+        // ChartRangeOneMonth chart range
+        ChartRangeOneMonth
+        // ChartRangeOneDay chart range
+        ChartRangeOneDay
+)
+
+// ChartQueryParams optional query parameters
+type ChartQueryParams struct {
+        ChartCloseOnly  bool       `url:"chartCloseOnly,omitempty"`
+        ChartByDay      bool       `url:"chartByDay,omitempty"`
+        ChartSimplify   bool       `url:"chartSimplify,omitempty"`
+        ChartInterval   uint       `url:"chartInterval,omitempty"`
+        ChangeFromClose bool       `url:"changeFromClose,omitempty"`
+        ChartLast       uint       `url:"chartLast,omitempty"`
+        Range           ChartRange `url:"range,omitempty"`
+        // ExactDate date formatted as YYYYMMDD
+        ExactDate string `url:"exactDate,omitempty"`
+        // Sort can be `asc` or `desc`. Defaults to `desc`.
+        Sort string `url:"sort,omitempty"`
+        // IncludeToday appends current trading to data
+        IncludeToday bool `url:"includeToday,omitempty"`
+}
+
+// DividendRange for Dividend API
+type DividendRange int
+
+const (
+        // DividendRangeFiveYear dividend range
+        DividendRangeFiveYear DividendRange = iota
+        // DividendRangeTwoYear dividend range
+        DividendRangeTwoYear
+        // DividendRangeOneYear dividend range
+        DividendRangeOneYear
+        // DividendRangeYearToDate dividend range
+        DividendRangeYearToDate
+        // DividendRangeSixMonth dividend range
+        DividendRangeSixMonth
+        // DividendRangeThreeMonth dividend range
+        DividendRangeThreeMonth
+        // DividendRangeOneMonth dividend range
+        DividendRangeOneMonth
+        // DividendRangeNext dividend range
+        DividendRangeNext
+)
+
+// SplitRange for Split API
+type SplitRange int
+
+const (
+        // SplitRangeFiveYear split range
+        SplitRangeFiveYear SplitRange = iota
+        // SplitRangeTwoYear split range
+        SplitRangeTwoYear
+        // SplitRangeOneYear split range
+        SplitRangeOneYear
+        // SplitRangeYearToDate split range
+        SplitRangeYearToDate
+        // SplitRangeSixMonth split range
+        SplitRangeSixMonth
+        // SplitRangeThreeMonth split range
+        SplitRangeThreeMonth
+        // SplitRangeOneMonth split range
+        SplitRangeOneMonth
+        // SplitRangeNext split range
+        SplitRangeNext
+)
+
+// PeriodQueryParameter accepted values for query parameter `period`
+type PeriodQueryParameter int
+
+const (
+        // PeriodAnnual annual period
+        PeriodAnnual PeriodQueryParameter = iota
+        // PeriodQuarter quarter period
+        PeriodQuarter
+)
+
+// Stock struct to interface with /stock endpoints
+type Stock struct {
+        iex
+}
+
+// AdvancedStat struct
+type AdvancedStat struct {
+        KeyStat
+        TotalCash                int64       `json:"totalCash"`
+        CurrentDebt              int64       `json:"currentDebt"`
+        Revenue                  int64       `json:"revenue"`
+        GrossProfit              int64       `json:"grossProfit"`
+        TotalRevenue             int64       `json:"totalRevenue"`
+        EBITDA                   int64       `json:"EBITDA"`
+        RevenuePerShare          float64     `json:"revenuePerShare"`
+        RevenuePerEmployee       float64     `json:"revenuePerEmployee"`
+        DebtToEquity             float64     `json:"debtToEquity"`
+        ProfitMargin             float64     `json:"profitMargin"`
+        EnterpriseValue          int64       `json:"enterpriseValue"`
+        EnterpriseValueToRevenue float64     `json:"enterpriseValueToRevenue"`
+        PriceToSales             float64     `json:"priceToSales"`
+        PriceToBook              float64     `json:"priceToBook"`
+        ForwardPERatio           interface{} `json:"forwardPERatio"`
+        PegRatio                 float64     `json:"pegRatio"`
+}
+
+// Asks struct
+type Asks []struct {
+        Price     float64 `json:"price"`
+        Size      int     `json:"size"`
+        Timestamp int64   `json:"timestamp"`
+}
+
+// BalanceSheetParams query parameters
+type BalanceSheetParams struct {
+        // Period specify either "annual" or "quarter" with PeriodQueryParameter
+        Period PeriodQueryParameter `url:"period"`
+        // Last with "quarter" period can specify up to 12 and up to 4 with "annual" period
+        Last int `url:"last"`
+}
+
+// BalanceSheet struct
+type BalanceSheet struct {
+        Symbol       string `json:"symbol"`
+        BalanceSheet []struct {
+                ReportDate              string      `json:"reportDate"`
+                CurrentCash             int64       `json:"currentCash"`
+                ShortTermInvestments    int64       `json:"shortTermInvestments"`
+                Receivables             int64       `json:"receivables"`
+                Inventory               int64       `json:"inventory"`
+                OtherCurrentAssets      int64       `json:"otherCurrentAssets"`
+                CurrentAssets           int64       `json:"currentAssets"`
+                LongTermInvestments     int64       `json:"longTermInvestments"`
+                PropertyPlantEquipment  int64       `json:"propertyPlantEquipment"`
+                Goodwill                interface{} `json:"goodwill"`
+                IntangibleAssets        interface{} `json:"intangibleAssets"`
+                OtherAssets             int64       `json:"otherAssets"`
+                TotalAssets             int64       `json:"totalAssets"`
+                AccountsPayable         int64       `json:"accountsPayable"`
+                CurrentLongTermDebt     int64       `json:"currentLongTermDebt"`
+                OtherCurrentLiabilities int64       `json:"otherCurrentLiabilities"`
+                TotalCurrentLiabilities int64       `json:"totalCurrentLiabilities"`
+                LongTermDebt            int64       `json:"longTermDebt"`
+                OtherLiabilities        int64       `json:"otherLiabilities"`
+                MinorityInterest        int         `json:"minorityInterest"`
+                TotalLiabilities        int64       `json:"totalLiabilities"`
+                CommonStock             int64       `json:"commonStock"`
+                RetainedEarnings        int64       `json:"retainedEarnings"`
+                TreasuryStock           interface{} `json:"treasuryStock"`
+                CapitalSurplus          interface{} `json:"capitalSurplus"`
+                ShareholderEquity       int64       `json:"shareholderEquity"`
+                NetTangibleAssets       int64       `json:"netTangibleAssets"`
+        } `json:"balancesheet"`
+}
+
+// Batch struct
+type Batch struct {
+        Quote Quote
+        News  News
+        Chart []Chart
+}
+
+// Bids struct
+type Bids []struct {
+        Price     float64 `json:"price"`
+        Size      int     `json:"size"`
+        Timestamp int64   `json:"timestamp"`
+}
+
+// Book struct
+type Book struct {
+        Asks        Asks
+        Bids        Bids
+        Quote       Quote
+        Trades      Trades
+        SystemEvent SystemEvent
+}
+
+// CashFlowQueryParams optional query parameters
+type CashFlowQueryParams struct {
+        Period PeriodQueryParameter `url:"period"`
+        Last   uint                 `url:"last,omitempty"`
+}
+
+// CashFlow struct
+type CashFlow struct {
+        Symbol   string `json:"symbol"`
+        CashFlow []struct {
+                ReportDate              string      `json:"reportDate"`
+                NetIncome               int64       `json:"netIncome"`
+                Depreciation            int64       `json:"depreciation"`
+                ChangesInReceivables    int64       `json:"changesInReceivables"`
+                ChangesInInventories    int         `json:"changesInInventories"`
+                CashChange              int64       `json:"cashChange"`
+                CashFlow                int64       `json:"cashFlow"`
+                CapitalExpenditures     int64       `json:"capitalExpenditures"`
+                Investments             int         `json:"investments"`
+                InvestingActivityOther  int         `json:"investingActivityOther"`
+                TotalInvestingCashFlows int64       `json:"totalInvestingCashFlows"`
+                DividendsPaid           int64       `json:"dividendsPaid"`
+                NetBorrowings           int         `json:"netBorrowings"`
+                OtherFinancingCashFlows int         `json:"otherFinancingCashFlows"`
+                CashFlowFinancing       int64       `json:"cashFlowFinancing"`
+                ExchangeRateEffect      interface{} `json:"exchangeRateEffect"`
+        } `json:"cashflow"`
+}
+
+// Chart struct
+type Chart struct {
+        Date           string  `json:"date"`
+        Open           float64 `json:"open"`
+        High           float64 `json:"high"`
+        Low            float64 `json:"low"`
+        Close          float64 `json:"close"`
+        Volume         int     `json:"volume"`
+        UOpen          float64 `json:"uOpen"`
+        UHigh          float64 `json:"uHigh"`
+        ULow           float64 `json:"uLow"`
+        UClose         float64 `json:"uClose"`
+        UVolume        int     `json:"uVolume"`
+        Change         float64 `json:"change"`
+        ChangePercent  float64 `json:"changePercent"`
+        Label          string  `json:"label"`
+        ChangeOverTime float64 `json:"changeOverTime"`
+}
+
+// CollectionType for Collection API
+type CollectionType int
+
+const (
+        // CollectionSector for sectors
+        CollectionSector CollectionType = iota
+        // CollectionTag for tags
+        CollectionTag
+        // CollectionList for lists
+        CollectionList
+)
+
+// CollectionQueryParams required/optional query parameters
+type CollectionQueryParams struct {
+        CollectionName string `url:"collectionName"`
+}
+
+// Collection struct
+type Collection []struct {
+        Quote
+}
+
+// Company struct
+type Company struct {
+        Symbol      string   `json:"symbol"`
+        CompanyName string   `json:"companyName"`
+        Employees   int      `json:"employees"`
+        Exchange    string   `json:"exchange"`
+        Industry    string   `json:"industry"`
+        Website     string   `json:"website"`
+        Description string   `json:"description"`
+        CEO         string   `json:"CEO"`
+        IssueType   string   `json:"issueType"`
+        Sector      string   `json:"sector"`
+        Tags        []string `json:"tags"`
+}
+
+// DelayedQuote struct
+type DelayedQuote struct {
+        Symbol           string  `json:"symbol"`
+        DelayedPrice     float64 `json:"delayedPrice"`
+        DelayedSize      int     `json:"delayedSize"`
+        DelayedPriceTime int64   `json:"delayedPriceTime"`
+        High             float64 `json:"high"`
+        Low              float64 `json:"low"`
+        TotalVolume      int     `json:"totalVolume"`
+        ProcessedTime    int64   `json:"processedTime"`
+}
+
+// Dividends struct {
+type Dividends []struct {
+        Symbol       string  `json:"symbol"`
+        ExDate       string  `json:"exDate"`
+        PaymentDate  string  `json:"paymentDate"`
+        RecordDate   string  `json:"recordDate"`
+        DeclaredDate string  `json:"declaredDate"`
+        Amount       float64 `json:"amount,string"`
+        Flag         string  `json:"flag"`
+        Currency     string  `json:"currency"`
+        Description  string  `json:"description"`
+        Frequency    string  `json:"frequency"`
+}
+
+// Earning DTO for APIs reporting earnings
+type Earning struct {
+        ActualEPS            float64 `json:"actualEPS"`
+        ConsensusEPS         float64 `json:"consensusEPS"`
+        AnnounceTime         string  `json:"announceTime"`
+        NumberOfEstimates    int     `json:"numberOfEstimates"`
+        EPSSurpriseDollar    float64 `json:"EPSSurpriseDollar"`
+        EPSReportDate        string  `json:"EPSReportDate"`
+        FiscalPeriod         string  `json:"fiscalPeriod"`
+        FiscalEndDate        string  `json:"fiscalEndDate"`
+        YearAgo              float64 `json:"yearAgo"`
+        YearAgoChangePercent float64 `json:"yearAgoChangePercent"`
+}
+
+// EarningsQueryParams required/optional query parameters
+type EarningsQueryParams struct {
+        Last   uint                 `url:"last,omitempty"`
+        Period PeriodQueryParameter `url:"period"`
+}
+
+// Earnings struct
+type Earnings struct {
+        Symbol   string    `json:"symbol"`
+        Earnings []Earning `json:"earnings"`
+}
+
+// EarningsToday struct
+type EarningsToday struct {
+        BTO   []EarningsTodayDTO `json:"bto"`
+        AMC   []EarningsTodayDTO `json:"amc"`
+        DMT   []EarningsTodayDTO `json:"dmt"`
+        Other []EarningsTodayDTO `json:"other"`
+}
+
+// EarningsTodayDTO struct
+type EarningsTodayDTO struct {
+        ConsensusEPS      float64 `json:"consensusEPS"`
+        AnnounceTime      string  `json:"announceTime"`
+        NumberOfEstimates int     `json:"numberOfEstimates"`
+        FiscalPeriod      string  `json:"fiscalPeriod"`
+        FiscalEndDate     string  `json:"fiscalEndDate"`
+        Symbol            string  `json:"symbol"`
+        Quote             Quote   `json:"quote"`
+}
+
+// Estimates struct
+type Estimates struct {
+        Symbol    string `json:"symbol"`
+        Estimates []struct {
+                ConsensusEPS      float64 `json:"consensusEPS"`
+                NumberOfEstimates int     `json:"numberOfEstimates"`
+                FiscalPeriod      string  `json:"fiscalPeriod"`
+                FiscalEndDate     string  `json:"fiscalEndDate"`
+                ReportDate        string  `json:"reportDate"`
+        } `json:"estimates"`
+}
+
+// FinancialsQueryParams required/optional query params
+type FinancialsQueryParams struct {
+        Period PeriodQueryParameter `url:"period"`
+}
+
+// Financials struct
+type Financials struct {
+        Symbol     string `json:"symbol"`
+        Financials []struct {
+                ReportDate             string      `json:"reportDate"`
+                GrossProfit            int64       `json:"grossProfit"`
+                CostOfRevenue          int64       `json:"costOfRevenue"`
+                OperatingRevenue       int64       `json:"operatingRevenue"`
+                TotalRevenue           int64       `json:"totalRevenue"`
+                OperatingIncome        int64       `json:"operatingIncome"`
+                NetIncome              int64       `json:"netIncome"`
+                ResearchAndDevelopment int64       `json:"researchAndDevelopment"`
+                OperatingExpense       int64       `json:"operatingExpense"`
+                CurrentAssets          int64       `json:"currentAssets"`
+                TotalAssets            int64       `json:"totalAssets"`
+                TotalLiabilities       int64       `json:"totalLiabilities"`
+                CurrentCash            int64       `json:"currentCash"`
+                CurrentDebt            int64       `json:"currentDebt"`
+                TotalCash              int64       `json:"totalCash"`
+                TotalDebt              int64       `json:"totalDebt"`
+                ShareholderEquity      int64       `json:"shareholderEquity"`
+                CashChange             int         `json:"cashChange"`
+                CashFlow               int64       `json:"cashFlow"`
+                OperatingGainsLosses   interface{} `json:"operatingGainsLosses"`
+        } `json:"financials"`
+}
+
+// FundOwnership struct
+type FundOwnership []struct {
+        AdjHolding       int    `json:"adjHolding"`
+        AdjMv            int    `json:"adjMv"`
+        EntityProperName string `json:"entityProperName"`
+        ReportDate       int64  `json:"reportDate"`
+        ReportedHolding  int    `json:"reportedHolding"`
+        ReportedMv       int    `json:"reportedMv"`
+}
+
+// IncomeStatementQueryParams required/optional query parameters
+type IncomeStatementQueryParams struct {
+        Period PeriodQueryParameter `url:"period"`
+        Last   uint                 `url:"last,omitempty"`
+}
+
+// IncomeStatement struct
+type IncomeStatement struct {
+        Symbol string `json:"symbol"`
+        Income []struct {
+                ReportDate             string `json:"reportDate"`
+                TotalRevenue           int64  `json:"totalRevenue"`
+                CostOfRevenue          int64  `json:"costOfRevenue"`
+                GrossProfit            int64  `json:"grossProfit"`
+                ResearchAndDevelopment int64  `json:"researchAndDevelopment"`
+                SellingGeneralAndAdmin int64  `json:"sellingGeneralAndAdmin"`
+                OperatingExpense       int64  `json:"operatingExpense"`
+                OperatingIncome        int64  `json:"operatingIncome"`
+                OtherIncomeExpenseNet  int    `json:"otherIncomeExpenseNet"`
+                Ebit                   int64  `json:"ebit"`
+                InterestIncome         int    `json:"interestIncome"`
+                PretaxIncome           int64  `json:"pretaxIncome"`
+                IncomeTax              int64  `json:"incomeTax"`
+                MinorityInterest       int    `json:"minorityInterest"`
+                NetIncome              int64  `json:"netIncome"`
+                NetIncomeBasic         int64  `json:"netIncomeBasic"`
+        } `json:"income"`
+}
+
+// InsiderRoster struct
+type InsiderRoster []struct {
+        EntityName string `json:"entityName'"`
+        Position   int    `json:"position"`
+        ReportDate int64  `json:"reportDate"`
+}
+
+// InsiderSummary struct
+type InsiderSummary []struct {
+        FullName      string `json:"fullName"`
+        NetTransacted int    `json:"netTransacted"`
+        ReportedTitle string `json:"reportedTitle"`
+        TotalBought   int    `json:"totalBought"`
+        TotalSold     int    `json:"totalSold"`
+}
+
+// InsiderTransactions struct
+type InsiderTransactions []struct {
+        EffectiveDate int64   `json:"effectiveDate"`
+        FullName      string  `json:"fullName"`
+        ReportedTitle string  `json:"reportedTitle"`
+        TranPrice     float64 `json:"tranPrice"`
+        TranShares    float64 `json:"tranShares"`
+        TranValue     float64 `json:"tranValue"`
+}
+
+// InstitutionalOwnership struct
+type InstitutionalOwnership []struct {
+        AdjHolding       int    `json:"adjHolding"`
+        AdjMv            int    `json:"adjMv"`
+        EntityProperName string `json:"entityProperName"`
+        ReportDate       int64  `json:"reportDate"`
+        ReportedHolding  int    `json:"reportedHolding"`
+}
+
+// IntradayPricesQueryParams required/optional query parameters
+type IntradayPricesQueryParams struct {
+        // ChartIEXOnly true limits to IEX only data
+        ChartIEXOnly bool `url:"chartIEXOnly,omitempty"`
+        // ChartReset true resets chart at midnight instead of 9:30 AM ET
+        ChartReset      bool `url:"chartReset,omitempty"`
+        ChartSimplify   bool `url:"chartSimplify,omitempty"`
+        ChartInterval   uint `url:"chartInterval,omitempty"`
+        ChangeFromClose bool `url:"changeFromClose,omitempty"`
+        ChartLast       uint `url:"chartLast,omitempty"`
+        // ExactDate date formatted as YYYYMMDD
+        ExactDate        string `url:"exactDate,omitempty"`
+        ChartIEXWhenNull bool   `url:"chartIEXWhenNull,omitempty"`
+}
+
+// IntradayPrices struct
+type IntradayPrices []struct {
+        Date                 string  `json:"date"`
+        Minute               string  `json:"minute"`
+        Label                string  `json:"label"`
+        MarketOpen           float64 `json:"marketOpen"`
+        MarketClose          float64 `json:"marketClose"`
+        MarketHigh           float64 `json:"marketHigh"`
+        MarketLow            float64 `json:"marketLow"`
+        MarketAverage        float64 `json:"marketAverage"`
+        MarketVolume         int     `json:"marketVolume"`
+        MarketNotional       float64 `json:"marketNotional"`
+        MarketNumberOfTrades int     `json:"marketNumberOfTrades"`
+        MarketChangeOverTime float64 `json:"marketChangeOverTime"`
+        High                 float64 `json:"high"`
+        Low                  float64 `json:"low"`
+        Open                 float64 `json:"open"`
+        Close                float64 `json:"close"`
+        Average              float64 `json:"average"`
+        Volume               int     `json:"volume"`
+        Notional             float64 `json:"notional"`
+        NumberOfTrades       int     `json:"numberOfTrades"`
+        ChangeOverTime       float64 `json:"changeOverTime"`
+}
+
+// IPOCalendar struct
+type IPOCalendar struct {
+        RawData []struct {
+                Symbol                 string      `json:"symbol"`
+                CompanyName            string      `json:"companyName"`
+                ExpectedDate           string      `json:"expectedDate"`
+                LeadUnderwriters       []string    `json:"leadUnderwriters"`
+                Underwriters           []string    `json:"underwriters"`
+                CompanyCounsel         []string    `json:"companyCounsel"`
+                UnderwriterCounsel     []string    `json:"underwriterCounsel"`
+                Auditor                string      `json:"auditor"`
+                Market                 string      `json:"market"`
+                Cik                    string      `json:"cik"`
+                Address                string      `json:"address"`
+                City                   string      `json:"city"`
+                State                  string      `json:"state"`
+                Zip                    string      `json:"zip"`
+                Phone                  string      `json:"phone"`
+                Ceo                    string      `json:"ceo"`
+                Employees              int         `json:"employees"`
+                URL                    string      `json:"url"`
+                Status                 string      `json:"status"`
+                SharesOffered          int         `json:"sharesOffered"`
+                PriceLow               float64     `json:"priceLow"`
+                PriceHigh              float64     `json:"priceHigh"`
+                OfferAmount            interface{} `json:"offerAmount"`
+                TotalExpenses          float64     `json:"totalExpenses"`
+                SharesOverAlloted      int         `json:"sharesOverAlloted"`
+                ShareholderShares      interface{} `json:"shareholderShares"`
+                SharesOutstanding      int         `json:"sharesOutstanding"`
+                LockupPeriodExpiration string      `json:"lockupPeriodExpiration"`
+                QuietPeriodExpiration  string      `json:"quietPeriodExpiration"`
+                Revenue                int         `json:"revenue"`
+                NetIncome              int         `json:"netIncome"`
+                TotalAssets            int         `json:"totalAssets"`
+                TotalLiabilities       int         `json:"totalLiabilities"`
+                StockholderEquity      int         `json:"stockholderEquity"`
+                CompanyDescription     string      `json:"companyDescription"`
+                BusinessDescription    string      `json:"businessDescription"`
+                UseOfProceeds          string      `json:"useOfProceeds"`
+                Competition            string      `json:"competition"`
+                Amount                 int         `json:"amount"`
+                PercentOffered         string      `json:"percentOffered"`
+        } `json:"rawData"`
+        ViewData []struct {
+                Company  string `json:"Company"`
+                Symbol   string `json:"Symbol"`
+                Price    string `json:"Price"`
+                Shares   string `json:"Shares"`
+                Amount   string `json:"Amount"`
+                Float    string `json:"Float"`
+                Percent  string `json:"Percent"`
+                Market   string `json:"Market"`
+                Expected string `json:"Expected"`
+        } `json:"viewData"`
+}
+
+// KeyStat struct
+type KeyStat struct {
+        CompanyName         string  `json:"companyName"`
+        Marketcap           int64   `json:"marketcap"`
+        Week52High          float64 `json:"week52high"`
+        Week52Low           float64 `json:"week52low"`
+        Week52Change        float64 `json:"week52change"`
+        SharesOutstanding   int64   `json:"sharesOutstanding"`
+        Float               float64 `json:"float"`
+        Symbol              string  `json:"symbol"`
+        Avg10Volume         float64 `json:"avg10Volume"`
+        Avg30Volume         float64 `json:"avg30Volume"`
+        Day200MovingAvg     float64 `json:"day200MovingAvg"`
+        Day50MovingAvg      float64 `json:"day50MovingAvg"`
+        Employees           int     `json:"employees"`
+        TtmEPS              float64 `json:"ttmEPS"`
+        TtmDividendRate     float64 `json:"ttmDividendRate"`
+        DividendYield       float64 `json:"dividendYield"`
+        NextDividendDate    string  `json:"nextDividendDate"`
+        ExDividendDate      string  `json:"exDividendDate"`
+        NextEarningsDate    string  `json:"nextEarningsDate"`
+        PeRatio             float64 `json:"peRatio"`
+        Beta                float64 `json:"beta"`
+        MaxChangePercent    float64 `json:"maxChangePercent"`
+        Year5ChangePercent  float64 `json:"year5ChangePercent"`
+        Year2ChangePercent  float64 `json:"year2ChangePercent"`
+        Year1ChangePercent  float64 `json:"year1ChangePercent"`
+        YtdChangePercent    float64 `json:"ytdChangePercent"`
+        Month6ChangePercent float64 `json:"month6ChangePercent"`
+        Month3ChangePercent float64 `json:"month3ChangePercent"`
+        Month1ChangePercent float64 `json:"month1ChangePercent"`
+        Day30ChangePercent  float64 `json:"day30ChangePercent"`
+        Day5ChangePercent   float64 `json:"day5ChangePercent"`
+}
+
+// LargestTrades struct
+type LargestTrades []struct {
+        Price     float64 `json:"price"`
+        Size      int     `json:"size"`
+        Time      int64   `json:"time"`
+        TimeLabel string  `json:"timeLabel"`
+        Venue     string  `json:"venue"`
+        VenueName string  `json:"venueName"`
+}
+
+// ListQueryParams required/optional query parameters
+type ListQueryParams struct {
+        DisplayPercent bool `url:"displayPercent,omitempty"`
+        ListLimit      uint `url:"listLimit,omitempty"`
+}
+
+// Logo struct
+type Logo struct {
+        URL string `json:"url"`
+}
+
+// MarketVolume struct
+type MarketVolume []struct {
+        Mic           string  `json:"mic"`
+        TapeID        string  `json:"tapeId"`
+        VenueName     string  `json:"venueName"`
+        Volume        int     `json:"volume"`
+        TapeA         int     `json:"tapeA"`
+        TapeB         int     `json:"tapeB"`
+        TapeC         int     `json:"tapeC"`
+        MarketPercent float64 `json:"marketPercent"`
+        LastUpdated   int64   `json:"lastUpdated"`
+}
+
+// News struct
+type News []struct {
+        Datetime   int64  `json:"datetime"`
+        Headline   string `json:"headline"`
+        Source     string `json:"source"`
+        URL        string `json:"url"`
+        Summary    string `json:"summary"`
+        Related    string `json:"related"`
+        Image      string `json:"image"`
+        Lang       string `json:"lang"`
+        HasPaywall bool   `json:"hasPaywall"`
+}
+
+// OHLC struct
+type OHLC struct {
+        Open struct {
+                Price float64 `json:"price"`
+                Time  int64   `json:"time"`
+        } `json:"open"`
+        Close struct {
+                Price float64 `json:"price"`
+                Time  int64   `json:"time"`
+        } `json:"close"`
+        High float64 `json:"high"`
+        Low  float64 `json:"low"`
+}
+
+// Option struct
+type Option struct {
+        Symbol         string  `json:"symbol"`
+        ID             string  `json:"id"`
+        ExpirationDate string  `json:"expirationDate"`
+        ContractSize   int     `json:"contractSize"`
+        StrikePrice    float64 `json:"strikePrice"`
+        ClosingPrice   float64 `json:"closingPrice"`
+        Side           string  `json:"side"`
+        Type           string  `json:"type"`
+        Volume         int     `json:"volume"`
+        OpenInterest   int     `json:"openInterest"`
+        Bid            float64 `json:"bid"`
+        Ask            float64 `json:"ask"`
+        LastUpdated    string  `json:"lastUpdated"`
+}
+
+// PreviousDayPrice struct
+type PreviousDayPrice struct {
+        Date           string  `json:"date"`
+        Open           float64 `json:"open"`
+        Close          float64 `json:"close"`
+        High           float64 `json:"high"`
+        Low            float64 `json:"low"`
+        Volume         float64 `json:"volume"`
+        UOpen          float64 `json:"uOpen"`
+        UClose         float64 `json:"uClose"`
+        UHigh          float64 `json:"uHigh"`
+        ULow           float64 `json:"uLow"`
+        UVolume        float64 `json:"uVolume"`
+        Change         float64 `json:"change"`
+        ChangePercent  float64 `json:"changePercent"`
+        ChangeOverTime float64 `json:"changeOverTime"`
+        Symbol         string  `json:"symbol"`
+}
+
+// PriceTarget struct
+type PriceTarget struct {
+        Symbol             string  `json:"symbol"`
+        UpdatedDate        string  `json:"updatedDate"`
+        PriceTargetAverage float64 `json:"priceTargetAverage"`
+        PriceTargetHigh    float64 `json:"priceTargetHigh"`
+        PriceTargetLow     float64 `json:"priceTargetLow"`
+        NumberOfAnalysts   int     `json:"numberOfAnalysts"`
+}
+
+// QuoteQueryParams required/optional query parameters
+type QuoteQueryParams struct {
+        DisplayPercent bool `url:"displayPercent,omitempty"`
+}
+
+// Quote struct
+type Quote struct {
+        Symbol                string  `json:"symbol"`
+        CompanyName           string  `json:"companyName"`
+        CalculationPrice      string  `json:"calculationPrice"`
+        Open                  float64 `json:"open"`
+        OpenTime              int64   `json:"openTime"`
+        Close                 float64 `json:"close"`
+        CloseTime             int64   `json:"closeTime"`
+        High                  float64 `json:"high"`
+        Low                   float64 `json:"low"`
+        LatestPrice           float64 `json:"latestPrice"`
+        LatestSource          string  `json:"latestSource"`
+        LatestTime            string  `json:"latestTime"`
+        LatestUpdate          int64   `json:"latestUpdate"`
+        LatestVolume          int     `json:"latestVolume"`
+        IexRealtimePrice      float64 `json:"iexRealtimePrice"`
+        IexRealtimeSize       int     `json:"iexRealtimeSize"`
+        IexLastUpdated        int64   `json:"iexLastUpdated"`
+        DelayedPrice          float64 `json:"delayedPrice"`
+        DelayedPriceTime      int64   `json:"delayedPriceTime"`
+        ExtendedPrice         float64 `json:"extendedPrice"`
+        ExtendedChange        float64 `json:"extendedChange"`
+        ExtendedChangePercent float64 `json:"extendedChangePercent"`
+        ExtendedPriceTime     int64   `json:"extendedPriceTime"`
+        PreviousClose         float64 `json:"previousClose"`
+        Change                float64 `json:"change"`
+        ChangePercent         float64 `json:"changePercent"`
+        IexMarketPercent      float64 `json:"iexMarketPercent"`
+        IexVolume             int     `json:"iexVolume"`
+        AvgTotalVolume        int     `json:"avgTotalVolume"`
+        IexBidPrice           float64 `json:"iexBidPrice"`
+        IexBidSize            int     `json:"iexBidSize"`
+        IexAskPrice           float64 `json:"iexAskPrice"`
+        IexAskSize            int     `json:"iexAskSize"`
+        MarketCap             int64   `json:"marketCap"`
+        Week52High            float64 `json:"week52High"`
+        Week52Low             float64 `json:"week52Low"`
+        YtdChange             float64 `json:"ytdChange"`
+}
+
+// RecommendationTrends struct
+type RecommendationTrends []struct {
+        ConsensusEndDate            int64   `json:"consensusEndDate"`
+        ConsensusStartDate          int64   `json:"consensusStartDate"`
+        CorporateActionsAppliedDate int64   `json:"corporateActionsAppliedDate"`
+        RatingBuy                   int     `json:"ratingBuy"`
+        RatingHold                  int     `json:"ratingHold"`
+        RatingNone                  int     `json:"ratingNone"`
+        RatingOverweight            int     `json:"ratingOverweight"`
+        RatingScaleMark             float64 `json:"ratingScaleMark"`
+        RatingSell                  int     `json:"ratingSell"`
+        RatingUnderweight           int     `json:"ratingUnderweight"`
+}
+
+// SectorPerformance struct
+type SectorPerformance []struct {
+        Type        string  `json:"type"`
+        Name        string  `json:"name"`
+        Performance float64 `json:"performance"`
+        LastUpdated int64   `json:"lastUpdated"`
+}
+
+// Splits struct
+type Splits []struct {
+        ExDate       string  `json:"exDate"`
+        DeclaredDate string  `json:"declaredDate"`
+        Ratio        float64 `json:"ratio"`
+        ToFactor     float64 `json:"toFactor"`
+        FromFactor   float64 `json:"fromFactor"`
+        Description  string  `json:"description"`
+}
+
+// SystemEvent struct
+type SystemEvent struct {
+        SystemEvent string `json:"systemEvent"`
+        Timestamp   int64  `json:"timestamp"`
+}
+
+// TechnicalIndicator struct
+type TechnicalIndicator struct {
+        Indicator [][]float64 `json:"indicator"`
+        Charts    []Chart     `json:"chart"`
+}
+
+// TechnicalIndicatorParams struct
+type TechnicalIndicatorParams struct {
+        // Range should match allowed ranges in historical prices
+        Range  string `url:"range"`
+        input1 int    `url:"input1,omitempty"`
+        input2 int    `url:"input2,omitempty"`
+        input3 int    `url:"input3,omitempty"`
+        input4 int    `url:"input4,omitempty"`
+}
+
+// Trades struct
+type Trades []struct {
+        Price                 float64 `json:"price"`
+        Size                  int     `json:"size"`
+        TradeID               int     `json:"tradeId"`
+        IsISO                 bool    `json:"isISO"`
+        IsOddLot              bool    `json:"isOddLot"`
+        IsOutsideRegularHours bool    `json:"isOutsideRegularHours"`
+        IsSinglePriceCross    bool    `json:"isSinglePriceCross"`
+        IsTradeThroughExempt  bool    `json:"isTradeThroughExempt"`
+        Timestamp             int64   `json:"timestamp"`
+}
+
+// UpcomingEventsQueryParams required/optional query parameters
+type UpcomingEventsQueryParams struct {
+        // FullUpcomingEarnings true will return the full estimate object.
+        // This could cause the to hit your message limit in the millions.
+        FullUpcomingEarnings bool `url:"fullUpcomingEarnings,omitempty"`
+}
+
+// UpcomingEarningsQueryParams required/optional query parameters
+type UpcomingEarningsQueryParams struct {
+        // FullUpcomingEarnings true will return the full estimate object.
+        // This could cause the to hit your message limit in the millions.
+        FullUpcomingEarnings bool `url:"fullUpcomingEarnings,omitempty"`
+}
+
+// UpcomingEvents struct
+type UpcomingEvents struct {
+        IPOS      IPOCalendar `json:"ipos,omitempty"`
+        Earnings  []Earning   `json:"earnings"`
+        Dividends Dividends   `json:"dividends"`
+        Splits    Splits      `json:"splits"`
+}
+
+// UpcomingEarnings struct
+type UpcomingEarnings []struct {
+        Symbol     string `json:"symbol"`
+        ReportDate string `json:"reportDate"`
+}
+
+// VolumeByVenue struct
+type VolumeByVenue []struct {
+        Volume           int     `json:"volume"`
+        Venue            string  `json:"venue"`
+        VenueName        string  `json:"venueName"`
+        MarketPercent    float64 `json:"marketPercent"`
+        AvgMarketPercent float64 `json:"avgMarketPercent"`
+        Date             string  `json:"date"`
+}
+
+// NewStock return new Stock
+func NewStock(
+        token, version string,
+        base *url.URL,
+        httpClient *http.Client,
+        options ...IEXOption,
+) *Stock <span class="cov8" title="1">{
+        apiurl, err := url.Parse("stock/")
+        if err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+
+        <span class="cov8" title="1">stock := &amp;Stock{
+                iex: iex{
+                        token:   token,
+                        version: version,
+                        url:     base,
+                        apiurl:  apiurl,
+                        client:  httpClient,
+                },
+        }
+
+        for _, option := range options </span><span class="cov0" title="0">{
+                err := option(&amp;stock.iex)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil
+                }</span>
+        }
+
+        <span class="cov8" title="1">return stock</span>
+}
+
+// Token return token string
+func (s *Stock) Token() string <span class="cov8" title="1">{
+        return s.token
+}</span>
+
+// Version return version string
+func (s *Stock) Version() string <span class="cov8" title="1">{
+        return s.version
+}</span>
+
+// URL return URL base
+func (s *Stock) URL() *url.URL <span class="cov8" title="1">{
+        return s.url
+}</span>
+
+// APIURL return APIURL
+func (s *Stock) APIURL() *url.URL <span class="cov8" title="1">{
+        return s.apiurl
+}</span>
+
+// Client return HTTP client
+func (s *Stock) Client() *http.Client <span class="cov8" title="1">{
+        return s.client
+}</span>
+
+// Retry return Retry struct that implements Retryer
+func (s *Stock) Retry() *Retry <span class="cov8" title="1">{
+        return s.iex.Retry
+}</span>
+
+// AdvancedStats GET /stock/{symbol}/advanced-stats
+func (s *Stock) AdvancedStats(symbol string) (advstat *AdvancedStat, err error) <span class="cov8" title="1">{
+        err = get(s, &amp;advstat, symbol+"/advanced-stats", nil)
+        return
+}</span>
+
+// BalanceSheet GET /stock/{symbol}/balance-sheet
+func (s *Stock) BalanceSheet(symbol string, params *BalanceSheetParams) (balsheet *BalanceSheet, err error) <span class="cov8" title="1">{
+        if params == nil </span><span class="cov8" title="1">{
+                endpoint := fmt.Sprintf("%s/balance-sheet", symbol)
+                err = get(s, &amp;balsheet, endpoint, params)
+                return
+        }</span>
+        <span class="cov8" title="1">p := *params
+        if p.Last == 0 </span><span class="cov8" title="1">{
+                p.Last = 1
+        }</span>
+        <span class="cov8" title="1">endpoint := fmt.Sprintf("%s/balance-sheet", symbol)
+        err = get(s, &amp;balsheet, endpoint, p)
+        return</span>
+}
+
+// Batch GET /stock/{symbol}/batch?types=quote,news,chart&amp;range=1m&amp;last=1
+func (s *Stock) Batch(symbol string, params interface{}) (batch *Batch, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/batch", symbol)
+        err = get(s, &amp;batch, endpoint, params)
+        return
+}</span>
+
+// Book GET /stock/{symbol}/book
+func (s *Stock) Book(symbol string) (book *Book, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/book", symbol)
+        err = get(s, &amp;book, endpoint, nil)
+        return
+}</span>
+
+// CashFlow GET /stock/{symbol}/cash-flow
+func (s *Stock) CashFlow(symbol string, params *CashFlowQueryParams) (cashflow *CashFlow, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/cash-flow", symbol)
+        err = get(s, &amp;cashflow, endpoint, params)
+        return
+}</span>
+
+// Chart GET /stock/{symbol}/chart/{range}
+func (s *Stock) Chart(symbol string, chartRange ChartRange, params *ChartQueryParams) (chart []Chart, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/chart/%s", symbol, chartRange)
+        err = get(s, &amp;chart, endpoint, params)
+        return
+}</span>
+
+// Collection GET /stock/market/collection/{collectionType}?collectionName=
+func (s *Stock) Collection(collectionType CollectionType, params *CollectionQueryParams) (col Collection, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("market/collection/%s", collectionType)
+        err = get(s, &amp;col, endpoint, params)
+        return
+}</span>
+
+// Company GET /stock/{symbol}/company
+func (s *Stock) Company(symbol string) (com Company, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/company", symbol)
+        err = get(s, &amp;com, endpoint, nil)
+        return
+}</span>
+
+// DelayedQuote GET /stock/{symbol}/delayed-quote
+func (s *Stock) DelayedQuote(symbol string) (dq *DelayedQuote, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/delayed-quote", symbol)
+        err = get(s, &amp;dq, endpoint, nil)
+        return
+}</span>
+
+// Dividends GET /stock/{symbol}/dividends/{range}
+func (s *Stock) Dividends(symbol string, dividendRange DividendRange) (div Dividends, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/dividends/%s", symbol, dividendRange)
+        err = get(s, &amp;div, endpoint, nil)
+        return
+}</span>
+
+// Earnings GET /stock/{symbol}/earnings/{last}/{field}
+func (s *Stock) Earnings(symbol string, params *EarningsQueryParams) (er *Earnings, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/earnings", symbol)
+        err = get(s, &amp;er, endpoint, params)
+        return
+}</span>
+
+// EarningsToday GET /stock/market/today-earnings
+func (s *Stock) EarningsToday() (et *EarningsToday, err error) <span class="cov8" title="1">{
+        err = get(s, &amp;et, "market/today-earnings", nil)
+        return
+}</span>
+
+// Estimates GET /stock/{symbol}/estimates/{last}/{field}
+func (s *Stock) Estimates(symbol string, opt ...interface{}) (est *Estimates, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/estimates", symbol)
+
+        if len(opt) &gt; 0 </span><span class="cov8" title="1">{
+                last := opt[0].(int)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+        }</span>
+        <span class="cov8" title="1">if len(opt) &gt; 1 </span><span class="cov8" title="1">{
+                field := opt[1].(string)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, field)
+        }</span>
+        <span class="cov8" title="1">err = get(s, &amp;est, endpoint, nil)
+        return</span>
+}
+
+// Financials GET /stock/{symbol}/financials/{last}/{field}
+func (s *Stock) Financials(symbol string, params *FinancialsQueryParams) (fin *Financials, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/financials", symbol)
+        err = get(s, &amp;fin, endpoint, params)
+        return
+}</span>
+
+// FundOwnership GET /stock/{symbol}/fund-ownership
+func (s *Stock) FundOwnership(symbol string) (fo FundOwnership, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/fund-ownership", symbol)
+        err = get(s, &amp;fo, endpoint, nil)
+        return
+}</span>
+
+// HistoricalPrices GET /stock/{symbol}/chart/{range}/{date}
+func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params *ChartQueryParams) ([]Chart, error) <span class="cov8" title="1">{
+        return s.Chart(symbol, chartRange, params)
+}</span>
+
+// IncomeStatement GET /stock/{symbol}/income?{params}
+func (s *Stock) IncomeStatement(symbol string, params *IncomeStatementQueryParams) (incstmt *IncomeStatement, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/income", symbol)
+        err = get(s, &amp;incstmt, endpoint, params)
+        return
+}</span>
+
+// InsiderRoster GET /stock/{symbol}/insider-roster
+func (s *Stock) InsiderRoster(symbol string) (ir InsiderRoster, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/insider-roster", symbol)
+        err = get(s, &amp;ir, endpoint, nil)
+        return
+}</span>
+
+// InsiderSummary GET /stock/{symbol}/insider-summary
+func (s *Stock) InsiderSummary(symbol string) (is InsiderSummary, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/insider-summary", symbol)
+        err = get(s, &amp;is, endpoint, nil)
+        return
+}</span>
+
+// InsiderTransactions GET /stock/{symbol}/insider-transactions
+func (s *Stock) InsiderTransactions(symbol string) (it InsiderTransactions, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/insider-transactions", symbol)
+        err = get(s, &amp;it, endpoint, nil)
+        return
+}</span>
+
+// InstitutionalOwnership GET /stock/{symbol}/institutional-ownership
+func (s *Stock) InstitutionalOwnership(symbol string) (iop InstitutionalOwnership, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/institutional-ownership", symbol)
+        err = get(s, &amp;iop, endpoint, nil)
+        return
+}</span>
+
+// IntradayPrices GET /stock/{symbol}/intraday-prices
+func (s *Stock) IntradayPrices(symbol string, params *IntradayPricesQueryParams) (ip IntradayPrices, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/intraday-prices", symbol)
+        err = get(s, &amp;ip, endpoint, params)
+        return
+}</span>
+
+// TodayIPOS GET /stock/market/today-ipos
+func (s *Stock) TodayIPOS() (ipo *IPOCalendar, err error) <span class="cov8" title="1">{
+        err = get(s, &amp;ipo, "market/today-ipos", nil)
+        return
+}</span>
+
+// KeyStats GET /stock/{symbol}/stats
+func (s *Stock) KeyStats(symbol string) (ks *KeyStat, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/stats", symbol)
+        err = get(s, &amp;ks, endpoint, nil)
+        return
+}</span>
+
+// LargestTrades GET /stock/{symbol}/largest-trades
+func (s *Stock) LargestTrades(symbol string) (lt LargestTrades, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/largest-trades", symbol)
+        err = get(s, &amp;lt, endpoint, nil)
+        return
+}</span>
+
+// List GET /stock/market/list/{list-type}
+func (s *Stock) List(listType string, params *ListQueryParams) (list []*Quote, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("market/list/%s", listType)
+        err = get(s, &amp;list, endpoint, params)
+        return
+}</span>
+
+// Logo GET /stock/{symbol}/logo
+func (s *Stock) Logo(symbol string) (logo *Logo, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/logo", symbol)
+        err = get(s, &amp;logo, endpoint, nil)
+        return
+}</span>
+
+// MarketVolume GET /market
+// ??? why did IEX make this endpoint here? doesn't have relative endpoint `stock`...
+func (s *Stock) MarketVolume() (mkt MarketVolume, err error) <span class="cov8" title="1">{
+        // NOTE: had to force absolute URL since for whatever reason IEX API didn't prepend
+        // this endpoint with `stock
+        endpoint := fmt.Sprintf("%s%s/market", s.url.String(), s.version)
+        err = get(s, &amp;mkt, endpoint, nil)
+        return
+}</span>
+
+// News GET /stock/{symbol}/news/last/{last}
+func (s *Stock) News(symbol string, opt ...interface{}) (news News, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/news", symbol)
+        if len(opt) &gt; 0 </span><span class="cov8" title="1">{
+                last := opt[0].(int)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, strconv.Itoa(last))
+        }</span>
+
+        <span class="cov8" title="1">err = get(s, &amp;news, endpoint, nil)
+        return</span>
+}
+
+// OHLC GET /stock/{symbol}/ohlc
+func (s *Stock) OHLC(symbol string) (ohlc *OHLC, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/ohlc", symbol)
+        err = get(s, &amp;ohlc, endpoint, nil)
+        return
+}</span>
+
+// OpenClosePrice Refer to ohlc
+func (s *Stock) OpenClosePrice(symbol string) (ohlc *OHLC, err error) <span class="cov8" title="1">{
+        return s.OHLC(symbol)
+}</span>
+
+// OptionDates GET /stock/{symbol}/options
+// return available dates as string slice
+func (s *Stock) OptionDates(symbol string) (dates []string, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/options", symbol)
+        err = get(s, &amp;dates, endpoint, nil)
+        return
+}</span>
+
+// Options GET /stock/{symbol}/options/{expiration}/{optionSide?}
+func (s *Stock) Options(symbol, expiration string, opt ...interface{}) (options []*Option, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/options/%s", symbol, expiration)
+        if len(opt) &gt; 0 </span><span class="cov8" title="1">{
+                optionSide := opt[0].(string)
+                endpoint = fmt.Sprintf("%s/%s", endpoint, optionSide)
+        }</span>
+        <span class="cov8" title="1">err = get(s, &amp;options, endpoint, nil)
+        return</span>
+}
+
+// Peers GET /stock/{symbol}/peers
+func (s *Stock) Peers(symbol string) (peers []string, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/peers", symbol)
+        err = get(s, &amp;peers, endpoint, nil)
+        return
+}</span>
+
+// PreviousDayPrice GET /stock/{symbol}/previous
+func (s *Stock) PreviousDayPrice(symbol string) (prev *PreviousDayPrice, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/previous", symbol)
+        err = get(s, &amp;prev, endpoint, nil)
+        return
+}</span>
+
+// Price GET /stock/{symbol}/price
+func (s *Stock) Price(symbol string) (price float64, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/price", symbol)
+        err = get(s, &amp;price, endpoint, nil)
+        return
+}</span>
+
+// PriceTarget GET /stock/{symbol}/price-target
+func (s *Stock) PriceTarget(symbol string) (tgt *PriceTarget, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/price-target", symbol)
+        err = get(s, &amp;tgt, endpoint, nil)
+        return
+}</span>
+
+// Quote GET /stock/{symbol}/quote
+func (s *Stock) Quote(symbol string, params *QuoteQueryParams) (quote *Quote, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/quote", symbol)
+        err = get(s, &amp;quote, endpoint, params)
+        return
+}</span>
+
+// RecommendationTrends GET /stock/{symbol}/recommendation-trends
+func (s *Stock) RecommendationTrends(symbol string) (rt RecommendationTrends, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/recommendation-trends", symbol)
+        err = get(s, &amp;rt, endpoint, nil)
+        return
+}</span>
+
+// SectorPerformance GET /stock/market/sector-performance
+func (s *Stock) SectorPerformance() (sp SectorPerformance, err error) <span class="cov0" title="0">{
+        err = get(s, &amp;sp, "market/sector-performance", nil)
+        return
+}</span>
+
+// Splits GET /stock/{symbol}/splits/{range}
+func (s *Stock) Splits(symbol string, splitRange SplitRange) (sp Splits, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/splits/%s", symbol, splitRange)
+        err = get(s, &amp;sp, endpoint, nil)
+        return
+}</span>
+
+// TechnicalIndicator GET /stock/{symbol}/indicator/{indicatorName}?{range}
+func (s *Stock) TechnicalIndicator(symbol string, indicatorName IndicatorName, params *TechnicalIndicatorParams) (ti *TechnicalIndicator, err error) <span class="cov8" title="1">{
+        if params == nil </span><span class="cov8" title="1">{
+                params = &amp;TechnicalIndicatorParams{Range: "1d"}
+        }</span>
+        <span class="cov8" title="1">endpoint := fmt.Sprintf("%s/indicator/%s", symbol, indicatorName)
+        err = get(s, &amp;ti, endpoint, params)
+        return</span>
+}
+
+// UpcomingDividends GET /stock/{symbol}/upcoming-dividends
+func (s *Stock) UpcomingDividends(symbol string, params interface{}) (d Dividends, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/upcoming-dividends", symbol)
+        err = get(s, &amp;d, endpoint, params)
+        return
+}</span>
+
+// UpcomingEarnings GET /stock/{symbol}/upcoming-earnings
+func (s *Stock) UpcomingEarnings(symbol string, params *UpcomingEarningsQueryParams) (ue UpcomingEarnings, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/upcoming-earnings", symbol)
+        err = get(s, &amp;ue, endpoint, params)
+        return
+}</span>
+
+// UpcomingEvents GET /stock/{symbol}/upcoming-events
+func (s *Stock) UpcomingEvents(symbol string, params *UpcomingEventsQueryParams) (ue *UpcomingEvents, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/upcoming-events", symbol)
+        err = get(s, &amp;ue, endpoint, params)
+        return
+}</span>
+
+// UpcomingIPOS GET /stock/market/upcoming-ipos
+func (s *Stock) UpcomingIPOS(symbol string, params interface{}) (ipo *IPOCalendar, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/upcoming-ipos", symbol)
+        err = get(s, &amp;ipo, endpoint, params)
+        return
+}</span>
+
+// UpcomingSplits GET /stock/{symbol}/upcoming-splits
+func (s *Stock) UpcomingSplits(symbol string, params interface{}) (spl Splits, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/upcoming-splits", symbol)
+        err = get(s, &amp;spl, endpoint, params)
+        return
+}</span>
+
+// VolumeByVenue GET /stock/{symbol}/volume-by-venue
+func (s *Stock) VolumeByVenue(symbol string) (vbv VolumeByVenue, err error) <span class="cov8" title="1">{
+        endpoint := fmt.Sprintf("%s/volume-by-venue", symbol)
+        err = get(s, &amp;vbv, endpoint, nil)
+        return
+}</span>
+
+// UnmarshalJSON helper
+func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error <span class="cov8" title="1">{
+        var err error
+        type alias EarningsTodayDTO
+        aux := &amp;struct {
+                ConsensusEPS interface{} `json:"consensusEPS"`
+                *alias
+        }{
+                alias: (*alias)(etd),
+        }
+
+        if err = json.Unmarshal(b, &amp;aux); err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">if consensusEPS, ok := aux.ConsensusEPS.(string); ok </span><span class="cov8" title="1">{
+                etd.ConsensusEPS, err = strconv.ParseFloat(consensusEPS, 64)
+                if err != nil </span><span class="cov0" title="0">{
+                        return err
+                }</span>
+        }
+
+        <span class="cov8" title="1">return nil</span>
+}
+
+// UnmarshalJSON helper
+func (e *Earning) UnmarshalJSON(b []byte) error <span class="cov8" title="1">{
+        var err error
+        type alias Earning
+        aux := &amp;struct {
+                ConsensusEPS interface{} `json:"consensusEPS"`
+                *alias
+        }{
+                alias: (*alias)(e),
+        }
+
+        if err = json.Unmarshal(b, &amp;aux); err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">if consensusEPS, ok := aux.ConsensusEPS.(string); ok </span><span class="cov8" title="1">{
+                e.ConsensusEPS, err = strconv.ParseFloat(consensusEPS, 64)
+                if err != nil </span><span class="cov0" title="0">{
+                        return err
+                }</span>
+        }
+
+        <span class="cov8" title="1">return nil</span>
+}
+
+func (in IndicatorName) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "abs",
+                "acos",
+                "ad",
+                "add",
+                "adosc",
+                "adx",
+                "adxr",
+                "ao",
+                "apo",
+                "aroon",
+                "aroonosc",
+                "asin",
+                "atan",
+                "atr",
+                "avgprice",
+                "bbands",
+                "bop",
+                "cci",
+                "ceil",
+                "cmo",
+                "cos",
+                "cosh",
+                "crossany",
+                "crossover",
+                "cvi",
+                "decay",
+                "dema",
+                "di",
+                "div",
+                "dm",
+                "dpo",
+                "dx",
+                "edecay",
+                "ema",
+                "emv",
+                "exp",
+                "fisher",
+                "floor",
+                "fosc",
+                "hma",
+                "kama",
+                "kvo",
+                "lag",
+                "linreg",
+                "linregintercept",
+                "linregslope",
+                "ln",
+                "log10",
+                "macd",
+                "marketfi",
+                "mass",
+                "max",
+                "md",
+                "medprice",
+                "mfi",
+                "min",
+                "mom",
+                "msw",
+                "mul",
+                "natr",
+                "nvi",
+                "obv",
+                "ppo",
+                "psar",
+                "pvi",
+                "qstick",
+                "roc",
+                "rocr",
+                "round",
+                "rsi",
+                "sin",
+                "sinh",
+                "sma",
+                "sqrt",
+                "stddev",
+                "stoch",
+                "stochrsi",
+                "sub",
+                "sum",
+                "tan",
+                "tanh",
+                "tema",
+                "todeg",
+                "torad",
+                "tr",
+                "trima",
+                "trix",
+                "trunc",
+                "tsf",
+                "typprice",
+                "ultosc",
+                "var",
+                "vhf",
+                "vidya",
+                "volatility",
+                "vosc",
+                "vwma",
+                "wad",
+                "wcprice",
+                "wilders",
+                "willr",
+                "wma",
+                "zlema",
+        }[in]
+}</span>
+
+func (cr ChartRange) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "max",
+                "5y",
+                "2y",
+                "1y",
+                "ytd",
+                "6m",
+                "3m",
+                "1m",
+                "1d",
+        }[cr]
+}</span>
+
+func (dr DividendRange) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "5y",
+                "2y",
+                "1y",
+                "ytd",
+                "6m",
+                "3m",
+                "1m",
+                "next",
+        }[dr]
+}</span>
+
+func (sr SplitRange) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "5y",
+                "2y",
+                "1y",
+                "ytd",
+                "6m",
+                "3m",
+                "1m",
+                "next",
+        }[sr]
+}</span>
+
+func (pqp PeriodQueryParameter) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "annual",
+                "quarter",
+        }[pqp]
+}</span>
+
+func (ct CollectionType) String() string <span class="cov8" title="1">{
+        return [...]string{
+                "sector",
+                "tag",
+                "list",
+        }[ct]
+}</span>
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

@@ -1229,7 +1229,7 @@ func TestOptions(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	options, err := cli.Options("aapl", "201912")
+	options, err := cli.Options("aapl", "20201218")
 	if err != nil {
 		t.Error(err)
 	}
@@ -1239,7 +1239,7 @@ func TestOptions(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	options, err = cli.Options("aapl", "201912", "call")
+	options, err = cli.Options("aapl", "20201218", "call")
 	if err != nil {
 		t.Error(err)
 	}

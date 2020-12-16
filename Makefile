@@ -5,11 +5,15 @@ GOTOOL=$(GOCMD) tool
 GOPHERBADGER=$(shell go env GOPATH)/bin/gopherbadger
 
 .PHONY: all
-all: test coverage
+all: test cover coverage
 
 .PHONY: test
 test:
 	$(GOTEST) -v -cover -count=1 -mod=vendor
+
+.PHONY: cover
+cover:
+	$(GOTEST) ./... -coverprofile=coverage.out && $(GOTOOL) cover -html=coverage.out -o=coverage.html
 
 .PHONY: coverage
 coverage:
