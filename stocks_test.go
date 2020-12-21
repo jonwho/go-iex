@@ -956,7 +956,7 @@ func TestTechnicalIndicator(t *testing.T) {
 	}
 
 	ti, err = cli.TechnicalIndicator("aapl", BBANDS, &TechnicalIndicatorParams{
-		Range: "1d",
+		Range: TechnicalIndicatorRangeOneDay,
 	})
 	if err != nil {
 		t.Error(err)
@@ -968,6 +968,19 @@ func TestTechnicalIndicator(t *testing.T) {
 	}
 	expected = true
 	actual = len(ti.Charts) > 0
+	if expected != actual {
+		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
+	}
+
+	ti, err = cli.TechnicalIndicator("aapl", EMA, &TechnicalIndicatorParams{
+		Range:  TechnicalIndicatorRangeOneMonth,
+		Input1: 9,
+	})
+	if err != nil {
+		t.Error(err)
+	}
+	expected = true
+	actual = len(ti.Indicator) > 0
 	if expected != actual {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}

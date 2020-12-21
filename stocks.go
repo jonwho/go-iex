@@ -315,6 +315,30 @@ const (
 	PeriodQuarter
 )
 
+// TechnicalIndicatorRange for TechnicalIndicator API
+type TechnicalIndicatorRange int
+
+const (
+	// TechnicalIndicatorRangeMax chart range
+	TechnicalIndicatorRangeMax TechnicalIndicatorRange = iota
+	// TechnicalIndicatorRangeFiveYear chart range
+	TechnicalIndicatorRangeFiveYear
+	// TechnicalIndicatorRangeTwoYear chart range
+	TechnicalIndicatorRangeTwoYear
+	// TechnicalIndicatorRangeOneYear chart range
+	TechnicalIndicatorRangeOneYear
+	// TechnicalIndicatorRangeYearToDate chart range
+	TechnicalIndicatorRangeYearToDate
+	// TechnicalIndicatorRangeSixMonth chart range
+	TechnicalIndicatorRangeSixMonth
+	// TechnicalIndicatorRangeThreeMonth chart range
+	TechnicalIndicatorRangeThreeMonth
+	// TechnicalIndicatorRangeOneMonth chart range
+	TechnicalIndicatorRangeOneMonth
+	// TechnicalIndicatorRangeOneDay chart range
+	TechnicalIndicatorRangeOneDay
+)
+
 // Stock struct to interface with /stock endpoints
 type Stock struct {
 	iex
@@ -1019,11 +1043,11 @@ type TechnicalIndicator struct {
 // TechnicalIndicatorParams struct
 type TechnicalIndicatorParams struct {
 	// Range should match allowed ranges in historical prices
-	Range  string `url:"range"`
-	input1 int    `url:"input1,omitempty"`
-	input2 int    `url:"input2,omitempty"`
-	input3 int    `url:"input3,omitempty"`
-	input4 int    `url:"input4,omitempty"`
+	Range  TechnicalIndicatorRange `url:"range"`
+	Input1 int                     `url:"input1,omitempty"`
+	Input2 int                     `url:"input2,omitempty"`
+	Input3 int                     `url:"input3,omitempty"`
+	Input4 int                     `url:"input4,omitempty"`
 }
 
 // Trades struct
@@ -1452,7 +1476,7 @@ func (s *Stock) Splits(symbol string, splitRange SplitRange) (sp Splits, err err
 // TechnicalIndicator GET /stock/{symbol}/indicator/{indicatorName}?{range}
 func (s *Stock) TechnicalIndicator(symbol string, indicatorName IndicatorName, params *TechnicalIndicatorParams) (ti *TechnicalIndicator, err error) {
 	if params == nil {
-		params = &TechnicalIndicatorParams{Range: "1d"}
+		params = &TechnicalIndicatorParams{Range: TechnicalIndicatorRangeOneDay}
 	}
 	endpoint := fmt.Sprintf("%s/indicator/%s", symbol, indicatorName)
 	err = get(s, &ti, endpoint, params)
@@ -1712,4 +1736,18 @@ func (ct CollectionType) String() string {
 		"tag",
 		"list",
 	}[ct]
+}
+
+func (tir TechnicalIndicatorRange) String() string {
+	return [...]string{
+		"max",
+		"5y",
+		"2y",
+		"1y",
+		"ytd",
+		"6m",
+		"3m",
+		"1m",
+		"1d",
+	}[tir]
 }
