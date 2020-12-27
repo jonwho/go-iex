@@ -1206,9 +1206,9 @@ func (s *Stock) CashFlow(symbol string, params *CashFlowQueryParams) (cashflow *
 	return
 }
 
-// Chart GET /stock/{symbol}/chart/{range}
-func (s *Stock) Chart(symbol string, chartRange ChartRange, params *ChartQueryParams) (chart []Chart, err error) {
-	endpoint := fmt.Sprintf("%s/chart/%s", symbol, chartRange)
+// Chart GET /stock/{symbol}/chart/{range}/{date}
+func (s *Stock) Chart(symbol string, chartRange ChartRange, date string, params *ChartQueryParams) (chart []Chart, err error) {
+	endpoint := fmt.Sprintf("%s/chart/%s/%s", symbol, chartRange, date)
 	err = get(s, &chart, endpoint, params)
 	return
 }
@@ -1285,8 +1285,8 @@ func (s *Stock) FundOwnership(symbol string) (fo FundOwnership, err error) {
 }
 
 // HistoricalPrices GET /stock/{symbol}/chart/{range}/{date}
-func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, params *ChartQueryParams) ([]Chart, error) {
-	return s.Chart(symbol, chartRange, params)
+func (s *Stock) HistoricalPrices(symbol string, chartRange ChartRange, date string, params *ChartQueryParams) ([]Chart, error) {
+	return s.Chart(symbol, chartRange, date, params)
 }
 
 // IncomeStatement GET /stock/{symbol}/income?{params}

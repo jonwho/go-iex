@@ -296,7 +296,7 @@ func TestChart(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	chart, err := cli.Chart("aapl", ChartRangeMax, nil)
+	chart, err := cli.Chart("aapl", ChartRangeMax, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -306,7 +306,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeFiveYear, nil)
+	chart, err = cli.Chart("aapl", ChartRangeFiveYear, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -316,7 +316,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeTwoYear, nil)
+	chart, err = cli.Chart("aapl", ChartRangeTwoYear, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -326,7 +326,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeOneYear, nil)
+	chart, err = cli.Chart("aapl", ChartRangeOneYear, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -336,7 +336,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeYearToDate, nil)
+	chart, err = cli.Chart("aapl", ChartRangeYearToDate, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -346,7 +346,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeSixMonth, nil)
+	chart, err = cli.Chart("aapl", ChartRangeSixMonth, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -356,7 +356,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeThreeMonth, nil)
+	chart, err = cli.Chart("aapl", ChartRangeThreeMonth, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -366,7 +366,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeOneMonth, nil)
+	chart, err = cli.Chart("aapl", ChartRangeOneMonth, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -376,7 +376,7 @@ func TestChart(t *testing.T) {
 		t.Errorf("\nExpected: %v\nActual: %v\n", expected, actual)
 	}
 
-	chart, err = cli.Chart("aapl", ChartRangeOneDay, nil)
+	chart, err = cli.Chart("aapl", ChartRangeOneDay, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -740,7 +740,7 @@ func TestHistoricalPrices(t *testing.T) {
 	defer rec.Stop()
 	cli := NewStock(testToken, DefaultVersion, sandboxURL, httpClient)
 
-	hp, err := cli.HistoricalPrices("aapl", ChartRangeMax, nil)
+	hp, err := cli.HistoricalPrices("aapl", ChartRangeMax, "", nil)
 	if err != nil {
 		t.Error(err)
 	}
