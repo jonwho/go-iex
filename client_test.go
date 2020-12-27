@@ -13,6 +13,7 @@ import (
 	"github.com/jonwho/go-iex/v4/mock-iex"
 )
 
+// Global variables for testing
 var (
 	expected, actual interface{}
 	testToken        = os.Getenv("IEX_TEST_SECRET_TOKEN")

@@ -55,9 +55,11 @@ func main() {
 	fmt.Println("Symbol", anonstruct.Symbol)
 
 	// some functions have defined parameters for path or query parameters
-	charts, err := stock.Chart("aapl", iex.ChartRangeOneMonth, &iex.ChartQueryParams{ChartCloseOnly: true})
+	charts, err = stock.Chart("aapl", iex.ChartRangeOneMonth, "", &iex.ChartQueryParams{ChartCloseOnly: true})
 	if err != nil {
 		log.Fatalln(err)
 	}
 	fmt.Printf("Charts %#v\n", charts)
+
+	os.Exit(0)
 }
