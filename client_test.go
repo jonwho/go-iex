@@ -10,7 +10,7 @@ import (
 
 	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
-	"github.com/jonwho/go-iex/v4/mock-iex"
+	"github.com/jonwho/go-iex/v5/mock-iex"
 )
 
 // Global variables for testing

@@ -3,5 +3,5 @@
 .env
 .envrc
 coverage.out
+coverage.html
 coverage_badge.png
-v3.md

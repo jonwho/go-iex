@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"os"
 
-	iex "github.com/jonwho/go-iex/v4"
+	iex "github.com/jonwho/go-iex/v5"
 )
 
 func main() {
@@ -25,6 +25,9 @@ func main() {
 
 	fmt.Println("Symbol", quote.Symbol, "Company Name", quote.CompanyName,
 		"Current Price", quote.LatestPrice)
+
+	charts, err := client.Chart("aapl", iex.ChartRangeMax, "", nil)
+	fmt.Printf("Charts %#v\n", charts)
 
 	// if you only want to test against sandbox build a custom client
 	token = os.Getenv("IEX_TEST_SECRET_TOKEN")
