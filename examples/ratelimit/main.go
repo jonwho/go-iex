@@ -5,7 +5,7 @@ import (
 	"os"
 	"sync"
 
-	iex "github.com/jonwho/go-iex/v4"
+	iex "github.com/jonwho/go-iex/v5"
 )
 
 func main() {
