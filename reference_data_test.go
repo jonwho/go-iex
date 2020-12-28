@@ -43,7 +43,8 @@ func TestSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	symbols, err := cli.Symbols()
 	if err != nil {
@@ -67,7 +68,8 @@ func TestIEXSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	symbols, err := cli.IEXSymbols()
 	if err != nil {
@@ -91,7 +93,8 @@ func TestRegionSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	symbols, err := cli.RegionSymbols("ca")
 	if err != nil {
@@ -115,7 +118,8 @@ func TestExchangeSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	symbols, err := cli.ExchangeSymbols("tse")
 	if err != nil {
@@ -139,7 +143,8 @@ func TestInternationalExchanges(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	exchanges, err := cli.InternationalExchanges()
 	if err != nil {
@@ -163,7 +168,8 @@ func TestUSExchanges(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	exchanges, err := cli.USExchanges()
 	if err != nil {
@@ -187,7 +193,8 @@ func TestUSHolidaysAndTradingDates(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	dates, err := cli.USHolidaysAndTradingDates("trade", "next")
 	if err != nil {
@@ -261,7 +268,8 @@ func TestSectors(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	sectors, err := cli.Sectors()
 	if err != nil {
@@ -285,7 +293,8 @@ func TestTags(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	tags, err := cli.Tags()
 	if err != nil {
@@ -309,7 +318,8 @@ func TestMutualFundSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	funds, err := cli.MutualFundSymbols()
 	if err != nil {
@@ -333,7 +343,8 @@ func TestOTCSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	otc, err := cli.OTCSymbols()
 	if err != nil {
@@ -357,7 +368,8 @@ func TestFXSymbols(t *testing.T) {
 	rec.AddFilter(removeToken)
 	defer rec.Stop()
 	u, _ := url.Parse(SandboxBaseURL)
-	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient)
+	retry, _ := NewRetry(httpClient, SetRetryAttempts(7))
+	cli := NewReferenceData(testToken, DefaultVersion, u, httpClient, SetRetry(retry))
 
 	fx, err := cli.FXSymbols()
 	if err != nil {

@@ -10,32 +10,178 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/exchanges
     method: GET
   response:
-    body: '[{"exchange":"SDA","region":"AE","description":"e SiebAiicDbasrExngceha
-      u tuh","mic":"ADXS","exchangeSuffix":"-HD"},{"exchange":"EAT","region":"IL","description":"
-      o k enTvcaAghEevitSclx","mic":"TEXA","exchangeSuffix":"-TI"},{"exchange":"OBM","region":"IN","description":"dLEStB
-      .","mic":"BXOM","exchangeSuffix":"BI-"},{"exchange":"XKR","region":"KR","description":"
-      hgExKeorcanea","mic":"RXKX","exchangeSuffix":"P-K"},{"exchange":"RBU","region":"BE","description":"BssxseElur
-      rnoetu","mic":"UBRX","exchangeSuffix":"BB-"},{"exchange":"TER","region":"DE","description":"ATEXR","mic":"XTRE","exchangeSuffix":"GY-"},{"exchange":"PAR","region":"FR","description":"anetroixsuEPr
-      ","mic":"RPXA","exchangeSuffix":"-FP"},{"exchange":"OLN","region":"GB","description":"SnoxkgdLoncct
-      na hEoe","mic":"LNXO","exchangeSuffix":"LN-"},{"exchange":"UBD","region":"IE","description":"renu
-      iEblDnuoxt","mic":"XDUB","exchangeSuffix":"-ID"},{"exchange":"SMA","region":"NL","description":"ArExmtntdeer
-      oumsa","mic":"XSAM","exchangeSuffix":"A-N"},{"exchange":"LSI","region":"PT","description":"nxnrueobtsiEo
-      L","mic":"IXSL","exchangeSuffix":"-LP"},{"exchange":"ETS","region":"CA","description":"
-      cttchoaTo oxegErnkonS","mic":"XSET","exchangeSuffix":"CT-"},{"exchange":"STX","region":"CA","description":"Veux
-      Xanc tnTrhegSEe","mic":"TXXS","exchangeSuffix":"-VC"},{"exchange":"EXM","region":"MX","description":"chxakEneScxce
-      Mgotia n","mic":"MXXE","exchangeSuffix":"MM-"},{"exchange":"ESA","region":"US","description":"ceYiamAnSNE
-      r","mic":"XESA","exchangeSuffix":"0"},{"exchange":"BSTA","region":"US","description":"xh
-      utqi  UaenCEXZiocsEegSb Be","mic":"ASTB","exchangeSuffix":"0"},{"exchange":"EXGI","region":"US","description":"XaE
-      srMeIkt","mic":"GXEI","exchangeSuffix":"0"},{"exchange":"SNA","region":"US","description":"DSNAQA","mic":"NSAX","exchangeSuffix":"0"},{"exchange":"SNY","region":"US","description":"ehtkckScE
-      oYnNor wxe ag","mic":"YNSX","exchangeSuffix":"0"},{"exchange":"COT","region":"US","description":"CTUS
-      O","mic":"COTX","exchangeSuffix":"0"},{"exchange":"PXLH","region":"US","description":"LSMQAXXOAD
-      N HP","mic":"LHXP","exchangeSuffix":"0"},{"exchange":"SPE","region":"US","description":"acNSYEA
-      r","mic":"XRCA","exchangeSuffix":"0"}]'
+    body: '[{"exchange":"SBEX","region":"AZ","description":"ghBkSecoaakE nuc xt","mic":"BEXS","exchangeSuffix":"n-lul"},{"exchange":"BDU","region":"IE","description":"cSg
+      oan  hkeIxk schtriErlMelaAt","mic":"UXBD","exchangeSuffix":"D-I"},{"exchange":"KHGSKH","region":"HK","description":"
+      Sm no  nnHeckK oego noatO gohfcxHngcakgh inotKCtcneghSg idEStnL oai","mic":"SCSH","exchangeSuffix":"1-H"},{"exchange":"ARC","region":"VE","description":"thExc
+      arsacnoegkc SCaa","mic":"CVBA","exchangeSuffix":"-VS"},{"exchange":"OLC","region":"LK","description":"kSoooExCatc
+      bnh comegl","mic":"LOCX","exchangeSuffix":"S-L"},{"exchange":"ESEMS","region":"ES","description":"aMrDad
+      l Boised","mic":"AXMD","exchangeSuffix":"N-S"},{"exchange":"FMD","region":"AE","description":"
+      n rMnaatFekDucbaiiail","mic":"FMXD","exchangeSuffix":"D-B"},{"exchange":"SAT","region":"SE","description":"il
+      crSSgMteookkttap th","mic":"AXTS","exchangeSuffix":"A-K"},{"exchange":"PSB","region":"BR","description":"sl
+      l BoSerdsi tuaapFFsEaaoAeV oarm bsoe  eorBvsMD uc r","mic":"FBVM","exchangeSuffix":"-SB"},{"exchange":"WNCT","region":"NO","description":"ewronCknoO
+      vtheieTa MNg traruee r","mic":"CTON","exchangeSuffix":"S-N"},{"exchange":"RVB","region":"CI","description":"ie
+      rMbsaoVeooee nsRrlDresigusu eail Bel","mic":"BVXR","exchangeSuffix":"C-B"},{"exchange":"OBW","region":"AT","description":"rkk
+      Mraerg nr Meo reT ttsahAiBrWdD ertiitee","mic":"WOXB","exchangeSuffix":"AV-"},{"exchange":"XEMSAU","region":"US","description":"eNs
+      LktMly c","mic":"AXES","exchangeSuffix":"U-A"},{"exchange":"AHG","region":"GH","description":"aocekcEGSax
+      hn tagnh","mic":"AXHG","exchangeSuffix":"NG-"},{"exchange":"WSM","region":"MW","description":"S
+      tkaEgiwolha ecanxMc","mic":"SWMX","exchangeSuffix":"M-W"},{"exchange":"MLA","region":"MT","description":"knel
+      aMScctEohtxaga ","mic":"MXAL","exchangeSuffix":"MV-"},{"exchange":"SXC","region":"KH","description":"cdxabehcoe
+      taigsniECr uSieam","mic":"XCSX","exchangeSuffix":"K-H"},{"exchange":"HDA","region":"BD","description":"gEecLkktaDSc
+      on dahx tah","mic":"DXHA","exchangeSuffix":"B-D"},{"exchange":"BHA","region":"BH","description":"eBn
+      usiBrroaah","mic":"HABX","exchangeSuffix":"B-I"},{"exchange":"ABD","region":"BM","description":"Bc
+      kxE teorg SanthmeuLddca","mic":"ADBX","exchangeSuffix":"-HB"},{"exchange":"UKW","region":"KW","description":"Kgaxch
+      eowutSi kcnaEt","mic":"UWXK","exchangeSuffix":"K-K"},{"exchange":"LUB","region":"BG","description":"Bea
+      otnglh crcSxnikugaaE","mic":"LUBX","exchangeSuffix":"U-B"},{"exchange":"CBV","region":"CV","description":"era
+      eSpcVkoegtaC d ehcExn","mic":"VBCX","exchangeSuffix":"RV-"},{"exchange":"UTS","region":"DE","description":"orgeatBrSut
+      stte","mic":"UXTS","exchangeSuffix":"GS-"},{"exchange":"HZSKHK","region":"HK","description":"cgnonnnEHSg
+      geOtnoz fKk eom egoHSLdh  nk a hSontCogexoKint hciccnet ","mic":"CSSZ","exchangeSuffix":"H-2"},{"exchange":"XSRE","region":"RW","description":"
+      SkhctcxoedwngEaRana ","mic":"SXRE","exchangeSuffix":"W-R"},{"exchange":"PAE","region":"PS","description":"ie
+      esnPxsuEtcSg chtliaeeerian","mic":"PXEA","exchangeSuffix":"S-P"},{"exchange":"NAS","region":"US","description":"r
+      set sAaMlqNkldaa","mic":"NXAS","exchangeSuffix":"lu-ln"},{"exchange":"OBT","region":"BW","description":"hawck
+      oacsnetg nxoESaBt","mic":"TOXB","exchangeSuffix":"-BG"},{"exchange":"ENS","region":"IN","description":"
+      cIniafkgeSoaO Edxit toa nNacnhl","mic":"EXNS","exchangeSuffix":"S-I"},{"exchange":"CHNKSG","region":"CN","description":"
+      aSkSnnotionhoH  hghoEtanhegacxaKncgSntng Soic ck eCgh a","mic":"SSCX","exchangeSuffix":"-C1"},{"exchange":"OMB","region":"IN","description":"tsBLe
+      d","mic":"XBMO","exchangeSuffix":"I-B"},{"exchange":"TES","region":"CA","description":"oookena  cnTgxtchotErS","mic":"XETS","exchangeSuffix":"TC-"},{"exchange":"LIM","region":"IT","description":"PA
+      tlI  arSnai soaaB","mic":"MXLI","exchangeSuffix":"MI-"},{"exchange":"BAA","region":"BS","description":"tBmascgrrxehIuenaeia
+      ohcialantEneia  nSts","mic":"ABXA","exchangeSuffix":"M-B"},{"exchange":"SCT","region":"VN","description":"cn
+      ahimgxtHihkSo cceohnE","mic":"TCXS","exchangeSuffix":"-MV"},{"exchange":"BESSE","region":"ES","description":"olc
+      Delosnrea BaBa","mic":"RXAB","exchangeSuffix":"B-S"},{"exchange":"ASCPU","region":"US","description":"easrAy
+      Nc","mic":"XACR","exchangeSuffix":"P-U"},{"exchange":"SEEBBS","region":"ES","description":"eaiallesr
+      eb BooasoDVDB l ","mic":"ILBX","exchangeSuffix":"S-O"},{"exchange":"GAL","region":"DZ","description":"eAkanthg
+      rlEccox iSseg","mic":"AGLX","exchangeSuffix":"-GA"},{"exchange":"EST","region":"UZ","description":"hbpcicaxlnaSuoE
+      Rgnetkc e","mic":"ESXT","exchangeSuffix":"Z-U"},{"exchange":"EUB","region":"AR","description":"Bs
+      rinloereeeoiDu  cosseamDC  ABo","mic":"UBXE","exchangeSuffix":"A-F"},{"exchange":"NIPX","region":"US","description":"torocfP  naom
+      kIOnNntii","mic":"TCOM","exchangeSuffix":"U-V"},{"exchange":"EKS","region":"KG","description":"eoEyyt  crakKggScxnzh","mic":"ESKX","exchangeSuffix":"-BK"},{"exchange":"DUB","region":"HU","description":"MteraekBta
+      ","mic":"DUXB","exchangeSuffix":"B-H"},{"exchange":"SEC","region":"DK","description":"n
+      aAaeC sgepnhdoaqS N","mic":"XCSE","exchangeSuffix":"-CD"},{"exchange":"XAU","region":"UA","description":"iUaexargEi
+      nchknna","mic":"EKUX","exchangeSuffix":"-KU"},{"exchange":"ABR","region":"SK","description":"alcit
+      xBhgavaEcsea rkontS","mic":"BRXA","exchangeSuffix":"-KS"},{"exchange":"AXS","region":"AU","description":"rAsMsa
+      Akltxle ","mic":"SAXX","exchangeSuffix":"-TA"},{"exchange":"CIE","region":"GG","description":"xictlaITre
+      a Eae ghtnnnethnockSo","mic":"XECI","exchangeSuffix":"-GU"},{"exchange":"YCA","region":"KY","description":"aSxygncIn
+      lEatdsnaskmC  aehoc","mic":"YAXC","exchangeSuffix":"-YK"},{"exchange":"XST","region":"CA","description":"chgenetse
+      auxrnTxEV ","mic":"XTXS","exchangeSuffix":"-VC"},{"exchange":"GTG","region":"GT","description":"SooarN
+      eBn eaialDsllaocsV  a","mic":"XGTG","exchangeSuffix":"-GL"},{"exchange":"LAU","region":"MN","description":"
+      oiktxclSenMchon noggaaE","mic":"LXAU","exchangeSuffix":"-MO"},{"exchange":"EBS","region":"RO","description":"euregk
+      BdMS tobpvRttaa el","mic":"BSEX","exchangeSuffix":"ER-"},{"exchange":"PHL","region":"US","description":"smxd
+      axhN OaqPl","mic":"PLXH","exchangeSuffix":"lnu-l"},{"exchange":"OROC","region":"TW","description":"eih
+      nagciTxEeap","mic":"COOR","exchangeSuffix":"-TT"},{"exchange":"IQU","region":"EC","description":"l
+      utaDoQ Va ioBrDo slseee","mic":"IQXU","exchangeSuffix":"EQ-"},{"exchange":"ROP","region":"US","description":"rtPaol","mic":"ROXP","exchangeSuffix":"nlul-"},{"exchange":"KKB","region":"TH","description":"tkveF
+      MAvtntntmti eneeleasor rarI","mic":"KBKX","exchangeSuffix":"B-T"},{"exchange":"QRSKKD","region":"KR","description":"chaexa
+      KeKgqorasEd no","mic":"OXKS","exchangeSuffix":"-QK"},{"exchange":"ATI","region":"TW","description":"
+      nhxkg oiccweTEaatSna","mic":"TIAX","exchangeSuffix":"T-T"},{"exchange":"CIA","region":"EG","description":"aitnhpaxc
+      EgEyegn","mic":"XCIA","exchangeSuffix":"C-E"},{"exchange":"SIR","region":"LV","description":"sa
+      RqAs iNgaad","mic":"XRSI","exchangeSuffix":"-GL"},{"exchange":"OEM","region":"SE","description":"SNinsrterh
+      otFde w","mic":"XSOT","exchangeSuffix":"-SS"},{"exchange":"KXNKR","region":"KR","description":"Kexrehweno
+      a EagNc","mic":"KXNO","exchangeSuffix":"K-E"},{"exchange":"NMS","region":"US","description":"st
+      a NsaNroMabGdmakqel l","mic":"XSMN","exchangeSuffix":"l-lnu"},{"exchange":"AIN","region":"KE","description":"NkiaShxor
+      eEgtnoaic cb","mic":"AIXN","exchangeSuffix":"NK-"},{"exchange":"LKS","region":"MY","description":"
+      ByalsasiMarua","mic":"XSLK","exchangeSuffix":"-MK"},{"exchange":"RKX","region":"KR","description":"ar
+      oSceagt acox netehkkKMrE","mic":"KRXX","exchangeSuffix":"PK-"},{"exchange":"UBR","region":"BE","description":"rsrrEo  uexnusettoBeulxsnE","mic":"RUXB","exchangeSuffix":"BB-"},{"exchange":"TJK","region":"ID","description":"oaanhiS
+      noknsxede IEcgtc","mic":"IXDX","exchangeSuffix":"-JI"},{"exchange":"PESE","region":"UA","description":"
+      etxkSgesocaecntPahcrvipE ","mic":"EPSE","exchangeSuffix":"llnu-"},{"exchange":"ESH","region":"CN","description":"hznonnexh
+      cSehE tkeaSgc","mic":"SHXE","exchangeSuffix":"SC-"},{"exchange":"USD","region":"DE","description":"rBer
+      koulDferv eeiseesrshdoFer","mic":"USDX","exchangeSuffix":"-DG"},{"exchange":"SLU","region":"ZM","description":"kaoaxkSushccaenE
+      Lt g","mic":"LXUS","exchangeSuffix":"L-Z"},{"exchange":"ACS","region":"MA","description":"Cccoc
+      xalntgkbsaanhESaea ","mic":"XCSA","exchangeSuffix":"-CM"},{"exchange":"SDA","region":"AE","description":"enux
+      bgcSa eEch iarDhitAeisbu","mic":"DXSA","exchangeSuffix":"H-D"},{"exchange":"NXM","region":"ME","description":"aEc
+      gotSohtexnMkenn georc","mic":"XMNX","exchangeSuffix":"-ME"},{"exchange":"YPT","region":"PA","description":"SoareAa
+      DosPe Vmas   lla aenBD","mic":"PXTY","exchangeSuffix":"P-P"},{"exchange":"AUS","region":"SA","description":"h
+      txSEiacoecn gdSuak","mic":"AXUS","exchangeSuffix":"A-B"},{"exchange":"SSE","region":"SG","description":"xgE
+      Srhnoanaceipge","mic":"XSES","exchangeSuffix":"P-S"},{"exchange":"DNL","region":"GB","description":"xdrutoEEe
+      Lnxnonooeu nrt","mic":"LXND","exchangeSuffix":"-LD"},{"exchange":"DXS","region":"CM","description":"nElt
+      SkuacgoceDa ohax","mic":"DSXX","exchangeSuffix":"DE-"},{"exchange":"ICE","region":"IS","description":"I
+      fHeaddaNcna lqs","mic":"CEIX","exchangeSuffix":"R-F"},{"exchange":"LSM","region":"LY","description":"tLyoterakabnkM
+      Si c","mic":"MLSX","exchangeSuffix":"-YL"},{"exchange":"BNR","region":"CH","description":"AswsSi
+      xg B","mic":"RXNB","exchangeSuffix":"RS-"},{"exchange":"EBR","region":"DE","description":"r
+      roiBk snelehrereFvierBe","mic":"EBRX","exchangeSuffix":"-BG"},{"exchange":"YCS","region":"CY","description":"r
+      uyeacESnt spchCxokg","mic":"XYSC","exchangeSuffix":"-YC"},{"exchange":"GAU","region":"UG","description":"StUnxucei
+      Eegaadsgi nraceh","mic":"GXUA","exchangeSuffix":"G-U"},{"exchange":"AFR","region":"DE","description":"rkrenr
+      htora feviFeurrsBkeeF","mic":"AFXR","exchangeSuffix":"-FG"},{"exchange":"NAS","region":"NG","description":"cernagE
+      oin xa kSeciTNehgth","mic":"XNAS","exchangeSuffix":"-NL"},{"exchange":"RNT","region":"TT","description":"o
+      dnnciadacoEih  nATdgk rxaoTSegtb","mic":"NTXR","exchangeSuffix":"-PT"},{"exchange":"AHN","region":"DE","description":"annsroNeea
+      e irheoH evcBuersdehicZss","mic":"HAXN","exchangeSuffix":"G-I"},{"exchange":"ELB","region":"RS","description":"cnkdg
+      ax tBgeleeSohErca","mic":"BLEX","exchangeSuffix":"SG-"},{"exchange":"ITS","region":"TR","description":"aontabsr
+      IusBl","mic":"ITSX","exchangeSuffix":"-TI"},{"exchange":"ALT","region":"EE","description":"asna
+      qAaTnlNi sdl","mic":"TAXL","exchangeSuffix":"E-T"},{"exchange":"GES","region":"GE","description":"
+      aekgrgho xGcEcitoeanS","mic":"XSGE","exchangeSuffix":"GG-"},{"exchange":"AOL","region":"LA","description":"hseoaeiLitcc  xunrgeaSE","mic":"XOAL","exchangeSuffix":"-LS"},{"exchange":"MCI","region":"RU","description":"EglMsaskect  hxMwanerolcoA
+      ","mic":"SMXI","exchangeSuffix":"R-X"},{"exchange":"MMA","region":"JO","description":"ocx
+      eknhSanmcgtm EaA","mic":"MAMX","exchangeSuffix":"J-R"},{"exchange":"LIT","region":"LT","description":"q
+      bNusAd Visanial","mic":"TXIL","exchangeSuffix":"-HL"},{"exchange":"ARM","region":"AM","description":"dAim
+      namO sxNaraeq","mic":"RXMA","exchangeSuffix":"-AY"},{"exchange":"DDSM","region":"QA","description":"nghExaaQac
+      tre","mic":"SDMD","exchangeSuffix":"-DQ"},{"exchange":"THA","region":"GR","description":"
+      netnthxEashckec SoAg","mic":"SXAE","exchangeSuffix":"GA-"},{"exchange":"SEESV","region":"ES","description":"aonelBcseDailV
+      a ","mic":"ALVX","exchangeSuffix":"-SA"},{"exchange":"ANM","region":"NA","description":"
+      hgkNScibamnincxEeat ao","mic":"XNAM","exchangeSuffix":"WN-"},{"exchange":"BBL","region":"BA","description":"BeEaSakakg  huLnnja
+      cctxo","mic":"XBLB","exchangeSuffix":"KB-"},{"exchange":"FXDI","region":"AE","description":"iaDsNuaq
+      bad","mic":"DIXF","exchangeSuffix":"-DU"},{"exchange":"RAK","region":"PK","description":"tkiaeansmahxoth  c  TSdLeeEiPkitgnc","mic":"RKAX","exchangeSuffix":"K-P"},{"exchange":"BNV","region":"CR","description":"BN
+      eosDiolA  rlca aanlesoSV a","mic":"BVNX","exchangeSuffix":"CR-"},{"exchange":"NMG","region":"SE","description":"hwokNr
+      cGierorta Mdt","mic":"XMNG","exchangeSuffix":"GN-"},{"exchange":"TRRSU","region":"RU","description":"
+      wickt xghveovotesa MEecDinrerasaM","mic":"RXST","exchangeSuffix":"-RR"},{"exchange":"GAZ","region":"HR","description":"oEhrbSZcek
+      gaa egntxc","mic":"ZXGA","exchangeSuffix":"AZ-"},{"exchange":"SMA","region":"NL","description":"em
+      daomternouEt uxAxrtreEsn","mic":"XASM","exchangeSuffix":"-AN"},{"exchange":"LUJ","region":"SI","description":"jglatuMcrnOteE
+      aic nlaafijfkbeLo hxkcaS ","mic":"JULX","exchangeSuffix":"-VS"},{"exchange":"KIXAZ","region":"KZ","description":"thndneoIEatiltga
+      aL  sxrnatnceAan","mic":"AXIK","exchangeSuffix":"KX-"},{"exchange":"TUBSSA","region":"US","description":"bnseBq
+      zhgCES  iUxxeucEeatoi  ","mic":"TASB","exchangeSuffix":"FU-"},{"exchange":"OBL","region":"BO","description":"vrnl
+      eoialaoVSDie sl sBBAa o a","mic":"LXOB","exchangeSuffix":"-BV"},{"exchange":"TEA","region":"IL","description":"onSglcc
+      ATvixtk he eaEv","mic":"XEAT","exchangeSuffix":"I-T"},{"exchange":"NCQ","region":"CA","description":"lnaeainctEtdkaSa
+      n ohnx oagNicaC","mic":"QNCX","exchangeSuffix":"-CF"},{"exchange":"SES","region":"BA","description":"
+      vxESckog Sataeceoanjhr","mic":"SXSE","exchangeSuffix":"T-B"},{"exchange":"AUG","region":"EC","description":"D  esoea
+      eGyBor aVuulDsallqai","mic":"GUAX","exchangeSuffix":"E-G"},{"exchange":"AEM","region":"MK","description":"etgcck
+      oSxdaaecMha Ennnoi","mic":"EAXM","exchangeSuffix":"S-M"},{"exchange":"PNE","region":"NP","description":"helcEpnxkaN
+      teg Saco","mic":"XNEP","exchangeSuffix":"KN-"},{"exchange":"AJM","region":"JM","description":"kc
+      teghcn moxScJiaaaEa","mic":"AJXM","exchangeSuffix":"AJ-"},{"exchange":"MAU","region":"MU","description":"Esci  frMktSgaLOaocexthdt
+      nu ui","mic":"AMUX","exchangeSuffix":"M-P"},{"exchange":"LUX","region":"LU","description":"curahtoexb
+      nkEcouegmgL xS","mic":"UXLX","exchangeSuffix":"-XL"},{"exchange":"QIS","region":"IQ","description":"cxIhtnak  cgqeoarSE","mic":"SXQI","exchangeSuffix":"-QI"},{"exchange":"MLI","region":"PE","description":"aoer  ae
+      BDmilVDaes osLl","mic":"ILXM","exchangeSuffix":"E-P"},{"exchange":"WXS","region":"CH","description":"swih
+      iSEacg eSsnxx","mic":"SWXX","exchangeSuffix":"ES-"},{"exchange":"GOB","region":"CO","description":"e
+      s aVbBarl oml CoieaesooDlD","mic":"GOBX","exchangeSuffix":"X-C"},{"exchange":"SEJPO","region":"JP","description":"hakagcxOeaE
+      sn","mic":"SEOX","exchangeSuffix":"OJ-"},{"exchange":"RTE","region":"DE","description":"Xtare","mic":"TEXR","exchangeSuffix":"YG-"},{"exchange":"MAH","region":"DE","description":"esBvrrFgibekhHrremo
+      ee uar","mic":"HMAX","exchangeSuffix":"-HG"},{"exchange":"ZNE","region":"NZ","description":"c
+      nae awgtNehnadZELlxed ","mic":"NXEZ","exchangeSuffix":"N-Z"},{"exchange":"DSE","region":"SY","description":"Ess
+      airxueehsDietamcau ngccS","mic":"XEDS","exchangeSuffix":"S-Y"},{"exchange":"JPEST","region":"JP","description":"aEanhraep
+      xnG Jgoucp","mic":"XXPJ","exchangeSuffix":"-TJ"},{"exchange":"MSU","region":"OM","description":"rriaMtMstuca
+      eetukicsS e","mic":"SMXU","exchangeSuffix":"O-M"},{"exchange":"CIS","region":"US","description":"NaayeNIst
+      lc noin","mic":"XCIS","exchangeSuffix":"ull-n"},{"exchange":"SHP","region":"PH","description":"p
+      hEc ingSoiPhi eptxnakcelcIn","mic":"HXSP","exchangeSuffix":"M-P"},{"exchange":"OLS","region":"NO","description":"twon
+      GosroOxlEhr uet","mic":"OSXL","exchangeSuffix":"-ON"},{"exchange":"LSI","region":"PT","description":"surEeoxAsnncs  eibtLco","mic":"XILS","exchangeSuffix":"-LP"},{"exchange":"HSG","region":"CN","description":"S
+      Scohnntagaeax ihEghck","mic":"SHGX","exchangeSuffix":"CG-"},{"exchange":"MTN","region":"UY","description":"siDtrsM
+      neee v oaooVoBl eDdael","mic":"TNMX","exchangeSuffix":"U-Y"},{"exchange":"UNT","region":"TN","description":"esoTusieDuBr
+      n ","mic":"NXTU","exchangeSuffix":"UT-"},{"exchange":"ABB","region":"BB","description":"debnoscEoBSkaxa
+      chra tg","mic":"BABX","exchangeSuffix":"-BA"},{"exchange":"EYB","region":"LB","description":"tyshBBuuSeoeoehttieexDrr
+      aEc roBu ck gn ","mic":"XEBY","exchangeSuffix":"-LB"},{"exchange":"XNICM","region":"IN","description":"ine  rISnac  idpMkieifdnmottEocaettlOoLgx
+      ah","mic":"CXMX","exchangeSuffix":"GI-"},{"exchange":"EMX","region":"MX","description":"ioastl
+      aa encVao hcSB saeMlneeExxMxg  narcekociD","mic":"EXXM","exchangeSuffix":"M-M"},{"exchange":"NRI","region":"US","description":"airFn","mic":"INFR","exchangeSuffix":"luln-"},{"exchange":"PAR","region":"CZ","description":"EuneaectcP
+      ggxohSakr ","mic":"PAXR","exchangeSuffix":"-KC"},{"exchange":"TEH","region":"IR","description":"n
+      ceTSekogcaathhErn x","mic":"XETH","exchangeSuffix":"IE-"},{"exchange":"CSHT","region":"VN","description":"Hxo
+      tnacSeagEhink oc","mic":"CHST","exchangeSuffix":"V-H"},{"exchange":"RAD","region":"TZ","description":"Ea
+      txnSaocahm lrgD ksaaSEc e","mic":"XARD","exchangeSuffix":"-ZT"},{"exchange":"LPU","region":"GB","description":"iT
+      aE yAigeqdrsuqtn","mic":"XENX","exchangeSuffix":"-ZP"},{"exchange":"ECN","region":"AU","description":"nNtuia
+      daht fnokaAelexi oaS isgctmli EatcLOr","mic":"ECXN","exchangeSuffix":"-AO"},{"exchange":"RWA","region":"PL","description":"arMqus  E
+      Sah aticcro nEniasexWkiMtegektaw","mic":"AXRW","exchangeSuffix":"-PW"},{"exchange":"YNS","region":"US","description":"ck
+      nx hwceEYcInarSNo  kgote","mic":"YNXS","exchangeSuffix":"U-N"},{"exchange":"AKZ","region":"KZ","description":"hzaacgExhs
+      Kkacknae ntotS","mic":"XZKA","exchangeSuffix":"-KZ"},{"exchange":"SSP","region":"FJ","description":"aitac
+      fgScoSit  hPEnuxkhceco","mic":"XSSP","exchangeSuffix":"S-F"},{"exchange":"PAV","region":"PY","description":"Bsoie
+      coSuYero nardAooslP usat Vn acseD  lD","mic":"XPVA","exchangeSuffix":"PN-"},{"exchange":"CSSES","region":"SC","description":"LMieEehgdtaei
+      mjrnxc ","mic":"PRTX","exchangeSuffix":"Z-S"},{"exchange":"TSPF","region":"UA","description":"g
+      PEtfx soSchecktna","mic":"TFPS","exchangeSuffix":"Z-U"},{"exchange":"NOL","region":"GB","description":"htoa
+      xn EdcnnLkcgeSoo","mic":"ONXL","exchangeSuffix":"-NL"},{"exchange":"LHE","region":"FI","description":"LnaqtHidlN
+      dsasek i","mic":"HLXE","exchangeSuffix":"-HF"},{"exchange":"KHG","region":"HK","description":"
+      cdl E hneLdoAxKn ansgogrntgCHgenia ","mic":"HKGX","exchangeSuffix":"HK-"},{"exchange":"KCNZHS","region":"CN","description":"nhxKeen  nnEooncthSnthHe
+      acgehzceSgckCo ohgnn z SoSk etn","mic":"XSCE","exchangeSuffix":"2-C"},{"exchange":"CGH","region":"BD","description":"E
+      thcLkittSco tnneCggogx aahd","mic":"GXCH","exchangeSuffix":"C3-"},{"exchange":"LMO","region":"MD","description":"ta  hodSacMgookxeEclnv","mic":"OMLX","exchangeSuffix":"M-B"},{"exchange":"SWA","region":"SZ","description":"na
+      wahinSczcEx dStkgaole","mic":"WXAS","exchangeSuffix":"-SD"},{"exchange":"SBCE","region":"BY","description":"SlsnceeyE
+      hrABcndxor Cuau grkt acen","mic":"SCBE","exchangeSuffix":"R-B"},{"exchange":"ASV","region":"SV","description":"ShS  valEalEgtcroeoxdncka
+      ","mic":"SAXV","exchangeSuffix":"L-E"},{"exchange":"RAP","region":"FR","description":"Prsnru
+      ntaEEur extxoeio","mic":"RPXA","exchangeSuffix":"-PF"},{"exchange":"AXSSU","region":"AU","description":"hyic
+      needitdx te nySacLEokgSm","mic":"LAPX","exchangeSuffix":"-PF"},{"exchange":"NOEE","region":"CA","description":"cEroNtyghneO
+      rMred NeLa ex o ekB a","mic":"ENOE","exchangeSuffix":"-QH"},{"exchange":"MNU","region":"DE","description":"roFreBevcereh
+      nukinsreMe he","mic":"UNXM","exchangeSuffix":"G-M"},{"exchange":"IMZ","region":"ZW","description":"Zbx
+      aihEwkngtoe bcSceam","mic":"XIZM","exchangeSuffix":"HZ-"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -43,7 +189,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:47 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -51,8 +197,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=89f1eacea998479085c44dcb49ac922b; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:35 GMT
+      - ctoken=c209276c657642c1b3d2c86b4ff42ebb; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:47 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

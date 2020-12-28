@@ -10,26 +10,28 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/fx/symbols
     method: GET
   response:
-    body: '{"currencies":[{"code":"DUA","name":"rarlDatAlu soanil"},{"code":"DSU","name":"l.
-      Da.UlorS"},{"code":"ADC","name":"Dl aanlaioCdnra"},{"code":"HFC","name":"wss
-      FcSinra"},{"code":"REU","name":"roEu"},{"code":"PGB","name":"ishtrP ioBdnu"},{"code":"JPY","name":"nepneaYseaJ
-      "},{"code":"NOK","name":"aerKNonog ienrw"},{"code":"NZD","name":"laNeadDoZllenwa
-      r "},{"code":"KSE","name":"waiheKnoSd rs"},{"code":"ADE","name":"UE.r.Ah.mDai
-      "},{"code":"GBN","name":"Lal egBrvainu"},{"code":"DBH","name":"hni DanaiBrrai"},{"code":"NCH","name":"neYe
-      i nhmRanbuCnie )(isKH"},{"code":"NYC","name":" bsaienRYmuenn Ciihen"},{"code":"CZK","name":"zCeoc
-      rhauKn"},{"code":"KDK","name":"neDihrKna os"},{"code":"HKD","name":"rgoHn logKD
-      nloa"},{"code":"UHF","name":"itaFingrnan urHo"},{"code":"IRD","name":"oauiinnedhsR
-      npIa"},{"code":"ISL","name":"ek NewSIelhse ialr"},{"code":"NRI","name":"neapn
-      dIuieR"},{"code":"RWK","name":"oWrnnoa eK"},{"code":"DWK","name":"wnaiD rtKaiiu"},{"code":"MNX","name":"exsica
-      PonMe"},{"code":"MRY","name":"nyRnMgi lstgaiiaa"},{"code":"PNL","name":"ylloZt
-      hosiP"},{"code":"ORN","name":"ainRoe uLnma"},{"code":"RUB","name":"slueb RRsuain"},{"code":"SAR","name":"yruSi
-      ila niabRadaA"},{"code":"GSD","name":"aSopelnD rlrioga"},{"code":"HBT","name":"a
-      hiBTtah"},{"code":"RTY","name":"riakusrhLiT "},{"code":"WDT","name":" aalTrDailonw"},{"code":"RZA","name":"uRSftnoahcAia  nrd"}],"pairs":[{"fromCurrency":"DUA","toCurrency":"UDS","symbol":"AUDUSD"},{"fromCurrency":"ACD","toCurrency":"CFH","symbol":"CADCHF"},{"fromCurrency":"EUR","toCurrency":"UDA","symbol":"EURAUD"},{"fromCurrency":"UER","toCurrency":"CDA","symbol":"EURCAD"},{"fromCurrency":"URE","toCurrency":"CFH","symbol":"EURCHF"},{"fromCurrency":"ERU","toCurrency":"PGB","symbol":"EURGBP"},{"fromCurrency":"UER","toCurrency":"YPJ","symbol":"EURJPY"},{"fromCurrency":"UER","toCurrency":"KNO","symbol":"EURNOK"},{"fromCurrency":"RUE","toCurrency":"NZD","symbol":"EURNZD"},{"fromCurrency":"URE","toCurrency":"ESK","symbol":"EURSEK"},{"fromCurrency":"URE","toCurrency":"USD","symbol":"EURUSD"},{"fromCurrency":"BPG","toCurrency":"ADU","symbol":"GBPAUD"},{"fromCurrency":"GPB","toCurrency":"DAC","symbol":"GBPCAD"},{"fromCurrency":"GPB","toCurrency":"FCH","symbol":"GBPCHF"},{"fromCurrency":"PGB","toCurrency":"YPJ","symbol":"GBPJPY"},{"fromCurrency":"GPB","toCurrency":"NKO","symbol":"GBPNOK"},{"fromCurrency":"BGP","toCurrency":"NDZ","symbol":"GBPNZD"},{"fromCurrency":"BGP","toCurrency":"KES","symbol":"GBPSEK"},{"fromCurrency":"GPB","toCurrency":"DSU","symbol":"GBPUSD"},{"fromCurrency":"YJP","toCurrency":"CDA","symbol":"JPYCAD"},{"fromCurrency":"PYJ","toCurrency":"CFH","symbol":"JPYCHF"},{"fromCurrency":"ZDN","toCurrency":"USD","symbol":"NZDUSD"},{"fromCurrency":"DSU","toCurrency":"ADE","symbol":"USDAED"},{"fromCurrency":"SUD","toCurrency":"BGN","symbol":"USDBGN"},{"fromCurrency":"UDS","toCurrency":"HDB","symbol":"USDBHD"},{"fromCurrency":"DSU","toCurrency":"ACD","symbol":"USDCAD"},{"fromCurrency":"DUS","toCurrency":"FHC","symbol":"USDCHF"},{"fromCurrency":"SDU","toCurrency":"HCN","symbol":"USDCNH"},{"fromCurrency":"DSU","toCurrency":"CNY","symbol":"USDCNY"},{"fromCurrency":"DUS","toCurrency":"KZC","symbol":"USDCZK"},{"fromCurrency":"DUS","toCurrency":"KDK","symbol":"USDDKK"},{"fromCurrency":"SUD","toCurrency":"KHD","symbol":"USDHKD"},{"fromCurrency":"SUD","toCurrency":"HFU","symbol":"USDHUF"},{"fromCurrency":"UDS","toCurrency":"RDI","symbol":"USDIDR"},{"fromCurrency":"USD","toCurrency":"SIL","symbol":"USDILS"},{"fromCurrency":"SUD","toCurrency":"IRN","symbol":"USDINR"},{"fromCurrency":"UDS","toCurrency":"JPY","symbol":"USDJPY"},{"fromCurrency":"SUD","toCurrency":"RWK","symbol":"USDKRW"},{"fromCurrency":"DSU","toCurrency":"DKW","symbol":"USDKWD"},{"fromCurrency":"USD","toCurrency":"XNM","symbol":"USDMXN"},{"fromCurrency":"UDS","toCurrency":"YRM","symbol":"USDMYR"},{"fromCurrency":"DSU","toCurrency":"NOK","symbol":"USDNOK"},{"fromCurrency":"UDS","toCurrency":"LNP","symbol":"USDPLN"},{"fromCurrency":"UDS","toCurrency":"NRO","symbol":"USDRON"},{"fromCurrency":"DSU","toCurrency":"BUR","symbol":"USDRUB"},{"fromCurrency":"USD","toCurrency":"RAS","symbol":"USDSAR"},{"fromCurrency":"DSU","toCurrency":"EKS","symbol":"USDSEK"},{"fromCurrency":"SUD","toCurrency":"DSG","symbol":"USDSGD"},{"fromCurrency":"DUS","toCurrency":"TBH","symbol":"USDTHB"},{"fromCurrency":"UDS","toCurrency":"TRY","symbol":"USDTRY"},{"fromCurrency":"SDU","toCurrency":"DTW","symbol":"USDTWD"},{"fromCurrency":"UDS","toCurrency":"AZR","symbol":"USDZAR"}]}'
+    body: '{"currencies":[{"code":"DUA","name":"nAtaiurallDsaorl "},{"code":"SDU","name":"loU.
+      alDr.S"},{"code":"DCA","name":"lnaiaodr DnClaa"},{"code":"CFH","name":"risSc
+      wanFs"},{"code":"UER","name":"orEu"},{"code":"PBG","name":"d PhnriBstuoi"},{"code":"YPJ","name":"pae
+      aeesJnnY"},{"code":"NKO","name":"naKieooN wrngre"},{"code":"DZN","name":"lwae
+      NrdnaeDao lZl"},{"code":"SEK","name":"rosaeihdw KnS"},{"code":"DAE","name":".Eahr..AD
+      iUm"},{"code":"GNB","name":"v aauelnBgriL"},{"code":"BHD","name":"iDaarinrna
+      hiB"},{"code":"CHN","name":"nnihemY)HunRe(ai C n iKbse"},{"code":"YCN","name":"iCis
+      ne YaeninemnRubh"},{"code":"KCZ","name":"aneucKrzC ho"},{"code":"KDK","name":"ahDKenos
+      rni"},{"code":"DHK","name":"HarooKl Dl ngnog"},{"code":"UFH","name":"Faonna
+      rriHiugtn"},{"code":"DRI","name":"eiop hnauandnIRsi"},{"code":"ILS","name":"ewSkNlisaeeheIl  r"},{"code":"IRN","name":"aeIRui
+      nndep"},{"code":"KRW","name":"onnKWoe ra"},{"code":"KDW","name":"wiKit Draaiun"},{"code":"XNM","name":"iPcan
+      osxeeM"},{"code":"YMR","name":"isgaiaRnt iglayMn"},{"code":"LNP","name":"Zoho
+      yitlsPl"},{"code":"ONR","name":"mLnuR oaanei"},{"code":"RUB","name":"ubusRsl
+      Reina"},{"code":"SRA","name":"auyiri aRbA aladiSn"},{"code":"DSG","name":"SDogain
+      rlpoeral"},{"code":"HTB","name":" hiBaaTth"},{"code":"RTY","name":"irhuiasTk
+      rL"},{"code":"WDT","name":"arowDTialln a"},{"code":"ARZ","name":"rcSnAuoaa hRtf
+      ind"},{"code":"CBT","name":"0"},{"code":"RPX","name":"0"},{"code":"LTC","name":"0"},{"code":"THE","name":"0"},{"code":"BCH","name":"0"}],"pairs":[{"fromCurrency":"UAD","toCurrency":"SDU","symbol":"AUDUSD"},{"fromCurrency":"ACD","toCurrency":"FHC","symbol":"CADCHF"},{"fromCurrency":"UER","toCurrency":"DUA","symbol":"EURAUD"},{"fromCurrency":"UER","toCurrency":"DAC","symbol":"EURCAD"},{"fromCurrency":"RUE","toCurrency":"HFC","symbol":"EURCHF"},{"fromCurrency":"EUR","toCurrency":"BPG","symbol":"EURGBP"},{"fromCurrency":"EUR","toCurrency":"PJY","symbol":"EURJPY"},{"fromCurrency":"UER","toCurrency":"NKO","symbol":"EURNOK"},{"fromCurrency":"RUE","toCurrency":"NZD","symbol":"EURNZD"},{"fromCurrency":"REU","toCurrency":"KSE","symbol":"EURSEK"},{"fromCurrency":"URE","toCurrency":"DUS","symbol":"EURUSD"},{"fromCurrency":"PGB","toCurrency":"UAD","symbol":"GBPAUD"},{"fromCurrency":"PGB","toCurrency":"ADC","symbol":"GBPCAD"},{"fromCurrency":"GPB","toCurrency":"FCH","symbol":"GBPCHF"},{"fromCurrency":"BPG","toCurrency":"JYP","symbol":"GBPJPY"},{"fromCurrency":"PBG","toCurrency":"NOK","symbol":"GBPNOK"},{"fromCurrency":"BPG","toCurrency":"DZN","symbol":"GBPNZD"},{"fromCurrency":"BPG","toCurrency":"KSE","symbol":"GBPSEK"},{"fromCurrency":"BPG","toCurrency":"DUS","symbol":"GBPUSD"},{"fromCurrency":"YPJ","toCurrency":"ACD","symbol":"JPYCAD"},{"fromCurrency":"JYP","toCurrency":"FCH","symbol":"JPYCHF"},{"fromCurrency":"ZND","toCurrency":"SDU","symbol":"NZDUSD"},{"fromCurrency":"UDS","toCurrency":"DEA","symbol":"USDAED"},{"fromCurrency":"DSU","toCurrency":"NGB","symbol":"USDBGN"},{"fromCurrency":"USD","toCurrency":"DHB","symbol":"USDBHD"},{"fromCurrency":"DUS","toCurrency":"CDA","symbol":"USDCAD"},{"fromCurrency":"SDU","toCurrency":"HCF","symbol":"USDCHF"},{"fromCurrency":"DSU","toCurrency":"NCH","symbol":"USDCNH"},{"fromCurrency":"SDU","toCurrency":"YNC","symbol":"USDCNY"},{"fromCurrency":"USD","toCurrency":"KCZ","symbol":"USDCZK"},{"fromCurrency":"DUS","toCurrency":"DKK","symbol":"USDDKK"},{"fromCurrency":"USD","toCurrency":"KHD","symbol":"USDHKD"},{"fromCurrency":"DSU","toCurrency":"UHF","symbol":"USDHUF"},{"fromCurrency":"USD","toCurrency":"DRI","symbol":"USDIDR"},{"fromCurrency":"UDS","toCurrency":"SIL","symbol":"USDILS"},{"fromCurrency":"USD","toCurrency":"RIN","symbol":"USDINR"},{"fromCurrency":"SDU","toCurrency":"JPY","symbol":"USDJPY"},{"fromCurrency":"SUD","toCurrency":"KRW","symbol":"USDKRW"},{"fromCurrency":"SDU","toCurrency":"DWK","symbol":"USDKWD"},{"fromCurrency":"DUS","toCurrency":"XNM","symbol":"USDMXN"},{"fromCurrency":"UDS","toCurrency":"RYM","symbol":"USDMYR"},{"fromCurrency":"UDS","toCurrency":"OKN","symbol":"USDNOK"},{"fromCurrency":"USD","toCurrency":"PNL","symbol":"USDPLN"},{"fromCurrency":"SUD","toCurrency":"RNO","symbol":"USDRON"},{"fromCurrency":"UDS","toCurrency":"RUB","symbol":"USDRUB"},{"fromCurrency":"UDS","toCurrency":"ASR","symbol":"USDSAR"},{"fromCurrency":"DSU","toCurrency":"KSE","symbol":"USDSEK"},{"fromCurrency":"DSU","toCurrency":"GDS","symbol":"USDSGD"},{"fromCurrency":"SUD","toCurrency":"BHT","symbol":"USDTHB"},{"fromCurrency":"USD","toCurrency":"RYT","symbol":"USDTRY"},{"fromCurrency":"DSU","toCurrency":"WDT","symbol":"USDTWD"},{"fromCurrency":"SDU","toCurrency":"ZRA","symbol":"USDZAR"},{"fromCurrency":"CBT","toCurrency":"UDS","symbol":"BTCUSD"},{"fromCurrency":"BTC","toCurrency":"URE","symbol":"BTCEUR"},{"fromCurrency":"UER","toCurrency":"DUS","symbol":"EURUSD"},{"fromCurrency":"RPX","toCurrency":"USD","symbol":"XRPUSD"},{"fromCurrency":"RXP","toCurrency":"URE","symbol":"XRPEUR"},{"fromCurrency":"RPX","toCurrency":"TBC","symbol":"XRPBTC"},{"fromCurrency":"LCT","toCurrency":"DUS","symbol":"LTCUSD"},{"fromCurrency":"CLT","toCurrency":"UER","symbol":"LTCEUR"},{"fromCurrency":"LTC","toCurrency":"BTC","symbol":"LTCBTC"},{"fromCurrency":"TEH","toCurrency":"USD","symbol":"ETHUSD"},{"fromCurrency":"HET","toCurrency":"RUE","symbol":"ETHEUR"},{"fromCurrency":"EHT","toCurrency":"TBC","symbol":"ETHBTC"},{"fromCurrency":"HCB","toCurrency":"USD","symbol":"BCHUSD"},{"fromCurrency":"HCB","toCurrency":"EUR","symbol":"BCHEUR"},{"fromCurrency":"BHC","toCurrency":"CBT","symbol":"BCHBTC"}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -37,7 +39,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:43 GMT
+      - Mon, 28 Dec 2020 01:46:59 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -45,8 +47,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=706b2364cab44a64b1211802b99d60f4; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:43 GMT
+      - ctoken=42ad280d52f749faa13c397742badb47; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:59 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

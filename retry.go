@@ -23,7 +23,7 @@ type Retry struct {
 	Backoff       Backoff       // Defines wait time between HTTP request retries
 }
 
-// RetryOption is a func that operations on *Retry.
+// RetryOption is a func that operates on *Retry.
 type RetryOption func(*Retry) error
 
 // SetRetryWaitMinMax sets the min and max time.Duration that a retry request is bounded by.
