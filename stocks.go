@@ -485,6 +485,34 @@ type Chart struct {
 	ChangeOverTime float64 `json:"changeOverTime"`
 }
 
+// UnmarshalJSON builds a Chart struct
+func (c *Chart) UnmarshalJSON(b []byte) error {
+	var err error
+	// Alias your struct type
+	type alias Chart
+	// Auxiliary struct is to parse JSON like you normally would except for the extra fields
+	// specified which are used for extra logic before reassigning to your original struct
+	aux := &struct {
+		Volume interface{} `json:"volume"`
+		*alias
+	}{
+		alias: (*alias)(c),
+	}
+
+	if err = json.Unmarshal(b, &aux); err != nil {
+		return err
+	}
+
+	// N.B. When testing with sandbox credentials IEX will fuzz the data.
+	// The fuzzing ends up changing the field types from time to time so this custom unmarshal
+	// helps to fix that for running tests.
+	if volume, ok := aux.Volume.(float64); ok {
+		c.Volume = int(volume)
+	}
+
+	return err
+}
+
 // CollectionType for Collection API
 type CollectionType int
 
@@ -1525,7 +1553,7 @@ func (s *Stock) VolumeByVenue(symbol string) (vbv VolumeByVenue, err error) {
 	return
 }
 
-// UnmarshalJSON helper
+// UnmarshalJSON builds a EarningsTodayDTO struct
 func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error {
 	var err error
 	type alias EarningsTodayDTO

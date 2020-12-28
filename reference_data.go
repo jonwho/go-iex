@@ -12,8 +12,8 @@ type ReferenceData struct {
 	iex
 }
 
-// Symbols struct
-type Symbols []struct {
+// Symbol struct
+type Symbol struct {
 	Symbol    string `json:"symbol"`
 	Name      string `json:"name"`
 	Date      string `json:"date"`
@@ -178,7 +178,7 @@ func (rd *ReferenceData) Retry() *Retry {
 }
 
 // Symbols GET /ref-data/symbols
-func (rd *ReferenceData) Symbols() (s Symbols, err error) {
+func (rd *ReferenceData) Symbols() (s []Symbol, err error) {
 	err = get(rd, &s, "symbols", nil)
 	return
 }
