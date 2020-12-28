@@ -22,6 +22,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	// N.B. If chart history is less than 14 days then return 0.0 for RSI
 	data := charts[len(charts)-14:]
 	sumGain := 0.0
 	sumLoss := 0.0
