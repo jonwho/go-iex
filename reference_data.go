@@ -24,15 +24,15 @@ type Symbol struct {
 	IsEnabled bool   `json:"isEnabled"`
 }
 
-// IEXSymbols struct
-type IEXSymbols []struct {
+// IEXSymbol struct
+type IEXSymbol struct {
 	Symbol    string `json:"symbol"`
 	Date      string `json:"date"`
 	IsEnabled bool   `json:"isEnabled"`
 }
 
-// InternationalSymbols struct
-type InternationalSymbols []struct {
+// InternationalSymbol struct
+type InternationalSymbol struct {
 	Symbol    string `json:"symbol"`
 	Exchange  string `json:"exchange"`
 	Name      string `json:"name"`
@@ -44,8 +44,8 @@ type InternationalSymbols []struct {
 	IsEnabled bool   `json:"isEnabled"`
 }
 
-// InternationalExchanges struct
-type InternationalExchanges []struct {
+// InternationalExchange struct
+type InternationalExchange struct {
 	Exchange       string `json:"exchange"`
 	Region         string `json:"region"`
 	Description    string `json:"description"`
@@ -53,8 +53,8 @@ type InternationalExchanges []struct {
 	ExchangeSuffix string `json:"exchangeSuffix"`
 }
 
-// USExchanges struct
-type USExchanges []struct {
+// USExchange struct
+type USExchange struct {
 	Name   string `json:"name"`
 	Mic    string `json:"mic"`
 	TapeID string `json:"tapeId"`
@@ -62,24 +62,24 @@ type USExchanges []struct {
 	Type   string `json:"type"`
 }
 
-// USHolidaysAndTradingDates struct
-type USHolidaysAndTradingDates []struct {
+// USHolidaysAndTradingDate struct
+type USHolidaysAndTradingDate struct {
 	Date           string `json:"date"`
 	SettlementDate string `json:"settlementDate"`
 }
 
-// Sectors struct
-type Sectors []struct {
+// Sector struct
+type Sector struct {
 	Name string `json:"name"`
 }
 
-// Tags struct
-type Tags []struct {
+// Tag struct
+type Tag struct {
 	Name string `json:"name"`
 }
 
-// MutualFundSymbols struct
-type MutualFundSymbols []struct {
+// MutualFundSymbol struct
+type MutualFundSymbol struct {
 	Symbol    string `json:"symbol"`
 	Name      string `json:"name"`
 	Date      string `json:"date"`
@@ -90,8 +90,8 @@ type MutualFundSymbols []struct {
 	IsEnabled bool   `json:"isEnabled"`
 }
 
-// OTCSymbols struct
-type OTCSymbols []struct {
+// OTCSymbol struct
+type OTCSymbol struct {
 	Symbol string `json:"symbol"`
 	Name   string `json:"name"`
 	Date   string `json:"date"`
@@ -184,39 +184,39 @@ func (rd *ReferenceData) Symbols() (s []Symbol, err error) {
 }
 
 // IEXSymbols GET /ref-data/iex/symbols
-func (rd *ReferenceData) IEXSymbols() (is IEXSymbols, err error) {
+func (rd *ReferenceData) IEXSymbols() (is []IEXSymbol, err error) {
 	err = get(rd, &is, "iex/symbols", nil)
 	return
 }
 
 // RegionSymbols GET /ref-data/region/{region}/symbols
-func (rd *ReferenceData) RegionSymbols(region string) (is InternationalSymbols, err error) {
+func (rd *ReferenceData) RegionSymbols(region string) (is []InternationalSymbol, err error) {
 	endpoint := fmt.Sprintf("region/%s/symbols", region)
 	err = get(rd, &is, endpoint, nil)
 	return
 }
 
 // ExchangeSymbols GET /ref-data/exchange/{exchange}/symbogTls
-func (rd *ReferenceData) ExchangeSymbols(exchange string) (is InternationalSymbols, err error) {
+func (rd *ReferenceData) ExchangeSymbols(exchange string) (is []InternationalSymbol, err error) {
 	endpoint := fmt.Sprintf("exchange/%s/symbols", exchange)
 	err = get(rd, &is, endpoint, nil)
 	return
 }
 
 // InternationalExchanges GET /ref-data/exchanges
-func (rd *ReferenceData) InternationalExchanges() (ie InternationalExchanges, err error) {
+func (rd *ReferenceData) InternationalExchanges() (ie []InternationalExchange, err error) {
 	err = get(rd, &ie, "exchanges", nil)
 	return
 }
 
 // USExchanges GET /ref-data/market/us/exchanges
-func (rd *ReferenceData) USExchanges() (ue USExchanges, err error) {
+func (rd *ReferenceData) USExchanges() (ue []USExchange, err error) {
 	err = get(rd, &ue, "market/us/exchanges", nil)
 	return
 }
 
 // USHolidaysAndTradingDates GET /ref-data/us/dates/{type}/{direction}/{last?}/{startDate?}
-func (rd *ReferenceData) USHolidaysAndTradingDates(dateType, direction string, opt ...interface{}) (u USHolidaysAndTradingDates, err error) {
+func (rd *ReferenceData) USHolidaysAndTradingDates(dateType, direction string, opt ...interface{}) (u []USHolidaysAndTradingDate, err error) {
 	endpoint := fmt.Sprintf("us/dates/%s/%s", dateType, direction)
 	if len(opt) > 0 {
 		last := opt[0].(int)
@@ -231,25 +231,25 @@ func (rd *ReferenceData) USHolidaysAndTradingDates(dateType, direction string, o
 }
 
 // Sectors GET /ref-data/sectors
-func (rd *ReferenceData) Sectors() (s Sectors, err error) {
+func (rd *ReferenceData) Sectors() (s []Sector, err error) {
 	err = get(rd, &s, "sectors", nil)
 	return
 }
 
 // Tags GET /ref-data/tags
-func (rd *ReferenceData) Tags() (t Tags, err error) {
+func (rd *ReferenceData) Tags() (t []Tag, err error) {
 	err = get(rd, &t, "tags", nil)
 	return
 }
 
 // MutualFundSymbols GET /ref-data/mutual-funds/symbols
-func (rd *ReferenceData) MutualFundSymbols() (mfs MutualFundSymbols, err error) {
+func (rd *ReferenceData) MutualFundSymbols() (mfs []MutualFundSymbol, err error) {
 	err = get(rd, &mfs, "mutual-funds/symbols", nil)
 	return
 }
 
 // OTCSymbols GET /ref-data/otc/symbols
-func (rd *ReferenceData) OTCSymbols() (otc OTCSymbols, err error) {
+func (rd *ReferenceData) OTCSymbols() (otc []OTCSymbol, err error) {
 	err = get(rd, &otc, "otc/symbols", nil)
 	return
 }

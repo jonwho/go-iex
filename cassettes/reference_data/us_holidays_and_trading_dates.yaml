@@ -10,12 +10,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/trade/next
     method: GET
   response:
-    body: '[{"date":"2019-10-25","settlementDate":"2019-11-07"}]'
+    body: '[{"date":"2020-12-29","settlementDate":"2020-12-19"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -23,7 +23,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:47 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -31,8 +31,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=be5d0d46431449c5bb7ff583cc0faf1b; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=a22c8573c78142cfae00c8576f57981d; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:47 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -49,12 +49,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/trade/last
     method: GET
   response:
-    body: '[{"date":"2019-10-23","settlementDate":"2019-10-30"}]'
+    body: '[{"date":"2020-12-24","settlementDate":"2020-12-15"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -62,7 +62,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:47 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -70,8 +70,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=d9913c44fc0c432d96d07d21dbb2b139; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=2baed72a57df431eabee4ec8e0648097; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:47 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -88,12 +88,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/holiday/next
     method: GET
   response:
-    body: '[{"date":"2019-11-28","settlementDate":"2019-12-05"}]'
+    body: '[{"date":"2021-01-01","settlementDate":"2021-01-02"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -101,7 +101,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:48 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -109,8 +109,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=0bfd71bdc53f41fd95bc62ef881b52b6; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=daddcc4ae63148038a4eb6a2f8ffa020; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:48 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -127,12 +127,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/holiday/last
     method: GET
   response:
-    body: '[{"date":"2019-09-02","settlementDate":"2019-09-16"}]'
+    body: '[{"date":"2020-12-25","settlementDate":"2020-12-21"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -140,7 +140,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:48 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -148,8 +148,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=0e838989c17d4fed9d7e1b4fac623a9f; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=50b85a4f87d24bc1810bd5b5e69cafce; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:48 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -166,12 +166,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/trade/next/1
     method: GET
   response:
-    body: '[{"date":"2019-10-25","settlementDate":"2019-11-10"}]'
+    body: '[{"date":"2020-12-29","settlementDate":"2020-12-26"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -179,7 +179,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:48 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -187,8 +187,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=ccf20a798bc3470f9ac23f07b7f7c731; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=44120a6805fc4c73bbb64513e7615982; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:48 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -205,12 +205,12 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/us/dates/holiday/last/1/20190101
     method: GET
   response:
-    body: '[{"date":"2018-12-25","settlementDate":"2019-01-08"}]'
+    body: '[{"date":"2018-12-25","settlementDate":"2018-12-21"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -218,7 +218,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:48 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -226,8 +226,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=b3d6454654954d25b3901b01d0540dd7; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=68bac667b2de430794d546b2da51464b; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:48 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

@@ -10,18 +10,26 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/sectors
     method: GET
   response:
-    body: '[{"name":"Erochncentyi oecTlglo"},{"name":"e rDisovSueiisrtbcitn"},{"name":"llHhcoeyeogTht
-      na"},{"name":"aevosrciceeCmirmlS "},{"name":"irnld survtseIaecSi"},{"name":"nnaFeci"},{"name":"suni
-      eossetrPsdIrc"},{"name":"rnatpTaortison"},{"name":"eTiyore ncecvlosSgh"},{"name":"nrecu
-      groinfPcaaMdutru"},{"name":"areleTR taid"},{"name":"ovcesS neeuCmrsir"},{"name":"ineyElrNg-sr
-      oannMe"},{"name":"itilesUit"},{"name":"ellnauoscsieM"},{"name":"ce htSievlsaerH"},{"name":"osmalruuCensrbD
-      e"},{"name":"sNomuesou rnrbeaCnlD-"},{"name":"aincmotomiCsun"},{"name":"MEnrg
-      eylienras"},{"name":"tnvmGreeon"}]'
+    body: '[{"name":"iPcnmri ) t(d ret vxclSbAnspsceeeeitrtiiahouO"},{"name":"SC erlsemcmoveircai"},{"name":"
+      daeTlriteRa"},{"name":"rertsuciovtisnibeSD i"},{"name":"t secsrPseuinsdoIr"},{"name":"lci,
+      do snhcSeaTiin iciv lsecaorfePfie,eStnrnacs"},{"name":"edaehreoTl lWsa"},{"name":"irmnvrgno
+      Mnipneptaas aatvitSitediinSstemeranmd dsWenR  de  uaoeatdcAe a"},{"name":"cevonlh
+      SiyroegcTse"},{"name":"dsluatcnireevEScio a"},{"name":"eearCur lbsumnsoD"},{"name":"lnsieueMlaosc"},{"name":"rtmGnnvoee"},{"name":"e
+      ntRalRsatsld naL gndaitae an eEe"},{"name":"- seraleNnosCDnbmoruu"},{"name":"amoimisCtnconu"},{"name":"htialSe
+      crvseHe"},{"name":"enniaFc"},{"name":"orc funtuadngiruracPeM"},{"name":"iunrngauaMctf"},{"name":"tonimrnfIoa"},{"name":"nCleani
+      chaSaeatl esd AacrHissot "},{"name":"saootTrrniatpn"},{"name":"tg anFHgresiorAer
+      gFulysi in nt,hunui,cdtr"},{"name":"cc smiedaSci oaoevArndtndmo Foo"},{"name":"Mnieeynr
+      rlgsEa"},{"name":"gehthcayllnoe ToH"},{"name":"tcinoostnrCu"},{"name":"trlnoicdiaunimAibPts
+      "},{"name":",eRm rnastrt,nntenairiceaodtA ne tE"},{"name":"Earr lx ,nit Oddiunrgn,o
+      tiign aQnGasa ayinMc"},{"name":"oscvmSe Cireuners"},{"name":"nInraec cunaadesn
+      iFn"},{"name":"iiiUtstle"},{"name":"ndoe tsrgnanEesiMnetCo f esmnmriaaa epp"},{"name":"o-rNne
+      nyiegaMEnrls"},{"name":"lnhTlcoen ocoeyrtcgiE"},{"name":"oTs urranehopasaanoWint
+      tdrign"},{"name":"iinvleSrcrstIsuae d"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -29,7 +37,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:48 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -37,8 +45,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=33fca11918954c8085b34f080230c460; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=a585f4e279554c33a70438824646c564; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:48 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:

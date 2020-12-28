@@ -10,25 +10,28 @@ interactions:
     url: https://sandbox.iexapis.com/stable/ref-data/market/us/exchanges
     method: GET
   response:
-    body: '[{"mic":"XRCA","name":"NrSYaA cE","longName":"A YECRASN","tapeId":"P","oatsId":"PX","refId":"EPS","type":"equities"},{"mic":"EXDG","name":"DC
-      eboGXE","longName":"EiG  ixXEqebsegot haeS DEnCUuc","tapeId":"K","oatsId":"XK","refId":"XDEG","type":"equities"},{"mic":"BSTA","name":"B
-      eoZCXb","longName":"scZ gXt eeiBhxESUboiauCne q E","tapeId":"Z","oatsId":"XZ","refId":"SABT","type":"equities"},{"mic":"TBAY","name":"CeXoB
-      bY","longName":"Usqi eXxBaShCigEeYebo u tc En","tapeId":"Y","oatsId":"YX","refId":"ATYB","type":"equities"},{"mic":"GAED","name":"eA
-      CGoDbE","longName":"EseexEU DcnGgiCuthab   EAeqSio","tapeId":"J","oatsId":"XJ","refId":"GDAE","type":"equities"},{"mic":"EGXI","name":"IXE","longName":"rhsv
-      cnsaenIoetgEx","tapeId":"V","oatsId":"VX","refId":"EGXI","type":"equities"},{"mic":"BXOS","name":"aa
-      XdXMBsq NO","longName":"OsaX BXqNMda ","tapeId":"B","oatsId":"BX","refId":"SBO","type":"equities"},{"mic":"HXLP","name":"ML
-      XaN PqHdaOXs","longName":"XOaNd PXqLsMH a","tapeId":"X","oatsId":"XX","refId":"PLHX","type":"equities"},{"mic":"XIHC","name":"S
-      hENicaYCgo","longName":"NhgESic CYao","tapeId":"M","oatsId":"XM","refId":"ICH","type":"equities"},{"mic":"SAXE","name":"
-      YAiSnEeNamrc","longName":"AaecrYN nimSE","tapeId":"A","oatsId":"AX","refId":"ASE","type":"equities"},{"mic":"CXIS","name":"otaNEYNanSl
-      i","longName":"Nli EYntaSNoa","tapeId":"C","oatsId":"CX","refId":"ISC","type":"equities"},{"mic":"XNYS","name":"EYNS","longName":"eaehYnco
-      NxcStw E rgkok","tapeId":"N","oatsId":"XN","refId":"SYN","type":"equities"},{"mic":"XNGS","name":"Nqdasa","longName":"aqdNas","tapeId":"T","oatsId":"XQ","refId":"NAS","type":"equities"},{"mic":"TCOM","name":"UTO
-      CS","longName":"erkO tsCaMT","tapeId":"0","oatsId":"0","refId":"XNIP","type":"otc"},{"mic":"TRF","name":"fng
-      cExeahOf","longName":"xfeEanhfcO g","tapeId":"0","oatsId":"0","refId":"0","type":"equities"}]'
+    body: '[{"mic":"XACR","name":"ASaN YrcE","longName":"NEYRACSA ","tapeId":"P","oatsId":"XP","refId":"EPS","type":"equities"},{"mic":"DEGX","name":"bCXe
+      EoGD","longName":" hiiocsSEeUXDbaEe uxqngeGCtE  ","tapeId":"K","oatsId":"XK","refId":"GEXD","type":"equities"},{"mic":"TSBA","name":"BeoXZ
+      Cb","longName":"ZqeXheEnb ExoUc BisaS Ctgue i","tapeId":"Z","oatsId":"ZX","refId":"SATB","type":"equities"},{"mic":"BYTA","name":"BX
+      oCYeb","longName":"i qUxhSs ngXutceeEEoBiba C eY","tapeId":"Y","oatsId":"XY","refId":"ABTY","type":"equities"},{"mic":"DEGA","name":"DCGEbeAo
+      ","longName":"uiogte xecS CiEGEDs AaUne qEhb","tapeId":"J","oatsId":"JX","refId":"EDGA","type":"equities"},{"mic":"IGEX","name":"IXE","longName":"nhxesEaIrnset
+      cgov","tapeId":"V","oatsId":"XV","refId":"XEIG","type":"equities"},{"mic":"XOSB","name":"asqdN
+      OX aXBM","longName":"aqXa  sMNdBXO","tapeId":"B","oatsId":"XB","refId":"SOB","type":"equities"},{"mic":"LXPH","name":"
+      NsdXaOP LqXMHa","longName":"NPMsLdXaO X qaH","tapeId":"X","oatsId":"XX","refId":"HPXL","type":"equities"},{"mic":"HICX","name":"ahcSEYgioC
+      N","longName":"SEhciagYC oN","tapeId":"M","oatsId":"XM","refId":"CIH","type":"equities"},{"mic":"XASE","name":"
+      YiceEnANmSar","longName":"ENiar ScnmeAY","tapeId":"A","oatsId":"XA","refId":"ESA","type":"equities"},{"mic":"ICSX","name":"aNEaYtNiSol
+      n","longName":"NYa noNESlati","tapeId":"C","oatsId":"CX","refId":"ICS","type":"equities"},{"mic":"YNSX","name":"EYSN","longName":"exa
+      cwrokgh tYoS ecknEN","tapeId":"N","oatsId":"NX","refId":"YSN","type":"equities"},{"mic":"NSXG","name":"aqNasd","longName":"aadsNq","tapeId":"Q","oatsId":"QX","refId":"NAS","type":"equities"},{"mic":"RPLE","name":"XIMA","longName":"XP
+      iEeuqilasMAIetr ","tapeId":"H","oatsId":"XH","refId":"IIMH","type":"equities"},{"mic":"XMEM","name":"XMME","longName":"
+      xebEsrMaecmghen","tapeId":"U","oatsId":"UX","refId":"MEXM","type":"equities"},{"mic":"TLSE","name":"TELS","longName":"TE
+      onhrSxmgkecL goa ncte","tapeId":"L","oatsId":"XL","refId":"ELST","type":"equities"},{"mic":"OCMT","name":"SOC
+      TU","longName":"eMatr OkCTs","tapeId":"0","oatsId":"0","refId":"XIPN","type":"otc"},{"mic":"RTF","name":"fxOEahngcf
+      e","longName":"fxEhOn cefga","tapeId":"0","oatsId":"0","refId":"0","type":"equities"}]'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -36,7 +39,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 24 Oct 2019 23:56:36 GMT
+      - Mon, 28 Dec 2020 01:46:47 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -44,8 +47,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=e73b0f6675f9483ba0eb0fea9e941131; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 11:56:36 GMT
+      - ctoken=a17d7263a89848aaa28344ed90a4a1d0; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 13:46:47 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
