@@ -10,13 +10,16 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/quote
     method: GET
   response:
-    body: '{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"SNQADA","calculationPrice":"close","open":248.29,"openTime":1650309314834,"close":250.9,"closeTime":1571963226178,"high":255.1,"low":244.544,"latestPrice":250.62,"latestSource":"Close","latestTime":"October
-      24, 2019","latestUpdate":1631692458837,"latestVolume":18283723,"iexRealtimePrice":251.49,"iexRealtimeSize":100,"iexLastUpdated":1579338895883,"delayedPrice":249.35,"delayedPriceTime":1648380238781,"extendedPrice":254.29,"extendedChange":-0.3,"extendedChangePercent":-0.00119,"extendedPriceTime":1590549041287,"previousClose":249.74,"previousVolume":20928517,"change":0.4,"changePercent":0.00166,"volume":17938560,"iexMarketPercent":0.01398205108484195,"iexVolume":251107,"avgTotalVolume":28575387,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1137103976725,"peRatio":21.4,"week52High":246.9,"week52Low":146,"ytdChange":0.545492,"lastTradeTime":1616644625596,"isUSMarketOpen":false}'
+    body: '{"symbol":"AAPL","companyName":"Apple Inc","primaryExchange":"STL/ NMAAE
+      EOGTADLSLEBR)QSCKG(A N","calculationPrice":"close","open":136.34,"openTime":1619237614176,"openSource":"iialffoc","close":132.93,"closeTime":1685855621304,"closeSource":"ffcilioa","high":133.54,"highTime":1642538851169,"highSource":"dtile5cym1
+      niurea eed p","low":137.1,"lowTime":1610219025267,"lowSource":"n1r eiaildpmecd
+      5t euey","latestPrice":132.49,"latestSource":"Close","latestTime":"December
+      24, 2020","latestUpdate":1618218895623,"latestVolume":57047860,"iexRealtimePrice":null,"iexRealtimeSize":null,"iexLastUpdated":null,"delayedPrice":138.17,"delayedPriceTime":1629598369315,"oddLotDelayedPrice":132.32,"oddLotDelayedPriceTime":1624068561006,"extendedPrice":133,"extendedChange":0.03,"extendedChangePercent":0.00023,"extendedPriceTime":1681102682263,"previousClose":132.37,"previousVolume":92344890,"change":1.03,"changePercent":0.00782,"volume":56445319,"iexMarketPercent":null,"iexVolume":null,"avgTotalVolume":111406258,"iexBidPrice":null,"iexBidSize":null,"iexAskPrice":null,"iexAskSize":null,"iexOpen":137.307,"iexOpenTime":1642509117471,"iexClose":132.523,"iexCloseTime":1646359267801,"marketCap":2293522025870,"peRatio":41.06,"week52High":138.22,"week52Low":55.92,"ytdChange":0.8521492424007371,"lastTradeTime":1616007067357,"isUSMarketOpen":false}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -24,7 +27,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 01:18:37 GMT
+      - Mon, 28 Dec 2020 06:16:49 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -32,8 +35,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=b849bec7db53419590d80e0a6bdca1d7; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 13:18:37 GMT
+      - ctoken=0e316e5a0f8a40f9a8f35d8c41d74705; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 18:16:49 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -50,13 +53,16 @@ interactions:
     url: https://sandbox.iexapis.com/stable/stock/aapl/quote?displayPercent=true
     method: GET
   response:
-    body: '{"symbol":"AAPL","companyName":"Apple, Inc.","primaryExchange":"AADQSN","calculationPrice":"close","open":248.42,"openTime":1581110295138,"close":252.16,"closeTime":1617302142209,"high":247.5,"low":252.952,"latestPrice":254.24,"latestSource":"Close","latestTime":"October
-      24, 2019","latestUpdate":1630539069812,"latestVolume":18301304,"iexRealtimePrice":247.3,"iexRealtimeSize":104,"iexLastUpdated":1580717704184,"delayedPrice":246.55,"delayedPriceTime":1644714228913,"extendedPrice":245.67,"extendedChange":-0.3,"extendedChangePercent":-0.12178088301988672,"extendedPriceTime":1592647452711,"previousClose":250.33,"previousVolume":20440899,"change":0.4,"changePercent":0.17,"volume":17502682,"iexMarketPercent":1.380926819673751,"iexVolume":241633,"avgTotalVolume":27725613,"iexBidPrice":0,"iexBidSize":0,"iexAskPrice":0,"iexAskSize":0,"marketCap":1134291767575,"peRatio":21.3,"week52High":254.69,"week52Low":147,"ytdChange":55.3664,"lastTradeTime":1591961377353,"isUSMarketOpen":false}'
+    body: '{"symbol":"AAPL","companyName":"Apple Inc","primaryExchange":"GDSS(E  AEMNLALL/KGTN
+      OSEAAC)QTRB","calculationPrice":"close","open":135.11,"openTime":1609010966828,"openSource":"ofiialcf","close":138.05,"closeTime":1633586136740,"closeSource":"ffolacii","high":133.7,"highTime":1630480152396,"highSource":"eeemiade
+      pt d ilcur15ny","low":134.9,"lowTime":1652102275159,"lowSource":"tiadci el5
+      udrpeeyn1m e","latestPrice":135.84,"latestSource":"Close","latestTime":"December
+      24, 2020","latestUpdate":1643593628374,"latestVolume":56314498,"iexRealtimePrice":null,"iexRealtimeSize":null,"iexLastUpdated":null,"delayedPrice":133.74,"delayedPriceTime":1665813145068,"oddLotDelayedPrice":137.43,"oddLotDelayedPriceTime":1667517029853,"extendedPrice":137,"extendedChange":0.03,"extendedChangePercent":0.023,"extendedPriceTime":1614210038043,"previousClose":131.77,"previousVolume":89050781,"change":1.05,"changePercent":0.796,"volume":55029210,"iexMarketPercent":0,"iexVolume":null,"avgTotalVolume":108594708,"iexBidPrice":null,"iexBidSize":null,"iexAskPrice":null,"iexAskSize":null,"iexOpen":134.956,"iexOpenTime":1686648216023,"iexClose":134.323,"iexCloseTime":1650498174522,"marketCap":2305103658607,"peRatio":40.29,"week52High":136.04,"week52Low":58.25,"ytdChange":85.28856498328486,"lastTradeTime":1677796791062,"isUSMarketOpen":false}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
       Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
+      - Origin, X-Requested-With, Content-Type, Accept, Request-Source
       Access-Control-Allow-Methods:
       - GET, OPTIONS
       Access-Control-Allow-Origin:
@@ -64,7 +70,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 25 Oct 2019 01:18:37 GMT
+      - Mon, 28 Dec 2020 06:16:49 GMT
       Iexcloud-Messages-Used:
       - "1"
       Iexcloud-Premium-Messages-Used:
@@ -72,8 +78,8 @@ interactions:
       Server:
       - nginx
       Set-Cookie:
-      - ctoken=da1d34fc7c1343ac98a5d8c1a4afbfb4; Max-Age=43200; Path=/; Expires=Fri,
-        25 Oct 2019 13:18:37 GMT
+      - ctoken=b371b783b6174401a73467a7a40f0426; Max-Age=43200; Path=/; Expires=Mon,
+        28 Dec 2020 18:16:49 GMT
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
