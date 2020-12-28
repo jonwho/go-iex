@@ -30,6 +30,7 @@ export IEX_PUBLISHABLE_TOKEN=Tpk_la091720ihakbso128uihotbfao_REAL
 * Use this [online json to struct converter](https://mholt.github.io/json-to-go/) to save time
 * Use `make test` to run test suite
 * Use `make coverage` to update `README.md` coverage badge (install coverage tool first `go get github.com/jpoles1/gopherbadger`)
+* Use int32/int64, float32/float64 for data to be consistent (see https://yourbasic.org/golang/int-vs-int64/)
 
 ## USAGE
 See [examples/](examples/)
