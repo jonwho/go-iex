@@ -1596,7 +1596,7 @@ func (etd *EarningsTodayDTO) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-// UnmarshalJSON helper
+// UnmarshalJSON builds an Earning struct
 func (e *Earning) UnmarshalJSON(b []byte) error {
 	var err error
 	type alias Earning
