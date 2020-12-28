@@ -31,6 +31,10 @@ example:
 example-rate-limit:
 	$(GORUN) examples/ratelimit/main.go -mod=vendor
 
+.PHONY: example-rsi
+example-rsi:
+	$(GORUN) examples/rsi/main.go -mod=vendor
+
 .PHONY: noutpsse
 noutpsse:
 	curl --header 'Accept: text/event-stream' https://cloud-sse.iexapis.com/stable/stocksUSNoUTP\?symbols\=spy\&token\=$(IEX_SECRET_TOKEN)
