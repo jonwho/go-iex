@@ -18,13 +18,10 @@ jobs:
 
     - name: Get dependencies
       run: |
-        go get -v -t -d ./... && go get github.com/jpoles1/gopherbadger
-
-    - name: Update coverage badge
-      run: make coverage
+        go get -v -t -d ./...
 
     - name: Run test suite
       env:
         IEX_TEST_SECRET_TOKEN: ${{ secrets.IEX_TEST_SECRET_TOKEN }}
         IEX_TEST_PUBLISHABLE_TOKEN: ${{ secrets.IEX_TEST_PUBLISHABLE_TOKEN }}
-      run: make test
+      run: go test -v -cover -count=1 -mod=vendor
